@@ -21,6 +21,9 @@
     <string name="login_failed">로그인 실패</string>
     <string name="register_success">회원가입 성공</string>
     <string name="register_failed">회원가입 실패</string>
+    <string name="continue_as_guest">게스트로 계속</string>
+    <string name="no_account_register">계정이 없으신가요? 회원가입</string>
+    <string name="have_account_login">이미 계정이 있으신가요? 로그인</string>
 
     <!-- User Tiers -->
     <string name="tier_free">무료</string>
@@ -43,6 +46,10 @@
     <string name="backend">백엔드</string>
     <string name="backend_rust">Rust (900배 빠름)</string>
     <string name="backend_ibm">IBM 양자</string>
+    <string name="configuration">구성</string>
+    <string name="quick_start_circuits">빠른 시작 회로</string>
+    <string name="simulator_tier_info">%1$s - 최대 %2$d 큐비트</string>
+    <string name="clear">지우기</string>
 
     <!-- Circuit Builder -->
     <string name="circuit_builder">회로 빌더</string>
@@ -56,6 +63,15 @@
     <string name="my_circuits">내 회로</string>
     <string name="circuit_name">회로 이름</string>
     <string name="circuit_description">설명</string>
+    <string name="text_circuit_diagram">회로 다이어그램</string>
+    <string name="text_tap_to_add_gates">+를 눌러 회로에 게이트를 추가하세요</string>
+    <string name="gate_target_qubit">대상 큐비트:</string>
+    <string name="save_circuit_prompt">\"%1$s\"을(를) 저장하시겠습니까?</string>
+    <string name="untitled_circuit">제목 없는 회로</string>
+    <string name="circuit_info_format">%1$d 큐비트, %2$d 게이트</string>
+    <string name="gates_count">게이트: %1$d</string>
+    <string name="depth_count">깊이: %1$d</string>
+    <string name="no_saved_circuits">저장된 회로 없음</string>
 
     <!-- Gates -->
     <string name="gates">양자 게이트</string>
@@ -89,6 +105,16 @@
     <string name="gate_fredkin">프레드킨 (CSWAP)</string>
     <string name="gate_ccz">CCZ 게이트</string>
 
+    <!-- Gate Categories -->
+    <string name="single_qubit">단일 큐비트</string>
+    <string name="rotation">회전</string>
+    <string name="multi_qubit">다중 큐비트</string>
+    <string name="controlled">제어</string>
+    <string name="gate_category_single_qubit_title">단일 큐비트</string>
+    <string name="gate_category_rotation_title">회전</string>
+    <string name="gate_category_controlled_title">제어</string>
+    <string name="gate_category_multi_qubit_title">다중 큐비트</string>
+
     <!-- Bloch Sphere -->
     <string name="bloch_sphere">블로흐 구</string>
     <string name="theta">세타 (θ)</string>
@@ -105,6 +131,23 @@
     <string name="queue_position">대기열 위치</string>
     <string name="estimated_time">예상 시간</string>
     <string name="hardware_access_master_only">하드웨어 접근은 마스터 등급이 필요합니다</string>
+    <string name="upgrade_for_hardware">IBM 양자 접근을 위해 마스터로 업그레이드하세요</string>
+    <string name="backends_available">%1$d개 백엔드 사용 가능</string>
+    <string name="active_jobs">활성 작업</string>
+    <string name="pending_jobs">%1$d개 대기 중인 작업</string>
+    <string name="job_id">작업 %1$s…</string>
+    <string name="status_online">온라인</string>
+    <string name="status_offline">오프라인</string>
+    <string name="status_maintenance">유지보수</string>
+    <string name="status_unknown">알 수 없음</string>
+    <string name="job_initializing">초기화 중</string>
+    <string name="job_queued">대기 중</string>
+    <string name="job_validating">검증 중</string>
+    <string name="job_running">실행 중</string>
+    <string name="job_completed">완료됨</string>
+    <string name="job_failed">실패함</string>
+    <string name="job_cancelled">취소됨</string>
+    <string name="ibm_hardware_enabled">IBM 양자 하드웨어 접근 활성화됨</string>
 
     <!-- Profile -->
     <string name="profile">프로필</string>
@@ -115,6 +158,11 @@
     <string name="simulations_run">실행한 시뮬레이션</string>
     <string name="total_qubits">총 사용 큐비트</string>
     <string name="hardware_jobs">하드웨어 작업</string>
+    <string name="current_plan">현재 플랜: %1$s</string>
+    <string name="max_qubits">최대 %1$d 큐비트</string>
+    <string name="upgrade_your_plan">플랜 업그레이드</string>
+    <string name="restore_purchases">구매 복원</string>
+    <string name="subscribe">구독</string>
 
     <!-- Results -->
     <string name="results">결과</string>
@@ -123,6 +171,12 @@
     <string name="measurement">측정</string>
     <string name="counts">횟수</string>
     <string name="export_results">결과 내보내기</string>
+
+    <!-- Measurement Results -->
+    <string name="text_measurement_results">측정 결과</string>
+    <string name="header_state">상태</string>
+    <string name="header_probability">확률</string>
+    <string name="header_count">횟수</string>
 
     <!-- Errors -->
     <string name="error_network">네트워크 오류. 연결을 확인해주세요.</string>
@@ -135,6 +189,16 @@
     <string name="error_invalid_email">올바른 이메일을 입력해주세요</string>
     <string name="error_password_mismatch">비밀번호가 일치하지 않습니다</string>
     <string name="error_password_too_short">비밀번호는 최소 8자 이상이어야 합니다</string>
+    <string name="error_simulation_failed">시뮬레이션 실패: %1$s</string>
+    <string name="error_circuit_save_failed">회로 저장 실패: %1$s</string>
+    <string name="error_circuit_load_failed">회로 불러오기 실패: %1$s</string>
+    <string name="error_benchmark_failed">벤치마크 실패: %1$s</string>
+    <string name="error_connection_failed">연결 실패: %1$s</string>
+    <string name="error_qasm_import_failed">QASM 가져오기 실패: %1$s</string>
+    <string name="error_qasm_export_failed">QASM 내보내기 실패: %1$s</string>
+    <string name="error_purchase_failed">구매 실패: %1$s</string>
+    <string name="error_restore_failed">복원 실패: %1$s</string>
+    <string name="error_unknown">알 수 없는 오류가 발생했습니다</string>
 
     <!-- Common -->
     <string name="ok">확인</string>
@@ -150,32 +214,6 @@
     <string name="version">버전</string>
     <string name="privacy_policy">개인정보 처리방침</string>
     <string name="terms_of_service">서비스 이용약관</string>
-
-    <!-- Cloud Hybrid Engine -->
-    <string name="cloud_engine">클라우드 엔진</string>
-    <string name="local_engine">로컬 엔진</string>
-    <string name="python_engine">Python 엔진</string>
-    <string name="rust_engine">Rust 엔진</string>
-    <string name="cpp_hpc_engine">C++ HPC 엔진</string>
-    <string name="speedup_900x">900배 속도 향상</string>
-    <string name="speedup_1200x">1200배 속도 향상</string>
-
-    <!-- QASM -->
-    <string name="qasm_import">QASM 가져오기</string>
-    <string name="qasm_export">QASM 내보내기</string>
-    <string name="qasm_editor">QASM 편집기</string>
-    <string name="qasm_template">QASM 템플릿</string>
-
-    <!-- Benchmark -->
-    <string name="benchmark">벤치마크</string>
-    <string name="run_benchmark">벤치마크 실행</string>
-    <string name="benchmark_results">벤치마크 결과</string>
-
-    <!-- Engine Settings -->
-    <string name="optimization_level">최적화 수준</string>
-    <string name="cache_enabled">캐시 활성화</string>
-
-    <!-- Additional Common Actions -->
     <string name="close">닫기</string>
     <string name="confirm">확인</string>
     <string name="back">뒤로</string>
@@ -191,6 +229,82 @@
     <string name="continue_action">계속</string>
     <string name="dismiss">닫기</string>
     <string name="view_result">결과 보기</string>
+    <string name="connect">연결</string>
+    <string name="disconnect">연결 해제</string>
+    <string name="execute">실행</string>
+    <string name="benchmark_all">전체 벤치마크</string>
+
+    <!-- Cloud Hybrid Engine -->
+    <string name="cloud_engine">클라우드 엔진</string>
+    <string name="local_engine">로컬 엔진</string>
+    <string name="python_engine">Python 엔진</string>
+    <string name="rust_engine">Rust 엔진</string>
+    <string name="cpp_hpc_engine">C++ HPC 엔진</string>
+    <string name="speedup_900x">900배 속도 향상</string>
+    <string name="speedup_1200x">1200배 속도 향상</string>
+
+    <!-- QASM -->
+    <string name="qasm_import">QASM 가져오기</string>
+    <string name="qasm_export">QASM 내보내기</string>
+    <string name="qasm_editor">QASM 편집기</string>
+    <string name="qasm_editor_subtitle">OpenQASM 가져오기 &amp; 내보내기</string>
+    <string name="qasm_template">QASM 템플릿</string>
+    <string name="circuit_imported_success">회로를 성공적으로 가져왔습니다</string>
+    <string name="circuit_exported_success">회로를 QASM으로 내보냈습니다</string>
+    <string name="qasm_valid">QASM 코드가 유효합니다</string>
+    <string name="qasm_has_errors">QASM 코드에 오류가 있습니다</string>
+    <string name="code_copied">코드가 클립보드에 복사되었습니다</string>
+    <string name="valid_qasm">유효한 QASM</string>
+    <string name="invalid_qasm">무효: %1$s</string>
+    <string name="export_options">내보내기 옵션</string>
+    <string name="circuit_imported">회로 가져옴</string>
+    <string name="qasm_code_placeholder">// 여기에 QASM 코드를 입력하세요…\nOPENQASM 2.0;\ninclude \"qelib1.inc\";\n\nqreg q[2];\ncreg c[2];\n\nh q[0];\ncx q[0], q[1];\n\nmeasure q -> c;</string>
+    <string name="difficulty_beginner">초급</string>
+    <string name="difficulty_intermediate">중급</string>
+    <string name="difficulty_advanced">고급</string>
+    <string name="num_qubits_format">%1$d 큐비트</string>
+    <string name="editor">편집기</string>
+    <string name="templates">템플릿</string>
+    <string name="qasm_version">QASM 버전</string>
+    <string name="include_comments">주석 포함</string>
+    <string name="pretty_print">정렬 출력</string>
+    <string name="include_measurements">측정 포함</string>
+    <string name="validate">검증</string>
+    <string name="import_qasm">가져오기</string>
+    <string name="export_qasm">내보내기</string>
+    <string name="all">전체</string>
+
+    <!-- Benchmark -->
+    <string name="benchmark">벤치마크</string>
+    <string name="benchmark_subtitle">엔진 성능 비교</string>
+    <string name="run_benchmark">벤치마크 실행</string>
+    <string name="benchmark_results">벤치마크 결과</string>
+    <string name="text_benchmark_title">벤치마크</string>
+    <string name="text_compare_engine_performance">엔진 성능 비교</string>
+    <string name="text_engine_status">엔진 상태</string>
+    <string name="text_execution_settings">실행 설정</string>
+    <string name="text_benchmark_results">벤치마크 결과</string>
+    <string name="text_execution_complete">실행 완료</string>
+    <string name="test_circuit">테스트 회로</string>
+    <string name="execution_complete">실행 완료</string>
+    <string name="execution_complete_time">%1$s에 실행 완료</string>
+    <string name="benchmark_complete">벤치마크 완료! 가장 빠름: %1$s</string>
+    <string name="upgrade_subscription_feature">이 기능에 접근하려면 구독을 업그레이드하세요</string>
+    <string name="upgrade_pro_benchmark">전체 벤치마크를 실행하려면 프로로 업그레이드하세요</string>
+    <string name="load_percentage">부하: %1$d%%</string>
+    <string name="speedup_format">%1$d배 빠름</string>
+    <string name="fastest_engine">가장 빠름: %1$s</string>
+    <string name="cache_hit_result">캐시 히트 - 캐시에서 결과를 가져옴</string>
+    <string name="text_configuration">구성</string>
+
+    <!-- Engine Settings -->
+    <string name="optimization_level">최적화 수준</string>
+    <string name="cache_enabled">캐시 활성화</string>
+    <string name="label_engine">엔진</string>
+    <string name="label_optimization">최적화</string>
+    <string name="label_qasm_version">QASM 버전</string>
+    <string name="engine">엔진</string>
+    <string name="optimization">최적화</string>
 
     <!-- Auth Extended -->
     <string name="sign_in">로그인</string>
@@ -217,33 +331,6 @@
     <string name="minutes_ago">%1$d분 전</string>
     <string name="hours_ago">%1$d시간 전</string>
 
-    <!-- QASM Screen -->
-    <string name="editor">편집기</string>
-    <string name="templates">템플릿</string>
-    <string name="qasm_version">QASM 버전</string>
-    <string name="include_comments">주석 포함</string>
-    <string name="pretty_print">정렬 출력</string>
-    <string name="include_measurements">측정 포함</string>
-    <string name="validate">검증</string>
-    <string name="import_qasm">가져오기</string>
-    <string name="export_qasm">내보내기</string>
-    <string name="all">전체</string>
-    <string name="no_saved_circuits">저장된 회로 없음</string>
-
-    <!-- Hardware Screen -->
-    <string name="connect">연결</string>
-    <string name="disconnect">연결 해제</string>
-
-    <!-- Benchmark Screen -->
-    <string name="execute">실행</string>
-    <string name="benchmark_all">전체 벤치마크</string>
-    <string name="engine">엔진</string>
-    <string name="optimization">최적화</string>
-
-    <!-- Profile Screen -->
-    <string name="restore_purchases">구매 복원</string>
-    <string name="subscribe">구독</string>
-
     <!-- Drawer/Navigation -->
     <string name="features">기능</string>
     <string name="swiftquantum_ecosystem">SwiftQuantum 생태계</string>
@@ -251,12 +338,9 @@
     <string name="quantum_gates">양자 게이트</string>
     <string name="simulations">시뮬레이션</string>
     <string name="tutorials">튜토리얼</string>
-
-    <!-- Gate Categories -->
-    <string name="single_qubit">단일 큐비트</string>
-    <string name="rotation">회전</string>
-    <string name="multi_qubit">다중 큐비트</string>
-    <string name="controlled">제어</string>
+    <string name="drawer_section_features">기능</string>
+    <string name="drawer_section_ecosystem">SwiftQuantum 생태계</string>
+    <string name="current">현재</string>
 
     <!-- Stats Labels -->
     <string name="gates_label">게이트</string>
@@ -330,4 +414,7 @@
 
     <!-- Splash Screen -->
     <string name="splash_loading">로딩 중…</string>
+
+    <!-- User Label -->
+    <string name="user">사용자</string>
 </resources>

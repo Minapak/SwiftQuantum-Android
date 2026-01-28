@@ -21,6 +21,9 @@
     <string name="login_failed">Anmeldung fehlgeschlagen</string>
     <string name="register_success">Registrierung erfolgreich</string>
     <string name="register_failed">Registrierung fehlgeschlagen</string>
+    <string name="continue_as_guest">Als Gast fortfahren</string>
+    <string name="no_account_register">Kein Konto? Registrieren</string>
+    <string name="have_account_login">Bereits ein Konto? Anmelden</string>
 
     <!-- User Tiers -->
     <string name="tier_free">KOSTENLOS</string>
@@ -43,6 +46,10 @@
     <string name="backend">Backend</string>
     <string name="backend_rust">Rust (900x schneller)</string>
     <string name="backend_ibm">IBM Quantum</string>
+    <string name="configuration">Konfiguration</string>
+    <string name="quick_start_circuits">Schnellstart-Schaltkreise</string>
+    <string name="simulator_tier_info">%1$s - Max %2$d Qubits</string>
+    <string name="clear">Löschen</string>
 
     <!-- Circuit Builder -->
     <string name="circuit_builder">Schaltkreis-Builder</string>
@@ -56,6 +63,15 @@
     <string name="my_circuits">Meine Schaltkreise</string>
     <string name="circuit_name">Schaltkreisname</string>
     <string name="circuit_description">Beschreibung</string>
+    <string name="text_circuit_diagram">Schaltkreisdiagramm</string>
+    <string name="text_tap_to_add_gates">Tippen Sie auf +, um Gates hinzuzufügen</string>
+    <string name="gate_target_qubit">Ziel-Qubit:</string>
+    <string name="save_circuit_prompt">\"%1$s\" speichern?</string>
+    <string name="untitled_circuit">Unbenannter Schaltkreis</string>
+    <string name="circuit_info_format">%1$d Qubits, %2$d Gates</string>
+    <string name="gates_count">Gates: %1$d</string>
+    <string name="depth_count">Tiefe: %1$d</string>
+    <string name="no_saved_circuits">Keine gespeicherten Schaltkreise</string>
 
     <!-- Gates -->
     <string name="gates">Quantengatter</string>
@@ -89,6 +105,16 @@
     <string name="gate_fredkin">Fredkin (CSWAP)</string>
     <string name="gate_ccz">CCZ-Gatter</string>
 
+    <!-- Gate Categories -->
+    <string name="single_qubit">Ein-Qubit</string>
+    <string name="rotation">Rotation</string>
+    <string name="multi_qubit">Multi-Qubit</string>
+    <string name="controlled">Kontrolliert</string>
+    <string name="gate_category_single_qubit_title">Ein-Qubit</string>
+    <string name="gate_category_rotation_title">Rotation</string>
+    <string name="gate_category_controlled_title">Kontrolliert</string>
+    <string name="gate_category_multi_qubit_title">Multi-Qubit</string>
+
     <!-- Bloch Sphere -->
     <string name="bloch_sphere">Bloch-Kugel</string>
     <string name="theta">Theta (θ)</string>
@@ -105,6 +131,23 @@
     <string name="queue_position">Warteschlangenposition</string>
     <string name="estimated_time">Geschätzte Zeit</string>
     <string name="hardware_access_master_only">Hardware-Zugriff erfordert MASTER-Stufe</string>
+    <string name="upgrade_for_hardware">Upgrade auf MASTER für IBM Quantum-Zugriff</string>
+    <string name="backends_available">%1$d Backends verfügbar</string>
+    <string name="active_jobs">Aktive Jobs</string>
+    <string name="pending_jobs">%1$d ausstehende Jobs</string>
+    <string name="job_id">Job %1$s…</string>
+    <string name="status_online">Online</string>
+    <string name="status_offline">Offline</string>
+    <string name="status_maintenance">Wartung</string>
+    <string name="status_unknown">Unbekannt</string>
+    <string name="job_initializing">Initialisierung</string>
+    <string name="job_queued">In Warteschlange</string>
+    <string name="job_validating">Validierung</string>
+    <string name="job_running">Läuft</string>
+    <string name="job_completed">Abgeschlossen</string>
+    <string name="job_failed">Fehlgeschlagen</string>
+    <string name="job_cancelled">Abgebrochen</string>
+    <string name="ibm_hardware_enabled">IBM Quantum Hardware-Zugriff aktiviert</string>
 
     <!-- Profile -->
     <string name="profile">Profil</string>
@@ -115,6 +158,11 @@
     <string name="simulations_run">Durchgeführte Simulationen</string>
     <string name="total_qubits">Verwendete Qubits gesamt</string>
     <string name="hardware_jobs">Hardware-Jobs</string>
+    <string name="current_plan">Aktueller Plan: %1$s</string>
+    <string name="max_qubits">Max %1$d Qubits</string>
+    <string name="upgrade_your_plan">Plan upgraden</string>
+    <string name="restore_purchases">Käufe wiederherstellen</string>
+    <string name="subscribe">Abonnieren</string>
 
     <!-- Results -->
     <string name="results">Ergebnisse</string>
@@ -123,6 +171,12 @@
     <string name="measurement">Messung</string>
     <string name="counts">Zählungen</string>
     <string name="export_results">Ergebnisse exportieren</string>
+
+    <!-- Measurement Results -->
+    <string name="text_measurement_results">Messergebnisse</string>
+    <string name="header_state">Zustand</string>
+    <string name="header_probability">Wahrsch.</string>
+    <string name="header_count">Anzahl</string>
 
     <!-- Errors -->
     <string name="error_network">Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.</string>
@@ -135,6 +189,16 @@
     <string name="error_invalid_email">Bitte gültige E-Mail eingeben</string>
     <string name="error_password_mismatch">Passwörter stimmen nicht überein</string>
     <string name="error_password_too_short">Passwort muss mindestens 8 Zeichen haben</string>
+    <string name="error_simulation_failed">Simulation fehlgeschlagen: %1$s</string>
+    <string name="error_circuit_save_failed">Schaltkreis speichern fehlgeschlagen: %1$s</string>
+    <string name="error_circuit_load_failed">Schaltkreis laden fehlgeschlagen: %1$s</string>
+    <string name="error_benchmark_failed">Benchmark fehlgeschlagen: %1$s</string>
+    <string name="error_connection_failed">Verbindung fehlgeschlagen: %1$s</string>
+    <string name="error_qasm_import_failed">QASM-Import fehlgeschlagen: %1$s</string>
+    <string name="error_qasm_export_failed">QASM-Export fehlgeschlagen: %1$s</string>
+    <string name="error_purchase_failed">Kauf fehlgeschlagen: %1$s</string>
+    <string name="error_restore_failed">Wiederherstellung fehlgeschlagen: %1$s</string>
+    <string name="error_unknown">Unbekannter Fehler aufgetreten</string>
 
     <!-- Common -->
     <string name="ok">OK</string>
@@ -150,32 +214,6 @@
     <string name="version">Version</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
     <string name="terms_of_service">Nutzungsbedingungen</string>
-
-    <!-- Cloud Hybrid Engine -->
-    <string name="cloud_engine">Cloud-Engine</string>
-    <string name="local_engine">Lokale Engine</string>
-    <string name="python_engine">Python-Engine</string>
-    <string name="rust_engine">Rust-Engine</string>
-    <string name="cpp_hpc_engine">C++ HPC-Engine</string>
-    <string name="speedup_900x">900x Beschleunigung</string>
-    <string name="speedup_1200x">1200x Beschleunigung</string>
-
-    <!-- QASM -->
-    <string name="qasm_import">QASM importieren</string>
-    <string name="qasm_export">QASM exportieren</string>
-    <string name="qasm_editor">QASM-Editor</string>
-    <string name="qasm_template">QASM-Vorlage</string>
-
-    <!-- Benchmark -->
-    <string name="benchmark">Benchmark</string>
-    <string name="run_benchmark">Benchmark ausführen</string>
-    <string name="benchmark_results">Benchmark-Ergebnisse</string>
-
-    <!-- Engine Settings -->
-    <string name="optimization_level">Optimierungsstufe</string>
-    <string name="cache_enabled">Cache aktiviert</string>
-
-    <!-- Additional Common Actions -->
     <string name="close">Schließen</string>
     <string name="confirm">Bestätigen</string>
     <string name="back">Zurück</string>
@@ -191,6 +229,82 @@
     <string name="continue_action">Fortfahren</string>
     <string name="dismiss">Schließen</string>
     <string name="view_result">Ergebnis anzeigen</string>
+    <string name="connect">Verbinden</string>
+    <string name="disconnect">Trennen</string>
+    <string name="execute">Ausführen</string>
+    <string name="benchmark_all">Alle benchmarken</string>
+
+    <!-- Cloud Hybrid Engine -->
+    <string name="cloud_engine">Cloud-Engine</string>
+    <string name="local_engine">Lokale Engine</string>
+    <string name="python_engine">Python-Engine</string>
+    <string name="rust_engine">Rust-Engine</string>
+    <string name="cpp_hpc_engine">C++ HPC-Engine</string>
+    <string name="speedup_900x">900x Beschleunigung</string>
+    <string name="speedup_1200x">1200x Beschleunigung</string>
+
+    <!-- QASM -->
+    <string name="qasm_import">QASM importieren</string>
+    <string name="qasm_export">QASM exportieren</string>
+    <string name="qasm_editor">QASM-Editor</string>
+    <string name="qasm_editor_subtitle">OpenQASM Import &amp; Export</string>
+    <string name="qasm_template">QASM-Vorlage</string>
+    <string name="circuit_imported_success">Schaltkreis erfolgreich importiert</string>
+    <string name="circuit_exported_success">Schaltkreis nach QASM exportiert</string>
+    <string name="qasm_valid">QASM-Code ist gültig</string>
+    <string name="qasm_has_errors">QASM-Code hat Fehler</string>
+    <string name="code_copied">Code in Zwischenablage kopiert</string>
+    <string name="valid_qasm">Gültiges QASM</string>
+    <string name="invalid_qasm">Ungültig: %1$s</string>
+    <string name="export_options">Exportoptionen</string>
+    <string name="circuit_imported">Schaltkreis importiert</string>
+    <string name="qasm_code_placeholder">// Geben Sie hier QASM-Code ein…\nOPENQASM 2.0;\ninclude \"qelib1.inc\";\n\nqreg q[2];\ncreg c[2];\n\nh q[0];\ncx q[0], q[1];\n\nmeasure q -> c;</string>
+    <string name="difficulty_beginner">Anfänger</string>
+    <string name="difficulty_intermediate">Fortgeschritten</string>
+    <string name="difficulty_advanced">Experte</string>
+    <string name="num_qubits_format">%1$d Qubits</string>
+    <string name="editor">Editor</string>
+    <string name="templates">Vorlagen</string>
+    <string name="qasm_version">QASM-Version</string>
+    <string name="include_comments">Kommentare einschließen</string>
+    <string name="pretty_print">Formatierte Ausgabe</string>
+    <string name="include_measurements">Messungen einschließen</string>
+    <string name="validate">Validieren</string>
+    <string name="import_qasm">Importieren</string>
+    <string name="export_qasm">Exportieren</string>
+    <string name="all">Alle</string>
+
+    <!-- Benchmark -->
+    <string name="benchmark">Benchmark</string>
+    <string name="benchmark_subtitle">Engine-Leistung vergleichen</string>
+    <string name="run_benchmark">Benchmark ausführen</string>
+    <string name="benchmark_results">Benchmark-Ergebnisse</string>
+    <string name="text_benchmark_title">Benchmark</string>
+    <string name="text_compare_engine_performance">Engine-Leistung vergleichen</string>
+    <string name="text_engine_status">Engine-Status</string>
+    <string name="text_execution_settings">Ausführungseinstellungen</string>
+    <string name="text_benchmark_results">Benchmark-Ergebnisse</string>
+    <string name="text_execution_complete">Ausführung abgeschlossen</string>
+    <string name="test_circuit">Test-Schaltkreis</string>
+    <string name="execution_complete">Ausführung abgeschlossen</string>
+    <string name="execution_complete_time">Ausführung in %1$s abgeschlossen</string>
+    <string name="benchmark_complete">Benchmark abgeschlossen! Schnellste: %1$s</string>
+    <string name="upgrade_subscription_feature">Upgrade Ihres Abonnements für diese Funktion</string>
+    <string name="upgrade_pro_benchmark">Upgrade auf PRO für vollständige Benchmarks</string>
+    <string name="load_percentage">Last: %1$d%%</string>
+    <string name="speedup_format">%1$dx schneller</string>
+    <string name="fastest_engine">Schnellste: %1$s</string>
+    <string name="cache_hit_result">Cache-Treffer - Ergebnis aus Cache abgerufen</string>
+    <string name="text_configuration">Konfiguration</string>
+
+    <!-- Engine Settings -->
+    <string name="optimization_level">Optimierungsstufe</string>
+    <string name="cache_enabled">Cache aktiviert</string>
+    <string name="label_engine">Engine</string>
+    <string name="label_optimization">Optimierung</string>
+    <string name="label_qasm_version">QASM-Version</string>
+    <string name="engine">Engine</string>
+    <string name="optimization">Optimierung</string>
 
     <!-- Auth Extended -->
     <string name="sign_in">Anmelden</string>
@@ -217,33 +331,6 @@
     <string name="minutes_ago">vor %1$d Minuten</string>
     <string name="hours_ago">vor %1$d Stunden</string>
 
-    <!-- QASM Screen -->
-    <string name="editor">Editor</string>
-    <string name="templates">Vorlagen</string>
-    <string name="qasm_version">QASM-Version</string>
-    <string name="include_comments">Kommentare einschließen</string>
-    <string name="pretty_print">Formatierte Ausgabe</string>
-    <string name="include_measurements">Messungen einschließen</string>
-    <string name="validate">Validieren</string>
-    <string name="import_qasm">Importieren</string>
-    <string name="export_qasm">Exportieren</string>
-    <string name="all">Alle</string>
-    <string name="no_saved_circuits">Keine gespeicherten Schaltkreise</string>
-
-    <!-- Hardware Screen -->
-    <string name="connect">Verbinden</string>
-    <string name="disconnect">Trennen</string>
-
-    <!-- Benchmark Screen -->
-    <string name="execute">Ausführen</string>
-    <string name="benchmark_all">Alle benchmarken</string>
-    <string name="engine">Engine</string>
-    <string name="optimization">Optimierung</string>
-
-    <!-- Profile Screen -->
-    <string name="restore_purchases">Käufe wiederherstellen</string>
-    <string name="subscribe">Abonnieren</string>
-
     <!-- Drawer/Navigation -->
     <string name="features">Funktionen</string>
     <string name="swiftquantum_ecosystem">SwiftQuantum-Ökosystem</string>
@@ -251,12 +338,9 @@
     <string name="quantum_gates">Quantengatter</string>
     <string name="simulations">Simulationen</string>
     <string name="tutorials">Tutorials</string>
-
-    <!-- Gate Categories -->
-    <string name="single_qubit">Ein-Qubit</string>
-    <string name="rotation">Rotation</string>
-    <string name="multi_qubit">Multi-Qubit</string>
-    <string name="controlled">Kontrolliert</string>
+    <string name="drawer_section_features">Funktionen</string>
+    <string name="drawer_section_ecosystem">SwiftQuantum-Ökosystem</string>
+    <string name="current">Aktuell</string>
 
     <!-- Stats Labels -->
     <string name="gates_label">Gatter</string>
@@ -330,4 +414,7 @@
 
     <!-- Splash Screen -->
     <string name="splash_loading">Wird geladen…</string>
+
+    <!-- User Label -->
+    <string name="user">Benutzer</string>
 </resources>

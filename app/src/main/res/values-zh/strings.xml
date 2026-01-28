@@ -21,6 +21,9 @@
     <string name="login_failed">登录失败</string>
     <string name="register_success">注册成功</string>
     <string name="register_failed">注册失败</string>
+    <string name="continue_as_guest">以访客身份继续</string>
+    <string name="no_account_register">没有账户？注册</string>
+    <string name="have_account_login">已有账户？登录</string>
 
     <!-- User Tiers -->
     <string name="tier_free">免费版</string>
@@ -43,6 +46,10 @@
     <string name="backend">后端</string>
     <string name="backend_rust">Rust（快900倍）</string>
     <string name="backend_ibm">IBM Quantum</string>
+    <string name="configuration">配置</string>
+    <string name="quick_start_circuits">快速启动电路</string>
+    <string name="simulator_tier_info">%1$s - 最多 %2$d 量子比特</string>
+    <string name="clear">清除</string>
 
     <!-- Circuit Builder -->
     <string name="circuit_builder">电路构建器</string>
@@ -56,6 +63,15 @@
     <string name="my_circuits">我的电路</string>
     <string name="circuit_name">电路名称</string>
     <string name="circuit_description">描述</string>
+    <string name="text_circuit_diagram">电路图</string>
+    <string name="text_tap_to_add_gates">点击+添加门到电路</string>
+    <string name="gate_target_qubit">目标量子比特:</string>
+    <string name="save_circuit_prompt">保存\"%1$s\"？</string>
+    <string name="untitled_circuit">未命名电路</string>
+    <string name="circuit_info_format">%1$d 量子比特, %2$d 门</string>
+    <string name="gates_count">门: %1$d</string>
+    <string name="depth_count">深度: %1$d</string>
+    <string name="no_saved_circuits">没有保存的电路</string>
 
     <!-- Gates -->
     <string name="gates">量子门</string>
@@ -89,6 +105,16 @@
     <string name="gate_fredkin">Fredkin（CSWAP）</string>
     <string name="gate_ccz">CCZ门</string>
 
+    <!-- Gate Categories -->
+    <string name="single_qubit">单量子比特</string>
+    <string name="rotation">旋转</string>
+    <string name="multi_qubit">多量子比特</string>
+    <string name="controlled">受控</string>
+    <string name="gate_category_single_qubit_title">单量子比特</string>
+    <string name="gate_category_rotation_title">旋转</string>
+    <string name="gate_category_controlled_title">受控</string>
+    <string name="gate_category_multi_qubit_title">多量子比特</string>
+
     <!-- Bloch Sphere -->
     <string name="bloch_sphere">布洛赫球</string>
     <string name="theta">Theta（θ）</string>
@@ -105,6 +131,23 @@
     <string name="queue_position">队列位置</string>
     <string name="estimated_time">预计时间</string>
     <string name="hardware_access_master_only">硬件访问需要大师版订阅</string>
+    <string name="upgrade_for_hardware">升级到大师版以获取IBM Quantum访问</string>
+    <string name="backends_available">%1$d 个后端可用</string>
+    <string name="active_jobs">活动任务</string>
+    <string name="pending_jobs">%1$d 个待处理任务</string>
+    <string name="job_id">任务 %1$s…</string>
+    <string name="status_online">在线</string>
+    <string name="status_offline">离线</string>
+    <string name="status_maintenance">维护中</string>
+    <string name="status_unknown">未知</string>
+    <string name="job_initializing">初始化中</string>
+    <string name="job_queued">排队中</string>
+    <string name="job_validating">验证中</string>
+    <string name="job_running">运行中</string>
+    <string name="job_completed">已完成</string>
+    <string name="job_failed">失败</string>
+    <string name="job_cancelled">已取消</string>
+    <string name="ibm_hardware_enabled">IBM Quantum硬件访问已启用</string>
 
     <!-- Profile -->
     <string name="profile">个人资料</string>
@@ -115,6 +158,11 @@
     <string name="simulations_run">已运行模拟</string>
     <string name="total_qubits">使用量子比特总数</string>
     <string name="hardware_jobs">硬件任务</string>
+    <string name="current_plan">当前方案: %1$s</string>
+    <string name="max_qubits">最多 %1$d 量子比特</string>
+    <string name="upgrade_your_plan">升级您的方案</string>
+    <string name="restore_purchases">恢复购买</string>
+    <string name="subscribe">订阅</string>
 
     <!-- Results -->
     <string name="results">结果</string>
@@ -123,6 +171,12 @@
     <string name="measurement">测量</string>
     <string name="counts">计数</string>
     <string name="export_results">导出结果</string>
+
+    <!-- Measurement Results -->
+    <string name="text_measurement_results">测量结果</string>
+    <string name="header_state">状态</string>
+    <string name="header_probability">概率</string>
+    <string name="header_count">计数</string>
 
     <!-- Errors -->
     <string name="error_network">网络错误。请检查您的连接。</string>
@@ -135,6 +189,16 @@
     <string name="error_invalid_email">请输入有效的邮箱</string>
     <string name="error_password_mismatch">密码不匹配</string>
     <string name="error_password_too_short">密码必须至少8个字符</string>
+    <string name="error_simulation_failed">模拟失败: %1$s</string>
+    <string name="error_circuit_save_failed">电路保存失败: %1$s</string>
+    <string name="error_circuit_load_failed">电路加载失败: %1$s</string>
+    <string name="error_benchmark_failed">基准测试失败: %1$s</string>
+    <string name="error_connection_failed">连接失败: %1$s</string>
+    <string name="error_qasm_import_failed">QASM导入失败: %1$s</string>
+    <string name="error_qasm_export_failed">QASM导出失败: %1$s</string>
+    <string name="error_purchase_failed">购买失败: %1$s</string>
+    <string name="error_restore_failed">恢复失败: %1$s</string>
+    <string name="error_unknown">发生未知错误</string>
 
     <!-- Common -->
     <string name="ok">确定</string>
@@ -150,32 +214,6 @@
     <string name="version">版本</string>
     <string name="privacy_policy">隐私政策</string>
     <string name="terms_of_service">服务条款</string>
-
-    <!-- Cloud Hybrid Engine -->
-    <string name="cloud_engine">云引擎</string>
-    <string name="local_engine">本地引擎</string>
-    <string name="python_engine">Python引擎</string>
-    <string name="rust_engine">Rust引擎</string>
-    <string name="cpp_hpc_engine">C++ HPC引擎</string>
-    <string name="speedup_900x">900倍加速</string>
-    <string name="speedup_1200x">1200倍加速</string>
-
-    <!-- QASM -->
-    <string name="qasm_import">导入QASM</string>
-    <string name="qasm_export">导出QASM</string>
-    <string name="qasm_editor">QASM编辑器</string>
-    <string name="qasm_template">QASM模板</string>
-
-    <!-- Benchmark -->
-    <string name="benchmark">基准测试</string>
-    <string name="run_benchmark">运行基准测试</string>
-    <string name="benchmark_results">基准测试结果</string>
-
-    <!-- Engine Settings -->
-    <string name="optimization_level">优化级别</string>
-    <string name="cache_enabled">启用缓存</string>
-
-    <!-- Additional Common Actions -->
     <string name="close">关闭</string>
     <string name="confirm">确认</string>
     <string name="back">返回</string>
@@ -191,6 +229,82 @@
     <string name="continue_action">继续</string>
     <string name="dismiss">关闭</string>
     <string name="view_result">查看结果</string>
+    <string name="connect">连接</string>
+    <string name="disconnect">断开连接</string>
+    <string name="execute">执行</string>
+    <string name="benchmark_all">全部基准测试</string>
+
+    <!-- Cloud Hybrid Engine -->
+    <string name="cloud_engine">云引擎</string>
+    <string name="local_engine">本地引擎</string>
+    <string name="python_engine">Python引擎</string>
+    <string name="rust_engine">Rust引擎</string>
+    <string name="cpp_hpc_engine">C++ HPC引擎</string>
+    <string name="speedup_900x">900倍加速</string>
+    <string name="speedup_1200x">1200倍加速</string>
+
+    <!-- QASM -->
+    <string name="qasm_import">导入QASM</string>
+    <string name="qasm_export">导出QASM</string>
+    <string name="qasm_editor">QASM编辑器</string>
+    <string name="qasm_editor_subtitle">导入和导出OpenQASM</string>
+    <string name="qasm_template">QASM模板</string>
+    <string name="circuit_imported_success">电路导入成功</string>
+    <string name="circuit_exported_success">电路已导出为QASM</string>
+    <string name="qasm_valid">QASM代码有效</string>
+    <string name="qasm_has_errors">QASM代码有错误</string>
+    <string name="code_copied">代码已复制到剪贴板</string>
+    <string name="valid_qasm">有效的QASM</string>
+    <string name="invalid_qasm">无效: %1$s</string>
+    <string name="export_options">导出选项</string>
+    <string name="circuit_imported">电路已导入</string>
+    <string name="qasm_code_placeholder">// 在此输入QASM代码…\nOPENQASM 2.0;\ninclude \"qelib1.inc\";\n\nqreg q[2];\ncreg c[2];\n\nh q[0];\ncx q[0], q[1];\n\nmeasure q -> c;</string>
+    <string name="difficulty_beginner">初级</string>
+    <string name="difficulty_intermediate">中级</string>
+    <string name="difficulty_advanced">高级</string>
+    <string name="num_qubits_format">%1$d 量子比特</string>
+    <string name="editor">编辑器</string>
+    <string name="templates">模板</string>
+    <string name="qasm_version">QASM版本</string>
+    <string name="include_comments">包含注释</string>
+    <string name="pretty_print">格式化输出</string>
+    <string name="include_measurements">包含测量</string>
+    <string name="validate">验证</string>
+    <string name="import_qasm">导入</string>
+    <string name="export_qasm">导出</string>
+    <string name="all">全部</string>
+
+    <!-- Benchmark -->
+    <string name="benchmark">基准测试</string>
+    <string name="benchmark_subtitle">比较引擎性能</string>
+    <string name="run_benchmark">运行基准测试</string>
+    <string name="benchmark_results">基准测试结果</string>
+    <string name="text_benchmark_title">基准测试</string>
+    <string name="text_compare_engine_performance">比较引擎性能</string>
+    <string name="text_engine_status">引擎状态</string>
+    <string name="text_execution_settings">执行设置</string>
+    <string name="text_benchmark_results">基准测试结果</string>
+    <string name="text_execution_complete">执行完成</string>
+    <string name="test_circuit">测试电路</string>
+    <string name="execution_complete">执行完成</string>
+    <string name="execution_complete_time">在 %1$s 完成执行</string>
+    <string name="benchmark_complete">基准测试完成！最快: %1$s</string>
+    <string name="upgrade_subscription_feature">升级订阅以访问此功能</string>
+    <string name="upgrade_pro_benchmark">升级到专业版以运行完整基准测试</string>
+    <string name="load_percentage">负载: %1$d%%</string>
+    <string name="speedup_format">%1$d倍加速</string>
+    <string name="fastest_engine">最快: %1$s</string>
+    <string name="cache_hit_result">缓存命中 - 从缓存获取结果</string>
+    <string name="text_configuration">配置</string>
+
+    <!-- Engine Settings -->
+    <string name="optimization_level">优化级别</string>
+    <string name="cache_enabled">启用缓存</string>
+    <string name="label_engine">引擎</string>
+    <string name="label_optimization">优化</string>
+    <string name="label_qasm_version">QASM版本</string>
+    <string name="engine">引擎</string>
+    <string name="optimization">优化</string>
 
     <!-- Auth Extended -->
     <string name="sign_in">登录</string>
@@ -217,33 +331,6 @@
     <string name="minutes_ago">%1$d分钟前</string>
     <string name="hours_ago">%1$d小时前</string>
 
-    <!-- QASM Screen -->
-    <string name="editor">编辑器</string>
-    <string name="templates">模板</string>
-    <string name="qasm_version">QASM版本</string>
-    <string name="include_comments">包含注释</string>
-    <string name="pretty_print">格式化输出</string>
-    <string name="include_measurements">包含测量</string>
-    <string name="validate">验证</string>
-    <string name="import_qasm">导入</string>
-    <string name="export_qasm">导出</string>
-    <string name="all">全部</string>
-    <string name="no_saved_circuits">没有保存的电路</string>
-
-    <!-- Hardware Screen -->
-    <string name="connect">连接</string>
-    <string name="disconnect">断开连接</string>
-
-    <!-- Benchmark Screen -->
-    <string name="execute">执行</string>
-    <string name="benchmark_all">全部基准测试</string>
-    <string name="engine">引擎</string>
-    <string name="optimization">优化</string>
-
-    <!-- Profile Screen -->
-    <string name="restore_purchases">恢复购买</string>
-    <string name="subscribe">订阅</string>
-
     <!-- Drawer/Navigation -->
     <string name="features">功能</string>
     <string name="swiftquantum_ecosystem">SwiftQuantum生态系统</string>
@@ -251,12 +338,9 @@
     <string name="quantum_gates">量子门</string>
     <string name="simulations">模拟</string>
     <string name="tutorials">教程</string>
-
-    <!-- Gate Categories -->
-    <string name="single_qubit">单量子比特</string>
-    <string name="rotation">旋转</string>
-    <string name="multi_qubit">多量子比特</string>
-    <string name="controlled">受控</string>
+    <string name="drawer_section_features">功能</string>
+    <string name="drawer_section_ecosystem">SwiftQuantum生态系统</string>
+    <string name="current">当前</string>
 
     <!-- Stats Labels -->
     <string name="gates_label">门</string>
@@ -330,4 +414,7 @@
 
     <!-- Splash Screen -->
     <string name="splash_loading">加载中…</string>
+
+    <!-- User Label -->
+    <string name="user">用户</string>
 </resources>

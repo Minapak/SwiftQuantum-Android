@@ -2,6 +2,17 @@
 
 All notable changes to SwiftQuantum Android will be documented in this file.
 
+## [1.1.1] - 2026-01-29
+
+### Added
+- Complete 5-language localization (English, Korean, Japanese, Chinese, German) with 420+ string keys per language
+- Comprehensive translations for Circuit Builder, Benchmark, QASM Editor, Hardware, Visualize, Settings, Paywall screens
+- Gate category labels, status messages, error messages, and common actions fully localized
+
+### Fixed
+- All hardcoded strings in Kotlin source files replaced with stringResource() calls
+- Missing translation keys for benchmark, QASM, hardware status, and measurement results sections
+
 ## [1.1.0] - 2026-01-28
 
 ### Added

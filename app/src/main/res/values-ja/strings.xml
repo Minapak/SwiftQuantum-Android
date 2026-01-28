@@ -21,6 +21,9 @@
     <string name="login_failed">ログイン失敗</string>
     <string name="register_success">登録成功</string>
     <string name="register_failed">登録失敗</string>
+    <string name="continue_as_guest">ゲストとして続ける</string>
+    <string name="no_account_register">アカウントをお持ちでないですか？登録</string>
+    <string name="have_account_login">すでにアカウントをお持ちですか？ログイン</string>
 
     <!-- User Tiers -->
     <string name="tier_free">無料</string>
@@ -43,6 +46,10 @@
     <string name="backend">バックエンド</string>
     <string name="backend_rust">Rust（900倍高速）</string>
     <string name="backend_ibm">IBM Quantum</string>
+    <string name="configuration">構成</string>
+    <string name="quick_start_circuits">クイックスタート回路</string>
+    <string name="simulator_tier_info">%1$s - 最大 %2$d 量子ビット</string>
+    <string name="clear">クリア</string>
 
     <!-- Circuit Builder -->
     <string name="circuit_builder">回路ビルダー</string>
@@ -56,6 +63,15 @@
     <string name="my_circuits">マイ回路</string>
     <string name="circuit_name">回路名</string>
     <string name="circuit_description">説明</string>
+    <string name="text_circuit_diagram">回路図</string>
+    <string name="text_tap_to_add_gates">+をタップしてゲートを追加</string>
+    <string name="gate_target_qubit">ターゲット量子ビット:</string>
+    <string name="save_circuit_prompt">\"%1$s\"を保存しますか？</string>
+    <string name="untitled_circuit">無題の回路</string>
+    <string name="circuit_info_format">%1$d 量子ビット、%2$d ゲート</string>
+    <string name="gates_count">ゲート: %1$d</string>
+    <string name="depth_count">深さ: %1$d</string>
+    <string name="no_saved_circuits">保存された回路がありません</string>
 
     <!-- Gates -->
     <string name="gates">量子ゲート</string>
@@ -89,6 +105,16 @@
     <string name="gate_fredkin">フレドキン（CSWAP）</string>
     <string name="gate_ccz">CCZゲート</string>
 
+    <!-- Gate Categories -->
+    <string name="single_qubit">単一量子ビット</string>
+    <string name="rotation">回転</string>
+    <string name="multi_qubit">多量子ビット</string>
+    <string name="controlled">制御</string>
+    <string name="gate_category_single_qubit_title">単一量子ビット</string>
+    <string name="gate_category_rotation_title">回転</string>
+    <string name="gate_category_controlled_title">制御</string>
+    <string name="gate_category_multi_qubit_title">多量子ビット</string>
+
     <!-- Bloch Sphere -->
     <string name="bloch_sphere">ブロッホ球</string>
     <string name="theta">シータ（θ）</string>
@@ -105,6 +131,23 @@
     <string name="queue_position">キュー位置</string>
     <string name="estimated_time">推定時間</string>
     <string name="hardware_access_master_only">ハードウェアアクセスにはマスタープランが必要です</string>
+    <string name="upgrade_for_hardware">IBM Quantumアクセスにはマスターにアップグレードしてください</string>
+    <string name="backends_available">%1$d バックエンド利用可能</string>
+    <string name="active_jobs">アクティブジョブ</string>
+    <string name="pending_jobs">%1$d 保留中のジョブ</string>
+    <string name="job_id">ジョブ %1$s…</string>
+    <string name="status_online">オンライン</string>
+    <string name="status_offline">オフライン</string>
+    <string name="status_maintenance">メンテナンス</string>
+    <string name="status_unknown">不明</string>
+    <string name="job_initializing">初期化中</string>
+    <string name="job_queued">キュー中</string>
+    <string name="job_validating">検証中</string>
+    <string name="job_running">実行中</string>
+    <string name="job_completed">完了</string>
+    <string name="job_failed">失敗</string>
+    <string name="job_cancelled">キャンセル済み</string>
+    <string name="ibm_hardware_enabled">IBM Quantumハードウェアアクセスが有効です</string>
 
     <!-- Profile -->
     <string name="profile">プロフィール</string>
@@ -115,6 +158,11 @@
     <string name="simulations_run">実行シミュレーション数</string>
     <string name="total_qubits">使用量子ビット数</string>
     <string name="hardware_jobs">ハードウェアジョブ</string>
+    <string name="current_plan">現在のプラン: %1$s</string>
+    <string name="max_qubits">最大 %1$d 量子ビット</string>
+    <string name="upgrade_your_plan">プランをアップグレード</string>
+    <string name="restore_purchases">購入を復元</string>
+    <string name="subscribe">購読</string>
 
     <!-- Results -->
     <string name="results">結果</string>
@@ -123,6 +171,12 @@
     <string name="measurement">測定</string>
     <string name="counts">カウント</string>
     <string name="export_results">結果をエクスポート</string>
+
+    <!-- Measurement Results -->
+    <string name="text_measurement_results">測定結果</string>
+    <string name="header_state">状態</string>
+    <string name="header_probability">確率</string>
+    <string name="header_count">カウント</string>
 
     <!-- Errors -->
     <string name="error_network">ネットワークエラー。接続を確認してください。</string>
@@ -135,6 +189,16 @@
     <string name="error_invalid_email">有効なメールアドレスを入力してください</string>
     <string name="error_password_mismatch">パスワードが一致しません</string>
     <string name="error_password_too_short">パスワードは8文字以上必要です</string>
+    <string name="error_simulation_failed">シミュレーション失敗: %1$s</string>
+    <string name="error_circuit_save_failed">回路保存失敗: %1$s</string>
+    <string name="error_circuit_load_failed">回路読込失敗: %1$s</string>
+    <string name="error_benchmark_failed">ベンチマーク失敗: %1$s</string>
+    <string name="error_connection_failed">接続失敗: %1$s</string>
+    <string name="error_qasm_import_failed">QASMインポート失敗: %1$s</string>
+    <string name="error_qasm_export_failed">QASMエクスポート失敗: %1$s</string>
+    <string name="error_purchase_failed">購入失敗: %1$s</string>
+    <string name="error_restore_failed">復元失敗: %1$s</string>
+    <string name="error_unknown">不明なエラーが発生しました</string>
 
     <!-- Common -->
     <string name="ok">OK</string>
@@ -150,32 +214,6 @@
     <string name="version">バージョン</string>
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="terms_of_service">利用規約</string>
-
-    <!-- Cloud Hybrid Engine -->
-    <string name="cloud_engine">クラウドエンジン</string>
-    <string name="local_engine">ローカルエンジン</string>
-    <string name="python_engine">Pythonエンジン</string>
-    <string name="rust_engine">Rustエンジン</string>
-    <string name="cpp_hpc_engine">C++ HPCエンジン</string>
-    <string name="speedup_900x">900倍高速化</string>
-    <string name="speedup_1200x">1200倍高速化</string>
-
-    <!-- QASM -->
-    <string name="qasm_import">QASMインポート</string>
-    <string name="qasm_export">QASMエクスポート</string>
-    <string name="qasm_editor">QASMエディタ</string>
-    <string name="qasm_template">QASMテンプレート</string>
-
-    <!-- Benchmark -->
-    <string name="benchmark">ベンチマーク</string>
-    <string name="run_benchmark">ベンチマーク実行</string>
-    <string name="benchmark_results">ベンチマーク結果</string>
-
-    <!-- Engine Settings -->
-    <string name="optimization_level">最適化レベル</string>
-    <string name="cache_enabled">キャッシュ有効</string>
-
-    <!-- Additional Common Actions -->
     <string name="close">閉じる</string>
     <string name="confirm">確認</string>
     <string name="back">戻る</string>
@@ -191,6 +229,82 @@
     <string name="continue_action">続ける</string>
     <string name="dismiss">閉じる</string>
     <string name="view_result">結果を見る</string>
+    <string name="connect">接続</string>
+    <string name="disconnect">切断</string>
+    <string name="execute">実行</string>
+    <string name="benchmark_all">すべてベンチマーク</string>
+
+    <!-- Cloud Hybrid Engine -->
+    <string name="cloud_engine">クラウドエンジン</string>
+    <string name="local_engine">ローカルエンジン</string>
+    <string name="python_engine">Pythonエンジン</string>
+    <string name="rust_engine">Rustエンジン</string>
+    <string name="cpp_hpc_engine">C++ HPCエンジン</string>
+    <string name="speedup_900x">900倍高速化</string>
+    <string name="speedup_1200x">1200倍高速化</string>
+
+    <!-- QASM -->
+    <string name="qasm_import">QASMインポート</string>
+    <string name="qasm_export">QASMエクスポート</string>
+    <string name="qasm_editor">QASMエディタ</string>
+    <string name="qasm_editor_subtitle">OpenQASMインポート＆エクスポート</string>
+    <string name="qasm_template">QASMテンプレート</string>
+    <string name="circuit_imported_success">回路を正常にインポートしました</string>
+    <string name="circuit_exported_success">回路をQASMにエクスポートしました</string>
+    <string name="qasm_valid">QASMコードは有効です</string>
+    <string name="qasm_has_errors">QASMコードにエラーがあります</string>
+    <string name="code_copied">コードをクリップボードにコピーしました</string>
+    <string name="valid_qasm">有効なQASM</string>
+    <string name="invalid_qasm">無効: %1$s</string>
+    <string name="export_options">エクスポートオプション</string>
+    <string name="circuit_imported">回路をインポートしました</string>
+    <string name="qasm_code_placeholder">// ここにQASMコードを入力…\nOPENQASM 2.0;\ninclude \"qelib1.inc\";\n\nqreg q[2];\ncreg c[2];\n\nh q[0];\ncx q[0], q[1];\n\nmeasure q -> c;</string>
+    <string name="difficulty_beginner">初級</string>
+    <string name="difficulty_intermediate">中級</string>
+    <string name="difficulty_advanced">上級</string>
+    <string name="num_qubits_format">%1$d 量子ビット</string>
+    <string name="editor">エディタ</string>
+    <string name="templates">テンプレート</string>
+    <string name="qasm_version">QASMバージョン</string>
+    <string name="include_comments">コメントを含める</string>
+    <string name="pretty_print">整形出力</string>
+    <string name="include_measurements">測定を含める</string>
+    <string name="validate">検証</string>
+    <string name="import_qasm">インポート</string>
+    <string name="export_qasm">エクスポート</string>
+    <string name="all">すべて</string>
+
+    <!-- Benchmark -->
+    <string name="benchmark">ベンチマーク</string>
+    <string name="benchmark_subtitle">エンジン性能比較</string>
+    <string name="run_benchmark">ベンチマーク実行</string>
+    <string name="benchmark_results">ベンチマーク結果</string>
+    <string name="text_benchmark_title">ベンチマーク</string>
+    <string name="text_compare_engine_performance">エンジン性能比較</string>
+    <string name="text_engine_status">エンジンステータス</string>
+    <string name="text_execution_settings">実行設定</string>
+    <string name="text_benchmark_results">ベンチマーク結果</string>
+    <string name="text_execution_complete">実行完了</string>
+    <string name="test_circuit">テスト回路</string>
+    <string name="execution_complete">実行完了</string>
+    <string name="execution_complete_time">%1$sで実行完了</string>
+    <string name="benchmark_complete">ベンチマーク完了！最速: %1$s</string>
+    <string name="upgrade_subscription_feature">この機能にアクセスするにはサブスクリプションをアップグレードしてください</string>
+    <string name="upgrade_pro_benchmark">フルベンチマークを実行するにはプロにアップグレードしてください</string>
+    <string name="load_percentage">負荷: %1$d%%</string>
+    <string name="speedup_format">%1$d倍高速</string>
+    <string name="fastest_engine">最速: %1$s</string>
+    <string name="cache_hit_result">キャッシュヒット - キャッシュから結果を取得</string>
+    <string name="text_configuration">構成</string>
+
+    <!-- Engine Settings -->
+    <string name="optimization_level">最適化レベル</string>
+    <string name="cache_enabled">キャッシュ有効</string>
+    <string name="label_engine">エンジン</string>
+    <string name="label_optimization">最適化</string>
+    <string name="label_qasm_version">QASMバージョン</string>
+    <string name="engine">エンジン</string>
+    <string name="optimization">最適化</string>
 
     <!-- Auth Extended -->
     <string name="sign_in">サインイン</string>
@@ -217,33 +331,6 @@
     <string name="minutes_ago">%1$d分前</string>
     <string name="hours_ago">%1$d時間前</string>
 
-    <!-- QASM Screen -->
-    <string name="editor">エディタ</string>
-    <string name="templates">テンプレート</string>
-    <string name="qasm_version">QASMバージョン</string>
-    <string name="include_comments">コメントを含める</string>
-    <string name="pretty_print">整形出力</string>
-    <string name="include_measurements">測定を含める</string>
-    <string name="validate">検証</string>
-    <string name="import_qasm">インポート</string>
-    <string name="export_qasm">エクスポート</string>
-    <string name="all">すべて</string>
-    <string name="no_saved_circuits">保存された回路がありません</string>
-
-    <!-- Hardware Screen -->
-    <string name="connect">接続</string>
-    <string name="disconnect">切断</string>
-
-    <!-- Benchmark Screen -->
-    <string name="execute">実行</string>
-    <string name="benchmark_all">すべてベンチマーク</string>
-    <string name="engine">エンジン</string>
-    <string name="optimization">最適化</string>
-
-    <!-- Profile Screen -->
-    <string name="restore_purchases">購入を復元</string>
-    <string name="subscribe">購読</string>
-
     <!-- Drawer/Navigation -->
     <string name="features">機能</string>
     <string name="swiftquantum_ecosystem">SwiftQuantumエコシステム</string>
@@ -251,12 +338,9 @@
     <string name="quantum_gates">量子ゲート</string>
     <string name="simulations">シミュレーション</string>
     <string name="tutorials">チュートリアル</string>
-
-    <!-- Gate Categories -->
-    <string name="single_qubit">単一量子ビット</string>
-    <string name="rotation">回転</string>
-    <string name="multi_qubit">多量子ビット</string>
-    <string name="controlled">制御</string>
+    <string name="drawer_section_features">機能</string>
+    <string name="drawer_section_ecosystem">SwiftQuantumエコシステム</string>
+    <string name="current">現在</string>
 
     <!-- Stats Labels -->
     <string name="gates_label">ゲート</string>
@@ -330,4 +414,7 @@
 
     <!-- Splash Screen -->
     <string name="splash_loading">読み込み中…</string>
+
+    <!-- User Label -->
+    <string name="user">ユーザー</string>
 </resources>
