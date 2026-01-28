@@ -30,6 +30,7 @@ data class SimulatorUiState(
     val selectedBackend: ExecutionBackend = ExecutionBackend.RUST_SIMULATOR,
     val isRunning: Boolean = false,
     val result: ExecutionResult? = null,
+    val lastResult: ExecutionResult? = null,
     val blochStates: List<BlochSphereState> = emptyList(),
     val error: String? = null,
     val userTier: UserTier = UserTier.FREE,
@@ -195,6 +196,7 @@ class SimulatorViewModel @Inject constructor(
                 _uiState.value = _uiState.value.copy(
                     isRunning = false,
                     result = result,
+                    lastResult = result,
                     blochStates = blochStates
                 )
                 _events.emit(SimulatorEvent.SimulationCompleted(result))

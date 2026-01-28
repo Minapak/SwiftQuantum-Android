@@ -150,4 +150,184 @@
     <string name="version">版本</string>
     <string name="privacy_policy">隐私政策</string>
     <string name="terms_of_service">服务条款</string>
+
+    <!-- Cloud Hybrid Engine -->
+    <string name="cloud_engine">云引擎</string>
+    <string name="local_engine">本地引擎</string>
+    <string name="python_engine">Python引擎</string>
+    <string name="rust_engine">Rust引擎</string>
+    <string name="cpp_hpc_engine">C++ HPC引擎</string>
+    <string name="speedup_900x">900倍加速</string>
+    <string name="speedup_1200x">1200倍加速</string>
+
+    <!-- QASM -->
+    <string name="qasm_import">导入QASM</string>
+    <string name="qasm_export">导出QASM</string>
+    <string name="qasm_editor">QASM编辑器</string>
+    <string name="qasm_template">QASM模板</string>
+
+    <!-- Benchmark -->
+    <string name="benchmark">基准测试</string>
+    <string name="run_benchmark">运行基准测试</string>
+    <string name="benchmark_results">基准测试结果</string>
+
+    <!-- Engine Settings -->
+    <string name="optimization_level">优化级别</string>
+    <string name="cache_enabled">启用缓存</string>
+
+    <!-- Additional Common Actions -->
+    <string name="close">关闭</string>
+    <string name="confirm">确认</string>
+    <string name="back">返回</string>
+    <string name="next">下一步</string>
+    <string name="done">完成</string>
+    <string name="success">成功</string>
+    <string name="submit">提交</string>
+    <string name="send">发送</string>
+    <string name="share">分享</string>
+    <string name="copy">复制</string>
+    <string name="download">下载</string>
+    <string name="upload">上传</string>
+    <string name="continue_action">继续</string>
+    <string name="dismiss">关闭</string>
+    <string name="view_result">查看结果</string>
+
+    <!-- Auth Extended -->
+    <string name="sign_in">登录</string>
+    <string name="sign_up">注册</string>
+    <string name="guest_mode">访客模式</string>
+    <string name="name">姓名</string>
+    <string name="display_name">显示名称</string>
+
+    <!-- Navigation Extended -->
+    <string name="home">首页</string>
+    <string name="nav_qasm">QASM</string>
+    <string name="nav_benchmark">基准测试</string>
+    <string name="nav_login">登录</string>
+
+    <!-- Status -->
+    <string name="online">在线</string>
+    <string name="offline">离线</string>
+    <string name="processing">处理中...</string>
+
+    <!-- Time -->
+    <string name="today">今天</string>
+    <string name="yesterday">昨天</string>
+    <string name="just_now">刚刚</string>
+    <string name="minutes_ago">%1$d分钟前</string>
+    <string name="hours_ago">%1$d小时前</string>
+
+    <!-- QASM Screen -->
+    <string name="editor">编辑器</string>
+    <string name="templates">模板</string>
+    <string name="qasm_version">QASM版本</string>
+    <string name="include_comments">包含注释</string>
+    <string name="pretty_print">格式化输出</string>
+    <string name="include_measurements">包含测量</string>
+    <string name="validate">验证</string>
+    <string name="import_qasm">导入</string>
+    <string name="export_qasm">导出</string>
+    <string name="all">全部</string>
+    <string name="no_saved_circuits">没有保存的电路</string>
+
+    <!-- Hardware Screen -->
+    <string name="connect">连接</string>
+    <string name="disconnect">断开连接</string>
+
+    <!-- Benchmark Screen -->
+    <string name="execute">执行</string>
+    <string name="benchmark_all">全部基准测试</string>
+    <string name="engine">引擎</string>
+    <string name="optimization">优化</string>
+
+    <!-- Profile Screen -->
+    <string name="restore_purchases">恢复购买</string>
+    <string name="subscribe">订阅</string>
+
+    <!-- Drawer/Navigation -->
+    <string name="features">功能</string>
+    <string name="swiftquantum_ecosystem">SwiftQuantum生态系统</string>
+    <string name="circuit_designer">电路设计器</string>
+    <string name="quantum_gates">量子门</string>
+    <string name="simulations">模拟</string>
+    <string name="tutorials">教程</string>
+
+    <!-- Gate Categories -->
+    <string name="single_qubit">单量子比特</string>
+    <string name="rotation">旋转</string>
+    <string name="multi_qubit">多量子比特</string>
+    <string name="controlled">受控</string>
+
+    <!-- Stats Labels -->
+    <string name="gates_label">门</string>
+    <string name="depth">深度</string>
+    <string name="time">时间</string>
+    <string name="speedup">加速</string>
+    <string name="memory">内存</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_account">账户</string>
+    <string name="settings_language">语言</string>
+    <string name="settings_subscription">订阅</string>
+    <string name="settings_engine">引擎设置</string>
+    <string name="settings_app_info">应用信息</string>
+    <string name="settings_links">链接</string>
+    <string name="settings_login_for_more">登录以使用完整功能</string>
+    <string name="settings_current_plan">当前方案</string>
+    <string name="settings_plan">方案</string>
+    <string name="settings_max_qubits">最多 %1$d 量子比特</string>
+    <string name="settings_max_qubits_label">最大量子比特</string>
+    <string name="settings_renews_on">%1$s 续期</string>
+    <string name="settings_current_engine">当前引擎</string>
+    <string name="settings_available_engines">可用引擎</string>
+    <string name="settings_build">版本号</string>
+    <string name="settings_documentation">文档</string>
+    <string name="settings_support">支持</string>
+    <string name="settings_select_language">选择语言</string>
+    <string name="settings_logout_title">登出</string>
+    <string name="settings_logout_message">确定要登出吗？</string>
+
+    <!-- Paywall Screen -->
+    <string name="paywall_title">解锁全部功能</string>
+    <string name="paywall_subtitle">选择适合您量子计算需求的方案</string>
+    <string name="paywall_monthly">月付</string>
+    <string name="paywall_yearly">年付</string>
+    <string name="paywall_save_30">节省30%</string>
+    <string name="paywall_pro_engine">专业引擎</string>
+    <string name="paywall_pro_tagline">900倍Rust加速</string>
+    <string name="paywall_master_engine">大师引擎</string>
+    <string name="paywall_master_tagline">1200倍C++ HPC + IBM硬件</string>
+    <string name="paywall_per_month">/月</string>
+    <string name="paywall_billed_yearly">年付 %1$s</string>
+    <string name="paywall_recommended">推荐</string>
+    <string name="paywall_pro_feature_1">最多30量子比特模拟</string>
+    <string name="paywall_pro_feature_2">900倍Rust引擎加速</string>
+    <string name="paywall_pro_feature_3">无限电路保存</string>
+    <string name="paywall_pro_feature_4">优先支持</string>
+    <string name="paywall_master_feature_1">40+量子比特模拟</string>
+    <string name="paywall_master_feature_2">1200倍C++ HPC引擎</string>
+    <string name="paywall_master_feature_3">IBM Quantum硬件访问</string>
+    <string name="paywall_master_feature_4">高级分析</string>
+    <string name="paywall_master_feature_5">高级优先支持</string>
+    <string name="paywall_disclaimer">除非在当前周期结束前至少24小时取消，否则订阅将自动续期。在Google Play账户设置中管理订阅。</string>
+
+    <!-- Visualize Screen -->
+    <string name="visualize_title">可视化</string>
+    <string name="visualize_bloch_sphere">布洛赫球</string>
+    <string name="visualize_no_data">没有可视化数据</string>
+    <string name="visualize_run_simulation">先运行模拟以查看可视化结果</string>
+    <string name="visualize_select_qubit">选择量子比特</string>
+    <string name="visualize_qubit_state">量子比特 Q%1$d 状态</string>
+    <string name="visualize_top_states">前 %1$d 个状态</string>
+    <string name="visualize_showing_top">显示 %1$d 个状态中的前16个</string>
+    <string name="visualize_state_vector_unavailable">此模拟的状态向量数据不可用</string>
+    <string name="visualize_state_vector_title">状态向量</string>
+    <string name="visualize_state_vector_desc">%1$d 个基态的复振幅</string>
+    <string name="visualize_basis_state">状态</string>
+    <string name="visualize_amplitude">振幅</string>
+    <string name="visualize_probability">概率</string>
+    <string name="visualize_showing_first">显示 %1$d 个状态中的前32个</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_loading">加载中…</string>
 </resources>

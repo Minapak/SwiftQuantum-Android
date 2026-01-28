@@ -2,10 +2,18 @@ package com.swiftquantum.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+// ========== SwiftQuantum Brand Colors - Swift-Purple (#7B2FFF) ==========
 // Primary Brand Colors
-val QuantumPurple = Color(0xFF6366F1)
-val QuantumPurpleLight = Color(0xFF818CF8)
-val QuantumPurpleDark = Color(0xFF4F46E5)
+val SwiftPurple = Color(0xFF7B2FFF)
+val SwiftPurpleLight = Color(0xFF9B5FFF)
+val SwiftPurpleDark = Color(0xFF5B1FDF)
+val SwiftPurpleContainer = Color(0xFF2D1B69)
+val OnSwiftPurpleContainer = Color(0xFFE8DEFF)
+
+// Legacy aliases for compatibility
+val QuantumPurple = SwiftPurple
+val QuantumPurpleLight = SwiftPurpleLight
+val QuantumPurpleDark = SwiftPurpleDark
 
 // Secondary Colors
 val QuantumCyan = Color(0xFF22D3EE)
@@ -18,16 +26,21 @@ val QuantumOrange = Color(0xFFF59E0B)
 val QuantumRed = Color(0xFFEF4444)
 val QuantumPink = Color(0xFFEC4899)
 
-// Background Colors
-val BackgroundDark = Color(0xFF0F0F23)
-val BackgroundMedium = Color(0xFF1A1A2E)
-val SurfaceDark = Color(0xFF16213E)
-val SurfaceVariantDark = Color(0xFF1E293B)
+// ========== Unified Ecosystem Background Colors ==========
+val BackgroundDark = Color(0xFF0A0A0A)
+val BackgroundMedium = Color(0xFF121212)
+val SurfaceDark = Color(0xFF121212)
+val SurfaceVariantDark = Color(0xFF1E1E1E)
 
 // Text Colors
 val TextPrimary = Color(0xFFFFFFFF)
 val TextSecondary = Color(0xFFA0AEC0)
 val TextDisabled = Color(0xFF4A5568)
+
+// ========== Ecosystem App Colors ==========
+val NativeBlue = Color(0xFF0066FF)
+val BridgeCyan = Color(0xFF00D4FF)
+val CareerGold = Color(0xFFFFB800)
 
 // Gate Colors
 val GateHadamard = Color(0xFF8B5CF6)

@@ -150,4 +150,184 @@
     <string name="version">バージョン</string>
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="terms_of_service">利用規約</string>
+
+    <!-- Cloud Hybrid Engine -->
+    <string name="cloud_engine">クラウドエンジン</string>
+    <string name="local_engine">ローカルエンジン</string>
+    <string name="python_engine">Pythonエンジン</string>
+    <string name="rust_engine">Rustエンジン</string>
+    <string name="cpp_hpc_engine">C++ HPCエンジン</string>
+    <string name="speedup_900x">900倍高速化</string>
+    <string name="speedup_1200x">1200倍高速化</string>
+
+    <!-- QASM -->
+    <string name="qasm_import">QASMインポート</string>
+    <string name="qasm_export">QASMエクスポート</string>
+    <string name="qasm_editor">QASMエディタ</string>
+    <string name="qasm_template">QASMテンプレート</string>
+
+    <!-- Benchmark -->
+    <string name="benchmark">ベンチマーク</string>
+    <string name="run_benchmark">ベンチマーク実行</string>
+    <string name="benchmark_results">ベンチマーク結果</string>
+
+    <!-- Engine Settings -->
+    <string name="optimization_level">最適化レベル</string>
+    <string name="cache_enabled">キャッシュ有効</string>
+
+    <!-- Additional Common Actions -->
+    <string name="close">閉じる</string>
+    <string name="confirm">確認</string>
+    <string name="back">戻る</string>
+    <string name="next">次へ</string>
+    <string name="done">完了</string>
+    <string name="success">成功</string>
+    <string name="submit">送信</string>
+    <string name="send">送る</string>
+    <string name="share">共有</string>
+    <string name="copy">コピー</string>
+    <string name="download">ダウンロード</string>
+    <string name="upload">アップロード</string>
+    <string name="continue_action">続ける</string>
+    <string name="dismiss">閉じる</string>
+    <string name="view_result">結果を見る</string>
+
+    <!-- Auth Extended -->
+    <string name="sign_in">サインイン</string>
+    <string name="sign_up">サインアップ</string>
+    <string name="guest_mode">ゲストモード</string>
+    <string name="name">名前</string>
+    <string name="display_name">表示名</string>
+
+    <!-- Navigation Extended -->
+    <string name="home">ホーム</string>
+    <string name="nav_qasm">QASM</string>
+    <string name="nav_benchmark">ベンチマーク</string>
+    <string name="nav_login">ログイン</string>
+
+    <!-- Status -->
+    <string name="online">オンライン</string>
+    <string name="offline">オフライン</string>
+    <string name="processing">処理中...</string>
+
+    <!-- Time -->
+    <string name="today">今日</string>
+    <string name="yesterday">昨日</string>
+    <string name="just_now">たった今</string>
+    <string name="minutes_ago">%1$d分前</string>
+    <string name="hours_ago">%1$d時間前</string>
+
+    <!-- QASM Screen -->
+    <string name="editor">エディタ</string>
+    <string name="templates">テンプレート</string>
+    <string name="qasm_version">QASMバージョン</string>
+    <string name="include_comments">コメントを含める</string>
+    <string name="pretty_print">整形出力</string>
+    <string name="include_measurements">測定を含める</string>
+    <string name="validate">検証</string>
+    <string name="import_qasm">インポート</string>
+    <string name="export_qasm">エクスポート</string>
+    <string name="all">すべて</string>
+    <string name="no_saved_circuits">保存された回路がありません</string>
+
+    <!-- Hardware Screen -->
+    <string name="connect">接続</string>
+    <string name="disconnect">切断</string>
+
+    <!-- Benchmark Screen -->
+    <string name="execute">実行</string>
+    <string name="benchmark_all">すべてベンチマーク</string>
+    <string name="engine">エンジン</string>
+    <string name="optimization">最適化</string>
+
+    <!-- Profile Screen -->
+    <string name="restore_purchases">購入を復元</string>
+    <string name="subscribe">購読</string>
+
+    <!-- Drawer/Navigation -->
+    <string name="features">機能</string>
+    <string name="swiftquantum_ecosystem">SwiftQuantumエコシステム</string>
+    <string name="circuit_designer">回路デザイナー</string>
+    <string name="quantum_gates">量子ゲート</string>
+    <string name="simulations">シミュレーション</string>
+    <string name="tutorials">チュートリアル</string>
+
+    <!-- Gate Categories -->
+    <string name="single_qubit">単一量子ビット</string>
+    <string name="rotation">回転</string>
+    <string name="multi_qubit">多量子ビット</string>
+    <string name="controlled">制御</string>
+
+    <!-- Stats Labels -->
+    <string name="gates_label">ゲート</string>
+    <string name="depth">深さ</string>
+    <string name="time">時間</string>
+    <string name="speedup">高速化</string>
+    <string name="memory">メモリ</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_account">アカウント</string>
+    <string name="settings_language">言語</string>
+    <string name="settings_subscription">サブスクリプション</string>
+    <string name="settings_engine">エンジン設定</string>
+    <string name="settings_app_info">アプリ情報</string>
+    <string name="settings_links">リンク</string>
+    <string name="settings_login_for_more">フル機能を使用するにはサインイン</string>
+    <string name="settings_current_plan">現在のプラン</string>
+    <string name="settings_plan">プラン</string>
+    <string name="settings_max_qubits">最大 %1$d 量子ビット</string>
+    <string name="settings_max_qubits_label">最大量子ビット</string>
+    <string name="settings_renews_on">%1$sに更新</string>
+    <string name="settings_current_engine">現在のエンジン</string>
+    <string name="settings_available_engines">利用可能なエンジン</string>
+    <string name="settings_build">ビルド</string>
+    <string name="settings_documentation">ドキュメント</string>
+    <string name="settings_support">サポート</string>
+    <string name="settings_select_language">言語を選択</string>
+    <string name="settings_logout_title">ログアウト</string>
+    <string name="settings_logout_message">本当にログアウトしますか？</string>
+
+    <!-- Paywall Screen -->
+    <string name="paywall_title">フルパワーを解放</string>
+    <string name="paywall_subtitle">量子コンピューティングのニーズに合ったプランを選択</string>
+    <string name="paywall_monthly">月額</string>
+    <string name="paywall_yearly">年額</string>
+    <string name="paywall_save_30">30%オフ</string>
+    <string name="paywall_pro_engine">プロエンジン</string>
+    <string name="paywall_pro_tagline">900倍Rust高速化</string>
+    <string name="paywall_master_engine">マスターエンジン</string>
+    <string name="paywall_master_tagline">1200倍C++ HPC + IBMハードウェア</string>
+    <string name="paywall_per_month">/月</string>
+    <string name="paywall_billed_yearly">年間 %1$s 請求</string>
+    <string name="paywall_recommended">おすすめ</string>
+    <string name="paywall_pro_feature_1">最大30量子ビットシミュレーション</string>
+    <string name="paywall_pro_feature_2">900倍Rustエンジン高速化</string>
+    <string name="paywall_pro_feature_3">無制限の回路保存</string>
+    <string name="paywall_pro_feature_4">優先サポート</string>
+    <string name="paywall_master_feature_1">40+量子ビットシミュレーション</string>
+    <string name="paywall_master_feature_2">1200倍C++ HPCエンジン</string>
+    <string name="paywall_master_feature_3">IBM Quantumハードウェアアクセス</string>
+    <string name="paywall_master_feature_4">高度な分析</string>
+    <string name="paywall_master_feature_5">プレミアム優先サポート</string>
+    <string name="paywall_disclaimer">サブスクリプションは、現在の期間終了の少なくとも24時間前にキャンセルしない限り自動的に更新されます。Google Playアカウント設定でサブスクリプションを管理してください。</string>
+
+    <!-- Visualize Screen -->
+    <string name="visualize_title">可視化</string>
+    <string name="visualize_bloch_sphere">ブロッホ球</string>
+    <string name="visualize_no_data">可視化データがありません</string>
+    <string name="visualize_run_simulation">シミュレーションを実行して、ここで可視化結果を確認してください</string>
+    <string name="visualize_select_qubit">量子ビットを選択</string>
+    <string name="visualize_qubit_state">量子ビット Q%1$d 状態</string>
+    <string name="visualize_top_states">上位 %1$d 状態</string>
+    <string name="visualize_showing_top">%1$d 状態中上位16を表示</string>
+    <string name="visualize_state_vector_unavailable">このシミュレーションの状態ベクトルデータは利用できません</string>
+    <string name="visualize_state_vector_title">状態ベクトル</string>
+    <string name="visualize_state_vector_desc">%1$d 基底状態の複素振幅</string>
+    <string name="visualize_basis_state">状態</string>
+    <string name="visualize_amplitude">振幅</string>
+    <string name="visualize_probability">確率</string>
+    <string name="visualize_showing_first">%1$d 状態中最初の32を表示</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_loading">読み込み中…</string>
 </resources>

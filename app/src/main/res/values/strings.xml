@@ -150,4 +150,184 @@
     <string name="version">Version</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="terms_of_service">Terms of Service</string>
+
+    <!-- Cloud Hybrid Engine -->
+    <string name="cloud_engine">Cloud Engine</string>
+    <string name="local_engine">Local Engine</string>
+    <string name="python_engine">Python Engine</string>
+    <string name="rust_engine">Rust Engine</string>
+    <string name="cpp_hpc_engine">C++ HPC Engine</string>
+    <string name="speedup_900x">900x Speedup</string>
+    <string name="speedup_1200x">1200x Speedup</string>
+
+    <!-- QASM -->
+    <string name="qasm_import">Import QASM</string>
+    <string name="qasm_export">Export QASM</string>
+    <string name="qasm_editor">QASM Editor</string>
+    <string name="qasm_template">QASM Template</string>
+
+    <!-- Benchmark -->
+    <string name="benchmark">Benchmark</string>
+    <string name="run_benchmark">Run Benchmark</string>
+    <string name="benchmark_results">Benchmark Results</string>
+
+    <!-- Engine Settings -->
+    <string name="optimization_level">Optimization Level</string>
+    <string name="cache_enabled">Cache Enabled</string>
+
+    <!-- Additional Common Actions -->
+    <string name="close">Close</string>
+    <string name="confirm">Confirm</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+    <string name="success">Success</string>
+    <string name="submit">Submit</string>
+    <string name="send">Send</string>
+    <string name="share">Share</string>
+    <string name="copy">Copy</string>
+    <string name="download">Download</string>
+    <string name="upload">Upload</string>
+    <string name="continue_action">Continue</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="view_result">View Result</string>
+
+    <!-- Auth Extended -->
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="guest_mode">Guest Mode</string>
+    <string name="name">Name</string>
+    <string name="display_name">Display Name</string>
+
+    <!-- Navigation Extended -->
+    <string name="home">Home</string>
+    <string name="nav_qasm">QASM</string>
+    <string name="nav_benchmark">Benchmark</string>
+    <string name="nav_login">Login</string>
+
+    <!-- Status -->
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="processing">Processing...</string>
+
+    <!-- Time -->
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="just_now">Just now</string>
+    <string name="minutes_ago">%1$d minutes ago</string>
+    <string name="hours_ago">%1$d hours ago</string>
+
+    <!-- QASM Screen -->
+    <string name="editor">Editor</string>
+    <string name="templates">Templates</string>
+    <string name="qasm_version">QASM Version</string>
+    <string name="include_comments">Include Comments</string>
+    <string name="pretty_print">Pretty Print</string>
+    <string name="include_measurements">Include Measurements</string>
+    <string name="validate">Validate</string>
+    <string name="import_qasm">Import</string>
+    <string name="export_qasm">Export</string>
+    <string name="all">All</string>
+    <string name="no_saved_circuits">No saved circuits</string>
+
+    <!-- Hardware Screen -->
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+
+    <!-- Benchmark Screen -->
+    <string name="execute">Execute</string>
+    <string name="benchmark_all">Benchmark All</string>
+    <string name="engine">Engine</string>
+    <string name="optimization">Optimization</string>
+
+    <!-- Profile Screen -->
+    <string name="restore_purchases">Restore Purchases</string>
+    <string name="subscribe">Subscribe</string>
+
+    <!-- Drawer/Navigation -->
+    <string name="features">Features</string>
+    <string name="swiftquantum_ecosystem">SwiftQuantum Ecosystem</string>
+    <string name="circuit_designer">Circuit Designer</string>
+    <string name="quantum_gates">Quantum Gates</string>
+    <string name="simulations">Simulations</string>
+    <string name="tutorials">Tutorials</string>
+
+    <!-- Gate Categories -->
+    <string name="single_qubit">Single Qubit</string>
+    <string name="rotation">Rotation</string>
+    <string name="multi_qubit">Multi-Qubit</string>
+    <string name="controlled">Controlled</string>
+
+    <!-- Stats Labels -->
+    <string name="gates_label">Gates</string>
+    <string name="depth">Depth</string>
+    <string name="time">Time</string>
+    <string name="speedup">Speedup</string>
+    <string name="memory">Memory</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_account">Account</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_subscription">Subscription</string>
+    <string name="settings_engine">Engine Settings</string>
+    <string name="settings_app_info">App Info</string>
+    <string name="settings_links">Links</string>
+    <string name="settings_login_for_more">Sign in for full features</string>
+    <string name="settings_current_plan">Current Plan</string>
+    <string name="settings_plan">Plan</string>
+    <string name="settings_max_qubits">Max %1$d qubits</string>
+    <string name="settings_max_qubits_label">Max Qubits</string>
+    <string name="settings_renews_on">Renews on %1$s</string>
+    <string name="settings_current_engine">Current Engine</string>
+    <string name="settings_available_engines">Available Engines</string>
+    <string name="settings_build">Build</string>
+    <string name="settings_documentation">Documentation</string>
+    <string name="settings_support">Support</string>
+    <string name="settings_select_language">Select Language</string>
+    <string name="settings_logout_title">Logout</string>
+    <string name="settings_logout_message">Are you sure you want to logout?</string>
+
+    <!-- Paywall Screen -->
+    <string name="paywall_title">Unlock Full Power</string>
+    <string name="paywall_subtitle">Choose the plan that fits your quantum computing needs</string>
+    <string name="paywall_monthly">Monthly</string>
+    <string name="paywall_yearly">Yearly</string>
+    <string name="paywall_save_30">SAVE 30%</string>
+    <string name="paywall_pro_engine">Pro Engine</string>
+    <string name="paywall_pro_tagline">900x Rust Speedup</string>
+    <string name="paywall_master_engine">Master Engine</string>
+    <string name="paywall_master_tagline">1200x C++ HPC + IBM Hardware</string>
+    <string name="paywall_per_month">/month</string>
+    <string name="paywall_billed_yearly">Billed %1$s yearly</string>
+    <string name="paywall_recommended">RECOMMENDED</string>
+    <string name="paywall_pro_feature_1">Up to 30 qubits simulation</string>
+    <string name="paywall_pro_feature_2">900x Rust engine speedup</string>
+    <string name="paywall_pro_feature_3">Unlimited circuit saves</string>
+    <string name="paywall_pro_feature_4">Priority support</string>
+    <string name="paywall_master_feature_1">40+ qubits simulation</string>
+    <string name="paywall_master_feature_2">1200x C++ HPC engine</string>
+    <string name="paywall_master_feature_3">IBM Quantum hardware access</string>
+    <string name="paywall_master_feature_4">Advanced analytics</string>
+    <string name="paywall_master_feature_5">Premium priority support</string>
+    <string name="paywall_disclaimer">Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period. Manage subscriptions in your Google Play account settings.</string>
+
+    <!-- Visualize Screen -->
+    <string name="visualize_title">Visualization</string>
+    <string name="visualize_bloch_sphere">Bloch Sphere</string>
+    <string name="visualize_no_data">No visualization data available</string>
+    <string name="visualize_run_simulation">Run a simulation first to see visualization results here</string>
+    <string name="visualize_select_qubit">Select Qubit</string>
+    <string name="visualize_qubit_state">Qubit Q%1$d State</string>
+    <string name="visualize_top_states">Top %1$d States</string>
+    <string name="visualize_showing_top">Showing top 16 of %1$d states</string>
+    <string name="visualize_state_vector_unavailable">State vector data not available for this simulation</string>
+    <string name="visualize_state_vector_title">State Vector</string>
+    <string name="visualize_state_vector_desc">Complex amplitudes for %1$d basis states</string>
+    <string name="visualize_basis_state">State</string>
+    <string name="visualize_amplitude">Amplitude</string>
+    <string name="visualize_probability">Prob</string>
+    <string name="visualize_showing_first">Showing first 32 of %1$d states</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_loading">Loading…</string>
 </resources>

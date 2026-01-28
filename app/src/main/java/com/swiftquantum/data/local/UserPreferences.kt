@@ -31,6 +31,7 @@ class UserPreferences @Inject constructor(
         private val AUTO_SAVE_CIRCUITS_KEY = booleanPreferencesKey("auto_save_circuits")
         private val PREFERRED_BACKEND_KEY = stringPreferencesKey("preferred_backend")
         private val ONBOARDING_COMPLETED_KEY = booleanPreferencesKey("onboarding_completed")
+        private val LANGUAGE_KEY = stringPreferencesKey("language")
     }
 
     val userTier: Flow<UserTier> = context.userPrefsDataStore.data.map { preferences ->
@@ -67,6 +68,10 @@ class UserPreferences @Inject constructor(
 
     val onboardingCompleted: Flow<Boolean> = context.userPrefsDataStore.data.map { preferences ->
         preferences[ONBOARDING_COMPLETED_KEY] ?: false
+    }
+
+    val language: Flow<String?> = context.userPrefsDataStore.data.map { preferences ->
+        preferences[LANGUAGE_KEY]
     }
 
     suspend fun setUserTier(tier: UserTier) {
@@ -115,6 +120,16 @@ class UserPreferences @Inject constructor(
         context.userPrefsDataStore.edit { preferences ->
             preferences[ONBOARDING_COMPLETED_KEY] = completed
         }
+    }
+
+    suspend fun setLanguage(languageCode: String) {
+        context.userPrefsDataStore.edit { preferences ->
+            preferences[LANGUAGE_KEY] = languageCode
+        }
+    }
+
+    suspend fun getLanguage(): String? {
+        return language.first()
     }
 
     suspend fun getUserTier(): UserTier {

@@ -48,6 +48,9 @@
 - Google Sign-In (planned)
 - JWT token management
 - Auto token refresh
+- Cross-app single sign-on (SharedAuthManager)
+- Guest mode with login access in Settings
+- Logout functionality
 
 ### Subscription Tiers
 
@@ -69,17 +72,54 @@
 
 ### Material Design 3
 - Dynamic color support (Android 12+)
-- Light and dark themes
-- Adaptive layouts
+- Light and dark themes (dark mode default)
+- Adaptive layouts for Phone/Foldable/Tablet
+- Brand Color: Swift-Purple (#7B2FFF)
 
-### Localization
+### Localization (5 Languages)
 - English (default)
 - Korean (한국어)
+- Japanese (日本語)
+- Chinese (中文)
+- German (Deutsch)
 
 ### Navigation
 - Bottom navigation bar
 - 4 main tabs: Simulator, Circuit, Hardware, Profile
+- Unified Navigation Drawer for SwiftQuantum Ecosystem
+- Deep links to QuantumNative, Q-Bridge, QuantumCareer
 - Smooth animations and transitions
+
+### Settings Screen
+- Language selection with in-app switching
+- Theme toggle (Light/Dark)
+- Dynamic colors toggle (Android 12+)
+- Default simulation engine selection
+- Default shots configuration
+- Subscription management
+
+### Paywall Screen
+- Cyberpunk-themed subscription UI
+- Three-tier comparison (Free/Pro/Master)
+- Feature breakdown by tier
+- Google Play Billing integration
+- Upgrade/downgrade flow
+
+### Visualization Screen
+- Bloch Sphere tab with 3D rotation
+- Histogram tab for measurement results
+- State Vector tab for amplitude display
+- Real-time updates during simulation
+
+### Splash Screen
+- Animated logo with brand colors
+- Loading progress indicator
+- Smooth transition to main app
+
+### Lottie Animations
+- Cloud processing feedback
+- Loading states
+- Success/error animations
 
 ## Technical Features
 

@@ -26,6 +26,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -58,6 +59,7 @@ import kotlinx.coroutines.flow.collectLatest
 @Composable
 fun AuthScreen(
     onNavigateToMain: () -> Unit,
+    onContinueAsGuest: (() -> Unit)? = null,
     viewModel: AuthViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -261,6 +263,24 @@ fun AuthScreen(
             }
 
             Spacer(modifier = Modifier.height(16.dp))
+
+            // Continue as Guest button
+            onContinueAsGuest?.let { onGuest ->
+                OutlinedButton(
+                    onClick = onGuest,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(56.dp),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Text(
+                        text = "Continue as Guest",
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+            }
 
             // Toggle login/register
             TextButton(

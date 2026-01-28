@@ -102,6 +102,12 @@ dependencies {
     // Image Loading
     implementation(libs.coil.compose)
 
+    // Lottie for animations
+    implementation("com.airbnb.android:lottie-compose:6.3.0")
+
+    // Adaptive Layout / Window Size Class
+    implementation("androidx.compose.material3:material3-window-size-class")
+
     // Logging
     implementation(libs.timber)
 

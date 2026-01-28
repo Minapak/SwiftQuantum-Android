@@ -3,6 +3,8 @@ package com.swiftquantum.di
 import com.swiftquantum.BuildConfig
 import com.swiftquantum.data.api.AuthApi
 import com.swiftquantum.data.api.BridgeApi
+import com.swiftquantum.data.api.HybridEngineApi
+import com.swiftquantum.data.api.QASMApi
 import com.swiftquantum.data.api.QuantumApi
 import com.swiftquantum.data.local.TokenManager
 import dagger.Module
@@ -142,5 +144,17 @@ object NetworkModule {
     @Singleton
     fun provideBridgeApi(@Named("BridgeRetrofit") retrofit: Retrofit): BridgeApi {
         return retrofit.create(BridgeApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideHybridEngineApi(@Named("ApiRetrofit") retrofit: Retrofit): HybridEngineApi {
+        return retrofit.create(HybridEngineApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideQASMApi(@Named("ApiRetrofit") retrofit: Retrofit): QASMApi {
+        return retrofit.create(QASMApi::class.java)
     }
 }

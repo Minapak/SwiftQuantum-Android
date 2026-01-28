@@ -3,6 +3,8 @@ package com.swiftquantum.di
 import com.swiftquantum.domain.repository.AuthRepository
 import com.swiftquantum.domain.repository.BillingRepository
 import com.swiftquantum.domain.repository.HardwareRepository
+import com.swiftquantum.domain.repository.HybridEngineRepository
+import com.swiftquantum.domain.repository.QASMRepository
 import com.swiftquantum.domain.repository.QuantumRepository
 import com.swiftquantum.domain.usecase.*
 import dagger.Module
@@ -220,5 +222,71 @@ object UseCaseModule {
         billingRepository: BillingRepository
     ): ObserveSubscriptionUseCase {
         return ObserveSubscriptionUseCase(billingRepository)
+    }
+
+    // QASM Use Cases
+    @Provides
+    @ViewModelScoped
+    fun provideImportQASMUseCase(qasmRepository: QASMRepository): ImportQASMUseCase {
+        return ImportQASMUseCase(qasmRepository)
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideExportQASMUseCase(qasmRepository: QASMRepository): ExportQASMUseCase {
+        return ExportQASMUseCase(qasmRepository)
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideValidateQASMUseCase(qasmRepository: QASMRepository): ValidateQASMUseCase {
+        return ValidateQASMUseCase(qasmRepository)
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideLoadQASMTemplatesUseCase(qasmRepository: QASMRepository): LoadQASMTemplatesUseCase {
+        return LoadQASMTemplatesUseCase(qasmRepository)
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideLoadQASMTemplateUseCase(qasmRepository: QASMRepository): LoadQASMTemplateUseCase {
+        return LoadQASMTemplateUseCase(qasmRepository)
+    }
+
+    // Hybrid Engine Use Cases
+    @Provides
+    @ViewModelScoped
+    fun provideExecuteWithHybridEngineUseCase(
+        hybridEngineRepository: HybridEngineRepository,
+        billingRepository: BillingRepository
+    ): ExecuteWithHybridEngineUseCase {
+        return ExecuteWithHybridEngineUseCase(hybridEngineRepository, billingRepository)
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideRunBenchmarkUseCase(
+        hybridEngineRepository: HybridEngineRepository,
+        billingRepository: BillingRepository
+    ): RunBenchmarkUseCase {
+        return RunBenchmarkUseCase(hybridEngineRepository, billingRepository)
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideGetBenchmarkHistoryUseCase(
+        hybridEngineRepository: HybridEngineRepository
+    ): GetBenchmarkHistoryUseCase {
+        return GetBenchmarkHistoryUseCase(hybridEngineRepository)
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideGetEngineStatusUseCase(
+        hybridEngineRepository: HybridEngineRepository
+    ): GetEngineStatusUseCase {
+        return GetEngineStatusUseCase(hybridEngineRepository)
     }
 }

@@ -2,6 +2,8 @@ package com.swiftquantum.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.swiftquantum.data.auth.AuthData
+import com.swiftquantum.data.auth.SharedAuthManager
 import com.swiftquantum.domain.model.Subscription
 import com.swiftquantum.domain.model.SubscriptionProduct
 import com.swiftquantum.domain.model.User
@@ -33,7 +35,11 @@ data class ProfileUiState(
     val isLoading: Boolean = false,
     val isPurchasing: Boolean = false,
     val showUpgradeDialog: Boolean = false,
-    val error: String? = null
+    val error: String? = null,
+    // Shared auth state
+    val isLoggedIn: Boolean = false,
+    val authData: AuthData? = null,
+    val showLogoutDialog: Boolean = false
 )
 
 sealed class ProfileEvent {
@@ -52,7 +58,8 @@ class ProfileViewModel @Inject constructor(
     private val getSubscriptionProductsUseCase: GetSubscriptionProductsUseCase,
     private val purchaseSubscriptionUseCase: PurchaseSubscriptionUseCase,
     private val restorePurchasesUseCase: RestorePurchasesUseCase,
-    private val getCurrentSubscriptionUseCase: GetCurrentSubscriptionUseCase
+    private val getCurrentSubscriptionUseCase: GetCurrentSubscriptionUseCase,
+    private val sharedAuthManager: SharedAuthManager
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ProfileUiState())
@@ -65,7 +72,19 @@ class ProfileViewModel @Inject constructor(
         observeUser()
         observeUserTier()
         observeSubscription()
+        observeAuthState()
         loadProducts()
+    }
+
+    private fun observeAuthState() {
+        viewModelScope.launch {
+            sharedAuthManager.observeAuthState().collectLatest { authData ->
+                _uiState.value = _uiState.value.copy(
+                    isLoggedIn = authData.isLoggedIn,
+                    authData = authData
+                )
+            }
+        }
     }
 
     private fun observeUser() {
@@ -170,21 +189,27 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
+    fun showLogoutDialog(show: Boolean) {
+        _uiState.value = _uiState.value.copy(showLogoutDialog = show)
+    }
+
     fun logout() {
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true)
 
+            // Clear shared auth (affects all apps)
+            sharedAuthManager.clearAuth()
+
+            // Also call the API logout
             logoutUseCase()
                 .onSuccess {
                     _uiState.value = ProfileUiState()
                     _events.emit(ProfileEvent.LoggedOut)
                 }
                 .onFailure { error ->
-                    _uiState.value = _uiState.value.copy(
-                        isLoading = false,
-                        error = error.message
-                    )
-                    _events.emit(ProfileEvent.Error(error.message ?: "Logout failed"))
+                    // Even if API logout fails, we've cleared local auth
+                    _uiState.value = ProfileUiState()
+                    _events.emit(ProfileEvent.LoggedOut)
                 }
         }
     }

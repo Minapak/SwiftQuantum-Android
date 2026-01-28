@@ -82,3 +82,43 @@ User Action → ViewModel → Use Case → Repository → API/Local
 3. **Kotlin Coroutines/Flow**: Async operations, reactive streams
 4. **Compose**: Declarative UI, state-driven rendering
 5. **Hilt**: Compile-time DI, reduced boilerplate
+
+## Cross-App Integration
+
+### SharedAuthManager
+Cross-app authentication via ContentProvider with signature-level permissions:
+
+```kotlin
+// SharedAuthManager provides single sign-on across ecosystem apps
+class SharedAuthManager(context: Context) {
+    fun observeAuthState(): Flow<AuthData>
+    suspend fun saveAuth(authData: AuthData)
+    suspend fun clearAuth()
+}
+```
+
+### Unified Navigation Drawer
+Deep linking between SwiftQuantum Ecosystem apps:
+
+```kotlin
+UnifiedNavigationDrawer(
+    currentAppName = "SwiftQuantum",
+    userDisplayName = authState.user?.name,
+    currentAppFeatures = drawerMenuItems,
+    onNavigate = { route -> navController.navigate(route) }
+)
+```
+
+### Responsive Layout
+WindowSizeClass for adaptive layouts:
+
+```kotlin
+// Phone: Compact layout
+// Foldable: Medium layout with side panels
+// Tablet: Expanded layout with master-detail
+ResponsiveLayout(
+    compact = { CompactContent() },
+    medium = { MediumContent() },
+    expanded = { ExpandedContent() }
+)
+```

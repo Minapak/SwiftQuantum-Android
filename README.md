@@ -4,7 +4,7 @@ Professional Quantum Computing IDE for Android
 
 ## Overview
 
-SwiftQuantum Android is the Android port of the iOS SwiftQuantum app, providing a comprehensive quantum computing development environment with circuit design, simulation, and IBM Quantum hardware integration.
+SwiftQuantum Android is the Android port of the iOS SwiftQuantum app, providing a comprehensive quantum computing development environment with circuit design, simulation, and IBM Quantum hardware integration. Part of the SwiftQuantum Ecosystem.
 
 ## Features
 
@@ -15,6 +15,12 @@ SwiftQuantum Android is the Android port of the iOS SwiftQuantum app, providing 
 - **IBM Quantum Integration**: Direct connection to IBM Quantum hardware (Master tier)
 - **Multi-Engine Support**: Python, Rust (900x faster), C++ (1200x faster)
 - **Material Design 3**: Modern Android UI with Jetpack Compose
+- **Unified Navigation Drawer**: Deep link integration with SwiftQuantum Ecosystem apps
+- **Cross-App Authentication**: Single sign-on across all SwiftQuantum apps
+- **5-Language Support**: English, Korean, Japanese, Chinese, German
+- **Settings Screen**: Full configuration including language, theme, simulation engine
+- **Paywall Screen**: Cyberpunk-themed subscription management
+- **Advanced Visualization**: Bloch sphere, histogram, state vector tabs
 
 ## Requirements
 

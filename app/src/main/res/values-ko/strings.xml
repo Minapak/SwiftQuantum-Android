@@ -150,4 +150,184 @@
     <string name="version">버전</string>
     <string name="privacy_policy">개인정보 처리방침</string>
     <string name="terms_of_service">서비스 이용약관</string>
+
+    <!-- Cloud Hybrid Engine -->
+    <string name="cloud_engine">클라우드 엔진</string>
+    <string name="local_engine">로컬 엔진</string>
+    <string name="python_engine">Python 엔진</string>
+    <string name="rust_engine">Rust 엔진</string>
+    <string name="cpp_hpc_engine">C++ HPC 엔진</string>
+    <string name="speedup_900x">900배 속도 향상</string>
+    <string name="speedup_1200x">1200배 속도 향상</string>
+
+    <!-- QASM -->
+    <string name="qasm_import">QASM 가져오기</string>
+    <string name="qasm_export">QASM 내보내기</string>
+    <string name="qasm_editor">QASM 편집기</string>
+    <string name="qasm_template">QASM 템플릿</string>
+
+    <!-- Benchmark -->
+    <string name="benchmark">벤치마크</string>
+    <string name="run_benchmark">벤치마크 실행</string>
+    <string name="benchmark_results">벤치마크 결과</string>
+
+    <!-- Engine Settings -->
+    <string name="optimization_level">최적화 수준</string>
+    <string name="cache_enabled">캐시 활성화</string>
+
+    <!-- Additional Common Actions -->
+    <string name="close">닫기</string>
+    <string name="confirm">확인</string>
+    <string name="back">뒤로</string>
+    <string name="next">다음</string>
+    <string name="done">완료</string>
+    <string name="success">성공</string>
+    <string name="submit">제출</string>
+    <string name="send">전송</string>
+    <string name="share">공유</string>
+    <string name="copy">복사</string>
+    <string name="download">다운로드</string>
+    <string name="upload">업로드</string>
+    <string name="continue_action">계속</string>
+    <string name="dismiss">닫기</string>
+    <string name="view_result">결과 보기</string>
+
+    <!-- Auth Extended -->
+    <string name="sign_in">로그인</string>
+    <string name="sign_up">회원가입</string>
+    <string name="guest_mode">게스트 모드</string>
+    <string name="name">이름</string>
+    <string name="display_name">표시 이름</string>
+
+    <!-- Navigation Extended -->
+    <string name="home">홈</string>
+    <string name="nav_qasm">QASM</string>
+    <string name="nav_benchmark">벤치마크</string>
+    <string name="nav_login">로그인</string>
+
+    <!-- Status -->
+    <string name="online">온라인</string>
+    <string name="offline">오프라인</string>
+    <string name="processing">처리 중...</string>
+
+    <!-- Time -->
+    <string name="today">오늘</string>
+    <string name="yesterday">어제</string>
+    <string name="just_now">방금 전</string>
+    <string name="minutes_ago">%1$d분 전</string>
+    <string name="hours_ago">%1$d시간 전</string>
+
+    <!-- QASM Screen -->
+    <string name="editor">편집기</string>
+    <string name="templates">템플릿</string>
+    <string name="qasm_version">QASM 버전</string>
+    <string name="include_comments">주석 포함</string>
+    <string name="pretty_print">정렬 출력</string>
+    <string name="include_measurements">측정 포함</string>
+    <string name="validate">검증</string>
+    <string name="import_qasm">가져오기</string>
+    <string name="export_qasm">내보내기</string>
+    <string name="all">전체</string>
+    <string name="no_saved_circuits">저장된 회로 없음</string>
+
+    <!-- Hardware Screen -->
+    <string name="connect">연결</string>
+    <string name="disconnect">연결 해제</string>
+
+    <!-- Benchmark Screen -->
+    <string name="execute">실행</string>
+    <string name="benchmark_all">전체 벤치마크</string>
+    <string name="engine">엔진</string>
+    <string name="optimization">최적화</string>
+
+    <!-- Profile Screen -->
+    <string name="restore_purchases">구매 복원</string>
+    <string name="subscribe">구독</string>
+
+    <!-- Drawer/Navigation -->
+    <string name="features">기능</string>
+    <string name="swiftquantum_ecosystem">SwiftQuantum 생태계</string>
+    <string name="circuit_designer">회로 디자이너</string>
+    <string name="quantum_gates">양자 게이트</string>
+    <string name="simulations">시뮬레이션</string>
+    <string name="tutorials">튜토리얼</string>
+
+    <!-- Gate Categories -->
+    <string name="single_qubit">단일 큐비트</string>
+    <string name="rotation">회전</string>
+    <string name="multi_qubit">다중 큐비트</string>
+    <string name="controlled">제어</string>
+
+    <!-- Stats Labels -->
+    <string name="gates_label">게이트</string>
+    <string name="depth">깊이</string>
+    <string name="time">시간</string>
+    <string name="speedup">속도 향상</string>
+    <string name="memory">메모리</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_account">계정</string>
+    <string name="settings_language">언어</string>
+    <string name="settings_subscription">구독</string>
+    <string name="settings_engine">엔진 설정</string>
+    <string name="settings_app_info">앱 정보</string>
+    <string name="settings_links">링크</string>
+    <string name="settings_login_for_more">로그인하여 전체 기능 사용</string>
+    <string name="settings_current_plan">현재 플랜</string>
+    <string name="settings_plan">플랜</string>
+    <string name="settings_max_qubits">최대 %1$d 큐비트</string>
+    <string name="settings_max_qubits_label">최대 큐비트</string>
+    <string name="settings_renews_on">%1$s에 갱신</string>
+    <string name="settings_current_engine">현재 엔진</string>
+    <string name="settings_available_engines">사용 가능한 엔진</string>
+    <string name="settings_build">빌드</string>
+    <string name="settings_documentation">문서</string>
+    <string name="settings_support">지원</string>
+    <string name="settings_select_language">언어 선택</string>
+    <string name="settings_logout_title">로그아웃</string>
+    <string name="settings_logout_message">정말 로그아웃하시겠습니까?</string>
+
+    <!-- Paywall Screen -->
+    <string name="paywall_title">전체 기능 잠금 해제</string>
+    <string name="paywall_subtitle">양자 컴퓨팅 요구에 맞는 플랜을 선택하세요</string>
+    <string name="paywall_monthly">월간</string>
+    <string name="paywall_yearly">연간</string>
+    <string name="paywall_save_30">30% 절약</string>
+    <string name="paywall_pro_engine">프로 엔진</string>
+    <string name="paywall_pro_tagline">900배 Rust 속도</string>
+    <string name="paywall_master_engine">마스터 엔진</string>
+    <string name="paywall_master_tagline">1200배 C++ HPC + IBM 하드웨어</string>
+    <string name="paywall_per_month">/월</string>
+    <string name="paywall_billed_yearly">연간 %1$s 청구</string>
+    <string name="paywall_recommended">추천</string>
+    <string name="paywall_pro_feature_1">최대 30큐비트 시뮬레이션</string>
+    <string name="paywall_pro_feature_2">900배 Rust 엔진 속도</string>
+    <string name="paywall_pro_feature_3">무제한 회로 저장</string>
+    <string name="paywall_pro_feature_4">우선 지원</string>
+    <string name="paywall_master_feature_1">40+ 큐비트 시뮬레이션</string>
+    <string name="paywall_master_feature_2">1200배 C++ HPC 엔진</string>
+    <string name="paywall_master_feature_3">IBM 양자 하드웨어 접근</string>
+    <string name="paywall_master_feature_4">고급 분석</string>
+    <string name="paywall_master_feature_5">프리미엄 우선 지원</string>
+    <string name="paywall_disclaimer">구독은 현재 기간 종료 최소 24시간 전에 취소하지 않으면 자동으로 갱신됩니다. Google Play 계정 설정에서 구독을 관리하세요.</string>
+
+    <!-- Visualize Screen -->
+    <string name="visualize_title">시각화</string>
+    <string name="visualize_bloch_sphere">블로흐 구</string>
+    <string name="visualize_no_data">시각화 데이터가 없습니다</string>
+    <string name="visualize_run_simulation">시뮬레이션을 먼저 실행하여 여기에서 시각화 결과를 확인하세요</string>
+    <string name="visualize_select_qubit">큐비트 선택</string>
+    <string name="visualize_qubit_state">큐비트 Q%1$d 상태</string>
+    <string name="visualize_top_states">상위 %1$d개 상태</string>
+    <string name="visualize_showing_top">%1$d개 상태 중 상위 16개 표시</string>
+    <string name="visualize_state_vector_unavailable">이 시뮬레이션에 대한 상태 벡터 데이터를 사용할 수 없습니다</string>
+    <string name="visualize_state_vector_title">상태 벡터</string>
+    <string name="visualize_state_vector_desc">%1$d개 기저 상태에 대한 복소 진폭</string>
+    <string name="visualize_basis_state">상태</string>
+    <string name="visualize_amplitude">진폭</string>
+    <string name="visualize_probability">확률</string>
+    <string name="visualize_showing_first">%1$d개 상태 중 처음 32개 표시</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_loading">로딩 중…</string>
 </resources>
