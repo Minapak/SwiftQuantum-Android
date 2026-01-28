@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SwiftQuantum</string>
+    <string name="app_tagline">Professionelle Quantencomputing-IDE</string>
+
+    <!-- Navigation -->
+    <string name="nav_simulator">Simulator</string>
+    <string name="nav_circuit">Schaltkreis</string>
+    <string name="nav_hardware">Hardware</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Auth -->
+    <string name="login">Anmelden</string>
+    <string name="logout">Abmelden</string>
+    <string name="register">Registrieren</string>
+    <string name="email">E-Mail</string>
+    <string name="password">Passwort</string>
+    <string name="confirm_password">Passwort bestätigen</string>
+    <string name="forgot_password">Passwort vergessen?</string>
+    <string name="login_success">Anmeldung erfolgreich</string>
+    <string name="login_failed">Anmeldung fehlgeschlagen</string>
+    <string name="register_success">Registrierung erfolgreich</string>
+    <string name="register_failed">Registrierung fehlgeschlagen</string>
+
+    <!-- User Tiers -->
+    <string name="tier_free">KOSTENLOS</string>
+    <string name="tier_pro">PRO</string>
+    <string name="tier_master">MASTER</string>
+    <string name="tier_free_desc">Bis zu 20 Qubits Simulation</string>
+    <string name="tier_pro_desc">Bis zu 30 Qubits Simulation</string>
+    <string name="tier_master_desc">40+ Qubits + IBM Quantum Hardware</string>
+
+    <!-- Simulator -->
+    <string name="simulator_title">Quantensimulator</string>
+    <string name="qubits">Qubits</string>
+    <string name="shots">Messungen</string>
+    <string name="run_simulation">Simulation starten</string>
+    <string name="simulation_running">Simulation läuft…</string>
+    <string name="simulation_complete">Simulation abgeschlossen</string>
+    <string name="simulation_failed">Simulation fehlgeschlagen</string>
+    <string name="execution_time">Ausführungszeit</string>
+    <string name="fidelity">Wiedergabetreue</string>
+    <string name="backend">Backend</string>
+    <string name="backend_rust">Rust (900x schneller)</string>
+    <string name="backend_ibm">IBM Quantum</string>
+
+    <!-- Circuit Builder -->
+    <string name="circuit_builder">Schaltkreis-Builder</string>
+    <string name="add_gate">Gate hinzufügen</string>
+    <string name="remove_gate">Gate entfernen</string>
+    <string name="clear_circuit">Schaltkreis löschen</string>
+    <string name="save_circuit">Schaltkreis speichern</string>
+    <string name="load_circuit">Schaltkreis laden</string>
+    <string name="circuit_saved">Schaltkreis gespeichert</string>
+    <string name="circuit_loaded">Schaltkreis geladen</string>
+    <string name="my_circuits">Meine Schaltkreise</string>
+    <string name="circuit_name">Schaltkreisname</string>
+    <string name="circuit_description">Beschreibung</string>
+
+    <!-- Gates -->
+    <string name="gates">Quantengatter</string>
+    <string name="single_qubit_gates">Ein-Qubit-Gatter</string>
+    <string name="multi_qubit_gates">Multi-Qubit-Gatter</string>
+    <string name="rotation_gates">Rotationsgatter</string>
+    <string name="controlled_gates">Kontrollierte Gatter</string>
+
+    <!-- Gate Names -->
+    <string name="gate_h">Hadamard (H)</string>
+    <string name="gate_x">Pauli-X</string>
+    <string name="gate_y">Pauli-Y</string>
+    <string name="gate_z">Pauli-Z</string>
+    <string name="gate_s">S-Gatter</string>
+    <string name="gate_t">T-Gatter</string>
+    <string name="gate_rx">RX-Rotation</string>
+    <string name="gate_ry">RY-Rotation</string>
+    <string name="gate_rz">RZ-Rotation</string>
+    <string name="gate_u1">U1-Gatter</string>
+    <string name="gate_u2">U2-Gatter</string>
+    <string name="gate_u3">U3-Gatter</string>
+    <string name="gate_cnot">CNOT</string>
+    <string name="gate_cz">CZ-Gatter</string>
+    <string name="gate_cy">CY-Gatter</string>
+    <string name="gate_swap">SWAP</string>
+    <string name="gate_iswap">iSWAP</string>
+    <string name="gate_crx">CRX-Gatter</string>
+    <string name="gate_cry">CRY-Gatter</string>
+    <string name="gate_crz">CRZ-Gatter</string>
+    <string name="gate_toffoli">Toffoli (CCX)</string>
+    <string name="gate_fredkin">Fredkin (CSWAP)</string>
+    <string name="gate_ccz">CCZ-Gatter</string>
+
+    <!-- Bloch Sphere -->
+    <string name="bloch_sphere">Bloch-Kugel</string>
+    <string name="theta">Theta (θ)</string>
+    <string name="phi">Phi (φ)</string>
+    <string name="state_vector">Zustandsvektor</string>
+
+    <!-- Hardware -->
+    <string name="ibm_quantum">IBM Quantum</string>
+    <string name="connect_ibm">Mit IBM Quantum verbinden</string>
+    <string name="ibm_api_token">IBM Quantum API-Token</string>
+    <string name="connected">Verbunden</string>
+    <string name="disconnected">Nicht verbunden</string>
+    <string name="available_backends">Verfügbare Backends</string>
+    <string name="queue_position">Warteschlangenposition</string>
+    <string name="estimated_time">Geschätzte Zeit</string>
+    <string name="hardware_access_master_only">Hardware-Zugriff erfordert MASTER-Stufe</string>
+
+    <!-- Profile -->
+    <string name="profile">Profil</string>
+    <string name="account_settings">Kontoeinstellungen</string>
+    <string name="subscription">Abonnement</string>
+    <string name="upgrade">Upgrade</string>
+    <string name="usage_stats">Nutzungsstatistiken</string>
+    <string name="simulations_run">Durchgeführte Simulationen</string>
+    <string name="total_qubits">Verwendete Qubits gesamt</string>
+    <string name="hardware_jobs">Hardware-Jobs</string>
+
+    <!-- Results -->
+    <string name="results">Ergebnisse</string>
+    <string name="histogram">Histogramm</string>
+    <string name="probabilities">Wahrscheinlichkeiten</string>
+    <string name="measurement">Messung</string>
+    <string name="counts">Zählungen</string>
+    <string name="export_results">Ergebnisse exportieren</string>
+
+    <!-- Errors -->
+    <string name="error_network">Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.</string>
+    <string name="error_unauthorized">Sitzung abgelaufen. Bitte erneut anmelden.</string>
+    <string name="error_server">Serverfehler. Bitte später erneut versuchen.</string>
+    <string name="error_qubit_limit">Qubit-Limit für Ihre Stufe überschritten</string>
+    <string name="error_invalid_circuit">Ungültige Schaltkreiskonfiguration</string>
+    <string name="error_empty_email">Bitte E-Mail eingeben</string>
+    <string name="error_empty_password">Bitte Passwort eingeben</string>
+    <string name="error_invalid_email">Bitte gültige E-Mail eingeben</string>
+    <string name="error_password_mismatch">Passwörter stimmen nicht überein</string>
+    <string name="error_password_too_short">Passwort muss mindestens 8 Zeichen haben</string>
+
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="save">Speichern</string>
+    <string name="delete">Löschen</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="loading">Wird geladen…</string>
+    <string name="retry">Wiederholen</string>
+    <string name="refresh">Aktualisieren</string>
+    <string name="settings">Einstellungen</string>
+    <string name="about">Über</string>
+    <string name="version">Version</string>
+    <string name="privacy_policy">Datenschutzrichtlinie</string>
+    <string name="terms_of_service">Nutzungsbedingungen</string>
+</resources>
