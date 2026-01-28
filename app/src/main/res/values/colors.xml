@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Brand Colors -->
+    <color name="quantum_purple">#6366F1</color>
+    <color name="quantum_purple_light">#818CF8</color>
+    <color name="quantum_purple_dark">#4F46E5</color>
+
+    <!-- Secondary Colors -->
+    <color name="quantum_cyan">#22D3EE</color>
+    <color name="quantum_cyan_light">#67E8F9</color>
+    <color name="quantum_cyan_dark">#06B6D4</color>
+
+    <!-- Accent Colors -->
+    <color name="quantum_green">#10B981</color>
+    <color name="quantum_orange">#F59E0B</color>
+    <color name="quantum_red">#EF4444</color>
+
+    <!-- Background Colors -->
+    <color name="background_dark">#0F0F23</color>
+    <color name="background_medium">#1A1A2E</color>
+    <color name="surface_dark">#16213E</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#A0AEC0</color>
+    <color name="text_disabled">#4A5568</color>
+
+    <!-- Gate Colors -->
+    <color name="gate_hadamard">#8B5CF6</color>
+    <color name="gate_pauli_x">#EF4444</color>
+    <color name="gate_pauli_y">#22C55E</color>
+    <color name="gate_pauli_z">#3B82F6</color>
+    <color name="gate_rotation">#F59E0B</color>
+    <color name="gate_controlled">#EC4899</color>
+
+    <!-- Bloch Sphere Colors -->
+    <color name="bloch_sphere">#6366F1</color>
+    <color name="bloch_axis_x">#EF4444</color>
+    <color name="bloch_axis_y">#22C55E</color>
+    <color name="bloch_axis_z">#3B82F6</color>
+    <color name="bloch_state_vector">#F59E0B</color>
+</resources>
