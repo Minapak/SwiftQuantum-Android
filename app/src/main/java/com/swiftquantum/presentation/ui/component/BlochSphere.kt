@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -144,8 +145,8 @@ fun BlochSphere(
                 val stateZ = cos(theta)
 
                 // Project 3D to 2D (simple orthographic projection)
-                val projX = centerX + radius * stateX
-                val projY = centerY - radius * stateZ // Invert Z for screen coordinates
+                val projX = (centerX + radius * stateX).toFloat()
+                val projY = (centerY - radius * stateZ).toFloat() // Invert Z for screen coordinates
 
                 // Draw state vector
                 drawLine(
@@ -164,8 +165,8 @@ fun BlochSphere(
                 )
 
                 // Draw shadow on equator
-                val shadowX = centerX + radius * stateX
-                val shadowY = centerY + radius * stateY * 0.3f
+                val shadowX = (centerX + radius * stateX).toFloat()
+                val shadowY = (centerY + radius * stateY * 0.3f).toFloat()
                 drawCircle(
                     color = stateVectorColor.copy(alpha = 0.3f),
                     radius = 4.dp.toPx(),

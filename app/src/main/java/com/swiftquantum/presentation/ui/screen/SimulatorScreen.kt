@@ -66,6 +66,7 @@ import com.swiftquantum.presentation.ui.theme.QuantumGreen
 import com.swiftquantum.presentation.ui.theme.QuantumPurple
 import com.swiftquantum.presentation.viewmodel.CircuitPreset
 import com.swiftquantum.presentation.viewmodel.SimulatorViewModel
+import kotlin.math.pow
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -168,7 +169,7 @@ fun SimulatorScreen(
                             Slider(
                                 value = kotlin.math.log10(uiState.shots.toFloat()),
                                 onValueChange = {
-                                    viewModel.setShots(kotlin.math.pow(10f, it).toInt())
+                                    viewModel.setShots(10.0.pow(it.toDouble()).toInt())
                                 },
                                 valueRange = 1f..5f,
                                 modifier = Modifier.weight(1f)

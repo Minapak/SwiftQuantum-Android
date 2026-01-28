@@ -1,0 +1,10 @@
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.AuthViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.AuthViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.CircuitViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.CircuitViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.HardwareViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.HardwareViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.SimulatorViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.SimulatorViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.ProfileViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.ProfileViewModel
