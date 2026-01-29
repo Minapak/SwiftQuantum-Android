@@ -1,5 +1,7 @@
 package com.swiftquantum.presentation.ui.screen
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -49,6 +51,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -73,9 +76,11 @@ import kotlinx.coroutines.flow.collectLatest
 @Composable
 fun ProfileScreen(
     onLogout: () -> Unit,
+    onNavigateToSettings: () -> Unit = {},
     viewModel: ProfileViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
+    val context = LocalContext.current
 
     LaunchedEffect(Unit) {
         viewModel.events.collectLatest { event ->
@@ -100,12 +105,15 @@ fun ProfileScreen(
                     containerColor = MaterialTheme.colorScheme.background
                 ),
                 actions = {
-                    IconButton(onClick = { viewModel.logout() }) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.Logout,
-                            contentDescription = stringResource(R.string.logout),
-                            tint = QuantumRed
-                        )
+                    // Only show logout button if user is logged in (not guest)
+                    if (uiState.isLoggedIn) {
+                        IconButton(onClick = { viewModel.logout() }) {
+                            Icon(
+                                Icons.AutoMirrored.Filled.Logout,
+                                contentDescription = stringResource(R.string.logout),
+                                tint = QuantumRed
+                            )
+                        }
                     }
                 }
             )
@@ -345,37 +353,47 @@ fun ProfileScreen(
                     Column {
                         SettingsItem(
                             title = stringResource(R.string.account_settings),
-                            onClick = {}
+                            onClick = onNavigateToSettings
                         )
                         SettingsItem(
                             title = stringResource(R.string.privacy_policy),
-                            onClick = {}
+                            onClick = {
+                                context.startActivity(
+                                    Intent(Intent.ACTION_VIEW, Uri.parse("https://swiftquantum.com/privacy"))
+                                )
+                            }
                         )
                         SettingsItem(
                             title = stringResource(R.string.terms_of_service),
-                            onClick = {}
+                            onClick = {
+                                context.startActivity(
+                                    Intent(Intent.ACTION_VIEW, Uri.parse("https://swiftquantum.com/terms"))
+                                )
+                            }
                         )
                         SettingsItem(
                             title = stringResource(R.string.about),
                             subtitle = "${stringResource(R.string.version)} 1.0.0",
-                            onClick = {}
+                            onClick = onNavigateToSettings
                         )
                     }
                 }
             }
 
-            // Logout button
-            item {
-                OutlinedButton(
-                    onClick = { viewModel.logout() },
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = QuantumRed
-                    )
-                ) {
-                    Icon(Icons.AutoMirrored.Filled.Logout, contentDescription = null)
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(stringResource(R.string.logout))
+            // Logout button - only show if user is logged in (not guest)
+            if (uiState.isLoggedIn) {
+                item {
+                    OutlinedButton(
+                        onClick = { viewModel.logout() },
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            contentColor = QuantumRed
+                        )
+                    ) {
+                        Icon(Icons.AutoMirrored.Filled.Logout, contentDescription = null)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(stringResource(R.string.logout))
+                    }
                 }
             }
 
