@@ -43,13 +43,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.os.LocaleListCompat
-import com.swiftquantum.R
 import com.swiftquantum.presentation.ui.theme.SwiftPurple
 
 @Composable
@@ -98,9 +96,9 @@ fun LanguageSelectionScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Title
+            // Title (hardcoded English for onboarding)
             Text(
-                text = stringResource(R.string.select_language),
+                text = "Select Language",
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
@@ -109,9 +107,9 @@ fun LanguageSelectionScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Subtitle
+            // Subtitle (hardcoded English for onboarding)
             Text(
-                text = stringResource(R.string.select_language_desc),
+                text = "Choose your preferred language",
                 style = MaterialTheme.typography.bodyMedium,
                 color = Color.White.copy(alpha = 0.7f),
                 textAlign = TextAlign.Center
@@ -141,7 +139,7 @@ fun LanguageSelectionScreen(
 
             Spacer(modifier = Modifier.weight(1f))
 
-            // Continue button
+            // Continue button (hardcoded English for onboarding)
             Button(
                 onClick = onContinue,
                 modifier = Modifier
@@ -153,7 +151,7 @@ fun LanguageSelectionScreen(
                 shape = RoundedCornerShape(16.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.continue_action),
+                    text = "Continue",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold
                 )

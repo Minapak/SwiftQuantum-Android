@@ -23,8 +23,10 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.swiftquantum.R
 import com.swiftquantum.presentation.ui.theme.*
 
 /**
@@ -69,7 +71,7 @@ fun UnifiedNavigationDrawer(
     val ecosystemApps = listOf(
         EcosystemApp(
             name = "QuantumNative",
-            description = "Native quantum learning",
+            description = stringResource(R.string.ecosystem_quantumnative_desc),
             deepLink = "quantumnative://home",
             color = NativeBlue,
             icon = Icons.Filled.School,
@@ -77,7 +79,7 @@ fun UnifiedNavigationDrawer(
         ),
         EcosystemApp(
             name = "SwiftQuantum",
-            description = "Quantum circuit designer",
+            description = stringResource(R.string.ecosystem_swiftquantum_desc),
             deepLink = "swiftquantum://home",
             color = SwiftPurple,
             icon = Icons.Filled.Memory,
@@ -85,7 +87,7 @@ fun UnifiedNavigationDrawer(
         ),
         EcosystemApp(
             name = "Q-Bridge",
-            description = "Real quantum hardware",
+            description = stringResource(R.string.ecosystem_qbridge_desc),
             deepLink = "qbridge://home",
             color = BridgeCyan,
             icon = Icons.Filled.Hub,
@@ -93,7 +95,7 @@ fun UnifiedNavigationDrawer(
         ),
         EcosystemApp(
             name = "QuantumCareer",
-            description = "Career & certifications",
+            description = stringResource(R.string.ecosystem_quantumcareer_desc),
             deepLink = "quantumcareer://home",
             color = CareerGold,
             icon = Icons.Filled.WorkspacePremium,
@@ -128,7 +130,7 @@ fun UnifiedNavigationDrawer(
             Spacer(modifier = Modifier.height(8.dp))
 
             // Current App Features Section
-            DrawerSection(title = "Features") {
+            DrawerSection(title = stringResource(R.string.drawer_section_features)) {
                 currentAppFeatures.forEach { item ->
                     DrawerItem(
                         title = item.title,
@@ -145,7 +147,7 @@ fun UnifiedNavigationDrawer(
             )
 
             // Ecosystem Apps Section
-            DrawerSection(title = "SwiftQuantum Ecosystem") {
+            DrawerSection(title = stringResource(R.string.drawer_section_ecosystem)) {
                 ecosystemApps.forEach { app ->
                     EcosystemAppItem(
                         app = app,
@@ -167,7 +169,7 @@ fun UnifiedNavigationDrawer(
             )
 
             DrawerItem(
-                title = "Settings",
+                title = stringResource(R.string.settings),
                 icon = Icons.Outlined.Settings,
                 onClick = onSettingsClick
             )
@@ -328,7 +330,7 @@ private fun EcosystemAppItem(
         badge = if (app.isCurrentApp) {
             {
                 Text(
-                    text = "Current",
+                    text = stringResource(R.string.current),
                     style = MaterialTheme.typography.labelSmall,
                     color = app.color
                 )

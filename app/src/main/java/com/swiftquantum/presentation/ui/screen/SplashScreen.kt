@@ -36,11 +36,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.swiftquantum.R
 import com.swiftquantum.presentation.ui.theme.QuantumCyan
 import com.swiftquantum.presentation.ui.theme.QuantumPink
 import com.swiftquantum.presentation.ui.theme.QuantumPurple
@@ -136,9 +134,9 @@ fun SplashScreen(
 
             Spacer(modifier = Modifier.height(40.dp))
 
-            // App Name
+            // App Name (hardcoded English for splash)
             Text(
-                text = stringResource(R.string.app_name),
+                text = "SwiftQuantum",
                 style = MaterialTheme.typography.headlineLarge,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
@@ -147,9 +145,9 @@ fun SplashScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Tagline
+            // Tagline (hardcoded English for splash)
             Text(
-                text = stringResource(R.string.app_tagline),
+                text = "Professional Quantum Computing IDE",
                 style = MaterialTheme.typography.bodyMedium,
                 color = Color.White.copy(alpha = 0.7f),
                 modifier = Modifier.alpha(textAlpha)
@@ -157,9 +155,9 @@ fun SplashScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Version
+            // Version (hardcoded English for splash)
             Text(
-                text = "${stringResource(R.string.version)} $appVersion",
+                text = "Version $appVersion",
                 style = MaterialTheme.typography.bodySmall,
                 color = Color.White.copy(alpha = 0.5f),
                 modifier = Modifier.alpha(versionAlpha)

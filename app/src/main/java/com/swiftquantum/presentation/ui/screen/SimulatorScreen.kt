@@ -87,7 +87,7 @@ fun SimulatorScreen(
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = "${uiState.userTier.name} - Max ${uiState.maxQubits} qubits",
+                            text = stringResource(R.string.simulator_tier_info, uiState.userTier.name, uiState.maxQubits),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -98,7 +98,7 @@ fun SimulatorScreen(
                 ),
                 actions = {
                     IconButton(onClick = { viewModel.clearCircuit() }) {
-                        Icon(Icons.Default.Delete, contentDescription = "Clear")
+                        Icon(Icons.Default.Delete, contentDescription = stringResource(R.string.clear))
                     }
                 }
             )
@@ -121,7 +121,7 @@ fun SimulatorScreen(
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(
-                            text = "Configuration",
+                            text = stringResource(R.string.configuration),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold
                         )
@@ -238,7 +238,7 @@ fun SimulatorScreen(
             // Preset circuits
             item {
                 Text(
-                    text = "Quick Start Circuits",
+                    text = stringResource(R.string.quick_start_circuits),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
@@ -313,7 +313,7 @@ fun SimulatorScreen(
                                 fontWeight = FontWeight.Bold
                             )
                             Text(
-                                text = "Depth: ${uiState.circuit.depth}",
+                                text = stringResource(R.string.depth_count, uiState.circuit.depth),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )

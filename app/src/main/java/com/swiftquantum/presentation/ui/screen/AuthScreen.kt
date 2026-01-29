@@ -134,7 +134,7 @@ fun AuthScreen(
                     OutlinedTextField(
                         value = name,
                         onValueChange = { name = it },
-                        label = { Text("Name") },
+                        label = { Text(stringResource(R.string.name)) },
                         leadingIcon = {
                             Icon(Icons.Default.Person, contentDescription = null)
                         },
@@ -274,7 +274,7 @@ fun AuthScreen(
                     shape = RoundedCornerShape(12.dp)
                 ) {
                     Text(
-                        text = "Continue as Guest",
+                        text = stringResource(R.string.continue_as_guest),
                         style = MaterialTheme.typography.titleMedium
                     )
                 }
@@ -290,7 +290,7 @@ fun AuthScreen(
                 }
             ) {
                 Text(
-                    text = if (isLoginMode) "Don't have an account? Register" else "Already have an account? Login",
+                    text = if (isLoginMode) stringResource(R.string.no_account_register) else stringResource(R.string.have_account_login),
                     color = QuantumCyan
                 )
             }

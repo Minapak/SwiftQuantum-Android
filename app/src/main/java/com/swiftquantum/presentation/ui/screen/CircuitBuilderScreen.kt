@@ -174,12 +174,12 @@ fun CircuitBuilderScreen(
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             Text(
-                                text = "Gates: ${uiState.circuit.gateCount}",
+                                text = stringResource(R.string.gates_count, uiState.circuit.gateCount),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                             Text(
-                                text = "Depth: ${uiState.circuit.depth}",
+                                text = stringResource(R.string.depth_count, uiState.circuit.depth),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
@@ -198,7 +198,7 @@ fun CircuitBuilderScreen(
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(
-                            text = "Circuit Diagram",
+                            text = stringResource(R.string.text_circuit_diagram),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold
                         )
@@ -207,7 +207,7 @@ fun CircuitBuilderScreen(
 
                         if (uiState.circuit.gates.isEmpty()) {
                             Text(
-                                text = "Tap + to add gates to your circuit",
+                                text = stringResource(R.string.text_tap_to_add_gates),
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier.padding(vertical = 32.dp)
@@ -249,7 +249,7 @@ fun CircuitBuilderScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Target Qubit:",
+                            text = stringResource(R.string.gate_target_qubit),
                             style = MaterialTheme.typography.bodyMedium
                         )
                         Spacer(modifier = Modifier.width(16.dp))
@@ -293,7 +293,7 @@ fun CircuitBuilderScreen(
                 title = { Text(stringResource(R.string.save_circuit)) },
                 text = {
                     Column {
-                        Text("Save \"${uiState.circuitName.ifBlank { "Untitled Circuit" }}\"?")
+                        Text(stringResource(R.string.save_circuit_prompt, uiState.circuitName.ifBlank { stringResource(R.string.untitled_circuit) }))
                         if (uiState.error != null) {
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
@@ -336,7 +336,7 @@ fun CircuitBuilderScreen(
                     if (uiState.isLoading) {
                         CircularProgressIndicator()
                     } else if (uiState.savedCircuits.isEmpty()) {
-                        Text("No saved circuits")
+                        Text(stringResource(R.string.no_saved_circuits))
                     } else {
                         LazyColumn(
                             verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -385,7 +385,7 @@ private fun CircuitListItem(
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = "${circuit.numQubits} qubits, ${circuit.gateCount} gates",
+                    text = stringResource(R.string.circuit_info_format, circuit.numQubits, circuit.gateCount),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
