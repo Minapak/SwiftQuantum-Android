@@ -573,4 +573,14 @@
     <string name="credits_license">라이선스: %1$s</string>
     <string name="credits_visit_github">GitHub 방문</string>
     <string name="credits_visit_website">웹사이트 방문</string>
+
+    <!-- Cloud Processing -->
+    <string name="cloud_connecting">양자 클라우드에 연결 중...</string>
+    <string name="cloud_processing">양자 계산 진행 중...</string>
+    <string name="cloud_success">계산이 성공적으로 완료되었습니다!</string>
+    <string name="cloud_error">오류가 발생했습니다. 다시 시도해 주세요.</string>
+    <string name="cloud_chip_connecting">연결 중...</string>
+    <string name="cloud_chip_processing">처리 중...</string>
+    <string name="cloud_chip_complete">완료</string>
+    <string name="error">오류</string>
 </resources>

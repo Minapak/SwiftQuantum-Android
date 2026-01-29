@@ -573,4 +573,14 @@
     <string name="credits_license">许可证: %1$s</string>
     <string name="credits_visit_github">访问GitHub</string>
     <string name="credits_visit_website">访问网站</string>
+
+    <!-- Cloud Processing -->
+    <string name="cloud_connecting">正在连接量子云...</string>
+    <string name="cloud_processing">量子计算进行中...</string>
+    <string name="cloud_success">计算成功完成！</string>
+    <string name="cloud_error">发生错误。请重试。</string>
+    <string name="cloud_chip_connecting">连接中...</string>
+    <string name="cloud_chip_processing">处理中...</string>
+    <string name="cloud_chip_complete">完成</string>
+    <string name="error">错误</string>
 </resources>

@@ -573,4 +573,14 @@
     <string name="credits_license">ライセンス: %1$s</string>
     <string name="credits_visit_github">GitHubを訪問</string>
     <string name="credits_visit_website">ウェブサイトを訪問</string>
+
+    <!-- Cloud Processing -->
+    <string name="cloud_connecting">量子クラウドに接続中...</string>
+    <string name="cloud_processing">量子計算を実行中...</string>
+    <string name="cloud_success">計算が正常に完了しました！</string>
+    <string name="cloud_error">エラーが発生しました。もう一度お試しください。</string>
+    <string name="cloud_chip_connecting">接続中...</string>
+    <string name="cloud_chip_processing">処理中...</string>
+    <string name="cloud_chip_complete">完了</string>
+    <string name="error">エラー</string>
 </resources>

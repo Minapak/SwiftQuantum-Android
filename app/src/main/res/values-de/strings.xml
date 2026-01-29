@@ -573,4 +573,14 @@
     <string name="credits_license">Lizenz: %1$s</string>
     <string name="credits_visit_github">GitHub besuchen</string>
     <string name="credits_visit_website">Website besuchen</string>
+
+    <!-- Cloud Processing -->
+    <string name="cloud_connecting">Verbindung zur Quantum-Cloud wird hergestellt...</string>
+    <string name="cloud_processing">Quantenberechnung wird durchgeführt...</string>
+    <string name="cloud_success">Berechnung erfolgreich abgeschlossen!</string>
+    <string name="cloud_error">Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.</string>
+    <string name="cloud_chip_connecting">Verbinden...</string>
+    <string name="cloud_chip_processing">Verarbeiten...</string>
+    <string name="cloud_chip_complete">Fertig</string>
+    <string name="error">Fehler</string>
 </resources>
