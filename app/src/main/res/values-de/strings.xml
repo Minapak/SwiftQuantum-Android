@@ -9,6 +9,10 @@
     <string name="nav_hardware">Hardware</string>
     <string name="nav_profile">Profil</string>
 
+    <!-- Language Selection -->
+    <string name="select_language">Sprache wählen</string>
+    <string name="select_language_desc">Wählen Sie Ihre bevorzugte Sprache für die App</string>
+
     <!-- Auth -->
     <string name="login">Anmelden</string>
     <string name="logout">Abmelden</string>

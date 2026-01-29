@@ -28,6 +28,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Unified Auth Provider for cross-app authentication -->
+        <provider
+            android:name=".data.auth.UnifiedAuthProvider"
+            android:authorities="com.swiftquantum.auth.provider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:readPermission="com.swiftquantum.permission.READ_AUTH"
+            android:writePermission="com.swiftquantum.permission.WRITE_AUTH" />
     </application>
+
+    <!-- Custom permissions for auth provider access -->
+    <permission
+        android:name="com.swiftquantum.permission.READ_AUTH"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="com.swiftquantum.permission.WRITE_AUTH"
+        android:protectionLevel="signature" />
 
 </manifest>

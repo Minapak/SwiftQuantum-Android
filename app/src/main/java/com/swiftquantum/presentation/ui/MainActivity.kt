@@ -48,6 +48,7 @@ import com.swiftquantum.presentation.ui.component.UnifiedNavigationDrawer
 import com.swiftquantum.presentation.ui.theme.SwiftPurple
 import com.swiftquantum.presentation.ui.theme.SwiftQuantumTheme
 import com.swiftquantum.presentation.viewmodel.AuthViewModel
+import com.swiftquantum.data.local.UserPreferences
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -57,6 +58,9 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var billingRepository: BillingRepositoryImpl
+
+    @Inject
+    lateinit var userPreferences: UserPreferences
 
     private var deepLinkUri by mutableStateOf<Uri?>(null)
 
@@ -76,7 +80,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    SwiftQuantumMainScreen(deepLinkUri = deepLinkUri)
+                    SwiftQuantumMainScreen(
+                        deepLinkUri = deepLinkUri,
+                        userPreferences = userPreferences
+                    )
                 }
             }
         }
@@ -113,9 +120,11 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun SwiftQuantumMainScreen(
     authViewModel: AuthViewModel = hiltViewModel(),
-    deepLinkUri: Uri? = null
+    deepLinkUri: Uri? = null,
+    userPreferences: UserPreferences
 ) {
     val authState by authViewModel.uiState.collectAsState()
+    val onboardingCompleted by userPreferences.onboardingCompleted.collectAsState(initial = false)
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
@@ -232,7 +241,18 @@ fun SwiftQuantumMainScreen(
             Box(modifier = Modifier.padding(innerPadding)) {
                 SwiftQuantumNavHost(
                     navController = navController,
-                    isLoggedIn = authState.isLoggedIn
+                    isLoggedIn = authState.isLoggedIn,
+                    onboardingCompleted = onboardingCompleted,
+                    onLanguageSelected = { languageCode ->
+                        scope.launch {
+                            userPreferences.setLanguage(languageCode)
+                        }
+                    },
+                    onOnboardingComplete = {
+                        scope.launch {
+                            userPreferences.setOnboardingCompleted(true)
+                        }
+                    }
                 )
             }
         }

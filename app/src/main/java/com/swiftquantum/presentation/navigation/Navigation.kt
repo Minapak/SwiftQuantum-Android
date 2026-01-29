@@ -39,6 +39,7 @@ import com.swiftquantum.presentation.ui.screen.QASMScreen
 import com.swiftquantum.presentation.ui.screen.SettingsScreen
 import com.swiftquantum.presentation.ui.screen.SimulatorScreen
 import com.swiftquantum.presentation.ui.screen.SplashScreen
+import com.swiftquantum.presentation.ui.screen.LanguageSelectionScreen
 import com.swiftquantum.presentation.ui.screen.CloudVisualizationScreen
 import com.swiftquantum.presentation.ui.screen.EntertainmentScreen
 import com.swiftquantum.presentation.ui.screen.VisualizeScreen
@@ -53,6 +54,13 @@ sealed class Screen(
     data object Splash : Screen(
         route = "splash",
         title = "Splash",
+        selectedIcon = Icons.Filled.Star,
+        unselectedIcon = Icons.Filled.Star
+    )
+
+    data object LanguageSelection : Screen(
+        route = "language_selection",
+        title = "Language",
         selectedIcon = Icons.Filled.Star,
         unselectedIcon = Icons.Filled.Star
     )
@@ -154,7 +162,10 @@ fun SwiftQuantumNavHost(
     navController: NavHostController,
     isLoggedIn: Boolean,
     startDestination: String = Screen.Splash.route,  // Start with splash screen
-    showSplash: Boolean = true
+    showSplash: Boolean = true,
+    onboardingCompleted: Boolean = false,
+    onLanguageSelected: (String) -> Unit = {},
+    onOnboardingComplete: () -> Unit = {}
 ) {
     NavHost(
         navController = navController,
@@ -162,10 +173,30 @@ fun SwiftQuantumNavHost(
     ) {
         composable(Screen.Splash.route) {
             SplashScreen(
-                appVersion = "1.0.0",
+                appVersion = "5.2.0",
                 onSplashComplete = {
+                    if (onboardingCompleted) {
+                        navController.navigate(Screen.Simulator.route) {
+                            popUpTo(Screen.Splash.route) { inclusive = true }
+                        }
+                    } else {
+                        navController.navigate(Screen.LanguageSelection.route) {
+                            popUpTo(Screen.Splash.route) { inclusive = true }
+                        }
+                    }
+                }
+            )
+        }
+
+        composable(Screen.LanguageSelection.route) {
+            LanguageSelectionScreen(
+                onLanguageSelected = { languageCode ->
+                    onLanguageSelected(languageCode)
+                },
+                onContinue = {
+                    onOnboardingComplete()
                     navController.navigate(Screen.Simulator.route) {
-                        popUpTo(Screen.Splash.route) { inclusive = true }
+                        popUpTo(Screen.LanguageSelection.route) { inclusive = true }
                     }
                 }
             )
