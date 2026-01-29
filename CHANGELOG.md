@@ -2,6 +2,28 @@
 
 All notable changes to SwiftQuantum Android will be documented in this file.
 
+## [5.2.0] - 2026-01-29
+
+### Added
+- **Australian Quantum Standards Integration**: New AustralianStandardsScreen for comprehensive quantum standards compliance
+- **AustralianStandardsApi.kt**: Complete API interface with all Australian Quantum Standards endpoints
+  - Q-CTRL Error Suppression protocols
+  - MicroQiskit Optimization endpoints
+  - LabScript Protocol integration
+  - SQC Fidelity Grading system
+- **Navigation Update**: Navigation.kt updated with Australian Standards route (`/australian-standards`)
+- **5-Language Localization**: Full translation support for Australian Standards feature
+  - English (EN)
+  - Korean (KO)
+  - Japanese (JA)
+  - Chinese (ZH)
+  - German (DE)
+
+### Technical
+- Added AustralianStandardsRepository with full implementation
+- Added AustralianStandardsViewModel for state management
+- Integrated Australian Standards into Unified Navigation Drawer
+
 ## [1.1.1] - 2026-01-29
 
 ### Added

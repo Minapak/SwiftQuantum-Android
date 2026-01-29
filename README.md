@@ -14,6 +14,7 @@ SwiftQuantum Android is the Android port of the iOS SwiftQuantum app, providing 
 - **Circuit Builder**: Visual drag-and-drop circuit design
 - **IBM Quantum Integration**: Direct connection to IBM Quantum hardware (Master tier)
 - **Multi-Engine Support**: Python, Rust (900x faster), C++ (1200x faster)
+- **Australian Quantum Standards**: Q-CTRL Error Suppression, MicroQiskit Optimization, LabScript Protocol, SQC Fidelity Grading
 - **Material Design 3**: Modern Android UI with Jetpack Compose
 - **Unified Navigation Drawer**: Deep link integration with SwiftQuantum Ecosystem apps
 - **Cross-App Authentication**: Single sign-on across all SwiftQuantum apps

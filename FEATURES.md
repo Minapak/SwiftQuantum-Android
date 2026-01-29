@@ -137,3 +137,30 @@
 - Basic quantum simulation works offline
 - Cached user data
 - Queue operations for sync
+
+## Australian Quantum Standards (v5.2.0)
+
+### Q-CTRL Error Suppression
+- Advanced quantum error suppression protocols from Q-CTRL
+- Real-time error mitigation during circuit execution
+- Noise characterization and filtering
+- Pulse-level control optimization
+
+### MicroQiskit Optimization
+- Lightweight Qiskit integration for circuit optimization
+- Gate decomposition and simplification
+- Circuit depth reduction algorithms
+- Resource estimation tools
+
+### LabScript Protocol
+- Standardized quantum experiment scripting
+- Reproducible experimental workflows
+- Hardware-agnostic protocol definitions
+- Automated calibration routines
+
+### SQC Fidelity Grading
+- Silicon Quantum Computing fidelity benchmarks
+- Gate fidelity scoring system
+- Circuit quality assessment
+- Performance certification metrics
+- Multi-qubit entanglement fidelity tracking

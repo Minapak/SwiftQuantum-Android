@@ -31,21 +31,21 @@ SwiftQuantum Android follows Clean Architecture principles with MVVM pattern for
 ## Module Structure
 
 ### Domain Layer
-- **Models**: Core business entities (User, Circuit, Gate, ExecutionResult)
+- **Models**: Core business entities (User, Circuit, Gate, ExecutionResult, AustralianStandards)
 - **Repository Interfaces**: Abstract data access contracts
 - **Use Cases**: Single-responsibility business operations
 
 ### Data Layer
-- **API Interfaces**: Retrofit service definitions
+- **API Interfaces**: Retrofit service definitions (AuthApi, CircuitApi, AustralianStandardsApi)
 - **DTOs**: Network request/response models
 - **Repository Implementations**: Concrete data access
 - **Local Storage**: DataStore for preferences and tokens
 
 ### Presentation Layer
 - **ViewModels**: UI state management with StateFlow
-- **Screens**: Jetpack Compose UI
+- **Screens**: Jetpack Compose UI (including AustralianStandardsScreen)
 - **Components**: Reusable UI elements (BlochSphere, Histogram)
-- **Navigation**: Compose Navigation with bottom nav
+- **Navigation**: Compose Navigation with bottom nav and Australian Standards route
 
 ## Dependency Injection
 
@@ -121,4 +121,37 @@ ResponsiveLayout(
     medium = { MediumContent() },
     expanded = { ExpandedContent() }
 )
+```
+
+## Australian Quantum Standards Integration (v5.2.0)
+
+### AustralianStandardsApi
+API interface for Australian quantum computing standards:
+
+```kotlin
+interface AustralianStandardsApi {
+    @GET("standards/qctrl/error-suppression")
+    suspend fun getQCtrlErrorSuppression(): QCtrlResponse
+
+    @GET("standards/microqiskit/optimization")
+    suspend fun getMicroQiskitOptimization(): MicroQiskitResponse
+
+    @GET("standards/labscript/protocols")
+    suspend fun getLabScriptProtocols(): LabScriptResponse
+
+    @GET("standards/sqc/fidelity-grading")
+    suspend fun getSqcFidelityGrading(): SqcFidelityResponse
+}
+```
+
+### Navigation Integration
+Australian Standards route added to Navigation.kt:
+
+```kotlin
+composable("australian-standards") {
+    AustralianStandardsScreen(
+        viewModel = hiltViewModel(),
+        onNavigateBack = { navController.popBackStack() }
+    )
+}
 ```
