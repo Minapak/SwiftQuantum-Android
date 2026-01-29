@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SwiftQuantum</string>
+    <string name="app_name">Swift\nQuantum</string>
     <string name="app_tagline">プロレベル量子コンピューティングIDE</string>
 
     <!-- Navigation -->
@@ -345,6 +345,14 @@
     <string name="drawer_section_features">機能</string>
     <string name="drawer_section_ecosystem">SwiftQuantumエコシステム</string>
     <string name="current">現在</string>
+    <string name="default_user_name">量子ユーザー</string>
+    <string name="default_user_email">user@quantum.dev</string>
+
+    <!-- Ecosystem App Descriptions -->
+    <string name="ecosystem_quantumnative_desc">ネイティブ量子学習</string>
+    <string name="ecosystem_swiftquantum_desc">量子回路デザイナー</string>
+    <string name="ecosystem_qbridge_desc">実際の量子ハードウェア</string>
+    <string name="ecosystem_quantumcareer_desc">キャリアと認定</string>
 
     <!-- Stats Labels -->
     <string name="gates_label">ゲート</string>

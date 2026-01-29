@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SwiftQuantum</string>
+    <string name="app_name">Swift\nQuantum</string>
     <string name="app_tagline">Professionelle Quantencomputing-IDE</string>
 
     <!-- Navigation -->
@@ -345,6 +345,14 @@
     <string name="drawer_section_features">Funktionen</string>
     <string name="drawer_section_ecosystem">SwiftQuantum-Ökosystem</string>
     <string name="current">Aktuell</string>
+    <string name="default_user_name">Quantenbenutzer</string>
+    <string name="default_user_email">user@quantum.dev</string>
+
+    <!-- Ecosystem App Descriptions -->
+    <string name="ecosystem_quantumnative_desc">Native Quantenlernung</string>
+    <string name="ecosystem_swiftquantum_desc">Quantenschaltkreis-Designer</string>
+    <string name="ecosystem_qbridge_desc">Echte Quantenhardware</string>
+    <string name="ecosystem_quantumcareer_desc">Karriere &amp; Zertifizierungen</string>
 
     <!-- Stats Labels -->
     <string name="gates_label">Gatter</string>

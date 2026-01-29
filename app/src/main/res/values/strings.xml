@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SwiftQuantum</string>
+    <string name="app_name">Swift\nQuantum</string>
     <string name="app_tagline">Pro-Level Quantum Computing IDE</string>
 
     <!-- Navigation -->
@@ -345,6 +345,14 @@
     <string name="drawer_section_features">Features</string>
     <string name="drawer_section_ecosystem">SwiftQuantum Ecosystem</string>
     <string name="current">Current</string>
+    <string name="default_user_name">Quantum User</string>
+    <string name="default_user_email">user@quantum.dev</string>
+
+    <!-- Ecosystem App Descriptions -->
+    <string name="ecosystem_quantumnative_desc">Native quantum learning</string>
+    <string name="ecosystem_swiftquantum_desc">Quantum circuit designer</string>
+    <string name="ecosystem_qbridge_desc">Real quantum hardware</string>
+    <string name="ecosystem_quantumcareer_desc">Career &amp; certifications</string>
 
     <!-- Stats Labels -->
     <string name="gates_label">Gates</string>
