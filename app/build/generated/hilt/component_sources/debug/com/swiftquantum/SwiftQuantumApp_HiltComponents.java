@@ -5,9 +5,14 @@ import com.swiftquantum.di.RepositoryModule;
 import com.swiftquantum.di.UseCaseModule;
 import com.swiftquantum.presentation.ui.MainActivity_GeneratedInjector;
 import com.swiftquantum.presentation.viewmodel.AuthViewModel_HiltModules;
+import com.swiftquantum.presentation.viewmodel.BenchmarkViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.CircuitViewModel_HiltModules;
+import com.swiftquantum.presentation.viewmodel.ExperienceViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.HardwareViewModel_HiltModules;
+import com.swiftquantum.presentation.viewmodel.PaywallViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.ProfileViewModel_HiltModules;
+import com.swiftquantum.presentation.viewmodel.QASMViewModel_HiltModules;
+import com.swiftquantum.presentation.viewmodel.SettingsViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.SimulatorViewModel_HiltModules;
 import dagger.Binds;
 import dagger.Component;
@@ -162,11 +167,16 @@ public final class SwiftQuantumApp_HiltComponents {
   @Subcomponent(
       modules = {
           AuthViewModel_HiltModules.KeyModule.class,
+          BenchmarkViewModel_HiltModules.KeyModule.class,
           CircuitViewModel_HiltModules.KeyModule.class,
+          ExperienceViewModel_HiltModules.KeyModule.class,
           HardwareViewModel_HiltModules.KeyModule.class,
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
           HiltWrapper_SavedStateHandleModule.class,
+          PaywallViewModel_HiltModules.KeyModule.class,
           ProfileViewModel_HiltModules.KeyModule.class,
+          QASMViewModel_HiltModules.KeyModule.class,
+          SettingsViewModel_HiltModules.KeyModule.class,
           SimulatorViewModel_HiltModules.KeyModule.class,
           ActivityCBuilderModule.class,
           ViewModelCBuilderModule.class
@@ -206,10 +216,15 @@ public final class SwiftQuantumApp_HiltComponents {
   @Subcomponent(
       modules = {
           AuthViewModel_HiltModules.BindsModule.class,
+          BenchmarkViewModel_HiltModules.BindsModule.class,
           CircuitViewModel_HiltModules.BindsModule.class,
+          ExperienceViewModel_HiltModules.BindsModule.class,
           HardwareViewModel_HiltModules.BindsModule.class,
           HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
+          PaywallViewModel_HiltModules.BindsModule.class,
           ProfileViewModel_HiltModules.BindsModule.class,
+          QASMViewModel_HiltModules.BindsModule.class,
+          SettingsViewModel_HiltModules.BindsModule.class,
           SimulatorViewModel_HiltModules.BindsModule.class,
           UseCaseModule.class
       }

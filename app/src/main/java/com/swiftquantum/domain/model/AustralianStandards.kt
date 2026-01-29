@@ -47,7 +47,7 @@ data class QCTRLResult(
 // MicroQiskit Mobile Optimization (UTS)
 // =============================================================================
 
-enum class OptimizationLevel(val value: String, val displayName: String) {
+enum class MobileOptimizationLevel(val value: String, val displayName: String) {
     NONE("none", "None"),
     BASIC("basic", "Basic"),
     MODERATE("moderate", "Moderate"),
@@ -55,7 +55,7 @@ enum class OptimizationLevel(val value: String, val displayName: String) {
 }
 
 data class MobileOptimizationConfig(
-    val level: OptimizationLevel = OptimizationLevel.MODERATE,
+    val level: MobileOptimizationLevel = MobileOptimizationLevel.MODERATE,
     val enableFidelityBenchmark: Boolean = true
 )
 

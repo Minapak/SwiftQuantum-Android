@@ -1,127 +1,142 @@
 package com.swiftquantum.data.dto
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 // ============================================================================
 // Daily Pulse DTOs
 // ============================================================================
 
+@Serializable
 data class DailyPatternDto(
-    @SerializedName("amplitude") val amplitude: Double,
-    @SerializedName("phase") val phase: Double,
-    @SerializedName("entanglementStrength") val entanglementStrength: Double,
-    @SerializedName("coherenceTime") val coherenceTime: Double,
-    @SerializedName("interferencePattern") val interferencePattern: List<Double>,
-    @SerializedName("luckyQuantumState") val luckyQuantumState: String,
-    @SerializedName("dateSeed") val dateSeed: String,
-    @SerializedName("blochCoordinates") val blochCoordinates: BlochCoordinatesDto
+    @SerialName("amplitude") val amplitude: Double,
+    @SerialName("phase") val phase: Double,
+    @SerialName("entanglementStrength") val entanglementStrength: Double,
+    @SerialName("coherenceTime") val coherenceTime: Double,
+    @SerialName("interferencePattern") val interferencePattern: List<Double>,
+    @SerialName("luckyQuantumState") val luckyQuantumState: String,
+    @SerialName("dateSeed") val dateSeed: String,
+    @SerialName("blochCoordinates") val blochCoordinates: BlochCoordinatesDto
 )
 
+@Serializable
 data class BlochCoordinatesDto(
-    @SerializedName("x") val x: Double,
-    @SerializedName("y") val y: Double,
-    @SerializedName("z") val z: Double
+    @SerialName("x") val x: Double,
+    @SerialName("y") val y: Double,
+    @SerialName("z") val z: Double
 )
 
 // ============================================================================
 // Oracle DTOs
 // ============================================================================
 
+@Serializable
 data class OracleConsultRequest(
-    @SerializedName("question") val question: String
+    @SerialName("question") val question: String
 )
 
+@Serializable
 data class OracleResultDto(
-    @SerializedName("answer") val answer: Boolean,
-    @SerializedName("confidence") val confidence: Double,
-    @SerializedName("collapsedCoordinate") val collapsedCoordinate: Double,
-    @SerializedName("question") val question: String,
-    @SerializedName("timestamp") val timestamp: String,
-    @SerializedName("quantumState") val quantumState: String,
-    @SerializedName("answerString") val answerString: String,
-    @SerializedName("confidencePercentage") val confidencePercentage: Double,
-    @SerializedName("remaining_tokens") val remainingTokens: Int? = null
+    @SerialName("answer") val answer: Boolean,
+    @SerialName("confidence") val confidence: Double,
+    @SerialName("collapsedCoordinate") val collapsedCoordinate: Double,
+    @SerialName("question") val question: String,
+    @SerialName("timestamp") val timestamp: String,
+    @SerialName("quantumState") val quantumState: String,
+    @SerialName("answerString") val answerString: String,
+    @SerialName("confidencePercentage") val confidencePercentage: Double,
+    @SerialName("remaining_tokens") val remainingTokens: Int? = null
 )
 
+@Serializable
 data class OracleStatisticsRequest(
-    @SerializedName("question") val question: String,
-    @SerializedName("shots") val shots: Int = 100
+    @SerialName("question") val question: String,
+    @SerialName("shots") val shots: Int = 100
 )
 
+@Serializable
 data class OracleStatisticsDto(
-    @SerializedName("question") val question: String,
-    @SerializedName("totalShots") val totalShots: Int,
-    @SerializedName("yesCount") val yesCount: Int,
-    @SerializedName("noCount") val noCount: Int,
-    @SerializedName("averageConfidence") val averageConfidence: Double,
-    @SerializedName("yesPercentage") val yesPercentage: Double,
-    @SerializedName("noPercentage") val noPercentage: Double
+    @SerialName("question") val question: String,
+    @SerialName("totalShots") val totalShots: Int,
+    @SerialName("yesCount") val yesCount: Int,
+    @SerialName("noCount") val noCount: Int,
+    @SerialName("averageConfidence") val averageConfidence: Double,
+    @SerialName("yesPercentage") val yesPercentage: Double,
+    @SerialName("noPercentage") val noPercentage: Double
 )
 
 // ============================================================================
 // Art DTOs
 // ============================================================================
 
+@Serializable
 data class QubitStateRequest(
-    @SerializedName("amplitude_0_real") val amplitude0Real: Double,
-    @SerializedName("amplitude_0_imag") val amplitude0Imag: Double,
-    @SerializedName("amplitude_1_real") val amplitude1Real: Double,
-    @SerializedName("amplitude_1_imag") val amplitude1Imag: Double,
-    @SerializedName("config") val config: ArtMappingConfigDto? = null
+    @SerialName("amplitude_0_real") val amplitude0Real: Double,
+    @SerialName("amplitude_0_imag") val amplitude0Imag: Double,
+    @SerialName("amplitude_1_real") val amplitude1Real: Double,
+    @SerialName("amplitude_1_imag") val amplitude1Imag: Double,
+    @SerialName("config") val config: ArtMappingConfigDto? = null
 )
 
+@Serializable
 data class ArtMappingConfigDto(
-    @SerializedName("max_complexity") val maxComplexity: Int = 10,
-    @SerializedName("min_complexity") val minComplexity: Int = 1,
-    @SerializedName("hue_mode") val hueMode: String = "phase",
-    @SerializedName("contrast_sensitivity") val contrastSensitivity: Double = 1.0
+    @SerialName("max_complexity") val maxComplexity: Int = 10,
+    @SerialName("min_complexity") val minComplexity: Int = 1,
+    @SerialName("hue_mode") val hueMode: String = "phase",
+    @SerialName("contrast_sensitivity") val contrastSensitivity: Double = 1.0
 )
 
+@Serializable
 data class ArtDataDto(
-    @SerializedName("primaryHue") val primaryHue: Double,
-    @SerializedName("complexity") val complexity: Int,
-    @SerializedName("contrast") val contrast: Double,
-    @SerializedName("saturation") val saturation: Double,
-    @SerializedName("brightness") val brightness: Double,
-    @SerializedName("quantumSignature") val quantumSignature: String,
-    @SerializedName("hueDegrees") val hueDegrees: Double,
-    @SerializedName("hexColor") val hexColor: String,
-    @SerializedName("rgbColor") val rgbColor: RgbColorDto
+    @SerialName("primaryHue") val primaryHue: Double,
+    @SerialName("complexity") val complexity: Int,
+    @SerialName("contrast") val contrast: Double,
+    @SerialName("saturation") val saturation: Double,
+    @SerialName("brightness") val brightness: Double,
+    @SerialName("quantumSignature") val quantumSignature: String,
+    @SerialName("hueDegrees") val hueDegrees: Double,
+    @SerialName("hexColor") val hexColor: String,
+    @SerialName("rgbColor") val rgbColor: RgbColorDto
 )
 
+@Serializable
 data class RgbColorDto(
-    @SerializedName("r") val r: Int,
-    @SerializedName("g") val g: Int,
-    @SerializedName("b") val b: Int
+    @SerialName("r") val r: Int,
+    @SerialName("g") val g: Int,
+    @SerialName("b") val b: Int
 )
 
+@Serializable
 data class ArtGenerateResponseDto(
-    @SerializedName("success") val success: Boolean,
-    @SerializedName("resolution") val resolution: String,
-    @SerializedName("watermark") val watermark: Boolean,
-    @SerializedName("tier") val tier: String,
-    @SerializedName("message") val message: String
+    @SerialName("success") val success: Boolean,
+    @SerialName("resolution") val resolution: String,
+    @SerialName("watermark") val watermark: Boolean,
+    @SerialName("tier") val tier: String,
+    @SerialName("message") val message: String
 )
 
 // ============================================================================
 // Combined Experience DTOs
 // ============================================================================
 
+@Serializable
 data class DailyExperienceDto(
-    @SerializedName("pattern") val pattern: DailyPatternDto,
-    @SerializedName("art") val art: ArtDataDto,
-    @SerializedName("fortune") val fortune: OracleResultDto,
-    @SerializedName("generatedAt") val generatedAt: String
+    @SerialName("pattern") val pattern: DailyPatternDto,
+    @SerialName("art") val art: ArtDataDto,
+    @SerialName("fortune") val fortune: OracleResultDto,
+    @SerialName("generatedAt") val generatedAt: String
 )
 
+@Serializable
 data class PersonalSignatureRequest(
-    @SerializedName("user_identifier") val userIdentifier: String
+    @SerialName("user_identifier") val userIdentifier: String
 )
 
+@Serializable
 data class PersonalSignatureDto(
-    @SerializedName("userIdentifier") val userIdentifier: String,
-    @SerializedName("artParameters") val artParameters: ArtDataDto,
-    @SerializedName("dailyAlignment") val dailyAlignment: Double,
-    @SerializedName("blochCoordinates") val blochCoordinates: BlochCoordinatesDto,
-    @SerializedName("quantumStateDescription") val quantumStateDescription: String
+    @SerialName("userIdentifier") val userIdentifier: String,
+    @SerialName("artParameters") val artParameters: ArtDataDto,
+    @SerialName("dailyAlignment") val dailyAlignment: Double,
+    @SerialName("blochCoordinates") val blochCoordinates: BlochCoordinatesDto,
+    @SerialName("quantumStateDescription") val quantumStateDescription: String
 )

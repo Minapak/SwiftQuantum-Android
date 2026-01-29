@@ -1,7 +1,15 @@
 -keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.AuthViewModel
 -keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.AuthViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.SettingsViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.SettingsViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.BenchmarkViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.BenchmarkViewModel
 -keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.CircuitViewModel
 -keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.CircuitViewModel
 -keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.HardwareViewModel
 -keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.HardwareViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.QASMViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.QASMViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.ExperienceViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.ExperienceViewModel
 -keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.SimulatorViewModel

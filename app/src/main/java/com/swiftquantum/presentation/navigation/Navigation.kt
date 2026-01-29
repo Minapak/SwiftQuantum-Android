@@ -1,5 +1,6 @@
 package com.swiftquantum.presentation.navigation
 
+import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.AutoAwesome
@@ -26,6 +27,7 @@ import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material.icons.outlined.Speed
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.swiftquantum.R
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -47,104 +49,104 @@ import com.swiftquantum.presentation.ui.screen.AustralianStandardsScreen
 
 sealed class Screen(
     val route: String,
-    val title: String,
+    @StringRes val titleRes: Int,
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector
 ) {
     data object Splash : Screen(
         route = "splash",
-        title = "Splash",
+        titleRes = R.string.splash_loading,
         selectedIcon = Icons.Filled.Star,
         unselectedIcon = Icons.Filled.Star
     )
 
     data object LanguageSelection : Screen(
         route = "language_selection",
-        title = "Language",
+        titleRes = R.string.settings_language,
         selectedIcon = Icons.Filled.Star,
         unselectedIcon = Icons.Filled.Star
     )
 
     data object Simulator : Screen(
         route = "simulator",
-        title = "Simulator",
+        titleRes = R.string.nav_simulator,
         selectedIcon = Icons.Filled.PlayArrow,
         unselectedIcon = Icons.Outlined.PlayArrow
     )
 
     data object Circuit : Screen(
         route = "circuit",
-        title = "Circuit",
+        titleRes = R.string.nav_circuit,
         selectedIcon = Icons.Filled.Build,
         unselectedIcon = Icons.Outlined.Build
     )
 
     data object QASM : Screen(
         route = "qasm",
-        title = "QASM",
+        titleRes = R.string.nav_qasm,
         selectedIcon = Icons.Filled.Code,
         unselectedIcon = Icons.Outlined.Code
     )
 
     data object Benchmark : Screen(
         route = "benchmark",
-        title = "Benchmark",
+        titleRes = R.string.nav_benchmark,
         selectedIcon = Icons.Filled.Speed,
         unselectedIcon = Icons.Outlined.Speed
     )
 
     data object Hardware : Screen(
         route = "hardware",
-        title = "Hardware",
+        titleRes = R.string.nav_hardware,
         selectedIcon = Icons.Filled.Memory,
         unselectedIcon = Icons.Outlined.Memory
     )
 
     data object Profile : Screen(
         route = "profile",
-        title = "Profile",
+        titleRes = R.string.nav_profile,
         selectedIcon = Icons.Filled.AccountCircle,
         unselectedIcon = Icons.Outlined.AccountCircle
     )
 
     data object Auth : Screen(
         route = "auth",
-        title = "Login",
+        titleRes = R.string.nav_login,
         selectedIcon = Icons.Filled.AccountCircle,
         unselectedIcon = Icons.Outlined.AccountCircle
     )
 
     data object Settings : Screen(
         route = "settings",
-        title = "Settings",
+        titleRes = R.string.settings,
         selectedIcon = Icons.Filled.Settings,
         unselectedIcon = Icons.Outlined.Settings
     )
 
     data object Paywall : Screen(
         route = "paywall",
-        title = "Upgrade",
+        titleRes = R.string.upgrade,
         selectedIcon = Icons.Filled.ShoppingCart,
         unselectedIcon = Icons.Outlined.ShoppingCart
     )
 
     data object Visualize : Screen(
         route = "visualize",
-        title = "Visualize",
+        titleRes = R.string.visualize_title,
         selectedIcon = Icons.Filled.BarChart,
         unselectedIcon = Icons.Outlined.BarChart
     )
 
     data object Entertainment : Screen(
         route = "entertainment",
-        title = "Entertainment",
+        titleRes = R.string.nav_entertainment,
         selectedIcon = Icons.Filled.AutoAwesome,
         unselectedIcon = Icons.Outlined.AutoAwesome
     )
 
     data object AustralianStandards : Screen(
         route = "australian_standards",
-        title = "Australian Standards",
+        titleRes = R.string.aus_standards_title,
         selectedIcon = Icons.Filled.Star,
         unselectedIcon = Icons.Filled.Star
     )

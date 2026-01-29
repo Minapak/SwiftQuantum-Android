@@ -8,12 +8,19 @@ import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 import com.swiftquantum.data.api.AuthApi;
 import com.swiftquantum.data.api.BridgeApi;
+import com.swiftquantum.data.api.ExperienceApi;
+import com.swiftquantum.data.api.HybridEngineApi;
+import com.swiftquantum.data.api.QASMApi;
 import com.swiftquantum.data.api.QuantumApi;
+import com.swiftquantum.data.auth.SharedAuthManager;
 import com.swiftquantum.data.local.TokenManager;
 import com.swiftquantum.data.local.UserPreferences;
 import com.swiftquantum.data.repository.AuthRepositoryImpl;
 import com.swiftquantum.data.repository.BillingRepositoryImpl;
+import com.swiftquantum.data.repository.ExperienceRepositoryImpl;
 import com.swiftquantum.data.repository.HardwareRepositoryImpl;
+import com.swiftquantum.data.repository.HybridEngineRepositoryImpl;
+import com.swiftquantum.data.repository.QASMRepositoryImpl;
 import com.swiftquantum.data.repository.QuantumRepositoryImpl;
 import com.swiftquantum.di.NetworkModule_ProvideApiOkHttpClientFactory;
 import com.swiftquantum.di.NetworkModule_ProvideApiRetrofitFactory;
@@ -22,23 +29,32 @@ import com.swiftquantum.di.NetworkModule_ProvideAuthInterceptorFactory;
 import com.swiftquantum.di.NetworkModule_ProvideBridgeApiFactory;
 import com.swiftquantum.di.NetworkModule_ProvideBridgeOkHttpClientFactory;
 import com.swiftquantum.di.NetworkModule_ProvideBridgeRetrofitFactory;
+import com.swiftquantum.di.NetworkModule_ProvideExperienceApiFactory;
+import com.swiftquantum.di.NetworkModule_ProvideHybridEngineApiFactory;
 import com.swiftquantum.di.NetworkModule_ProvideJsonFactory;
 import com.swiftquantum.di.NetworkModule_ProvideLoggingInterceptorFactory;
+import com.swiftquantum.di.NetworkModule_ProvideQASMApiFactory;
 import com.swiftquantum.di.NetworkModule_ProvideQuantumApiFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideCancelJobUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideConnectToIBMQuantumUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideDeleteCircuitUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideDisconnectFromIBMQuantumUseCaseFactory;
+import com.swiftquantum.di.UseCaseModule_ProvideExecuteWithHybridEngineUseCaseFactory;
+import com.swiftquantum.di.UseCaseModule_ProvideExportQASMUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideForgotPasswordUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideGetActiveJobsUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideGetAvailableBackendsUseCaseFactory;
+import com.swiftquantum.di.UseCaseModule_ProvideGetBenchmarkHistoryUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideGetCircuitUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideGetCurrentSubscriptionUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideGetCurrentUserUseCaseFactory;
+import com.swiftquantum.di.UseCaseModule_ProvideGetEngineStatusUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideGetJobResultUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideGetMaxQubitsUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideGetMyCircuitsUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideGetSubscriptionProductsUseCaseFactory;
+import com.swiftquantum.di.UseCaseModule_ProvideImportQASMUseCaseFactory;
+import com.swiftquantum.di.UseCaseModule_ProvideLoadQASMTemplatesUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideLoginUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideLogoutUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideObserveIBMConnectionUseCaseFactory;
@@ -48,24 +64,32 @@ import com.swiftquantum.di.UseCaseModule_ProvideObserveUserTierUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvidePurchaseSubscriptionUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideRegisterUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideRestorePurchasesUseCaseFactory;
+import com.swiftquantum.di.UseCaseModule_ProvideRunBenchmarkUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideRunSimulationUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideSaveCircuitUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideSubmitHardwareJobUseCaseFactory;
 import com.swiftquantum.di.UseCaseModule_ProvideUpdateProfileUseCaseFactory;
+import com.swiftquantum.di.UseCaseModule_ProvideValidateQASMUseCaseFactory;
 import com.swiftquantum.domain.usecase.CancelJobUseCase;
 import com.swiftquantum.domain.usecase.ConnectToIBMQuantumUseCase;
 import com.swiftquantum.domain.usecase.DeleteCircuitUseCase;
 import com.swiftquantum.domain.usecase.DisconnectFromIBMQuantumUseCase;
+import com.swiftquantum.domain.usecase.ExecuteWithHybridEngineUseCase;
+import com.swiftquantum.domain.usecase.ExportQASMUseCase;
 import com.swiftquantum.domain.usecase.ForgotPasswordUseCase;
 import com.swiftquantum.domain.usecase.GetActiveJobsUseCase;
 import com.swiftquantum.domain.usecase.GetAvailableBackendsUseCase;
+import com.swiftquantum.domain.usecase.GetBenchmarkHistoryUseCase;
 import com.swiftquantum.domain.usecase.GetCircuitUseCase;
 import com.swiftquantum.domain.usecase.GetCurrentSubscriptionUseCase;
 import com.swiftquantum.domain.usecase.GetCurrentUserUseCase;
+import com.swiftquantum.domain.usecase.GetEngineStatusUseCase;
 import com.swiftquantum.domain.usecase.GetJobResultUseCase;
 import com.swiftquantum.domain.usecase.GetMaxQubitsUseCase;
 import com.swiftquantum.domain.usecase.GetMyCircuitsUseCase;
 import com.swiftquantum.domain.usecase.GetSubscriptionProductsUseCase;
+import com.swiftquantum.domain.usecase.ImportQASMUseCase;
+import com.swiftquantum.domain.usecase.LoadQASMTemplatesUseCase;
 import com.swiftquantum.domain.usecase.LoginUseCase;
 import com.swiftquantum.domain.usecase.LogoutUseCase;
 import com.swiftquantum.domain.usecase.ObserveIBMConnectionUseCase;
@@ -75,28 +99,50 @@ import com.swiftquantum.domain.usecase.ObserveUserTierUseCase;
 import com.swiftquantum.domain.usecase.PurchaseSubscriptionUseCase;
 import com.swiftquantum.domain.usecase.RegisterUseCase;
 import com.swiftquantum.domain.usecase.RestorePurchasesUseCase;
+import com.swiftquantum.domain.usecase.RunBenchmarkUseCase;
 import com.swiftquantum.domain.usecase.RunSimulationUseCase;
 import com.swiftquantum.domain.usecase.SaveCircuitUseCase;
 import com.swiftquantum.domain.usecase.SubmitHardwareJobUseCase;
 import com.swiftquantum.domain.usecase.UpdateProfileUseCase;
+import com.swiftquantum.domain.usecase.ValidateQASMUseCase;
 import com.swiftquantum.presentation.ui.MainActivity;
 import com.swiftquantum.presentation.ui.MainActivity_MembersInjector;
 import com.swiftquantum.presentation.viewmodel.AuthViewModel;
 import com.swiftquantum.presentation.viewmodel.AuthViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.AuthViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
 import com.swiftquantum.presentation.viewmodel.AuthViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
+import com.swiftquantum.presentation.viewmodel.BenchmarkViewModel;
+import com.swiftquantum.presentation.viewmodel.BenchmarkViewModel_HiltModules;
+import com.swiftquantum.presentation.viewmodel.BenchmarkViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
+import com.swiftquantum.presentation.viewmodel.BenchmarkViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
 import com.swiftquantum.presentation.viewmodel.CircuitViewModel;
 import com.swiftquantum.presentation.viewmodel.CircuitViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.CircuitViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
 import com.swiftquantum.presentation.viewmodel.CircuitViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
+import com.swiftquantum.presentation.viewmodel.ExperienceViewModel;
+import com.swiftquantum.presentation.viewmodel.ExperienceViewModel_HiltModules;
+import com.swiftquantum.presentation.viewmodel.ExperienceViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
+import com.swiftquantum.presentation.viewmodel.ExperienceViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
 import com.swiftquantum.presentation.viewmodel.HardwareViewModel;
 import com.swiftquantum.presentation.viewmodel.HardwareViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.HardwareViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
 import com.swiftquantum.presentation.viewmodel.HardwareViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
+import com.swiftquantum.presentation.viewmodel.PaywallViewModel;
+import com.swiftquantum.presentation.viewmodel.PaywallViewModel_HiltModules;
+import com.swiftquantum.presentation.viewmodel.PaywallViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
+import com.swiftquantum.presentation.viewmodel.PaywallViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
 import com.swiftquantum.presentation.viewmodel.ProfileViewModel;
 import com.swiftquantum.presentation.viewmodel.ProfileViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.ProfileViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
 import com.swiftquantum.presentation.viewmodel.ProfileViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
+import com.swiftquantum.presentation.viewmodel.QASMViewModel;
+import com.swiftquantum.presentation.viewmodel.QASMViewModel_HiltModules;
+import com.swiftquantum.presentation.viewmodel.QASMViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
+import com.swiftquantum.presentation.viewmodel.QASMViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
+import com.swiftquantum.presentation.viewmodel.SettingsViewModel;
+import com.swiftquantum.presentation.viewmodel.SettingsViewModel_HiltModules;
+import com.swiftquantum.presentation.viewmodel.SettingsViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
+import com.swiftquantum.presentation.viewmodel.SettingsViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
 import com.swiftquantum.presentation.viewmodel.SimulatorViewModel;
 import com.swiftquantum.presentation.viewmodel.SimulatorViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.SimulatorViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
@@ -115,6 +161,7 @@ import dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories_Internal
 import dagger.hilt.android.internal.managers.ActivityRetainedComponentManager_LifecycleModule_ProvideActivityRetainedLifecycleFactory;
 import dagger.hilt.android.internal.managers.SavedStateHandleHolder;
 import dagger.hilt.android.internal.modules.ApplicationContextModule;
+import dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideApplicationFactory;
 import dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideContextFactory;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.DoubleCheck;
@@ -467,7 +514,7 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
 
     @Override
     public Map<Class<?>, Boolean> getViewModelKeys() {
-      return LazyClassKeyMap.<Boolean>of(MapBuilder.<String, Boolean>newMapBuilder(5).put(AuthViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, AuthViewModel_HiltModules.KeyModule.provide()).put(CircuitViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, CircuitViewModel_HiltModules.KeyModule.provide()).put(HardwareViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, HardwareViewModel_HiltModules.KeyModule.provide()).put(ProfileViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, ProfileViewModel_HiltModules.KeyModule.provide()).put(SimulatorViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, SimulatorViewModel_HiltModules.KeyModule.provide()).build());
+      return LazyClassKeyMap.<Boolean>of(MapBuilder.<String, Boolean>newMapBuilder(10).put(AuthViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, AuthViewModel_HiltModules.KeyModule.provide()).put(BenchmarkViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, BenchmarkViewModel_HiltModules.KeyModule.provide()).put(CircuitViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, CircuitViewModel_HiltModules.KeyModule.provide()).put(ExperienceViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, ExperienceViewModel_HiltModules.KeyModule.provide()).put(HardwareViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, HardwareViewModel_HiltModules.KeyModule.provide()).put(PaywallViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, PaywallViewModel_HiltModules.KeyModule.provide()).put(ProfileViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, ProfileViewModel_HiltModules.KeyModule.provide()).put(QASMViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, QASMViewModel_HiltModules.KeyModule.provide()).put(SettingsViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, SettingsViewModel_HiltModules.KeyModule.provide()).put(SimulatorViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, SimulatorViewModel_HiltModules.KeyModule.provide()).build());
     }
 
     @Override
@@ -487,6 +534,7 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
 
     private MainActivity injectMainActivity2(MainActivity instance) {
       MainActivity_MembersInjector.injectBillingRepository(instance, singletonCImpl.billingRepositoryImplProvider.get());
+      MainActivity_MembersInjector.injectUserPreferences(instance, singletonCImpl.userPreferencesProvider.get());
       return instance;
     }
   }
@@ -512,6 +560,18 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
 
     private Provider<AuthViewModel> authViewModelProvider;
 
+    private Provider<ExecuteWithHybridEngineUseCase> provideExecuteWithHybridEngineUseCaseProvider;
+
+    private Provider<RunBenchmarkUseCase> provideRunBenchmarkUseCaseProvider;
+
+    private Provider<GetBenchmarkHistoryUseCase> provideGetBenchmarkHistoryUseCaseProvider;
+
+    private Provider<GetEngineStatusUseCase> provideGetEngineStatusUseCaseProvider;
+
+    private Provider<ObserveUserTierUseCase> provideObserveUserTierUseCaseProvider;
+
+    private Provider<BenchmarkViewModel> benchmarkViewModelProvider;
+
     private Provider<SaveCircuitUseCase> provideSaveCircuitUseCaseProvider;
 
     private Provider<GetCircuitUseCase> provideGetCircuitUseCaseProvider;
@@ -523,6 +583,8 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
     private Provider<GetMaxQubitsUseCase> provideGetMaxQubitsUseCaseProvider;
 
     private Provider<CircuitViewModel> circuitViewModelProvider;
+
+    private Provider<ExperienceViewModel> experienceViewModelProvider;
 
     private Provider<ConnectToIBMQuantumUseCase> provideConnectToIBMQuantumUseCaseProvider;
 
@@ -542,11 +604,7 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
 
     private Provider<ObserveJobStatusUseCase> provideObserveJobStatusUseCaseProvider;
 
-    private Provider<ObserveUserTierUseCase> provideObserveUserTierUseCaseProvider;
-
     private Provider<HardwareViewModel> hardwareViewModelProvider;
-
-    private Provider<ObserveSubscriptionUseCase> provideObserveSubscriptionUseCaseProvider;
 
     private Provider<GetSubscriptionProductsUseCase> provideGetSubscriptionProductsUseCaseProvider;
 
@@ -554,9 +612,25 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
 
     private Provider<RestorePurchasesUseCase> provideRestorePurchasesUseCaseProvider;
 
+    private Provider<ObserveSubscriptionUseCase> provideObserveSubscriptionUseCaseProvider;
+
+    private Provider<PaywallViewModel> paywallViewModelProvider;
+
     private Provider<GetCurrentSubscriptionUseCase> provideGetCurrentSubscriptionUseCaseProvider;
 
     private Provider<ProfileViewModel> profileViewModelProvider;
+
+    private Provider<ImportQASMUseCase> provideImportQASMUseCaseProvider;
+
+    private Provider<ExportQASMUseCase> provideExportQASMUseCaseProvider;
+
+    private Provider<ValidateQASMUseCase> provideValidateQASMUseCaseProvider;
+
+    private Provider<LoadQASMTemplatesUseCase> provideLoadQASMTemplatesUseCaseProvider;
+
+    private Provider<QASMViewModel> qASMViewModelProvider;
+
+    private Provider<SettingsViewModel> settingsViewModelProvider;
 
     private Provider<RunSimulationUseCase> provideRunSimulationUseCaseProvider;
 
@@ -583,41 +657,54 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
       this.provideForgotPasswordUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ForgotPasswordUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 5));
       this.provideUpdateProfileUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<UpdateProfileUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 6));
       this.authViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
-      this.provideSaveCircuitUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<SaveCircuitUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 8));
-      this.provideGetCircuitUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetCircuitUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 9));
-      this.provideGetMyCircuitsUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetMyCircuitsUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 10));
-      this.provideDeleteCircuitUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<DeleteCircuitUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 11));
-      this.provideGetMaxQubitsUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetMaxQubitsUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 12));
-      this.circuitViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 7);
-      this.provideConnectToIBMQuantumUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ConnectToIBMQuantumUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 14));
-      this.provideDisconnectFromIBMQuantumUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<DisconnectFromIBMQuantumUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 15));
-      this.provideGetAvailableBackendsUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetAvailableBackendsUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 16));
-      this.provideSubmitHardwareJobUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<SubmitHardwareJobUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 17));
-      this.provideCancelJobUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<CancelJobUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 18));
-      this.provideGetJobResultUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetJobResultUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 19));
-      this.provideGetActiveJobsUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetActiveJobsUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 20));
-      this.provideObserveIBMConnectionUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ObserveIBMConnectionUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 21));
-      this.provideObserveJobStatusUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ObserveJobStatusUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 22));
-      this.provideObserveUserTierUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ObserveUserTierUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 23));
-      this.hardwareViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 13);
-      this.provideObserveSubscriptionUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ObserveSubscriptionUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 25));
+      this.provideExecuteWithHybridEngineUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ExecuteWithHybridEngineUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 8));
+      this.provideRunBenchmarkUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<RunBenchmarkUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 9));
+      this.provideGetBenchmarkHistoryUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetBenchmarkHistoryUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 10));
+      this.provideGetEngineStatusUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetEngineStatusUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 11));
+      this.provideObserveUserTierUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ObserveUserTierUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 12));
+      this.benchmarkViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 7);
+      this.provideSaveCircuitUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<SaveCircuitUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 14));
+      this.provideGetCircuitUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetCircuitUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 15));
+      this.provideGetMyCircuitsUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetMyCircuitsUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 16));
+      this.provideDeleteCircuitUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<DeleteCircuitUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 17));
+      this.provideGetMaxQubitsUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetMaxQubitsUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 18));
+      this.circuitViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 13);
+      this.experienceViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 19);
+      this.provideConnectToIBMQuantumUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ConnectToIBMQuantumUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 21));
+      this.provideDisconnectFromIBMQuantumUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<DisconnectFromIBMQuantumUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 22));
+      this.provideGetAvailableBackendsUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetAvailableBackendsUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 23));
+      this.provideSubmitHardwareJobUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<SubmitHardwareJobUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 24));
+      this.provideCancelJobUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<CancelJobUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 25));
     }
 
     @SuppressWarnings("unchecked")
     private void initialize2(final SavedStateHandle savedStateHandleParam,
         final ViewModelLifecycle viewModelLifecycleParam) {
-      this.provideGetSubscriptionProductsUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetSubscriptionProductsUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 26));
-      this.providePurchaseSubscriptionUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<PurchaseSubscriptionUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 27));
-      this.provideRestorePurchasesUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<RestorePurchasesUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 28));
-      this.provideGetCurrentSubscriptionUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetCurrentSubscriptionUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 29));
-      this.profileViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 24);
-      this.provideRunSimulationUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<RunSimulationUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 31));
-      this.simulatorViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 30);
+      this.provideGetJobResultUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetJobResultUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 26));
+      this.provideGetActiveJobsUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetActiveJobsUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 27));
+      this.provideObserveIBMConnectionUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ObserveIBMConnectionUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 28));
+      this.provideObserveJobStatusUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ObserveJobStatusUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 29));
+      this.hardwareViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 20);
+      this.provideGetSubscriptionProductsUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetSubscriptionProductsUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 31));
+      this.providePurchaseSubscriptionUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<PurchaseSubscriptionUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 32));
+      this.provideRestorePurchasesUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<RestorePurchasesUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 33));
+      this.provideObserveSubscriptionUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ObserveSubscriptionUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 34));
+      this.paywallViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 30);
+      this.provideGetCurrentSubscriptionUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<GetCurrentSubscriptionUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 36));
+      this.profileViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 35);
+      this.provideImportQASMUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ImportQASMUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 38));
+      this.provideExportQASMUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ExportQASMUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 39));
+      this.provideValidateQASMUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<ValidateQASMUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 40));
+      this.provideLoadQASMTemplatesUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<LoadQASMTemplatesUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 41));
+      this.qASMViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 37);
+      this.settingsViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 42);
+      this.provideRunSimulationUseCaseProvider = DoubleCheck.provider(new SwitchingProvider<RunSimulationUseCase>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 44));
+      this.simulatorViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 43);
     }
 
     @Override
     public Map<Class<?>, javax.inject.Provider<ViewModel>> getHiltViewModelMap() {
-      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(MapBuilder.<String, javax.inject.Provider<ViewModel>>newMapBuilder(5).put(AuthViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) authViewModelProvider)).put(CircuitViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) circuitViewModelProvider)).put(HardwareViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) hardwareViewModelProvider)).put(ProfileViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) profileViewModelProvider)).put(SimulatorViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) simulatorViewModelProvider)).build());
+      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(MapBuilder.<String, javax.inject.Provider<ViewModel>>newMapBuilder(10).put(AuthViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) authViewModelProvider)).put(BenchmarkViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) benchmarkViewModelProvider)).put(CircuitViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) circuitViewModelProvider)).put(ExperienceViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) experienceViewModelProvider)).put(HardwareViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) hardwareViewModelProvider)).put(PaywallViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) paywallViewModelProvider)).put(ProfileViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) profileViewModelProvider)).put(QASMViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) qASMViewModelProvider)).put(SettingsViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) settingsViewModelProvider)).put(SimulatorViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) simulatorViewModelProvider)).build());
     }
 
     @Override
@@ -667,79 +754,118 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
           case 6: // com.swiftquantum.domain.usecase.UpdateProfileUseCase 
           return (T) UseCaseModule_ProvideUpdateProfileUseCaseFactory.provideUpdateProfileUseCase(singletonCImpl.authRepositoryImplProvider.get());
 
-          case 7: // com.swiftquantum.presentation.viewmodel.CircuitViewModel 
-          return (T) new CircuitViewModel(viewModelCImpl.provideSaveCircuitUseCaseProvider.get(), viewModelCImpl.provideGetCircuitUseCaseProvider.get(), viewModelCImpl.provideGetMyCircuitsUseCaseProvider.get(), viewModelCImpl.provideDeleteCircuitUseCaseProvider.get(), viewModelCImpl.provideGetMaxQubitsUseCaseProvider.get());
+          case 7: // com.swiftquantum.presentation.viewmodel.BenchmarkViewModel 
+          return (T) new BenchmarkViewModel(viewModelCImpl.provideExecuteWithHybridEngineUseCaseProvider.get(), viewModelCImpl.provideRunBenchmarkUseCaseProvider.get(), viewModelCImpl.provideGetBenchmarkHistoryUseCaseProvider.get(), viewModelCImpl.provideGetEngineStatusUseCaseProvider.get(), viewModelCImpl.provideObserveUserTierUseCaseProvider.get());
 
-          case 8: // com.swiftquantum.domain.usecase.SaveCircuitUseCase 
-          return (T) UseCaseModule_ProvideSaveCircuitUseCaseFactory.provideSaveCircuitUseCase(singletonCImpl.quantumRepositoryImplProvider.get());
+          case 8: // com.swiftquantum.domain.usecase.ExecuteWithHybridEngineUseCase 
+          return (T) UseCaseModule_ProvideExecuteWithHybridEngineUseCaseFactory.provideExecuteWithHybridEngineUseCase(singletonCImpl.hybridEngineRepositoryImplProvider.get(), singletonCImpl.billingRepositoryImplProvider.get());
 
-          case 9: // com.swiftquantum.domain.usecase.GetCircuitUseCase 
-          return (T) UseCaseModule_ProvideGetCircuitUseCaseFactory.provideGetCircuitUseCase(singletonCImpl.quantumRepositoryImplProvider.get());
+          case 9: // com.swiftquantum.domain.usecase.RunBenchmarkUseCase 
+          return (T) UseCaseModule_ProvideRunBenchmarkUseCaseFactory.provideRunBenchmarkUseCase(singletonCImpl.hybridEngineRepositoryImplProvider.get(), singletonCImpl.billingRepositoryImplProvider.get());
 
-          case 10: // com.swiftquantum.domain.usecase.GetMyCircuitsUseCase 
-          return (T) UseCaseModule_ProvideGetMyCircuitsUseCaseFactory.provideGetMyCircuitsUseCase(singletonCImpl.quantumRepositoryImplProvider.get());
+          case 10: // com.swiftquantum.domain.usecase.GetBenchmarkHistoryUseCase 
+          return (T) UseCaseModule_ProvideGetBenchmarkHistoryUseCaseFactory.provideGetBenchmarkHistoryUseCase(singletonCImpl.hybridEngineRepositoryImplProvider.get());
 
-          case 11: // com.swiftquantum.domain.usecase.DeleteCircuitUseCase 
-          return (T) UseCaseModule_ProvideDeleteCircuitUseCaseFactory.provideDeleteCircuitUseCase(singletonCImpl.quantumRepositoryImplProvider.get());
+          case 11: // com.swiftquantum.domain.usecase.GetEngineStatusUseCase 
+          return (T) UseCaseModule_ProvideGetEngineStatusUseCaseFactory.provideGetEngineStatusUseCase(singletonCImpl.hybridEngineRepositoryImplProvider.get());
 
-          case 12: // com.swiftquantum.domain.usecase.GetMaxQubitsUseCase 
-          return (T) UseCaseModule_ProvideGetMaxQubitsUseCaseFactory.provideGetMaxQubitsUseCase(singletonCImpl.billingRepositoryImplProvider.get());
-
-          case 13: // com.swiftquantum.presentation.viewmodel.HardwareViewModel 
-          return (T) new HardwareViewModel(viewModelCImpl.provideConnectToIBMQuantumUseCaseProvider.get(), viewModelCImpl.provideDisconnectFromIBMQuantumUseCaseProvider.get(), viewModelCImpl.provideGetAvailableBackendsUseCaseProvider.get(), viewModelCImpl.provideSubmitHardwareJobUseCaseProvider.get(), viewModelCImpl.provideCancelJobUseCaseProvider.get(), viewModelCImpl.provideGetJobResultUseCaseProvider.get(), viewModelCImpl.provideGetActiveJobsUseCaseProvider.get(), viewModelCImpl.provideObserveIBMConnectionUseCaseProvider.get(), viewModelCImpl.provideObserveJobStatusUseCaseProvider.get(), viewModelCImpl.provideObserveUserTierUseCaseProvider.get());
-
-          case 14: // com.swiftquantum.domain.usecase.ConnectToIBMQuantumUseCase 
-          return (T) UseCaseModule_ProvideConnectToIBMQuantumUseCaseFactory.provideConnectToIBMQuantumUseCase(singletonCImpl.hardwareRepositoryImplProvider.get(), singletonCImpl.billingRepositoryImplProvider.get());
-
-          case 15: // com.swiftquantum.domain.usecase.DisconnectFromIBMQuantumUseCase 
-          return (T) UseCaseModule_ProvideDisconnectFromIBMQuantumUseCaseFactory.provideDisconnectFromIBMQuantumUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
-
-          case 16: // com.swiftquantum.domain.usecase.GetAvailableBackendsUseCase 
-          return (T) UseCaseModule_ProvideGetAvailableBackendsUseCaseFactory.provideGetAvailableBackendsUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
-
-          case 17: // com.swiftquantum.domain.usecase.SubmitHardwareJobUseCase 
-          return (T) UseCaseModule_ProvideSubmitHardwareJobUseCaseFactory.provideSubmitHardwareJobUseCase(singletonCImpl.hardwareRepositoryImplProvider.get(), singletonCImpl.billingRepositoryImplProvider.get());
-
-          case 18: // com.swiftquantum.domain.usecase.CancelJobUseCase 
-          return (T) UseCaseModule_ProvideCancelJobUseCaseFactory.provideCancelJobUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
-
-          case 19: // com.swiftquantum.domain.usecase.GetJobResultUseCase 
-          return (T) UseCaseModule_ProvideGetJobResultUseCaseFactory.provideGetJobResultUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
-
-          case 20: // com.swiftquantum.domain.usecase.GetActiveJobsUseCase 
-          return (T) UseCaseModule_ProvideGetActiveJobsUseCaseFactory.provideGetActiveJobsUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
-
-          case 21: // com.swiftquantum.domain.usecase.ObserveIBMConnectionUseCase 
-          return (T) UseCaseModule_ProvideObserveIBMConnectionUseCaseFactory.provideObserveIBMConnectionUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
-
-          case 22: // com.swiftquantum.domain.usecase.ObserveJobStatusUseCase 
-          return (T) UseCaseModule_ProvideObserveJobStatusUseCaseFactory.provideObserveJobStatusUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
-
-          case 23: // com.swiftquantum.domain.usecase.ObserveUserTierUseCase 
+          case 12: // com.swiftquantum.domain.usecase.ObserveUserTierUseCase 
           return (T) UseCaseModule_ProvideObserveUserTierUseCaseFactory.provideObserveUserTierUseCase(singletonCImpl.billingRepositoryImplProvider.get());
 
-          case 24: // com.swiftquantum.presentation.viewmodel.ProfileViewModel 
-          return (T) new ProfileViewModel(viewModelCImpl.provideGetCurrentUserUseCaseProvider.get(), viewModelCImpl.provideLogoutUseCaseProvider.get(), viewModelCImpl.provideObserveUserTierUseCaseProvider.get(), viewModelCImpl.provideObserveSubscriptionUseCaseProvider.get(), viewModelCImpl.provideGetSubscriptionProductsUseCaseProvider.get(), viewModelCImpl.providePurchaseSubscriptionUseCaseProvider.get(), viewModelCImpl.provideRestorePurchasesUseCaseProvider.get(), viewModelCImpl.provideGetCurrentSubscriptionUseCaseProvider.get());
+          case 13: // com.swiftquantum.presentation.viewmodel.CircuitViewModel 
+          return (T) new CircuitViewModel(viewModelCImpl.provideSaveCircuitUseCaseProvider.get(), viewModelCImpl.provideGetCircuitUseCaseProvider.get(), viewModelCImpl.provideGetMyCircuitsUseCaseProvider.get(), viewModelCImpl.provideDeleteCircuitUseCaseProvider.get(), viewModelCImpl.provideGetMaxQubitsUseCaseProvider.get());
 
-          case 25: // com.swiftquantum.domain.usecase.ObserveSubscriptionUseCase 
-          return (T) UseCaseModule_ProvideObserveSubscriptionUseCaseFactory.provideObserveSubscriptionUseCase(singletonCImpl.billingRepositoryImplProvider.get());
+          case 14: // com.swiftquantum.domain.usecase.SaveCircuitUseCase 
+          return (T) UseCaseModule_ProvideSaveCircuitUseCaseFactory.provideSaveCircuitUseCase(singletonCImpl.quantumRepositoryImplProvider.get());
 
-          case 26: // com.swiftquantum.domain.usecase.GetSubscriptionProductsUseCase 
+          case 15: // com.swiftquantum.domain.usecase.GetCircuitUseCase 
+          return (T) UseCaseModule_ProvideGetCircuitUseCaseFactory.provideGetCircuitUseCase(singletonCImpl.quantumRepositoryImplProvider.get());
+
+          case 16: // com.swiftquantum.domain.usecase.GetMyCircuitsUseCase 
+          return (T) UseCaseModule_ProvideGetMyCircuitsUseCaseFactory.provideGetMyCircuitsUseCase(singletonCImpl.quantumRepositoryImplProvider.get());
+
+          case 17: // com.swiftquantum.domain.usecase.DeleteCircuitUseCase 
+          return (T) UseCaseModule_ProvideDeleteCircuitUseCaseFactory.provideDeleteCircuitUseCase(singletonCImpl.quantumRepositoryImplProvider.get());
+
+          case 18: // com.swiftquantum.domain.usecase.GetMaxQubitsUseCase 
+          return (T) UseCaseModule_ProvideGetMaxQubitsUseCaseFactory.provideGetMaxQubitsUseCase(singletonCImpl.billingRepositoryImplProvider.get());
+
+          case 19: // com.swiftquantum.presentation.viewmodel.ExperienceViewModel 
+          return (T) new ExperienceViewModel(singletonCImpl.experienceRepositoryImplProvider.get());
+
+          case 20: // com.swiftquantum.presentation.viewmodel.HardwareViewModel 
+          return (T) new HardwareViewModel(viewModelCImpl.provideConnectToIBMQuantumUseCaseProvider.get(), viewModelCImpl.provideDisconnectFromIBMQuantumUseCaseProvider.get(), viewModelCImpl.provideGetAvailableBackendsUseCaseProvider.get(), viewModelCImpl.provideSubmitHardwareJobUseCaseProvider.get(), viewModelCImpl.provideCancelJobUseCaseProvider.get(), viewModelCImpl.provideGetJobResultUseCaseProvider.get(), viewModelCImpl.provideGetActiveJobsUseCaseProvider.get(), viewModelCImpl.provideObserveIBMConnectionUseCaseProvider.get(), viewModelCImpl.provideObserveJobStatusUseCaseProvider.get(), viewModelCImpl.provideObserveUserTierUseCaseProvider.get());
+
+          case 21: // com.swiftquantum.domain.usecase.ConnectToIBMQuantumUseCase 
+          return (T) UseCaseModule_ProvideConnectToIBMQuantumUseCaseFactory.provideConnectToIBMQuantumUseCase(singletonCImpl.hardwareRepositoryImplProvider.get(), singletonCImpl.billingRepositoryImplProvider.get());
+
+          case 22: // com.swiftquantum.domain.usecase.DisconnectFromIBMQuantumUseCase 
+          return (T) UseCaseModule_ProvideDisconnectFromIBMQuantumUseCaseFactory.provideDisconnectFromIBMQuantumUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
+
+          case 23: // com.swiftquantum.domain.usecase.GetAvailableBackendsUseCase 
+          return (T) UseCaseModule_ProvideGetAvailableBackendsUseCaseFactory.provideGetAvailableBackendsUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
+
+          case 24: // com.swiftquantum.domain.usecase.SubmitHardwareJobUseCase 
+          return (T) UseCaseModule_ProvideSubmitHardwareJobUseCaseFactory.provideSubmitHardwareJobUseCase(singletonCImpl.hardwareRepositoryImplProvider.get(), singletonCImpl.billingRepositoryImplProvider.get());
+
+          case 25: // com.swiftquantum.domain.usecase.CancelJobUseCase 
+          return (T) UseCaseModule_ProvideCancelJobUseCaseFactory.provideCancelJobUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
+
+          case 26: // com.swiftquantum.domain.usecase.GetJobResultUseCase 
+          return (T) UseCaseModule_ProvideGetJobResultUseCaseFactory.provideGetJobResultUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
+
+          case 27: // com.swiftquantum.domain.usecase.GetActiveJobsUseCase 
+          return (T) UseCaseModule_ProvideGetActiveJobsUseCaseFactory.provideGetActiveJobsUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
+
+          case 28: // com.swiftquantum.domain.usecase.ObserveIBMConnectionUseCase 
+          return (T) UseCaseModule_ProvideObserveIBMConnectionUseCaseFactory.provideObserveIBMConnectionUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
+
+          case 29: // com.swiftquantum.domain.usecase.ObserveJobStatusUseCase 
+          return (T) UseCaseModule_ProvideObserveJobStatusUseCaseFactory.provideObserveJobStatusUseCase(singletonCImpl.hardwareRepositoryImplProvider.get());
+
+          case 30: // com.swiftquantum.presentation.viewmodel.PaywallViewModel 
+          return (T) new PaywallViewModel(viewModelCImpl.provideGetSubscriptionProductsUseCaseProvider.get(), viewModelCImpl.providePurchaseSubscriptionUseCaseProvider.get(), viewModelCImpl.provideRestorePurchasesUseCaseProvider.get(), viewModelCImpl.provideObserveSubscriptionUseCaseProvider.get(), viewModelCImpl.provideObserveUserTierUseCaseProvider.get());
+
+          case 31: // com.swiftquantum.domain.usecase.GetSubscriptionProductsUseCase 
           return (T) UseCaseModule_ProvideGetSubscriptionProductsUseCaseFactory.provideGetSubscriptionProductsUseCase(singletonCImpl.billingRepositoryImplProvider.get());
 
-          case 27: // com.swiftquantum.domain.usecase.PurchaseSubscriptionUseCase 
+          case 32: // com.swiftquantum.domain.usecase.PurchaseSubscriptionUseCase 
           return (T) UseCaseModule_ProvidePurchaseSubscriptionUseCaseFactory.providePurchaseSubscriptionUseCase(singletonCImpl.billingRepositoryImplProvider.get());
 
-          case 28: // com.swiftquantum.domain.usecase.RestorePurchasesUseCase 
+          case 33: // com.swiftquantum.domain.usecase.RestorePurchasesUseCase 
           return (T) UseCaseModule_ProvideRestorePurchasesUseCaseFactory.provideRestorePurchasesUseCase(singletonCImpl.billingRepositoryImplProvider.get());
 
-          case 29: // com.swiftquantum.domain.usecase.GetCurrentSubscriptionUseCase 
+          case 34: // com.swiftquantum.domain.usecase.ObserveSubscriptionUseCase 
+          return (T) UseCaseModule_ProvideObserveSubscriptionUseCaseFactory.provideObserveSubscriptionUseCase(singletonCImpl.billingRepositoryImplProvider.get());
+
+          case 35: // com.swiftquantum.presentation.viewmodel.ProfileViewModel 
+          return (T) new ProfileViewModel(viewModelCImpl.provideGetCurrentUserUseCaseProvider.get(), viewModelCImpl.provideLogoutUseCaseProvider.get(), viewModelCImpl.provideObserveUserTierUseCaseProvider.get(), viewModelCImpl.provideObserveSubscriptionUseCaseProvider.get(), viewModelCImpl.provideGetSubscriptionProductsUseCaseProvider.get(), viewModelCImpl.providePurchaseSubscriptionUseCaseProvider.get(), viewModelCImpl.provideRestorePurchasesUseCaseProvider.get(), viewModelCImpl.provideGetCurrentSubscriptionUseCaseProvider.get(), singletonCImpl.sharedAuthManagerProvider.get());
+
+          case 36: // com.swiftquantum.domain.usecase.GetCurrentSubscriptionUseCase 
           return (T) UseCaseModule_ProvideGetCurrentSubscriptionUseCaseFactory.provideGetCurrentSubscriptionUseCase(singletonCImpl.billingRepositoryImplProvider.get());
 
-          case 30: // com.swiftquantum.presentation.viewmodel.SimulatorViewModel 
+          case 37: // com.swiftquantum.presentation.viewmodel.QASMViewModel 
+          return (T) new QASMViewModel(viewModelCImpl.provideImportQASMUseCaseProvider.get(), viewModelCImpl.provideExportQASMUseCaseProvider.get(), viewModelCImpl.provideValidateQASMUseCaseProvider.get(), viewModelCImpl.provideLoadQASMTemplatesUseCaseProvider.get());
+
+          case 38: // com.swiftquantum.domain.usecase.ImportQASMUseCase 
+          return (T) UseCaseModule_ProvideImportQASMUseCaseFactory.provideImportQASMUseCase(singletonCImpl.qASMRepositoryImplProvider.get());
+
+          case 39: // com.swiftquantum.domain.usecase.ExportQASMUseCase 
+          return (T) UseCaseModule_ProvideExportQASMUseCaseFactory.provideExportQASMUseCase(singletonCImpl.qASMRepositoryImplProvider.get());
+
+          case 40: // com.swiftquantum.domain.usecase.ValidateQASMUseCase 
+          return (T) UseCaseModule_ProvideValidateQASMUseCaseFactory.provideValidateQASMUseCase(singletonCImpl.qASMRepositoryImplProvider.get());
+
+          case 41: // com.swiftquantum.domain.usecase.LoadQASMTemplatesUseCase 
+          return (T) UseCaseModule_ProvideLoadQASMTemplatesUseCaseFactory.provideLoadQASMTemplatesUseCase(singletonCImpl.qASMRepositoryImplProvider.get());
+
+          case 42: // com.swiftquantum.presentation.viewmodel.SettingsViewModel 
+          return (T) new SettingsViewModel(ApplicationContextModule_ProvideApplicationFactory.provideApplication(singletonCImpl.applicationContextModule), viewModelCImpl.provideGetCurrentUserUseCaseProvider.get(), viewModelCImpl.provideLogoutUseCaseProvider.get(), viewModelCImpl.provideObserveUserTierUseCaseProvider.get(), singletonCImpl.sharedAuthManagerProvider.get(), singletonCImpl.userPreferencesProvider.get());
+
+          case 43: // com.swiftquantum.presentation.viewmodel.SimulatorViewModel 
           return (T) new SimulatorViewModel(viewModelCImpl.provideRunSimulationUseCaseProvider.get(), viewModelCImpl.provideGetMaxQubitsUseCaseProvider.get(), viewModelCImpl.provideObserveUserTierUseCaseProvider.get());
 
-          case 31: // com.swiftquantum.domain.usecase.RunSimulationUseCase 
+          case 44: // com.swiftquantum.domain.usecase.RunSimulationUseCase 
           return (T) UseCaseModule_ProvideRunSimulationUseCaseFactory.provideRunSimulationUseCase(singletonCImpl.quantumRepositoryImplProvider.get(), singletonCImpl.billingRepositoryImplProvider.get());
 
           default: throw new AssertionError(id);
@@ -842,9 +968,17 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
 
     private Provider<AuthRepositoryImpl> authRepositoryImplProvider;
 
+    private Provider<HybridEngineApi> provideHybridEngineApiProvider;
+
+    private Provider<HybridEngineRepositoryImpl> hybridEngineRepositoryImplProvider;
+
     private Provider<QuantumApi> provideQuantumApiProvider;
 
     private Provider<QuantumRepositoryImpl> quantumRepositoryImplProvider;
+
+    private Provider<ExperienceApi> provideExperienceApiProvider;
+
+    private Provider<ExperienceRepositoryImpl> experienceRepositoryImplProvider;
 
     private Provider<OkHttpClient> provideBridgeOkHttpClientProvider;
 
@@ -853,6 +987,12 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
     private Provider<BridgeApi> provideBridgeApiProvider;
 
     private Provider<HardwareRepositoryImpl> hardwareRepositoryImplProvider;
+
+    private Provider<SharedAuthManager> sharedAuthManagerProvider;
+
+    private Provider<QASMApi> provideQASMApiProvider;
+
+    private Provider<QASMRepositoryImpl> qASMRepositoryImplProvider;
 
     private SingletonCImpl(ApplicationContextModule applicationContextModuleParam) {
       this.applicationContextModule = applicationContextModuleParam;
@@ -872,12 +1012,19 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
       this.provideApiRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 4));
       this.provideAuthApiProvider = DoubleCheck.provider(new SwitchingProvider<AuthApi>(singletonCImpl, 3));
       this.authRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<AuthRepositoryImpl>(singletonCImpl, 2));
-      this.provideQuantumApiProvider = DoubleCheck.provider(new SwitchingProvider<QuantumApi>(singletonCImpl, 11));
-      this.quantumRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<QuantumRepositoryImpl>(singletonCImpl, 10));
-      this.provideBridgeOkHttpClientProvider = DoubleCheck.provider(new SwitchingProvider<OkHttpClient>(singletonCImpl, 15));
-      this.provideBridgeRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 14));
-      this.provideBridgeApiProvider = DoubleCheck.provider(new SwitchingProvider<BridgeApi>(singletonCImpl, 13));
-      this.hardwareRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<HardwareRepositoryImpl>(singletonCImpl, 12));
+      this.provideHybridEngineApiProvider = DoubleCheck.provider(new SwitchingProvider<HybridEngineApi>(singletonCImpl, 11));
+      this.hybridEngineRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<HybridEngineRepositoryImpl>(singletonCImpl, 10));
+      this.provideQuantumApiProvider = DoubleCheck.provider(new SwitchingProvider<QuantumApi>(singletonCImpl, 13));
+      this.quantumRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<QuantumRepositoryImpl>(singletonCImpl, 12));
+      this.provideExperienceApiProvider = DoubleCheck.provider(new SwitchingProvider<ExperienceApi>(singletonCImpl, 15));
+      this.experienceRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<ExperienceRepositoryImpl>(singletonCImpl, 14));
+      this.provideBridgeOkHttpClientProvider = DoubleCheck.provider(new SwitchingProvider<OkHttpClient>(singletonCImpl, 19));
+      this.provideBridgeRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 18));
+      this.provideBridgeApiProvider = DoubleCheck.provider(new SwitchingProvider<BridgeApi>(singletonCImpl, 17));
+      this.hardwareRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<HardwareRepositoryImpl>(singletonCImpl, 16));
+      this.sharedAuthManagerProvider = DoubleCheck.provider(new SwitchingProvider<SharedAuthManager>(singletonCImpl, 20));
+      this.provideQASMApiProvider = DoubleCheck.provider(new SwitchingProvider<QASMApi>(singletonCImpl, 22));
+      this.qASMRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<QASMRepositoryImpl>(singletonCImpl, 21));
     }
 
     @Override
@@ -943,23 +1090,44 @@ public final class DaggerSwiftQuantumApp_HiltComponents_SingletonC {
           case 9: // kotlinx.serialization.json.Json 
           return (T) NetworkModule_ProvideJsonFactory.provideJson();
 
-          case 10: // com.swiftquantum.data.repository.QuantumRepositoryImpl 
+          case 10: // com.swiftquantum.data.repository.HybridEngineRepositoryImpl 
+          return (T) new HybridEngineRepositoryImpl(singletonCImpl.provideHybridEngineApiProvider.get());
+
+          case 11: // com.swiftquantum.data.api.HybridEngineApi 
+          return (T) NetworkModule_ProvideHybridEngineApiFactory.provideHybridEngineApi(singletonCImpl.provideApiRetrofitProvider.get());
+
+          case 12: // com.swiftquantum.data.repository.QuantumRepositoryImpl 
           return (T) new QuantumRepositoryImpl(singletonCImpl.provideQuantumApiProvider.get());
 
-          case 11: // com.swiftquantum.data.api.QuantumApi 
+          case 13: // com.swiftquantum.data.api.QuantumApi 
           return (T) NetworkModule_ProvideQuantumApiFactory.provideQuantumApi(singletonCImpl.provideApiRetrofitProvider.get());
 
-          case 12: // com.swiftquantum.data.repository.HardwareRepositoryImpl 
+          case 14: // com.swiftquantum.data.repository.ExperienceRepositoryImpl 
+          return (T) new ExperienceRepositoryImpl(singletonCImpl.provideExperienceApiProvider.get());
+
+          case 15: // com.swiftquantum.data.api.ExperienceApi 
+          return (T) NetworkModule_ProvideExperienceApiFactory.provideExperienceApi(singletonCImpl.provideApiRetrofitProvider.get());
+
+          case 16: // com.swiftquantum.data.repository.HardwareRepositoryImpl 
           return (T) new HardwareRepositoryImpl(singletonCImpl.provideBridgeApiProvider.get(), singletonCImpl.tokenManagerProvider.get());
 
-          case 13: // com.swiftquantum.data.api.BridgeApi 
+          case 17: // com.swiftquantum.data.api.BridgeApi 
           return (T) NetworkModule_ProvideBridgeApiFactory.provideBridgeApi(singletonCImpl.provideBridgeRetrofitProvider.get());
 
-          case 14: // @javax.inject.Named("BridgeRetrofit") retrofit2.Retrofit 
+          case 18: // @javax.inject.Named("BridgeRetrofit") retrofit2.Retrofit 
           return (T) NetworkModule_ProvideBridgeRetrofitFactory.provideBridgeRetrofit(singletonCImpl.provideBridgeOkHttpClientProvider.get(), singletonCImpl.provideJsonProvider.get());
 
-          case 15: // @javax.inject.Named("BridgeClient") okhttp3.OkHttpClient 
+          case 19: // @javax.inject.Named("BridgeClient") okhttp3.OkHttpClient 
           return (T) NetworkModule_ProvideBridgeOkHttpClientFactory.provideBridgeOkHttpClient(singletonCImpl.provideLoggingInterceptorProvider.get(), singletonCImpl.provideAuthInterceptorProvider.get());
+
+          case 20: // com.swiftquantum.data.auth.SharedAuthManager 
+          return (T) new SharedAuthManager(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
+
+          case 21: // com.swiftquantum.data.repository.QASMRepositoryImpl 
+          return (T) new QASMRepositoryImpl(singletonCImpl.provideQASMApiProvider.get());
+
+          case 22: // com.swiftquantum.data.api.QASMApi 
+          return (T) NetworkModule_ProvideQASMApiFactory.provideQASMApi(singletonCImpl.provideApiRetrofitProvider.get());
 
           default: throw new AssertionError(id);
         }

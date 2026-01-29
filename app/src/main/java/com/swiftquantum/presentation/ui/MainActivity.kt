@@ -3,9 +3,9 @@ package com.swiftquantum.presentation.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
@@ -35,7 +35,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.swiftquantum.R
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -54,7 +56,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var billingRepository: BillingRepositoryImpl
@@ -137,43 +139,41 @@ fun SwiftQuantumMainScreen(
     }
 
     // SwiftQuantum app-specific drawer menu items
-    val drawerMenuItems = remember {
-        listOf(
-            DrawerMenuItem(
-                title = "Circuit Designer",
-                icon = Icons.Filled.Memory,
-                route = "circuit_designer"
-            ),
-            DrawerMenuItem(
-                title = "Quantum Gates",
-                icon = Icons.Filled.GridOn,
-                route = "gates"
-            ),
-            DrawerMenuItem(
-                title = "Simulations",
-                icon = Icons.Filled.PlayArrow,
-                route = "simulations"
-            ),
-            DrawerMenuItem(
-                title = "My Circuits",
-                icon = Icons.Filled.Folder,
-                route = "my_circuits"
-            ),
-            DrawerMenuItem(
-                title = "Tutorials",
-                icon = Icons.Filled.School,
-                route = "tutorials"
-            )
+    val drawerMenuItems = listOf(
+        DrawerMenuItem(
+            title = stringResource(R.string.circuit_designer),
+            icon = Icons.Filled.Memory,
+            route = "circuit_designer"
+        ),
+        DrawerMenuItem(
+            title = stringResource(R.string.quantum_gates),
+            icon = Icons.Filled.GridOn,
+            route = "gates"
+        ),
+        DrawerMenuItem(
+            title = stringResource(R.string.simulations),
+            icon = Icons.Filled.PlayArrow,
+            route = "simulations"
+        ),
+        DrawerMenuItem(
+            title = stringResource(R.string.my_circuits),
+            icon = Icons.Filled.Folder,
+            route = "my_circuits"
+        ),
+        DrawerMenuItem(
+            title = stringResource(R.string.tutorials),
+            icon = Icons.Filled.School,
+            route = "tutorials"
         )
-    }
+    )
 
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
             UnifiedNavigationDrawer(
                 currentAppName = "SwiftQuantum",
-                userDisplayName = authState.user?.name ?: "Quantum User",
-                userEmail = authState.user?.email ?: "user@quantum.dev",
+                userDisplayName = authState.user?.name ?: stringResource(R.string.default_user_name),
+                userEmail = authState.user?.email ?: stringResource(R.string.default_user_email),
                 currentAppFeatures = drawerMenuItems,
                 onNavigate = { route ->
                     scope.launch { drawerState.close() }
@@ -202,16 +202,17 @@ fun SwiftQuantumMainScreen(
                                 it.route == screen.route
                             } == true
 
+                            val screenTitle = stringResource(screen.titleRes)
                             NavigationBarItem(
                                 icon = {
                                     Icon(
                                         imageVector = if (selected) screen.selectedIcon else screen.unselectedIcon,
-                                        contentDescription = screen.title
+                                        contentDescription = screenTitle
                                     )
                                 },
                                 label = {
                                     Text(
-                                        text = screen.title,
+                                        text = screenTitle,
                                         style = MaterialTheme.typography.labelSmall
                                     )
                                 },

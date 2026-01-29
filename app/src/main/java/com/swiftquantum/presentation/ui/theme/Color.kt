@@ -25,6 +25,8 @@ val QuantumGreen = Color(0xFF10B981)
 val QuantumOrange = Color(0xFFF59E0B)
 val QuantumRed = Color(0xFFEF4444)
 val QuantumPink = Color(0xFFEC4899)
+val QuantumGold = Color(0xFFFFB800)
+val QuantumBlue = Color(0xFF3B82F6)
 
 // ========== Unified Ecosystem Background Colors ==========
 val BackgroundDark = Color(0xFF0A0A0A)

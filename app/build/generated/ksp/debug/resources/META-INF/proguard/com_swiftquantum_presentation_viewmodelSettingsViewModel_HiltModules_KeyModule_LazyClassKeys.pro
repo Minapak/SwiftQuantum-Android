@@ -1,0 +1,4 @@
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.AuthViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.AuthViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.SettingsViewModel
+-keep,allowobfuscation,allowshrinking class com.swiftquantum.presentation.viewmodel.SettingsViewModel
