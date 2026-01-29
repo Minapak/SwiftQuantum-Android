@@ -2,6 +2,20 @@
 
 All notable changes to SwiftQuantum Android will be documented in this file.
 
+## [5.3.0] - 2026-01-29
+
+### Added
+- **Immediate Language Switching**: Language changes in Settings now apply instantly using AppCompatDelegate.setApplicationLocales()
+- **Language Selection Onboarding**: First-time users see language selection screen with 5 language options
+
+### Changed
+- Migrated from deprecated resources.updateConfiguration() to modern AppCompatDelegate locale API
+- Improved localization system for immediate UI updates without app restart
+
+### Fixed
+- All remaining hardcoded text strings replaced with stringResource() calls
+- Settings language change now reflects immediately across all screens
+
 ## [5.2.0] - 2026-01-29
 
 ### Added

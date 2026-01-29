@@ -2,6 +2,8 @@ package com.swiftquantum.presentation.viewmodel
 
 import android.app.Application
 import android.content.res.Configuration
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.swiftquantum.data.auth.SharedAuthManager
@@ -151,15 +153,9 @@ class SettingsViewModel @Inject constructor(
                 // Save language preference
                 userPreferences.setLanguage(languageCode)
 
-                // Update locale
-                val locale = Locale(languageCode)
-                Locale.setDefault(locale)
-
-                val config = Configuration(application.resources.configuration)
-                config.setLocale(locale)
-
-                @Suppress("DEPRECATION")
-                application.resources.updateConfiguration(config, application.resources.displayMetrics)
+                // Apply the language change immediately using modern API
+                val localeList = LocaleListCompat.forLanguageTags(languageCode)
+                AppCompatDelegate.setApplicationLocales(localeList)
 
                 _uiState.value = _uiState.value.copy(currentLanguage = languageCode)
                 _events.emit(SettingsEvent.LanguageChanged(languageCode))

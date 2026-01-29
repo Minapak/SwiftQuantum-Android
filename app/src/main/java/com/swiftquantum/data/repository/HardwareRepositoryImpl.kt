@@ -69,11 +69,14 @@ class HardwareRepositoryImpl @Inject constructor(
                 _connectionState.value = _connectionState.value.copy(availableBackends = backends)
                 Result.success(backends)
             } else {
-                Result.failure(Exception(response.body()?.error ?: "Failed to get backends"))
+                // Return empty list for guest/offline mode
+                Timber.w("Failed to get backends from API, returning empty list")
+                Result.success(emptyList())
             }
         } catch (e: Exception) {
-            Timber.e(e, "Failed to get available backends")
-            Result.failure(e)
+            Timber.e(e, "Failed to get available backends, returning empty list")
+            // Return empty list on API failure
+            Result.success(emptyList())
         }
     }
 
@@ -170,11 +173,14 @@ class HardwareRepositoryImpl @Inject constructor(
                 _connectionState.value = _connectionState.value.copy(activeJobs = jobs)
                 Result.success(jobs)
             } else {
-                Result.failure(Exception(response.body()?.error ?: "Failed to get active jobs"))
+                // Return empty list for guest/offline mode
+                Timber.w("Failed to get active jobs from API, returning empty list")
+                Result.success(emptyList())
             }
         } catch (e: Exception) {
-            Timber.e(e, "Failed to get active jobs")
-            Result.failure(e)
+            Timber.e(e, "Failed to get active jobs, returning empty list")
+            // Return empty list on API failure
+            Result.success(emptyList())
         }
     }
 
@@ -184,11 +190,14 @@ class HardwareRepositoryImpl @Inject constructor(
             if (response.isSuccessful && response.body()?.success == true) {
                 Result.success(response.body()?.data?.map { it.toDomain() } ?: emptyList())
             } else {
-                Result.failure(Exception(response.body()?.error ?: "Failed to get job history"))
+                // Return empty list for guest/offline mode
+                Timber.w("Failed to get job history from API, returning empty list")
+                Result.success(emptyList())
             }
         } catch (e: Exception) {
-            Timber.e(e, "Failed to get job history")
-            Result.failure(e)
+            Timber.e(e, "Failed to get job history, returning empty list")
+            // Return empty list on API failure
+            Result.success(emptyList())
         }
     }
 

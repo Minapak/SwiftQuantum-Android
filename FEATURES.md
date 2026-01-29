@@ -82,6 +82,8 @@
 - Japanese (日本語)
 - Chinese (中文)
 - German (Deutsch)
+- **Instant Language Switching**: Uses AppCompatDelegate.setApplicationLocales() for immediate UI updates without restart
+- **Language Selection Onboarding**: First-launch language selection screen
 
 ### Navigation
 - Bottom navigation bar

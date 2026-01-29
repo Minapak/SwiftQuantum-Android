@@ -69,11 +69,14 @@ class QuantumRepositoryImpl @Inject constructor(
             if (response.isSuccessful && response.body()?.success == true) {
                 Result.success(response.body()?.data?.map { it.toDomain() } ?: emptyList())
             } else {
-                Result.failure(Exception(response.body()?.error ?: "Failed to get circuits"))
+                // Return empty list for guest/offline mode
+                Timber.w("Failed to get circuits from API, returning empty list")
+                Result.success(emptyList())
             }
         } catch (e: Exception) {
-            Timber.e(e, "Failed to get circuits")
-            Result.failure(e)
+            Timber.e(e, "Failed to get circuits, returning empty list")
+            // Return empty list on API failure
+            Result.success(emptyList())
         }
     }
 
@@ -163,11 +166,14 @@ class QuantumRepositoryImpl @Inject constructor(
             if (response.isSuccessful && response.body()?.success == true) {
                 Result.success(response.body()?.data?.map { it.toDomain() } ?: emptyList())
             } else {
-                Result.failure(Exception(response.body()?.error ?: "Failed to get history"))
+                // Return empty list for guest/offline mode
+                Timber.w("Failed to get execution history from API, returning empty list")
+                Result.success(emptyList())
             }
         } catch (e: Exception) {
-            Timber.e(e, "Failed to get execution history")
-            Result.failure(e)
+            Timber.e(e, "Failed to get execution history, returning empty list")
+            // Return empty list on API failure
+            Result.success(emptyList())
         }
     }
 

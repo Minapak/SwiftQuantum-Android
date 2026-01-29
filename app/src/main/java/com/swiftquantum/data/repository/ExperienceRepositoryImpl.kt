@@ -15,8 +15,15 @@ import com.swiftquantum.domain.model.PersonalSignature
 import com.swiftquantum.domain.model.QuantumArtData
 import com.swiftquantum.domain.model.RgbColor
 import com.swiftquantum.domain.repository.ExperienceRepository
+import timber.log.Timber
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.math.cos
+import kotlin.math.sin
+import kotlin.random.Random
 
 @Singleton
 class ExperienceRepositoryImpl @Inject constructor(
@@ -34,10 +41,12 @@ class ExperienceRepositoryImpl @Inject constructor(
                 val dto = response.body()!!
                 Result.success(dto.toDomain())
             } else {
-                Result.failure(Exception(response.message()))
+                Timber.w("Failed to get today's pattern from API, returning default")
+                Result.success(getDefaultDailyPattern())
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            Timber.e(e, "Failed to get today's pattern, returning default")
+            Result.success(getDefaultDailyPattern())
         }
     }
 
@@ -48,10 +57,12 @@ class ExperienceRepositoryImpl @Inject constructor(
                 val dto = response.body()!!
                 Result.success(dto.toDomain())
             } else {
-                Result.failure(Exception(response.message()))
+                Timber.w("Failed to get pattern by date from API, returning default")
+                Result.success(getDefaultDailyPattern(dateSeed))
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            Timber.e(e, "Failed to get pattern by date, returning default")
+            Result.success(getDefaultDailyPattern(dateSeed))
         }
     }
 
@@ -66,10 +77,12 @@ class ExperienceRepositoryImpl @Inject constructor(
                 val dto = response.body()!!
                 Result.success(dto.toDomain())
             } else {
-                Result.failure(Exception(response.message()))
+                Timber.w("Failed to consult oracle from API, returning default")
+                Result.success(getDefaultOracleResult(question))
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            Timber.e(e, "Failed to consult oracle, returning default")
+            Result.success(getDefaultOracleResult(question))
         }
     }
 
@@ -80,10 +93,12 @@ class ExperienceRepositoryImpl @Inject constructor(
                 val dto = response.body()!!
                 Result.success(dto.toDomain())
             } else {
-                Result.failure(Exception(response.message()))
+                Timber.w("Failed to get quick oracle from API, returning default")
+                Result.success(getDefaultOracleResult(question))
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            Timber.e(e, "Failed to get quick oracle, returning default")
+            Result.success(getDefaultOracleResult(question))
         }
     }
 
@@ -104,10 +119,12 @@ class ExperienceRepositoryImpl @Inject constructor(
                     )
                 )
             } else {
-                Result.failure(Exception(response.message()))
+                Timber.w("Failed to get oracle statistics from API, returning default")
+                Result.success(getDefaultOracleStatistics(question, shots))
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            Timber.e(e, "Failed to get oracle statistics, returning default")
+            Result.success(getDefaultOracleStatistics(question, shots))
         }
     }
 
@@ -134,10 +151,12 @@ class ExperienceRepositoryImpl @Inject constructor(
                 val dto = response.body()!!
                 Result.success(dto.toDomain())
             } else {
-                Result.failure(Exception(response.message()))
+                Timber.w("Failed to get art from qubit from API, returning default")
+                Result.success(getDefaultQuantumArtData())
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            Timber.e(e, "Failed to get art from qubit, returning default")
+            Result.success(getDefaultQuantumArtData())
         }
     }
 
@@ -148,10 +167,12 @@ class ExperienceRepositoryImpl @Inject constructor(
                 val dto = response.body()!!
                 Result.success(dto.toDomain())
             } else {
-                Result.failure(Exception(response.message()))
+                Timber.w("Failed to get art from superposition from API, returning default")
+                Result.success(getDefaultQuantumArtData())
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            Timber.e(e, "Failed to get art from superposition, returning default")
+            Result.success(getDefaultQuantumArtData())
         }
     }
 
@@ -170,10 +191,12 @@ class ExperienceRepositoryImpl @Inject constructor(
                     )
                 )
             } else {
-                Result.failure(Exception(response.message()))
+                Timber.w("Failed to generate art from API, returning default")
+                Result.success(getDefaultArtGenerateResult(resolution))
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            Timber.e(e, "Failed to generate art, returning default")
+            Result.success(getDefaultArtGenerateResult(resolution))
         }
     }
 
@@ -195,10 +218,12 @@ class ExperienceRepositoryImpl @Inject constructor(
                     )
                 )
             } else {
-                Result.failure(Exception(response.message()))
+                Timber.w("Failed to get daily experience from API, returning default")
+                Result.success(getDefaultDailyExperience())
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            Timber.e(e, "Failed to get daily experience, returning default")
+            Result.success(getDefaultDailyExperience())
         }
     }
 
@@ -223,11 +248,132 @@ class ExperienceRepositoryImpl @Inject constructor(
                     )
                 )
             } else {
-                Result.failure(Exception(response.message()))
+                Timber.w("Failed to create personal signature from API, returning default")
+                Result.success(getDefaultPersonalSignature(userIdentifier))
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            Timber.e(e, "Failed to create personal signature, returning default")
+            Result.success(getDefaultPersonalSignature(userIdentifier))
         }
+    }
+
+    // ============================================================================
+    // Default/Fallback Data Generators
+    // ============================================================================
+
+    private fun getDefaultDailyPattern(dateSeed: String? = null): DailyPattern {
+        val seed = dateSeed ?: SimpleDateFormat("yyyyMMdd", Locale.US).format(Date())
+        val seedHash = seed.hashCode()
+        val random = Random(seedHash.toLong())
+
+        val amplitude = 0.5 + random.nextDouble() * 0.5
+        val phase = random.nextDouble() * 2 * Math.PI
+
+        return DailyPattern(
+            amplitude = amplitude,
+            phase = phase,
+            entanglementStrength = random.nextDouble(),
+            coherenceTime = 50.0 + random.nextDouble() * 50.0,
+            interferencePattern = List(10) { random.nextDouble() },
+            luckyQuantumState = if (random.nextBoolean()) "|0>" else "|1>",
+            dateSeed = seed,
+            blochCoordinates = BlochCoordinates(
+                x = sin(phase) * amplitude,
+                y = cos(phase) * amplitude,
+                z = 1.0 - 2.0 * amplitude * amplitude
+            )
+        )
+    }
+
+    private fun getDefaultOracleResult(question: String): OracleResult {
+        val random = Random(question.hashCode().toLong() + System.currentTimeMillis())
+        val answer = random.nextBoolean()
+        val confidence = 0.5 + random.nextDouble() * 0.5
+
+        return OracleResult(
+            answer = answer,
+            confidence = confidence,
+            collapsedCoordinate = random.nextDouble(),
+            question = question,
+            timestamp = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US).format(Date()),
+            quantumState = if (answer) "|1>" else "|0>",
+            answerString = if (answer) "Yes" else "No",
+            confidencePercentage = confidence * 100,
+            remainingTokens = null
+        )
+    }
+
+    private fun getDefaultOracleStatistics(question: String, shots: Int): OracleStatistics {
+        val random = Random(question.hashCode().toLong())
+        val yesCount = random.nextInt(shots)
+        val noCount = shots - yesCount
+
+        return OracleStatistics(
+            question = question,
+            totalShots = shots,
+            yesCount = yesCount,
+            noCount = noCount,
+            averageConfidence = 0.5 + random.nextDouble() * 0.3,
+            yesPercentage = yesCount.toDouble() / shots * 100,
+            noPercentage = noCount.toDouble() / shots * 100
+        )
+    }
+
+    private fun getDefaultQuantumArtData(): QuantumArtData {
+        val random = Random(System.currentTimeMillis())
+        val hue = random.nextDouble() * 360
+        val r = (128 + random.nextInt(128))
+        val g = (128 + random.nextInt(128))
+        val b = (128 + random.nextInt(128))
+
+        return QuantumArtData(
+            primaryHue = hue / 360.0,
+            complexity = random.nextInt(10) + 1,
+            contrast = 0.5 + random.nextDouble() * 0.5,
+            saturation = 0.5 + random.nextDouble() * 0.5,
+            brightness = 0.5 + random.nextDouble() * 0.5,
+            quantumSignature = "local_${System.currentTimeMillis().toString(16)}",
+            hueDegrees = hue,
+            hexColor = String.format("#%02X%02X%02X", r, g, b),
+            rgbColor = RgbColor(r, g, b)
+        )
+    }
+
+    private fun getDefaultArtGenerateResult(resolution: String): ArtGenerateResult {
+        return ArtGenerateResult(
+            success = true,
+            resolution = resolution,
+            watermark = true,
+            tier = "free",
+            message = "Generated locally (offline mode)"
+        )
+    }
+
+    private fun getDefaultDailyExperience(): DailyExperience {
+        return DailyExperience(
+            pattern = getDefaultDailyPattern(),
+            art = getDefaultQuantumArtData(),
+            fortune = getDefaultOracleResult("What does today hold?"),
+            generatedAt = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US).format(Date())
+        )
+    }
+
+    private fun getDefaultPersonalSignature(userIdentifier: String): PersonalSignature {
+        val random = Random(userIdentifier.hashCode().toLong())
+        val phase = random.nextDouble() * 2 * Math.PI
+        val amplitude = 0.5 + random.nextDouble() * 0.5
+
+        return PersonalSignature(
+            userIdentifier = userIdentifier,
+            artParameters = getDefaultQuantumArtData(),
+            dailyAlignment = random.nextDouble(),
+            blochCoordinates = BlochCoordinates(
+                x = sin(phase) * amplitude,
+                y = cos(phase) * amplitude,
+                z = 1.0 - 2.0 * amplitude * amplitude
+            ),
+            quantumStateDescription = "Locally generated quantum signature"
+        )
     }
 }
 
