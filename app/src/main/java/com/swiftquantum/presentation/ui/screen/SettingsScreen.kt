@@ -32,6 +32,7 @@ import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Memory
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Policy
+import androidx.compose.material.icons.filled.Science
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.AlertDialog
@@ -105,6 +106,7 @@ val supportedLanguages = listOf(
 fun SettingsScreen(
     onNavigateBack: () -> Unit,
     onNavigateToPaywall: () -> Unit,
+    onNavigateToAustralianStandards: () -> Unit = {},
     onLogout: () -> Unit,
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
@@ -216,6 +218,20 @@ fun SettingsScreen(
                             title = stringResource(R.string.settings_build),
                             subtitle = uiState.buildNumber,
                             showChevron = false
+                        )
+                    }
+                }
+            }
+
+            // Australian Standards Section
+            item {
+                SettingsSection(title = stringResource(R.string.aus_standards_section)) {
+                    SettingsCard {
+                        SettingsRow(
+                            icon = Icons.Default.Science,
+                            title = stringResource(R.string.aus_standards_title),
+                            subtitle = stringResource(R.string.aus_standards_subtitle),
+                            onClick = onNavigateToAustralianStandards
                         )
                     }
                 }

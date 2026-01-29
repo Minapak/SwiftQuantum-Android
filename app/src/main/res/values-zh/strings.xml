@@ -417,4 +417,148 @@
 
     <!-- User Label -->
     <string name="user">用户</string>
+
+    <!-- Entertainment Modules -->
+    <string name="entertainment_title">量子娱乐</string>
+    <string name="entertainment_art">艺术</string>
+    <string name="entertainment_game">游戏</string>
+    <string name="entertainment_oracle">神谕</string>
+    <string name="nav_entertainment">娱乐</string>
+
+    <!-- Quantum Art Generator -->
+    <string name="art_generator_title">量子艺术生成器</string>
+    <string name="art_generator_subtitle">将量子状态转化为视觉艺术</string>
+    <string name="art_quantum_signature">量子签名</string>
+    <string name="art_complexity">复杂度</string>
+    <string name="art_saturation">饱和度</string>
+    <string name="art_brightness">亮度</string>
+    <string name="art_generate">生成艺术</string>
+    <string name="art_save">保存艺术</string>
+    <string name="art_share">分享艺术</string>
+
+    <!-- Qubit Puzzle Game -->
+    <string name="game_title">量子比特拼图</string>
+    <string name="game_subtitle">通过拼图掌握量子门</string>
+    <string name="game_level">关卡</string>
+    <string name="game_total_score">总分</string>
+    <string name="game_current_state">当前</string>
+    <string name="game_target_state">目标</string>
+    <string name="game_moves_format">步数: %1$d / %2$d</string>
+    <string name="game_available_gates">可用门</string>
+    <string name="game_reset">重置</string>
+    <string name="game_level_complete">关卡完成！</string>
+    <string name="game_score_format">+%1$d 分</string>
+    <string name="game_replay">重玩</string>
+    <string name="game_next_level">下一关</string>
+    <string name="difficulty_easy">简单</string>
+    <string name="difficulty_medium">中等</string>
+    <string name="difficulty_hard">困难</string>
+    <string name="difficulty_expert">专家</string>
+
+    <!-- Quantum Oracle -->
+    <string name="oracle_title">量子神谕</string>
+    <string name="oracle_subtitle">向量子宇宙寻求指引</string>
+    <string name="oracle_question_hint">输入您的问题…</string>
+    <string name="oracle_consult">咨询神谕</string>
+    <string name="oracle_confidence_format">置信度: %1$d%%</string>
+    <string name="oracle_confidence_high">高置信度</string>
+    <string name="oracle_confidence_medium">中置信度</string>
+    <string name="oracle_confidence_low">低置信度</string>
+    <string name="oracle_quantum_state">量子状态</string>
+    <string name="oracle_remaining_tokens">剩余查询次数: %1$d</string>
+    <string name="oracle_yes">是</string>
+    <string name="oracle_no">否</string>
+
+    <!-- Cloud Visualization -->
+    <string name="cloud_viz_title">云端可视化</string>
+    <string name="cloud_viz_magic_button">魔法按钮</string>
+    <string name="cloud_viz_generate">生成3D视图</string>
+    <string name="cloud_viz_bloch_sphere">布洛赫球</string>
+    <string name="cloud_viz_optical_lattice">光学晶格</string>
+    <string name="cloud_viz_loading">正在渲染可视化…</string>
+
+    <!-- =====================================================
+         澳大利亚量子计算标准 (v5.2.0)
+         ===================================================== -->
+
+    <!-- Q-CTRL 误差抑制 (悉尼大学) -->
+    <string name="qctrl_title">Q-CTRL 误差抑制</string>
+    <string name="qctrl_subtitle">悉尼大学提供的噪声缓解</string>
+    <string name="qctrl_enable">启用误差抑制</string>
+    <string name="qctrl_dd_sequence">动态去耦</string>
+    <string name="qctrl_dd_none">无</string>
+    <string name="qctrl_dd_cpmg">CPMG</string>
+    <string name="qctrl_dd_xy4">XY-4</string>
+    <string name="qctrl_dd_xy8">XY-8</string>
+    <string name="qctrl_dd_udd">UDD</string>
+    <string name="qctrl_robust_control">鲁棒控制</string>
+    <string name="qctrl_fidelity_improvement">保真度提升</string>
+    <string name="qctrl_original_fidelity">原始: %1$.4f</string>
+    <string name="qctrl_optimized_fidelity">优化后: %1$.4f</string>
+    <string name="qctrl_improvement_factor">%1$.2f倍提升</string>
+    <string name="qctrl_credits">Q-CTRL 开放控制 - 悉尼大学</string>
+
+    <!-- MicroQiskit 移动优化 (UTS) -->
+    <string name="microqiskit_title">移动优化</string>
+    <string name="microqiskit_subtitle">UTS提供的MicroQiskit</string>
+    <string name="microqiskit_optimization_level">优化级别</string>
+    <string name="microqiskit_level_none">无</string>
+    <string name="microqiskit_level_basic">基础</string>
+    <string name="microqiskit_level_moderate">中等</string>
+    <string name="microqiskit_level_aggressive">激进</string>
+    <string name="microqiskit_gates_reduced">门减少: %1$d → %2$d</string>
+    <string name="microqiskit_memory_estimate">内存: %1$.1f MB</string>
+    <string name="microqiskit_time_estimate">预计时间: %1$.1f ms</string>
+    <string name="microqiskit_compatible">移动兼容</string>
+    <string name="microqiskit_not_compatible">超出移动限制</string>
+    <string name="microqiskit_credits">MicroQiskit - 悉尼科技大学</string>
+
+    <!-- SQC 保真度基准测试 (新南威尔士大学悉尼) -->
+    <string name="sqc_title">保真度基准测试</string>
+    <string name="sqc_subtitle">新南威尔士大学悉尼SQC标准</string>
+    <string name="sqc_grade_platinum">白金</string>
+    <string name="sqc_grade_gold">黄金</string>
+    <string name="sqc_grade_silver">白银</string>
+    <string name="sqc_grade_bronze">青铜</string>
+    <string name="sqc_grade_standard">标准</string>
+    <string name="sqc_grade_developing">开发中</string>
+    <string name="sqc_overall_fidelity">总体保真度: %1$.4f</string>
+    <string name="sqc_your_grade">您的等级</string>
+    <string name="sqc_sqc_comparison">SQC比较</string>
+    <string name="sqc_single_qubit_avg">单量子比特平均: %1$.4f</string>
+    <string name="sqc_two_qubit_avg">双量子比特平均: %1$.4f</string>
+    <string name="sqc_meets_standard">达到SQC标准</string>
+    <string name="sqc_below_standard">低于SQC标准</string>
+    <string name="sqc_recommendations">建议</string>
+    <string name="sqc_credits">SQC保真度标准 - 新南威尔士大学悉尼</string>
+
+    <!-- LabScript 协议 (莫纳什/墨尔本) -->
+    <string name="labscript_title">LabScript 导出</string>
+    <string name="labscript_subtitle">莫纳什/墨尔本大学硬件协议</string>
+    <string name="labscript_export">导出到LabScript</string>
+    <string name="labscript_validate">验证序列</string>
+    <string name="labscript_duration">持续时间: %1$.6f 秒</string>
+    <string name="labscript_channels">通道: %1$d</string>
+    <string name="labscript_instructions">指令: %1$d</string>
+    <string name="labscript_valid">有效序列</string>
+    <string name="labscript_invalid">无效: %1$s</string>
+    <string name="labscript_credits">LabScript Suite - 莫纳什/墨尔本大学</string>
+
+    <!-- 澳大利亚标准致谢 -->
+    <string name="aus_standards_section">澳大利亚标准</string>
+    <string name="aus_standards_title">澳大利亚量子标准</string>
+    <string name="aus_standards_subtitle">由澳大利亚大学提供</string>
+    <string name="aus_standards_qctrl_desc">噪声缓解和误差抑制</string>
+    <string name="aus_standards_microqiskit_desc">移动优化量子模拟</string>
+    <string name="aus_standards_sqc_desc">世界领先的保真度基准</string>
+    <string name="aus_standards_labscript_desc">大学实验室硬件协议</string>
+    <string name="aus_standards_view_credits">查看开源致谢</string>
+
+    <!-- 开源致谢 -->
+    <string name="credits_title">开源致谢</string>
+    <string name="credits_subtitle">本应用使用的库和框架</string>
+    <string name="credits_australian_quantum">澳大利亚量子计算</string>
+    <string name="credits_license">许可证: %1$s</string>
+    <string name="credits_visit_github">访问GitHub</string>
+    <string name="credits_visit_website">访问网站</string>
 </resources>

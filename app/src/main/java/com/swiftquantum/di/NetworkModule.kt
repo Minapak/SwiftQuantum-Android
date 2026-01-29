@@ -3,6 +3,7 @@ package com.swiftquantum.di
 import com.swiftquantum.BuildConfig
 import com.swiftquantum.data.api.AuthApi
 import com.swiftquantum.data.api.BridgeApi
+import com.swiftquantum.data.api.ExperienceApi
 import com.swiftquantum.data.api.HybridEngineApi
 import com.swiftquantum.data.api.QASMApi
 import com.swiftquantum.data.api.QuantumApi
@@ -156,5 +157,11 @@ object NetworkModule {
     @Singleton
     fun provideQASMApi(@Named("ApiRetrofit") retrofit: Retrofit): QASMApi {
         return retrofit.create(QASMApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideExperienceApi(@Named("ApiRetrofit") retrofit: Retrofit): ExperienceApi {
+        return retrofit.create(ExperienceApi::class.java)
     }
 }

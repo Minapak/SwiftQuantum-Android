@@ -2,7 +2,9 @@ package com.swiftquantum.presentation.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.BarChart
+import androidx.compose.material.icons.filled.CloudQueue
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.Memory
@@ -12,7 +14,9 @@ import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Speed
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.AccountCircle
+import androidx.compose.material.icons.outlined.AutoAwesome
 import androidx.compose.material.icons.outlined.BarChart
+import androidx.compose.material.icons.outlined.CloudQueue
 import androidx.compose.material.icons.outlined.Build
 import androidx.compose.material.icons.outlined.Code
 import androidx.compose.material.icons.outlined.Memory
@@ -35,7 +39,10 @@ import com.swiftquantum.presentation.ui.screen.QASMScreen
 import com.swiftquantum.presentation.ui.screen.SettingsScreen
 import com.swiftquantum.presentation.ui.screen.SimulatorScreen
 import com.swiftquantum.presentation.ui.screen.SplashScreen
+import com.swiftquantum.presentation.ui.screen.CloudVisualizationScreen
+import com.swiftquantum.presentation.ui.screen.EntertainmentScreen
 import com.swiftquantum.presentation.ui.screen.VisualizeScreen
+import com.swiftquantum.presentation.ui.screen.AustralianStandardsScreen
 
 sealed class Screen(
     val route: String,
@@ -120,9 +127,25 @@ sealed class Screen(
         unselectedIcon = Icons.Outlined.BarChart
     )
 
+    data object Entertainment : Screen(
+        route = "entertainment",
+        title = "Entertainment",
+        selectedIcon = Icons.Filled.AutoAwesome,
+        unselectedIcon = Icons.Outlined.AutoAwesome
+    )
+
+    data object AustralianStandards : Screen(
+        route = "australian_standards",
+        title = "Australian Standards",
+        selectedIcon = Icons.Filled.Star,
+        unselectedIcon = Icons.Filled.Star
+    )
+
     companion object {
         // Main bottom navigation items (5 items max for good UX)
         val bottomNavItems = listOf(Simulator, Circuit, QASM, Benchmark, Profile)
+        // Drawer items include Entertainment
+        val drawerItems = listOf(Simulator, Circuit, QASM, Benchmark, Hardware, Entertainment, Visualize)
     }
 }
 
@@ -207,6 +230,9 @@ fun SwiftQuantumNavHost(
                 onNavigateToPaywall = {
                     navController.navigate(Screen.Paywall.route)
                 },
+                onNavigateToAustralianStandards = {
+                    navController.navigate(Screen.AustralianStandards.route)
+                },
                 onLogout = {
                     navController.navigate(Screen.Auth.route) {
                         popUpTo(0) { inclusive = true }
@@ -229,6 +255,22 @@ fun SwiftQuantumNavHost(
         composable(Screen.Visualize.route) {
             VisualizeScreen(
                 onNavigateBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Screen.Entertainment.route) {
+            EntertainmentScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Screen.AustralianStandards.route) {
+            AustralianStandardsScreen(
+                onBackClick = {
                     navController.popBackStack()
                 }
             )

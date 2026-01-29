@@ -417,4 +417,148 @@
 
     <!-- User Label -->
     <string name="user">User</string>
+
+    <!-- Entertainment Modules -->
+    <string name="entertainment_title">Quantum Entertainment</string>
+    <string name="entertainment_art">Art</string>
+    <string name="entertainment_game">Game</string>
+    <string name="entertainment_oracle">Oracle</string>
+    <string name="nav_entertainment">Entertainment</string>
+
+    <!-- Quantum Art Generator -->
+    <string name="art_generator_title">Quantum Art Generator</string>
+    <string name="art_generator_subtitle">Transform quantum states into visual art</string>
+    <string name="art_quantum_signature">Quantum Signature</string>
+    <string name="art_complexity">Complexity</string>
+    <string name="art_saturation">Saturation</string>
+    <string name="art_brightness">Brightness</string>
+    <string name="art_generate">Generate Art</string>
+    <string name="art_save">Save Art</string>
+    <string name="art_share">Share Art</string>
+
+    <!-- Qubit Puzzle Game -->
+    <string name="game_title">Qubit Puzzle</string>
+    <string name="game_subtitle">Master quantum gates through puzzles</string>
+    <string name="game_level">Level</string>
+    <string name="game_total_score">Total Score</string>
+    <string name="game_current_state">Current</string>
+    <string name="game_target_state">Target</string>
+    <string name="game_moves_format">Moves: %1$d / %2$d</string>
+    <string name="game_available_gates">Available Gates</string>
+    <string name="game_reset">Reset</string>
+    <string name="game_level_complete">Level Complete!</string>
+    <string name="game_score_format">+%1$d points</string>
+    <string name="game_replay">Replay</string>
+    <string name="game_next_level">Next Level</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="difficulty_expert">Expert</string>
+
+    <!-- Quantum Oracle -->
+    <string name="oracle_title">Quantum Oracle</string>
+    <string name="oracle_subtitle">Ask the quantum universe for guidance</string>
+    <string name="oracle_question_hint">Enter your question…</string>
+    <string name="oracle_consult">Consult Oracle</string>
+    <string name="oracle_confidence_format">Confidence: %1$d%%</string>
+    <string name="oracle_confidence_high">High Confidence</string>
+    <string name="oracle_confidence_medium">Medium Confidence</string>
+    <string name="oracle_confidence_low">Low Confidence</string>
+    <string name="oracle_quantum_state">Quantum State</string>
+    <string name="oracle_remaining_tokens">Remaining queries: %1$d</string>
+    <string name="oracle_yes">YES</string>
+    <string name="oracle_no">NO</string>
+
+    <!-- Cloud Visualization -->
+    <string name="cloud_viz_title">Cloud Visualization</string>
+    <string name="cloud_viz_magic_button">Magic Button</string>
+    <string name="cloud_viz_generate">Generate 3D View</string>
+    <string name="cloud_viz_bloch_sphere">Bloch Sphere</string>
+    <string name="cloud_viz_optical_lattice">Optical Lattice</string>
+    <string name="cloud_viz_loading">Rendering visualization…</string>
+
+    <!-- =====================================================
+         Australian Quantum Computing Standards (v5.2.0)
+         ===================================================== -->
+
+    <!-- Q-CTRL Error Suppression (University of Sydney) -->
+    <string name="qctrl_title">Q-CTRL Error Suppression</string>
+    <string name="qctrl_subtitle">Noise mitigation powered by University of Sydney</string>
+    <string name="qctrl_enable">Enable Error Suppression</string>
+    <string name="qctrl_dd_sequence">Dynamical Decoupling</string>
+    <string name="qctrl_dd_none">None</string>
+    <string name="qctrl_dd_cpmg">CPMG</string>
+    <string name="qctrl_dd_xy4">XY-4</string>
+    <string name="qctrl_dd_xy8">XY-8</string>
+    <string name="qctrl_dd_udd">UDD</string>
+    <string name="qctrl_robust_control">Robust Control</string>
+    <string name="qctrl_fidelity_improvement">Fidelity Improvement</string>
+    <string name="qctrl_original_fidelity">Original: %1$.4f</string>
+    <string name="qctrl_optimized_fidelity">Optimized: %1$.4f</string>
+    <string name="qctrl_improvement_factor">%1$.2fx improvement</string>
+    <string name="qctrl_credits">Q-CTRL Open Controls - University of Sydney</string>
+
+    <!-- MicroQiskit Mobile Optimization (UTS) -->
+    <string name="microqiskit_title">Mobile Optimization</string>
+    <string name="microqiskit_subtitle">MicroQiskit powered by UTS</string>
+    <string name="microqiskit_optimization_level">Optimization Level</string>
+    <string name="microqiskit_level_none">None</string>
+    <string name="microqiskit_level_basic">Basic</string>
+    <string name="microqiskit_level_moderate">Moderate</string>
+    <string name="microqiskit_level_aggressive">Aggressive</string>
+    <string name="microqiskit_gates_reduced">Gates reduced: %1$d → %2$d</string>
+    <string name="microqiskit_memory_estimate">Memory: %1$.1f MB</string>
+    <string name="microqiskit_time_estimate">Est. Time: %1$.1f ms</string>
+    <string name="microqiskit_compatible">Mobile Compatible</string>
+    <string name="microqiskit_not_compatible">Exceeds Mobile Limits</string>
+    <string name="microqiskit_credits">MicroQiskit - University of Technology Sydney</string>
+
+    <!-- SQC Fidelity Benchmarking (UNSW Sydney) -->
+    <string name="sqc_title">Fidelity Benchmarking</string>
+    <string name="sqc_subtitle">SQC Standards by UNSW Sydney</string>
+    <string name="sqc_grade_platinum">Platinum</string>
+    <string name="sqc_grade_gold">Gold</string>
+    <string name="sqc_grade_silver">Silver</string>
+    <string name="sqc_grade_bronze">Bronze</string>
+    <string name="sqc_grade_standard">Standard</string>
+    <string name="sqc_grade_developing">Developing</string>
+    <string name="sqc_overall_fidelity">Overall Fidelity: %1$.4f</string>
+    <string name="sqc_your_grade">Your Grade</string>
+    <string name="sqc_sqc_comparison">SQC Comparison</string>
+    <string name="sqc_single_qubit_avg">Single-Qubit Avg: %1$.4f</string>
+    <string name="sqc_two_qubit_avg">Two-Qubit Avg: %1$.4f</string>
+    <string name="sqc_meets_standard">Meets SQC Standard</string>
+    <string name="sqc_below_standard">Below SQC Standard</string>
+    <string name="sqc_recommendations">Recommendations</string>
+    <string name="sqc_credits">SQC Fidelity Standards - UNSW Sydney</string>
+
+    <!-- LabScript Protocol (Monash/Melbourne) -->
+    <string name="labscript_title">LabScript Export</string>
+    <string name="labscript_subtitle">Hardware protocol by Monash/Melbourne</string>
+    <string name="labscript_export">Export to LabScript</string>
+    <string name="labscript_validate">Validate Sequence</string>
+    <string name="labscript_duration">Duration: %1$.6f s</string>
+    <string name="labscript_channels">Channels: %1$d</string>
+    <string name="labscript_instructions">Instructions: %1$d</string>
+    <string name="labscript_valid">Valid Sequence</string>
+    <string name="labscript_invalid">Invalid: %1$s</string>
+    <string name="labscript_credits">LabScript Suite - Monash/Melbourne Universities</string>
+
+    <!-- Australian Standards Credits -->
+    <string name="aus_standards_section">Australian Standards</string>
+    <string name="aus_standards_title">Australian Quantum Standards</string>
+    <string name="aus_standards_subtitle">Powered by Australian Universities</string>
+    <string name="aus_standards_qctrl_desc">Noise mitigation and error suppression</string>
+    <string name="aus_standards_microqiskit_desc">Mobile-optimized quantum simulation</string>
+    <string name="aus_standards_sqc_desc">World-leading fidelity benchmarks</string>
+    <string name="aus_standards_labscript_desc">University lab hardware protocols</string>
+    <string name="aus_standards_view_credits">View Open Source Credits</string>
+
+    <!-- Open Source Credits -->
+    <string name="credits_title">Open Source Credits</string>
+    <string name="credits_subtitle">Libraries and frameworks used in this app</string>
+    <string name="credits_australian_quantum">Australian Quantum Computing</string>
+    <string name="credits_license">License: %1$s</string>
+    <string name="credits_visit_github">Visit GitHub</string>
+    <string name="credits_visit_website">Visit Website</string>
 </resources>
