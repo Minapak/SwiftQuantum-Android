@@ -2,6 +2,23 @@
 
 All notable changes to SwiftQuantum Android will be documented in this file.
 
+## [5.8.5] - 2026-01-31
+
+### Fixed
+- **Navigation Crash Fix**: Fixed app crash when tapping drawer menu items
+  - Drawer menu now correctly routes to existing screens (Circuit, Simulator, Benchmark, Hardware, Entertainment, Visualize)
+  - Removed invalid routes (tutorials, circuit_designer, gates, simulations, my_circuits)
+- **Admin Navigation**: Settings → Admin Dashboard navigation now properly connected
+
+### Changed
+- Drawer menu items updated to match actual available screens
+- All navigation routes now correctly map to existing composable screens
+
+### Technical
+- MainActivity.kt: Updated drawerMenuItems to use Screen.route constants
+- Navigation.kt: Added onNavigateToAdmin parameter to Settings composable
+- Full build verification passed
+
 ## [5.8.4] - 2026-01-31
 
 ### Added

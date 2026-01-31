@@ -279,6 +279,9 @@ fun SwiftQuantumNavHost(
                 onNavigateToAustralianStandards = {
                     navController.navigate(Screen.AustralianStandards.route)
                 },
+                onNavigateToAdmin = {
+                    navController.navigate(Screen.AdminDashboard.route)
+                },
                 onLogout = {
                     navController.navigate(Screen.Auth.route) {
                         popUpTo(0) { inclusive = true }

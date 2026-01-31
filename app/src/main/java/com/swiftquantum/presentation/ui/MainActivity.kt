@@ -138,32 +138,42 @@ fun SwiftQuantumMainScreen(
         currentDestination?.route in Screen.bottomNavItems.map { it.route }
     }
 
-    // SwiftQuantum app-specific drawer menu items
+    // SwiftQuantum app-specific drawer menu items - mapped to actual Screen routes
     val drawerMenuItems = listOf(
         DrawerMenuItem(
             title = stringResource(R.string.circuit_designer),
             icon = Icons.Filled.Memory,
-            route = "circuit_designer"
+            route = Screen.Circuit.route
         ),
         DrawerMenuItem(
             title = stringResource(R.string.quantum_gates),
             icon = Icons.Filled.GridOn,
-            route = "gates"
+            route = Screen.Circuit.route
         ),
         DrawerMenuItem(
             title = stringResource(R.string.simulations),
             icon = Icons.Filled.PlayArrow,
-            route = "simulations"
+            route = Screen.Simulator.route
         ),
         DrawerMenuItem(
-            title = stringResource(R.string.my_circuits),
-            icon = Icons.Filled.Folder,
-            route = "my_circuits"
+            title = stringResource(R.string.nav_benchmark),
+            icon = Icons.Filled.Speed,
+            route = Screen.Benchmark.route
         ),
         DrawerMenuItem(
-            title = stringResource(R.string.tutorials),
-            icon = Icons.Filled.School,
-            route = "tutorials"
+            title = stringResource(R.string.nav_hardware),
+            icon = Icons.Filled.CloudQueue,
+            route = Screen.Hardware.route
+        ),
+        DrawerMenuItem(
+            title = stringResource(R.string.nav_entertainment),
+            icon = Icons.Filled.AutoAwesome,
+            route = Screen.Entertainment.route
+        ),
+        DrawerMenuItem(
+            title = stringResource(R.string.visualize_title),
+            icon = Icons.Filled.BarChart,
+            route = Screen.Visualize.route
         )
     )
 
