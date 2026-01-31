@@ -38,7 +38,13 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.clip
+import com.swiftquantum.R
 import com.swiftquantum.presentation.ui.theme.QuantumCyan
 import com.swiftquantum.presentation.ui.theme.QuantumPink
 import com.swiftquantum.presentation.ui.theme.QuantumPurple
@@ -128,8 +134,14 @@ fun SplashScreen(
                 // Pulsing Rings
                 PulsingRings()
 
-                // Core Logo
-                QuantumLogo()
+                // App Logo Image (from iOS SwiftQuantum)
+                Image(
+                    painter = painterResource(id = R.drawable.app_logo),
+                    contentDescription = "SwiftQuantum Logo",
+                    modifier = Modifier
+                        .size(140.dp)
+                        .clip(RoundedCornerShape(28.dp))
+                )
             }
 
             Spacer(modifier = Modifier.height(40.dp))
@@ -145,9 +157,9 @@ fun SplashScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Tagline (hardcoded English for splash)
+            // Tagline
             Text(
-                text = "Professional Quantum Computing IDE",
+                text = stringResource(R.string.app_tagline),
                 style = MaterialTheme.typography.bodyMedium,
                 color = Color.White.copy(alpha = 0.7f),
                 modifier = Modifier.alpha(textAlpha)
@@ -155,9 +167,9 @@ fun SplashScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Version (hardcoded English for splash)
+            // Version
             Text(
-                text = "Version $appVersion",
+                text = "${stringResource(R.string.version)} $appVersion",
                 style = MaterialTheme.typography.bodySmall,
                 color = Color.White.copy(alpha = 0.5f),
                 modifier = Modifier.alpha(versionAlpha)

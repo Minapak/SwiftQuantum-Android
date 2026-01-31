@@ -50,6 +50,22 @@ import androidx.compose.ui.unit.sp
 import androidx.core.os.LocaleListCompat
 import com.swiftquantum.presentation.ui.theme.SwiftPurple
 
+// Language data class and supported languages list
+data class LanguageOption(
+    val code: String,
+    val name: String,
+    val flag: String,
+    val nativeName: String
+)
+
+val supportedLanguages = listOf(
+    LanguageOption("en", "English", "\uD83C\uDDFA\uD83C\uDDF8", "English"),
+    LanguageOption("ko", "Korean", "\uD83C\uDDF0\uD83C\uDDF7", "\uD55C\uAD6D\uC5B4"),
+    LanguageOption("ja", "Japanese", "\uD83C\uDDEF\uD83C\uDDF5", "\u65E5\u672C\u8A9E"),
+    LanguageOption("zh", "Chinese", "\uD83C\uDDE8\uD83C\uDDF3", "\u4E2D\u6587"),
+    LanguageOption("de", "German", "\uD83C\uDDE9\uD83C\uDDEA", "Deutsch")
+)
+
 @Composable
 fun LanguageSelectionScreen(
     onLanguageSelected: (String) -> Unit,

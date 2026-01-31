@@ -2,6 +2,22 @@
 
 All notable changes to SwiftQuantum Android will be documented in this file.
 
+## [5.8.1] - 2026-01-31
+
+### Added
+- **iOS App Icon Integration**: Replaced Android launcher icons with iOS SwiftQuantum app icon for consistent branding
+  - Updated all mipmap density folders (mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi)
+  - Added app_logo.png to drawable folders for in-app use
+- **Splash Screen Update**: Now displays actual SwiftQuantum logo image instead of code-drawn animation
+- **Onboarding Language Selection**: Language selection screen shown on first launch (already implemented)
+
+### Changed
+- Splash screen uses iOS-matching AppLogo image with rounded corners
+- Consolidated LanguageOption and supportedLanguages definitions in LanguageSelectionScreen.kt
+
+### Fixed
+- Removed duplicate LanguageOption class definition from SettingsScreen.kt
+
 ## [5.8.0] - 2026-01-31
 
 ### Added

@@ -86,20 +86,8 @@ import com.swiftquantum.presentation.ui.theme.TierPro
 import com.swiftquantum.presentation.viewmodel.SettingsViewModel
 import kotlinx.coroutines.launch
 
-data class LanguageOption(
-    val code: String,
-    val name: String,
-    val flag: String,
-    val nativeName: String
-)
-
-val supportedLanguages = listOf(
-    LanguageOption("en", "English", "\uD83C\uDDFA\uD83C\uDDF8", "English"),
-    LanguageOption("ko", "Korean", "\uD83C\uDDF0\uD83C\uDDF7", "\uD55C\uAD6D\uC5B4"),
-    LanguageOption("ja", "Japanese", "\uD83C\uDDEF\uD83C\uDDF5", "\u65E5\u672C\u8A9E"),
-    LanguageOption("zh", "Chinese", "\uD83C\uDDE8\uD83C\uDDF3", "\u4E2D\u6587"),
-    LanguageOption("de", "German", "\uD83C\uDDE9\uD83C\uDDEA", "Deutsch")
-)
+// LanguageOption and supportedLanguages are defined in LanguageSelectionScreen.kt
+// They are available in the same package (com.swiftquantum.presentation.ui.screen)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -489,6 +477,8 @@ private fun TierBadge(tier: UserTier) {
         UserTier.FREE -> TierFree
         UserTier.PRO -> TierPro
         UserTier.MASTER -> TierMaster
+        UserTier.SCHOLAR -> TierPro
+        UserTier.CAREER -> TierMaster
     }
 
     Surface(
@@ -515,6 +505,8 @@ private fun SubscriptionCard(
         UserTier.FREE -> TierFree
         UserTier.PRO -> TierPro
         UserTier.MASTER -> TierMaster
+        UserTier.SCHOLAR -> TierPro
+        UserTier.CAREER -> TierMaster
     }
 
     Card(
