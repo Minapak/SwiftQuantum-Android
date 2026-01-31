@@ -2,6 +2,42 @@
 
 All notable changes to SwiftQuantum Android will be documented in this file.
 
+## [5.8.4] - 2026-01-31
+
+### Added
+- **Admin Analytics Screen**: New analytics dashboard matching iOS AdminAnalyticsView
+  - Summary stats cards (total users, active users, premium users, revenue)
+  - Weekly usage chart with bar visualization
+  - Engine usage breakdown (Local, Cloud, Hybrid)
+  - Top users section with activity metrics
+  - Revenue overview section (MRR, ARR)
+- **7-Tap Admin Unlock Gesture**: Hidden admin access via Settings (iOS parity)
+  - Tap version number 7 times to trigger PIN dialog
+  - PIN authentication (1234) to unlock admin section
+  - Admin section appears in Settings after unlock
+- **Full Backend Integration for Admin Module**:
+  - AdminApi.kt: Complete Retrofit interface for all admin endpoints
+  - AdminDto.kt: 25+ data classes for API responses
+  - AdminRepository interface and implementation
+  - AdminViewModel with state management for all admin screens
+
+### Changed
+- AdminRootScreen now includes 6 tabs (Dashboard, Users, Analytics, Content, Team, Settings)
+- AdminDashboardScreen connected to backend via AdminViewModel
+- All admin screens use proper loading states and error handling
+
+### Localization
+- Added admin unlock strings in all 5 languages (EN, KO, JA, ZH, DE):
+  - admin_section_title, admin_section_subtitle
+  - admin_enter_pin, admin_pin_placeholder, admin_unlock
+  - admin_pin_incorrect, admin_taps_remaining
+- Added analytics strings for new AdminAnalyticsScreen
+
+### Technical
+- New files: AdminApi.kt, AdminDto.kt, AdminRepository.kt, AdminRepositoryImpl.kt
+- Updated RepositoryModule with AdminRepository binding
+- Full build verification passed
+
 ## [5.8.3] - 2026-01-31
 
 ### Added

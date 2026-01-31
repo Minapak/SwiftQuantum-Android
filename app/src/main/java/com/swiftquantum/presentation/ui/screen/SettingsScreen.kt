@@ -35,6 +35,7 @@ import androidx.compose.material.icons.filled.Policy
 import androidx.compose.material.icons.filled.Science
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -47,6 +48,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -67,6 +69,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -95,6 +99,7 @@ fun SettingsScreen(
     onNavigateBack: () -> Unit,
     onNavigateToPaywall: () -> Unit,
     onNavigateToAustralianStandards: () -> Unit = {},
+    onNavigateToAdmin: () -> Unit = {},
     onLogout: () -> Unit,
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
@@ -105,6 +110,13 @@ fun SettingsScreen(
     var showLanguageSheet by remember { mutableStateOf(false) }
     var showLogoutDialog by remember { mutableStateOf(false) }
     val sheetState = rememberModalBottomSheetState()
+
+    // Admin 7-tap unlock (iOS parity)
+    var versionTapCount by remember { mutableStateOf(0) }
+    var showPinDialog by remember { mutableStateOf(false) }
+    var enteredPin by remember { mutableStateOf("") }
+    var isAdminUnlocked by remember { mutableStateOf(false) }
+    val adminPin = "1234"
 
     Scaffold(
         topBar = {
@@ -187,16 +199,47 @@ fun SettingsScreen(
                 }
             }
 
-            // App Info Section
+            // App Info Section (with 7-tap admin unlock)
             item {
                 SettingsSection(title = stringResource(R.string.settings_app_info)) {
                     SettingsCard {
-                        SettingsRow(
-                            icon = Icons.Default.Info,
-                            title = stringResource(R.string.version),
-                            subtitle = uiState.appVersion,
-                            showChevron = false
-                        )
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    versionTapCount++
+                                    if (versionTapCount >= 7) {
+                                        versionTapCount = 0
+                                        showPinDialog = true
+                                    }
+                                    // Reset after 3 seconds
+                                    scope.launch {
+                                        kotlinx.coroutines.delay(3000)
+                                        versionTapCount = 0
+                                    }
+                                }
+                                .padding(16.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                Icons.Default.Info,
+                                contentDescription = null,
+                                tint = QuantumPurple,
+                                modifier = Modifier.size(24.dp)
+                            )
+                            Spacer(modifier = Modifier.width(16.dp))
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = stringResource(R.string.version),
+                                    style = MaterialTheme.typography.bodyLarge
+                                )
+                                Text(
+                                    text = uiState.appVersion,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
                         HorizontalDivider(
                             modifier = Modifier.padding(horizontal = 16.dp),
                             color = MaterialTheme.colorScheme.outlineVariant
@@ -207,6 +250,22 @@ fun SettingsScreen(
                             subtitle = uiState.buildNumber,
                             showChevron = false
                         )
+                    }
+                }
+            }
+
+            // Admin Section (visible after 7-tap + PIN unlock)
+            if (isAdminUnlocked) {
+                item {
+                    SettingsSection(title = stringResource(R.string.admin_section_title)) {
+                        SettingsCard {
+                            SettingsRow(
+                                icon = Icons.Default.Settings,
+                                title = stringResource(R.string.admin_dashboard_title),
+                                subtitle = stringResource(R.string.admin_section_subtitle),
+                                onClick = onNavigateToAdmin
+                            )
+                        }
                     }
                 }
             }
@@ -365,6 +424,73 @@ fun SettingsScreen(
             },
             dismissButton = {
                 TextButton(onClick = { showLogoutDialog = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
+
+    // Admin PIN Dialog (7-tap unlock)
+    if (showPinDialog) {
+        var pinError by remember { mutableStateOf(false) }
+
+        AlertDialog(
+            onDismissRequest = {
+                showPinDialog = false
+                enteredPin = ""
+                pinError = false
+            },
+            title = { Text(stringResource(R.string.admin_enter_pin)) },
+            text = {
+                Column {
+                    OutlinedTextField(
+                        value = enteredPin,
+                        onValueChange = {
+                            if (it.length <= 4) {
+                                enteredPin = it
+                                pinError = false
+                            }
+                        },
+                        label = { Text(stringResource(R.string.admin_pin_placeholder)) },
+                        visualTransformation = PasswordVisualTransformation(),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
+                        isError = pinError,
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    if (pinError) {
+                        Text(
+                            text = stringResource(R.string.admin_pin_incorrect),
+                            color = QuantumRed,
+                            style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.padding(top = 4.dp)
+                        )
+                    }
+                }
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        if (enteredPin == adminPin) {
+                            isAdminUnlocked = true
+                            showPinDialog = false
+                            enteredPin = ""
+                        } else {
+                            pinError = true
+                        }
+                    },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = QuantumPurple
+                    )
+                ) {
+                    Text(stringResource(R.string.admin_unlock))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = {
+                    showPinDialog = false
+                    enteredPin = ""
+                }) {
                     Text(stringResource(R.string.cancel))
                 }
             }

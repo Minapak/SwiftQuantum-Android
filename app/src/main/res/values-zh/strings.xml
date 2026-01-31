@@ -735,9 +735,25 @@
     <!-- Admin Tab Navigation -->
     <string name="admin_tab_dashboard">仪表板</string>
     <string name="admin_tab_users">用户</string>
+    <string name="admin_tab_analytics">分析</string>
     <string name="admin_tab_content">内容</string>
     <string name="admin_tab_team">团队</string>
     <string name="admin_tab_settings">设置</string>
+
+    <!-- Admin Analytics -->
+    <string name="admin_analytics_title">分析</string>
+    <string name="admin_daily_active_users">日活跃用户</string>
+    <string name="admin_simulations_run">运行的模拟</string>
+    <string name="admin_avg_session_time">平均会话时长</string>
+    <string name="admin_conversion_rate">转化率</string>
+    <string name="admin_weekly_usage">每周使用量</string>
+    <string name="admin_engine_usage">引擎使用量</string>
+    <string name="admin_top_users">热门用户</string>
+    <string name="admin_revenue">收入</string>
+    <string name="admin_this_month">本月</string>
+    <string name="admin_pro_subscriptions">Pro</string>
+    <string name="admin_master_subscriptions">Master</string>
+    <string name="admin_no_data">暂无数据</string>
 
     <!-- Admin Dashboard -->
     <string name="admin_dashboard_title">管理员仪表板</string>
@@ -751,6 +767,8 @@
     <string name="admin_send_notification">通知</string>
     <string name="admin_view_reports">查看报告</string>
     <string name="admin_recent_activity">最近活动</string>
+    <string name="admin_no_recent_activity">无最近活动</string>
+    <string name="admin_retry">重试</string>
 
     <!-- Admin Users -->
     <string name="admin_users_title">用户管理</string>
@@ -839,4 +857,13 @@
     <string name="admin_invite_member">邀请成员</string>
     <string name="admin_select_role">选择角色</string>
     <string name="admin_send_invite">发送邀请</string>
+
+    <!-- Admin Unlock (7-tap) -->
+    <string name="admin_section_title">管理员访问</string>
+    <string name="admin_section_subtitle">访问管理员仪表板</string>
+    <string name="admin_enter_pin">输入管理员PIN</string>
+    <string name="admin_pin_placeholder">输入4位PIN</string>
+    <string name="admin_unlock">解锁</string>
+    <string name="admin_pin_incorrect">PIN不正确</string>
+    <string name="admin_taps_remaining">还需点击%1$d次</string>
 </resources>

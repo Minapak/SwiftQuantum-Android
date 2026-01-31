@@ -735,9 +735,25 @@
     <!-- Admin Tab Navigation -->
     <string name="admin_tab_dashboard">대시보드</string>
     <string name="admin_tab_users">사용자</string>
+    <string name="admin_tab_analytics">분석</string>
     <string name="admin_tab_content">콘텐츠</string>
     <string name="admin_tab_team">팀</string>
     <string name="admin_tab_settings">설정</string>
+
+    <!-- Admin Analytics -->
+    <string name="admin_analytics_title">분석</string>
+    <string name="admin_daily_active_users">일일 활성 사용자</string>
+    <string name="admin_simulations_run">실행된 시뮬레이션</string>
+    <string name="admin_avg_session_time">평균 세션 시간</string>
+    <string name="admin_conversion_rate">전환율</string>
+    <string name="admin_weekly_usage">주간 사용량</string>
+    <string name="admin_engine_usage">엔진 사용량</string>
+    <string name="admin_top_users">상위 사용자</string>
+    <string name="admin_revenue">수익</string>
+    <string name="admin_this_month">이번 달</string>
+    <string name="admin_pro_subscriptions">Pro</string>
+    <string name="admin_master_subscriptions">Master</string>
+    <string name="admin_no_data">데이터 없음</string>
 
     <!-- Admin Dashboard -->
     <string name="admin_dashboard_title">관리자 대시보드</string>
@@ -751,6 +767,8 @@
     <string name="admin_send_notification">알림</string>
     <string name="admin_view_reports">보고서 보기</string>
     <string name="admin_recent_activity">최근 활동</string>
+    <string name="admin_no_recent_activity">최근 활동 없음</string>
+    <string name="admin_retry">재시도</string>
 
     <!-- Admin Users -->
     <string name="admin_users_title">사용자 관리</string>
@@ -839,4 +857,13 @@
     <string name="admin_invite_member">멤버 초대</string>
     <string name="admin_select_role">역할 선택</string>
     <string name="admin_send_invite">초대 보내기</string>
+
+    <!-- Admin Unlock (7-tap) -->
+    <string name="admin_section_title">관리자 접근</string>
+    <string name="admin_section_subtitle">관리자 대시보드 접근</string>
+    <string name="admin_enter_pin">관리자 PIN 입력</string>
+    <string name="admin_pin_placeholder">4자리 PIN 입력</string>
+    <string name="admin_unlock">잠금 해제</string>
+    <string name="admin_pin_incorrect">잘못된 PIN</string>
+    <string name="admin_taps_remaining">%1$d번 더 탭하세요</string>
 </resources>

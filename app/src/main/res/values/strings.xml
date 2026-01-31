@@ -735,9 +735,25 @@
     <!-- Admin Tab Navigation -->
     <string name="admin_tab_dashboard">Dashboard</string>
     <string name="admin_tab_users">Users</string>
+    <string name="admin_tab_analytics">Analytics</string>
     <string name="admin_tab_content">Content</string>
     <string name="admin_tab_team">Team</string>
     <string name="admin_tab_settings">Settings</string>
+
+    <!-- Admin Analytics -->
+    <string name="admin_analytics_title">Analytics</string>
+    <string name="admin_daily_active_users">Daily Active Users</string>
+    <string name="admin_simulations_run">Simulations Run</string>
+    <string name="admin_avg_session_time">Avg Session Time</string>
+    <string name="admin_conversion_rate">Conversion Rate</string>
+    <string name="admin_weekly_usage">Weekly Usage</string>
+    <string name="admin_engine_usage">Engine Usage</string>
+    <string name="admin_top_users">Top Users</string>
+    <string name="admin_revenue">Revenue</string>
+    <string name="admin_this_month">This Month</string>
+    <string name="admin_pro_subscriptions">Pro</string>
+    <string name="admin_master_subscriptions">Master</string>
+    <string name="admin_no_data">No data available</string>
 
     <!-- Admin Dashboard -->
     <string name="admin_dashboard_title">Admin Dashboard</string>
@@ -751,6 +767,8 @@
     <string name="admin_send_notification">Notify</string>
     <string name="admin_view_reports">View Reports</string>
     <string name="admin_recent_activity">Recent Activity</string>
+    <string name="admin_no_recent_activity">No recent activity</string>
+    <string name="admin_retry">Retry</string>
 
     <!-- Admin Users -->
     <string name="admin_users_title">User Management</string>
@@ -839,4 +857,13 @@
     <string name="admin_invite_member">Invite Member</string>
     <string name="admin_select_role">Select Role</string>
     <string name="admin_send_invite">Send Invite</string>
+
+    <!-- Admin Unlock (7-tap) -->
+    <string name="admin_section_title">Admin Access</string>
+    <string name="admin_section_subtitle">Access admin dashboard</string>
+    <string name="admin_enter_pin">Enter Admin PIN</string>
+    <string name="admin_pin_placeholder">Enter 4-digit PIN</string>
+    <string name="admin_unlock">Unlock</string>
+    <string name="admin_pin_incorrect">Incorrect PIN</string>
+    <string name="admin_taps_remaining">%1$d taps remaining</string>
 </resources>

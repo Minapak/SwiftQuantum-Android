@@ -735,9 +735,25 @@
     <!-- Admin Tab Navigation -->
     <string name="admin_tab_dashboard">ダッシュボード</string>
     <string name="admin_tab_users">ユーザー</string>
+    <string name="admin_tab_analytics">分析</string>
     <string name="admin_tab_content">コンテンツ</string>
     <string name="admin_tab_team">チーム</string>
     <string name="admin_tab_settings">設定</string>
+
+    <!-- Admin Analytics -->
+    <string name="admin_analytics_title">分析</string>
+    <string name="admin_daily_active_users">日間アクティブユーザー</string>
+    <string name="admin_simulations_run">実行シミュレーション</string>
+    <string name="admin_avg_session_time">平均セッション時間</string>
+    <string name="admin_conversion_rate">コンバージョン率</string>
+    <string name="admin_weekly_usage">週間使用量</string>
+    <string name="admin_engine_usage">エンジン使用量</string>
+    <string name="admin_top_users">トップユーザー</string>
+    <string name="admin_revenue">収益</string>
+    <string name="admin_this_month">今月</string>
+    <string name="admin_pro_subscriptions">Pro</string>
+    <string name="admin_master_subscriptions">Master</string>
+    <string name="admin_no_data">データなし</string>
 
     <!-- Admin Dashboard -->
     <string name="admin_dashboard_title">管理者ダッシュボード</string>
@@ -751,6 +767,8 @@
     <string name="admin_send_notification">通知</string>
     <string name="admin_view_reports">レポートを見る</string>
     <string name="admin_recent_activity">最近のアクティビティ</string>
+    <string name="admin_no_recent_activity">最近のアクティビティはありません</string>
+    <string name="admin_retry">再試行</string>
 
     <!-- Admin Users -->
     <string name="admin_users_title">ユーザー管理</string>
@@ -839,4 +857,13 @@
     <string name="admin_invite_member">メンバーを招待</string>
     <string name="admin_select_role">ロールを選択</string>
     <string name="admin_send_invite">招待を送信</string>
+
+    <!-- Admin Unlock (7-tap) -->
+    <string name="admin_section_title">管理者アクセス</string>
+    <string name="admin_section_subtitle">管理者ダッシュボードにアクセス</string>
+    <string name="admin_enter_pin">管理者PINを入力</string>
+    <string name="admin_pin_placeholder">4桁のPINを入力</string>
+    <string name="admin_unlock">ロック解除</string>
+    <string name="admin_pin_incorrect">PINが正しくありません</string>
+    <string name="admin_taps_remaining">あと%1$d回タップ</string>
 </resources>
