@@ -2,6 +2,42 @@
 
 All notable changes to SwiftQuantum Android will be documented in this file.
 
+## [5.8.0] - 2026-01-31
+
+### Added
+- **iOS Parity Localization**: Added 100+ new localization strings to match iOS SwiftQuantum features
+  - Cloud Visualization strings (interactive 3D, state compass, lattice controls)
+  - Tab navigation strings (Circuit, Benchmark, Visualize, Cloud, Settings)
+  - Entertainment extended strings (art styles, puzzle solved, oracle)
+  - Premium/Paywall extended strings (unlock features, tier descriptions)
+  - Tier features strings (Free/Scholar/Master feature lists)
+  - Settings extended strings (admin mode, feature descriptions)
+  - Auth extended strings (welcome back, password reset flow)
+  - Measurement/Statistics strings (expected vs measured, entropy)
+
+### Changed
+- All 5 language files (EN, KO, JA, ZH, DE) updated with new iOS-matching strings
+- Improved localization coverage to match iOS L10n.swift 1:1
+
+### Fixed
+- Duplicate class build error in DEX merge (added annotation-experimental resolution strategy)
+- All hardcoded strings in screen files now use stringResource()
+
+### Technical
+- Updated build.gradle.kts with dependency resolution for annotation-experimental
+- Full build verification passed for all configurations
+
+## [5.7.1] - 2026-01-31
+
+### Changed
+- Replaced IBM Quantum references with generic "Quantum Hardware" in strings.xml
+
+### Fixed
+- Trademark compliance - removed IBM branding from user-visible strings
+
+### Note
+- Educational content describing IBM technology preserved (factual references)
+
 ## [5.6.0] - 2026-01-31
 
 ### Added

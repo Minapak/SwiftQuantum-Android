@@ -583,4 +583,139 @@
     <string name="cloud_chip_processing">処理中...</string>
     <string name="cloud_chip_complete">完了</string>
     <string name="error">エラー</string>
+
+    <!-- Cloud Visualization Extended -->
+    <string name="cloud_viz_reset_view">ビューリセット</string>
+    <string name="cloud_viz_auto_rotate">自動回転</string>
+    <string name="cloud_viz_rendered">クラウドレンダリング可視化</string>
+    <string name="cloud_viz_bloch_desc">ブロッホ球は単一キュービットの量子状態を表します。北極は|0⟩、南極は|1⟩であり、赤道上の点は重ね合わせ状態を表します。</string>
+    <string name="cloud_viz_lattice_desc">光学格子は3Dグリッドに配置された複数のキュービットを可視化します。色は確率振幅を表し、接続はエンタングルメントを示します。</string>
+
+    <!-- Australian Standards Extended -->
+    <string name="aus_fidelity_grades">忠実度グレード</string>
+
+    <!-- Cloud Visualization Extended (iOS L10n matching) -->
+    <string name="cloud_interactive_3d">インタラクティブ3D</string>
+    <string name="cloud_tap_to_rotate">タップして回転</string>
+    <string name="cloud_drag_to_explore">ドラッグして探索</string>
+    <string name="cloud_polar_angle">極角</string>
+    <string name="cloud_azimuthal_angle">方位角</string>
+    <string name="cloud_probability_0">P(|0⟩)</string>
+    <string name="cloud_probability_1">P(|1⟩)</string>
+    <string name="cloud_atom_grid">原子グリッド</string>
+    <string name="cloud_grid_size">グリッドサイズ</string>
+    <string name="cloud_excited_atoms">励起原子</string>
+    <string name="cloud_randomize">ランダム化</string>
+    <string name="cloud_visualizing">可視化中…</string>
+    <string name="cloud_connection_to_cloud">クラウドに接続</string>
+    <string name="cloud_state_parameters">状態パラメータ</string>
+    <string name="cloud_preset_states">プリセット状態</string>
+    <string name="cloud_state_information">状態情報</string>
+    <string name="cloud_lattice_controls">格子制御</string>
+    <string name="cloud_entangle">エンタングル</string>
+    <string name="cloud_atoms">原子</string>
+    <string name="cloud_entangled_pairs">エンタングルペア</string>
+    <string name="cloud_state_compass">状態コンパス</string>
+    <string name="cloud_state_compass_desc">量子基底状態の確率分布</string>
+    <string name="cloud_probability_controls">確率制御</string>
+    <string name="cloud_num_basis_states">基底状態の数</string>
+    <string name="cloud_equal">均等</string>
+    <string name="cloud_random">ランダム</string>
+
+    <!-- Tab Names (iOS matching) -->
+    <string name="tab_circuit">回路</string>
+    <string name="tab_benchmark">ベンチマーク</string>
+    <string name="tab_visualize">可視化</string>
+    <string name="tab_entertainment">楽しみ</string>
+    <string name="tab_cloud">クラウド</string>
+    <string name="tab_settings">設定</string>
+
+    <!-- Entertainment Extended (iOS matching) -->
+    <string name="entertainment_save_to_photos">写真に保存</string>
+    <string name="entertainment_share_art">アートを共有</string>
+    <string name="entertainment_apply_gate">ゲートを適用</string>
+    <string name="entertainment_puzzle_solved">パズル解決！</string>
+    <string name="entertainment_ask_oracle">オラクルに聞く</string>
+    <string name="entertainment_quantum_answer">量子の答え</string>
+    <string name="entertainment_ask_again">もう一度聞く</string>
+    <string name="entertainment_art_style">アートスタイル</string>
+    <string name="entertainment_style_abstract">抽象</string>
+    <string name="entertainment_style_wave">波動関数</string>
+    <string name="entertainment_style_entangle">エンタングルメント</string>
+    <string name="entertainment_style_fractal">フラクタル</string>
+
+    <!-- Premium/Paywall Extended (iOS matching) -->
+    <string name="premium_feature">プレミアム機能</string>
+    <string name="premium_upgrade_to">プレミアムにアップグレード</string>
+    <string name="premium_unlock">SwiftQuantumをアンロック</string>
+    <string name="premium_choose_plan">あなたに合ったプランを選択</string>
+    <string name="premium_sign_in_sync">サインインしてデバイス間で同期</string>
+    <string name="premium_sign_in_create">サインイン / アカウント作成</string>
+    <string name="premium_admin_mode">管理者モード</string>
+    <string name="premium_save_33">33%オフ</string>
+    <string name="premium_welcome">プレミアムへようこそ！</string>
+    <string name="premium_all_features_unlocked">すべての機能がアンロックされました</string>
+    <string name="premium_get_started">始める</string>
+    <string name="premium_feature_qpu_connection">QuantumBridge QPU接続</string>
+    <string name="premium_feature_error_correction">エラー訂正シミュレーション</string>
+    <string name="premium_feature_academy">すべてのアカデミーコース</string>
+    <string name="premium_feature_industry">産業ソリューション</string>
+
+    <!-- Tier Features (iOS matching) -->
+    <string name="tier_free_python">Pythonエンジン (Qiskit)</string>
+    <string name="tier_free_qubits">最大10キュービット</string>
+    <string name="tier_free_gates">基本ゲート (H, X, Y, Z, CNOT)</string>
+    <string name="tier_free_bloch">ブロッホ球可視化</string>
+    <string name="tier_free_qasm">QASMエクスポート</string>
+    <string name="tier_scholar_includes_free">Freeのすべてを含む</string>
+    <string name="tier_scholar_rust">Rustエンジン (900倍高速)</string>
+    <string name="tier_scholar_qubits">最大30キュービット</string>
+    <string name="tier_scholar_gates">すべての量子ゲート</string>
+    <string name="tier_scholar_optimization">回路最適化</string>
+    <string name="tier_scholar_benchmark">ベンチマーク比較</string>
+    <string name="tier_master_includes_scholar">Scholarのすべてを含む</string>
+    <string name="tier_master_cpp">C++ HPCコア (1200倍高速)</string>
+    <string name="tier_master_qubits">最大40キュービット</string>
+    <string name="tier_master_metal">GPUアクセラレーション</string>
+    <string name="tier_master_qbridge">Q-Bridgeハードウェア統合</string>
+    <string name="tier_master_support">優先サポート</string>
+    <string name="tier_scholar">スカラー</string>
+    <string name="tier_career">キャリア</string>
+
+    <!-- Settings Extended (iOS matching) -->
+    <string name="settings_admin">管理者</string>
+    <string name="settings_entertainment_desc">量子アート、ゲーム、オラクル</string>
+    <string name="settings_start_free_trial">無料トライアルを開始</string>
+    <string name="settings_login_to_unlock">ログインしてプレミアム機能をアンロック</string>
+    <string name="settings_all_features_unlocked">すべての機能がアンロック</string>
+    <string name="settings_tap_to_see_upgrades">タップしてアップグレードを見る</string>
+    <string name="settings_your_features">あなたの機能</string>
+    <string name="settings_current_label">現在</string>
+
+    <!-- Auth Extended (iOS matching) -->
+    <string name="auth_welcome_back">お帰りなさい</string>
+    <string name="auth_create_account">アカウント作成</string>
+    <string name="auth_reset_password">パスワードリセット</string>
+    <string name="auth_username">ユーザー名</string>
+    <string name="auth_password_min">パスワード (8文字以上)</string>
+    <string name="auth_passwords_match">パスワードが一致</string>
+    <string name="auth_passwords_no_match">パスワードが一致しません</string>
+    <string name="auth_reset_instruction">メールアドレスを入力すると、パスワードリセットリンクを送信します。</string>
+    <string name="auth_send_reset">リセットリンクを送信</string>
+    <string name="auth_back_to_login">ログインに戻る</string>
+
+    <!-- Measurement/Statistics (iOS matching) -->
+    <string name="measurement_results">測定結果</string>
+    <string name="measurement_measurements">測定</string>
+    <string name="measurement_expected_vs_measured">期待値 vs 測定値</string>
+    <string name="measurement_expected_prob0">期待 P(|0⟩)</string>
+    <string name="measurement_measured_prob0">測定 P(|0⟩)</string>
+    <string name="measurement_error">エラー:</string>
+    <string name="measurement_excellent">素晴らしい！</string>
+    <string name="measurement_good">良い</string>
+    <string name="measurement_need_more">より多くの測定が必要</string>
+    <string name="measurement_statistics">統計</string>
+    <string name="measurement_total_measurements">総測定回数</string>
+    <string name="measurement_entropy">エントロピー</string>
+    <string name="measurement_balance">バランス</string>
 </resources>

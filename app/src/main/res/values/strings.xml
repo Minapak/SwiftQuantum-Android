@@ -35,7 +35,7 @@
     <string name="tier_master">MASTER</string>
     <string name="tier_free_desc">Up to 20 qubits simulation</string>
     <string name="tier_pro_desc">Up to 30 qubits simulation</string>
-    <string name="tier_master_desc">40+ qubits + IBM Quantum Hardware</string>
+    <string name="tier_master_desc">40+ qubits + Quantum Hardware Access</string>
 
     <!-- Simulator -->
     <string name="simulator_title">Quantum Simulator</string>
@@ -49,7 +49,7 @@
     <string name="fidelity">Fidelity</string>
     <string name="backend">Backend</string>
     <string name="backend_rust">Rust (900x faster)</string>
-    <string name="backend_ibm">IBM Quantum</string>
+    <string name="backend_ibm">Quantum Hardware</string>
     <string name="configuration">Configuration</string>
     <string name="quick_start_circuits">Quick Start Circuits</string>
     <string name="simulator_tier_info">%1$s - Max %2$d qubits</string>
@@ -126,16 +126,16 @@
     <string name="state_vector">State Vector</string>
 
     <!-- Hardware -->
-    <string name="ibm_quantum">IBM Quantum</string>
-    <string name="connect_ibm">Connect to IBM Quantum</string>
-    <string name="ibm_api_token">IBM Quantum API Token</string>
+    <string name="ibm_quantum">Quantum Platform</string>
+    <string name="connect_ibm">Connect to Quantum Platform</string>
+    <string name="ibm_api_token">Quantum API Token</string>
     <string name="connected">Connected</string>
     <string name="disconnected">Disconnected</string>
     <string name="available_backends">Available Backends</string>
     <string name="queue_position">Queue Position</string>
     <string name="estimated_time">Estimated Time</string>
     <string name="hardware_access_master_only">Hardware access requires MASTER tier</string>
-    <string name="upgrade_for_hardware">Upgrade to MASTER tier for IBM Quantum access</string>
+    <string name="upgrade_for_hardware">Upgrade to MASTER tier for Quantum Hardware access</string>
     <string name="backends_available">%1$d backends available</string>
     <string name="active_jobs">Active Jobs</string>
     <string name="pending_jobs">%1$d pending jobs</string>
@@ -151,7 +151,7 @@
     <string name="job_completed">Completed</string>
     <string name="job_failed">Failed</string>
     <string name="job_cancelled">Cancelled</string>
-    <string name="ibm_hardware_enabled">IBM Quantum hardware access enabled</string>
+    <string name="ibm_hardware_enabled">Quantum hardware access enabled</string>
 
     <!-- Profile -->
     <string name="profile">Profile</string>
@@ -392,7 +392,7 @@
     <string name="paywall_pro_engine">Pro Engine</string>
     <string name="paywall_pro_tagline">900x Rust Speedup</string>
     <string name="paywall_master_engine">Master Engine</string>
-    <string name="paywall_master_tagline">1200x C++ HPC + IBM Hardware</string>
+    <string name="paywall_master_tagline">1200x C++ HPC + Quantum Hardware</string>
     <string name="paywall_per_month">/month</string>
     <string name="paywall_billed_yearly">Billed %1$s yearly</string>
     <string name="paywall_recommended">RECOMMENDED</string>
@@ -402,7 +402,7 @@
     <string name="paywall_pro_feature_4">Priority support</string>
     <string name="paywall_master_feature_1">40+ qubits simulation</string>
     <string name="paywall_master_feature_2">1200x C++ HPC engine</string>
-    <string name="paywall_master_feature_3">IBM Quantum hardware access</string>
+    <string name="paywall_master_feature_3">Quantum hardware access</string>
     <string name="paywall_master_feature_4">Advanced analytics</string>
     <string name="paywall_master_feature_5">Premium priority support</string>
     <string name="paywall_disclaimer">Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period. Manage subscriptions in your Google Play account settings.</string>
@@ -583,4 +583,139 @@
     <string name="cloud_chip_processing">Processing...</string>
     <string name="cloud_chip_complete">Complete</string>
     <string name="error">Error</string>
+
+    <!-- Cloud Visualization Extended -->
+    <string name="cloud_viz_reset_view">Reset View</string>
+    <string name="cloud_viz_auto_rotate">Auto Rotate</string>
+    <string name="cloud_viz_rendered">Cloud-Rendered Visualization</string>
+    <string name="cloud_viz_bloch_desc">The Bloch sphere represents a single qubit\'s quantum state. The north pole is |0⟩, south pole is |1⟩, and points on the equator represent superposition states.</string>
+    <string name="cloud_viz_lattice_desc">The optical lattice visualizes multiple qubits arranged in a 3D grid. Colors represent probability amplitudes, and connections show entanglement.</string>
+
+    <!-- Australian Standards Extended -->
+    <string name="aus_fidelity_grades">Fidelity Grades</string>
+
+    <!-- Cloud Visualization Extended (iOS L10n matching) -->
+    <string name="cloud_interactive_3d">Interactive 3D</string>
+    <string name="cloud_tap_to_rotate">Tap to rotate</string>
+    <string name="cloud_drag_to_explore">Drag to explore</string>
+    <string name="cloud_polar_angle">Polar Angle</string>
+    <string name="cloud_azimuthal_angle">Azimuthal Angle</string>
+    <string name="cloud_probability_0">P(|0⟩)</string>
+    <string name="cloud_probability_1">P(|1⟩)</string>
+    <string name="cloud_atom_grid">Atom Grid</string>
+    <string name="cloud_grid_size">Grid Size</string>
+    <string name="cloud_excited_atoms">Excited Atoms</string>
+    <string name="cloud_randomize">Randomize</string>
+    <string name="cloud_visualizing">Visualizing…</string>
+    <string name="cloud_connection_to_cloud">Connected to Cloud</string>
+    <string name="cloud_state_parameters">State Parameters</string>
+    <string name="cloud_preset_states">Preset States</string>
+    <string name="cloud_state_information">State Information</string>
+    <string name="cloud_lattice_controls">Lattice Controls</string>
+    <string name="cloud_entangle">Entangle</string>
+    <string name="cloud_atoms">Atoms</string>
+    <string name="cloud_entangled_pairs">Entangled Pairs</string>
+    <string name="cloud_state_compass">State Compass</string>
+    <string name="cloud_state_compass_desc">Probability distribution for quantum basis states</string>
+    <string name="cloud_probability_controls">Probability Controls</string>
+    <string name="cloud_num_basis_states">Number of Basis States</string>
+    <string name="cloud_equal">Equal</string>
+    <string name="cloud_random">Random</string>
+
+    <!-- Tab Names (iOS matching) -->
+    <string name="tab_circuit">Circuit</string>
+    <string name="tab_benchmark">Benchmark</string>
+    <string name="tab_visualize">Visualize</string>
+    <string name="tab_entertainment">Fun</string>
+    <string name="tab_cloud">Cloud</string>
+    <string name="tab_settings">Settings</string>
+
+    <!-- Entertainment Extended (iOS matching) -->
+    <string name="entertainment_save_to_photos">Save to Photos</string>
+    <string name="entertainment_share_art">Share Art</string>
+    <string name="entertainment_apply_gate">Apply Gate</string>
+    <string name="entertainment_puzzle_solved">Puzzle Solved!</string>
+    <string name="entertainment_ask_oracle">Ask the Oracle</string>
+    <string name="entertainment_quantum_answer">Quantum Answer</string>
+    <string name="entertainment_ask_again">Ask Again</string>
+    <string name="entertainment_art_style">Art Style</string>
+    <string name="entertainment_style_abstract">Abstract</string>
+    <string name="entertainment_style_wave">Wave Function</string>
+    <string name="entertainment_style_entangle">Entanglement</string>
+    <string name="entertainment_style_fractal">Fractal</string>
+
+    <!-- Premium/Paywall Extended (iOS matching) -->
+    <string name="premium_feature">Premium Feature</string>
+    <string name="premium_upgrade_to">Upgrade to Premium</string>
+    <string name="premium_unlock">Unlock SwiftQuantum</string>
+    <string name="premium_choose_plan">Choose the plan that\'s right for you</string>
+    <string name="premium_sign_in_sync">Sign in to sync your subscription across devices</string>
+    <string name="premium_sign_in_create">Sign In / Create Account</string>
+    <string name="premium_admin_mode">ADMIN MODE</string>
+    <string name="premium_save_33">SAVE 33%</string>
+    <string name="premium_welcome">Welcome to Premium!</string>
+    <string name="premium_all_features_unlocked">All features are now unlocked</string>
+    <string name="premium_get_started">Get Started</string>
+    <string name="premium_feature_qpu_connection">QuantumBridge QPU Connection</string>
+    <string name="premium_feature_error_correction">Error Correction Simulation</string>
+    <string name="premium_feature_academy">All Academy Courses</string>
+    <string name="premium_feature_industry">Industry Solutions</string>
+
+    <!-- Tier Features (iOS matching) -->
+    <string name="tier_free_python">Python Engine (Qiskit)</string>
+    <string name="tier_free_qubits">10 Qubits Maximum</string>
+    <string name="tier_free_gates">Basic Gates (H, X, Y, Z, CNOT)</string>
+    <string name="tier_free_bloch">Bloch Sphere Visualization</string>
+    <string name="tier_free_qasm">QASM Export</string>
+    <string name="tier_scholar_includes_free">Everything in Free</string>
+    <string name="tier_scholar_rust">Rust Engine (900x faster)</string>
+    <string name="tier_scholar_qubits">30 Qubits Maximum</string>
+    <string name="tier_scholar_gates">All Quantum Gates</string>
+    <string name="tier_scholar_optimization">Circuit Optimization</string>
+    <string name="tier_scholar_benchmark">Benchmark Comparison</string>
+    <string name="tier_master_includes_scholar">Everything in Scholar</string>
+    <string name="tier_master_cpp">C++ HPC Core (1200x faster)</string>
+    <string name="tier_master_qubits">40 Qubits Maximum</string>
+    <string name="tier_master_metal">GPU Acceleration</string>
+    <string name="tier_master_qbridge">Q-Bridge Hardware Integration</string>
+    <string name="tier_master_support">Priority Support</string>
+    <string name="tier_scholar">SCHOLAR</string>
+    <string name="tier_career">CAREER</string>
+
+    <!-- Settings Extended (iOS matching) -->
+    <string name="settings_admin">ADMIN</string>
+    <string name="settings_entertainment_desc">Quantum Art, Games &amp; Oracle</string>
+    <string name="settings_start_free_trial">Start Free Trial</string>
+    <string name="settings_login_to_unlock">Login to unlock premium features</string>
+    <string name="settings_all_features_unlocked">All features unlocked</string>
+    <string name="settings_tap_to_see_upgrades">Tap to see available upgrades</string>
+    <string name="settings_your_features">Your Features</string>
+    <string name="settings_current_label">CURRENT</string>
+
+    <!-- Auth Extended (iOS matching) -->
+    <string name="auth_welcome_back">Welcome Back</string>
+    <string name="auth_create_account">Create Account</string>
+    <string name="auth_reset_password">Reset Password</string>
+    <string name="auth_username">Username</string>
+    <string name="auth_password_min">Password (min 8 characters)</string>
+    <string name="auth_passwords_match">Passwords match</string>
+    <string name="auth_passwords_no_match">Passwords do not match</string>
+    <string name="auth_reset_instruction">Enter your email address and we\'ll send you a link to reset your password.</string>
+    <string name="auth_send_reset">Send Reset Link</string>
+    <string name="auth_back_to_login">Back to Login</string>
+
+    <!-- Measurement/Statistics (iOS matching) -->
+    <string name="measurement_results">Measurement Results</string>
+    <string name="measurement_measurements">measurements</string>
+    <string name="measurement_expected_vs_measured">Expected vs Measured</string>
+    <string name="measurement_expected_prob0">Expected P(|0⟩)</string>
+    <string name="measurement_measured_prob0">Measured P(|0⟩)</string>
+    <string name="measurement_error">Error:</string>
+    <string name="measurement_excellent">Excellent!</string>
+    <string name="measurement_good">Good</string>
+    <string name="measurement_need_more">Need more measurements</string>
+    <string name="measurement_statistics">Statistics</string>
+    <string name="measurement_total_measurements">Total Measurements</string>
+    <string name="measurement_entropy">Entropy</string>
+    <string name="measurement_balance">Balance</string>
 </resources>

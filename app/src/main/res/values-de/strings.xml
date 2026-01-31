@@ -583,4 +583,139 @@
     <string name="cloud_chip_processing">Verarbeiten...</string>
     <string name="cloud_chip_complete">Fertig</string>
     <string name="error">Fehler</string>
+
+    <!-- Cloud Visualization Extended -->
+    <string name="cloud_viz_reset_view">Ansicht zurücksetzen</string>
+    <string name="cloud_viz_auto_rotate">Automatisch drehen</string>
+    <string name="cloud_viz_rendered">Cloud-gerenderte Visualisierung</string>
+    <string name="cloud_viz_bloch_desc">Die Bloch-Kugel stellt den Quantenzustand eines einzelnen Qubits dar. Der Nordpol ist |0⟩, der Südpol ist |1⟩, und Punkte auf dem Äquator repräsentieren Überlagerungszustände.</string>
+    <string name="cloud_viz_lattice_desc">Das optische Gitter visualisiert mehrere Qubits in einem 3D-Raster angeordnet. Farben repräsentieren Wahrscheinlichkeitsamplituden und Verbindungen zeigen Verschränkung.</string>
+
+    <!-- Australian Standards Extended -->
+    <string name="aus_fidelity_grades">Fidelitätsgrade</string>
+
+    <!-- Cloud Visualization Extended (iOS L10n matching) -->
+    <string name="cloud_interactive_3d">Interaktives 3D</string>
+    <string name="cloud_tap_to_rotate">Tippen zum Drehen</string>
+    <string name="cloud_drag_to_explore">Ziehen zum Erkunden</string>
+    <string name="cloud_polar_angle">Polarwinkel</string>
+    <string name="cloud_azimuthal_angle">Azimutwinkel</string>
+    <string name="cloud_probability_0">P(|0⟩)</string>
+    <string name="cloud_probability_1">P(|1⟩)</string>
+    <string name="cloud_atom_grid">Atomgitter</string>
+    <string name="cloud_grid_size">Gittergröße</string>
+    <string name="cloud_excited_atoms">Angeregte Atome</string>
+    <string name="cloud_randomize">Zufällig</string>
+    <string name="cloud_visualizing">Visualisierung läuft…</string>
+    <string name="cloud_connection_to_cloud">Mit Cloud verbunden</string>
+    <string name="cloud_state_parameters">Zustandsparameter</string>
+    <string name="cloud_preset_states">Voreingestellte Zustände</string>
+    <string name="cloud_state_information">Zustandsinformation</string>
+    <string name="cloud_lattice_controls">Gittersteuerung</string>
+    <string name="cloud_entangle">Verschränken</string>
+    <string name="cloud_atoms">Atome</string>
+    <string name="cloud_entangled_pairs">Verschränkte Paare</string>
+    <string name="cloud_state_compass">Zustandskompass</string>
+    <string name="cloud_state_compass_desc">Wahrscheinlichkeitsverteilung für Quantenbasiszustände</string>
+    <string name="cloud_probability_controls">Wahrscheinlichkeitssteuerung</string>
+    <string name="cloud_num_basis_states">Anzahl der Basiszustände</string>
+    <string name="cloud_equal">Gleich</string>
+    <string name="cloud_random">Zufällig</string>
+
+    <!-- Tab Names (iOS matching) -->
+    <string name="tab_circuit">Schaltkreis</string>
+    <string name="tab_benchmark">Benchmark</string>
+    <string name="tab_visualize">Visualisieren</string>
+    <string name="tab_entertainment">Spaß</string>
+    <string name="tab_cloud">Cloud</string>
+    <string name="tab_settings">Einstellungen</string>
+
+    <!-- Entertainment Extended (iOS matching) -->
+    <string name="entertainment_save_to_photos">In Fotos speichern</string>
+    <string name="entertainment_share_art">Kunst teilen</string>
+    <string name="entertainment_apply_gate">Gate anwenden</string>
+    <string name="entertainment_puzzle_solved">Rätsel gelöst!</string>
+    <string name="entertainment_ask_oracle">Das Orakel fragen</string>
+    <string name="entertainment_quantum_answer">Quantenantwort</string>
+    <string name="entertainment_ask_again">Erneut fragen</string>
+    <string name="entertainment_art_style">Kunststil</string>
+    <string name="entertainment_style_abstract">Abstrakt</string>
+    <string name="entertainment_style_wave">Wellenfunktion</string>
+    <string name="entertainment_style_entangle">Verschränkung</string>
+    <string name="entertainment_style_fractal">Fraktal</string>
+
+    <!-- Premium/Paywall Extended (iOS matching) -->
+    <string name="premium_feature">Premium-Funktion</string>
+    <string name="premium_upgrade_to">Auf Premium upgraden</string>
+    <string name="premium_unlock">SwiftQuantum freischalten</string>
+    <string name="premium_choose_plan">Wählen Sie den Plan, der zu Ihnen passt</string>
+    <string name="premium_sign_in_sync">Anmelden, um Abonnement geräteübergreifend zu synchronisieren</string>
+    <string name="premium_sign_in_create">Anmelden / Konto erstellen</string>
+    <string name="premium_admin_mode">ADMIN-MODUS</string>
+    <string name="premium_save_33">33% SPAREN</string>
+    <string name="premium_welcome">Willkommen bei Premium!</string>
+    <string name="premium_all_features_unlocked">Alle Funktionen sind jetzt freigeschaltet</string>
+    <string name="premium_get_started">Loslegen</string>
+    <string name="premium_feature_qpu_connection">QuantumBridge QPU-Verbindung</string>
+    <string name="premium_feature_error_correction">Fehlerkorrektur-Simulation</string>
+    <string name="premium_feature_academy">Alle Academy-Kurse</string>
+    <string name="premium_feature_industry">Branchenlösungen</string>
+
+    <!-- Tier Features (iOS matching) -->
+    <string name="tier_free_python">Python-Engine (Qiskit)</string>
+    <string name="tier_free_qubits">Maximal 10 Qubits</string>
+    <string name="tier_free_gates">Grundlegende Gates (H, X, Y, Z, CNOT)</string>
+    <string name="tier_free_bloch">Bloch-Kugel-Visualisierung</string>
+    <string name="tier_free_qasm">QASM-Export</string>
+    <string name="tier_scholar_includes_free">Alles von Free enthalten</string>
+    <string name="tier_scholar_rust">Rust-Engine (900x schneller)</string>
+    <string name="tier_scholar_qubits">Maximal 30 Qubits</string>
+    <string name="tier_scholar_gates">Alle Quantengates</string>
+    <string name="tier_scholar_optimization">Schaltkreisoptimierung</string>
+    <string name="tier_scholar_benchmark">Benchmark-Vergleich</string>
+    <string name="tier_master_includes_scholar">Alles von Scholar enthalten</string>
+    <string name="tier_master_cpp">C++ HPC Core (1200x schneller)</string>
+    <string name="tier_master_qubits">Maximal 40 Qubits</string>
+    <string name="tier_master_metal">GPU-Beschleunigung</string>
+    <string name="tier_master_qbridge">Q-Bridge Hardware-Integration</string>
+    <string name="tier_master_support">Prioritäts-Support</string>
+    <string name="tier_scholar">SCHOLAR</string>
+    <string name="tier_career">KARRIERE</string>
+
+    <!-- Settings Extended (iOS matching) -->
+    <string name="settings_admin">ADMIN</string>
+    <string name="settings_entertainment_desc">Quantenkunst, Spiele &amp; Orakel</string>
+    <string name="settings_start_free_trial">Kostenlose Testversion starten</string>
+    <string name="settings_login_to_unlock">Anmelden, um Premium-Funktionen freizuschalten</string>
+    <string name="settings_all_features_unlocked">Alle Funktionen freigeschaltet</string>
+    <string name="settings_tap_to_see_upgrades">Tippen, um Upgrades zu sehen</string>
+    <string name="settings_your_features">Ihre Funktionen</string>
+    <string name="settings_current_label">AKTUELL</string>
+
+    <!-- Auth Extended (iOS matching) -->
+    <string name="auth_welcome_back">Willkommen zurück</string>
+    <string name="auth_create_account">Konto erstellen</string>
+    <string name="auth_reset_password">Passwort zurücksetzen</string>
+    <string name="auth_username">Benutzername</string>
+    <string name="auth_password_min">Passwort (min. 8 Zeichen)</string>
+    <string name="auth_passwords_match">Passwörter stimmen überein</string>
+    <string name="auth_passwords_no_match">Passwörter stimmen nicht überein</string>
+    <string name="auth_reset_instruction">Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link zum Zurücksetzen.</string>
+    <string name="auth_send_reset">Reset-Link senden</string>
+    <string name="auth_back_to_login">Zurück zum Login</string>
+
+    <!-- Measurement/Statistics (iOS matching) -->
+    <string name="measurement_results">Messergebnisse</string>
+    <string name="measurement_measurements">Messungen</string>
+    <string name="measurement_expected_vs_measured">Erwartet vs Gemessen</string>
+    <string name="measurement_expected_prob0">Erwartete P(|0⟩)</string>
+    <string name="measurement_measured_prob0">Gemessene P(|0⟩)</string>
+    <string name="measurement_error">Fehler:</string>
+    <string name="measurement_excellent">Ausgezeichnet!</string>
+    <string name="measurement_good">Gut</string>
+    <string name="measurement_need_more">Mehr Messungen benötigt</string>
+    <string name="measurement_statistics">Statistik</string>
+    <string name="measurement_total_measurements">Gesamtmessungen</string>
+    <string name="measurement_entropy">Entropie</string>
+    <string name="measurement_balance">Balance</string>
 </resources>

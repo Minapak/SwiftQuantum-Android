@@ -583,4 +583,139 @@
     <string name="cloud_chip_processing">处理中...</string>
     <string name="cloud_chip_complete">完成</string>
     <string name="error">错误</string>
+
+    <!-- Cloud Visualization Extended -->
+    <string name="cloud_viz_reset_view">重置视图</string>
+    <string name="cloud_viz_auto_rotate">自动旋转</string>
+    <string name="cloud_viz_rendered">云端渲染可视化</string>
+    <string name="cloud_viz_bloch_desc">布洛赫球表示单个量子比特的量子状态。北极是|0⟩，南极是|1⟩，赤道上的点表示叠加态。</string>
+    <string name="cloud_viz_lattice_desc">光学晶格将多个量子比特可视化为3D网格。颜色表示概率幅度，连接线表示纠缠。</string>
+
+    <!-- Australian Standards Extended -->
+    <string name="aus_fidelity_grades">保真度等级</string>
+
+    <!-- Cloud Visualization Extended (iOS L10n matching) -->
+    <string name="cloud_interactive_3d">交互式3D</string>
+    <string name="cloud_tap_to_rotate">点击旋转</string>
+    <string name="cloud_drag_to_explore">拖动探索</string>
+    <string name="cloud_polar_angle">极角</string>
+    <string name="cloud_azimuthal_angle">方位角</string>
+    <string name="cloud_probability_0">P(|0⟩)</string>
+    <string name="cloud_probability_1">P(|1⟩)</string>
+    <string name="cloud_atom_grid">原子网格</string>
+    <string name="cloud_grid_size">网格大小</string>
+    <string name="cloud_excited_atoms">激发原子</string>
+    <string name="cloud_randomize">随机化</string>
+    <string name="cloud_visualizing">可视化中…</string>
+    <string name="cloud_connection_to_cloud">已连接到云</string>
+    <string name="cloud_state_parameters">状态参数</string>
+    <string name="cloud_preset_states">预设状态</string>
+    <string name="cloud_state_information">状态信息</string>
+    <string name="cloud_lattice_controls">晶格控制</string>
+    <string name="cloud_entangle">纠缠</string>
+    <string name="cloud_atoms">原子</string>
+    <string name="cloud_entangled_pairs">纠缠对</string>
+    <string name="cloud_state_compass">状态罗盘</string>
+    <string name="cloud_state_compass_desc">量子基态的概率分布</string>
+    <string name="cloud_probability_controls">概率控制</string>
+    <string name="cloud_num_basis_states">基态数量</string>
+    <string name="cloud_equal">均等</string>
+    <string name="cloud_random">随机</string>
+
+    <!-- Tab Names (iOS matching) -->
+    <string name="tab_circuit">电路</string>
+    <string name="tab_benchmark">基准测试</string>
+    <string name="tab_visualize">可视化</string>
+    <string name="tab_entertainment">娱乐</string>
+    <string name="tab_cloud">云</string>
+    <string name="tab_settings">设置</string>
+
+    <!-- Entertainment Extended (iOS matching) -->
+    <string name="entertainment_save_to_photos">保存到相册</string>
+    <string name="entertainment_share_art">分享艺术</string>
+    <string name="entertainment_apply_gate">应用门</string>
+    <string name="entertainment_puzzle_solved">谜题已解决！</string>
+    <string name="entertainment_ask_oracle">询问神谕</string>
+    <string name="entertainment_quantum_answer">量子答案</string>
+    <string name="entertainment_ask_again">再次询问</string>
+    <string name="entertainment_art_style">艺术风格</string>
+    <string name="entertainment_style_abstract">抽象</string>
+    <string name="entertainment_style_wave">波函数</string>
+    <string name="entertainment_style_entangle">纠缠</string>
+    <string name="entertainment_style_fractal">分形</string>
+
+    <!-- Premium/Paywall Extended (iOS matching) -->
+    <string name="premium_feature">高级功能</string>
+    <string name="premium_upgrade_to">升级到高级版</string>
+    <string name="premium_unlock">解锁SwiftQuantum</string>
+    <string name="premium_choose_plan">选择适合您的计划</string>
+    <string name="premium_sign_in_sync">登录以跨设备同步订阅</string>
+    <string name="premium_sign_in_create">登录 / 创建账户</string>
+    <string name="premium_admin_mode">管理员模式</string>
+    <string name="premium_save_33">节省33%</string>
+    <string name="premium_welcome">欢迎使用高级版！</string>
+    <string name="premium_all_features_unlocked">所有功能已解锁</string>
+    <string name="premium_get_started">开始</string>
+    <string name="premium_feature_qpu_connection">QuantumBridge QPU连接</string>
+    <string name="premium_feature_error_correction">纠错模拟</string>
+    <string name="premium_feature_academy">所有学院课程</string>
+    <string name="premium_feature_industry">行业解决方案</string>
+
+    <!-- Tier Features (iOS matching) -->
+    <string name="tier_free_python">Python引擎 (Qiskit)</string>
+    <string name="tier_free_qubits">最多10量子比特</string>
+    <string name="tier_free_gates">基本门 (H, X, Y, Z, CNOT)</string>
+    <string name="tier_free_bloch">布洛赫球可视化</string>
+    <string name="tier_free_qasm">QASM导出</string>
+    <string name="tier_scholar_includes_free">包含Free的所有功能</string>
+    <string name="tier_scholar_rust">Rust引擎 (900倍速)</string>
+    <string name="tier_scholar_qubits">最多30量子比特</string>
+    <string name="tier_scholar_gates">所有量子门</string>
+    <string name="tier_scholar_optimization">电路优化</string>
+    <string name="tier_scholar_benchmark">基准测试比较</string>
+    <string name="tier_master_includes_scholar">包含Scholar的所有功能</string>
+    <string name="tier_master_cpp">C++ HPC核心 (1200倍速)</string>
+    <string name="tier_master_qubits">最多40量子比特</string>
+    <string name="tier_master_metal">GPU加速</string>
+    <string name="tier_master_qbridge">Q-Bridge硬件集成</string>
+    <string name="tier_master_support">优先支持</string>
+    <string name="tier_scholar">学者</string>
+    <string name="tier_career">职业</string>
+
+    <!-- Settings Extended (iOS matching) -->
+    <string name="settings_admin">管理员</string>
+    <string name="settings_entertainment_desc">量子艺术、游戏和神谕</string>
+    <string name="settings_start_free_trial">开始免费试用</string>
+    <string name="settings_login_to_unlock">登录解锁高级功能</string>
+    <string name="settings_all_features_unlocked">所有功能已解锁</string>
+    <string name="settings_tap_to_see_upgrades">点击查看升级</string>
+    <string name="settings_your_features">您的功能</string>
+    <string name="settings_current_label">当前</string>
+
+    <!-- Auth Extended (iOS matching) -->
+    <string name="auth_welcome_back">欢迎回来</string>
+    <string name="auth_create_account">创建账户</string>
+    <string name="auth_reset_password">重置密码</string>
+    <string name="auth_username">用户名</string>
+    <string name="auth_password_min">密码 (至少8个字符)</string>
+    <string name="auth_passwords_match">密码匹配</string>
+    <string name="auth_passwords_no_match">密码不匹配</string>
+    <string name="auth_reset_instruction">输入您的邮箱地址，我们将发送密码重置链接。</string>
+    <string name="auth_send_reset">发送重置链接</string>
+    <string name="auth_back_to_login">返回登录</string>
+
+    <!-- Measurement/Statistics (iOS matching) -->
+    <string name="measurement_results">测量结果</string>
+    <string name="measurement_measurements">测量</string>
+    <string name="measurement_expected_vs_measured">预期 vs 测量</string>
+    <string name="measurement_expected_prob0">预期 P(|0⟩)</string>
+    <string name="measurement_measured_prob0">测量 P(|0⟩)</string>
+    <string name="measurement_error">误差:</string>
+    <string name="measurement_excellent">优秀！</string>
+    <string name="measurement_good">良好</string>
+    <string name="measurement_need_more">需要更多测量</string>
+    <string name="measurement_statistics">统计</string>
+    <string name="measurement_total_measurements">总测量次数</string>
+    <string name="measurement_entropy">熵</string>
+    <string name="measurement_balance">平衡</string>
 </resources>

@@ -583,4 +583,139 @@
     <string name="cloud_chip_processing">처리 중...</string>
     <string name="cloud_chip_complete">완료</string>
     <string name="error">오류</string>
+
+    <!-- Cloud Visualization Extended -->
+    <string name="cloud_viz_reset_view">뷰 초기화</string>
+    <string name="cloud_viz_auto_rotate">자동 회전</string>
+    <string name="cloud_viz_rendered">클라우드 렌더링 시각화</string>
+    <string name="cloud_viz_bloch_desc">블로흐 구는 단일 큐비트의 양자 상태를 나타냅니다. 북극은 |0⟩, 남극은 |1⟩이며, 적도의 점들은 중첩 상태를 나타냅니다.</string>
+    <string name="cloud_viz_lattice_desc">광학 격자는 3D 격자에 배열된 여러 큐비트를 시각화합니다. 색상은 확률 진폭을 나타내고 연결선은 얽힘을 보여줍니다.</string>
+
+    <!-- Australian Standards Extended -->
+    <string name="aus_fidelity_grades">충실도 등급</string>
+
+    <!-- Cloud Visualization Extended (iOS L10n matching) -->
+    <string name="cloud_interactive_3d">인터랙티브 3D</string>
+    <string name="cloud_tap_to_rotate">탭하여 회전</string>
+    <string name="cloud_drag_to_explore">드래그하여 탐색</string>
+    <string name="cloud_polar_angle">극각</string>
+    <string name="cloud_azimuthal_angle">방위각</string>
+    <string name="cloud_probability_0">P(|0⟩)</string>
+    <string name="cloud_probability_1">P(|1⟩)</string>
+    <string name="cloud_atom_grid">원자 격자</string>
+    <string name="cloud_grid_size">격자 크기</string>
+    <string name="cloud_excited_atoms">들뜬 원자</string>
+    <string name="cloud_randomize">무작위화</string>
+    <string name="cloud_visualizing">시각화 중…</string>
+    <string name="cloud_connection_to_cloud">클라우드 연결됨</string>
+    <string name="cloud_state_parameters">상태 매개변수</string>
+    <string name="cloud_preset_states">프리셋 상태</string>
+    <string name="cloud_state_information">상태 정보</string>
+    <string name="cloud_lattice_controls">격자 제어</string>
+    <string name="cloud_entangle">얽힘</string>
+    <string name="cloud_atoms">원자</string>
+    <string name="cloud_entangled_pairs">얽힌 쌍</string>
+    <string name="cloud_state_compass">상태 나침반</string>
+    <string name="cloud_state_compass_desc">양자 기저 상태의 확률 분포</string>
+    <string name="cloud_probability_controls">확률 제어</string>
+    <string name="cloud_num_basis_states">기저 상태 수</string>
+    <string name="cloud_equal">균등</string>
+    <string name="cloud_random">무작위</string>
+
+    <!-- Tab Names (iOS matching) -->
+    <string name="tab_circuit">회로</string>
+    <string name="tab_benchmark">벤치마크</string>
+    <string name="tab_visualize">시각화</string>
+    <string name="tab_entertainment">재미</string>
+    <string name="tab_cloud">클라우드</string>
+    <string name="tab_settings">설정</string>
+
+    <!-- Entertainment Extended (iOS matching) -->
+    <string name="entertainment_save_to_photos">사진에 저장</string>
+    <string name="entertainment_share_art">아트 공유</string>
+    <string name="entertainment_apply_gate">게이트 적용</string>
+    <string name="entertainment_puzzle_solved">퍼즐 해결!</string>
+    <string name="entertainment_ask_oracle">오라클에게 물어보기</string>
+    <string name="entertainment_quantum_answer">양자 답변</string>
+    <string name="entertainment_ask_again">다시 물어보기</string>
+    <string name="entertainment_art_style">아트 스타일</string>
+    <string name="entertainment_style_abstract">추상</string>
+    <string name="entertainment_style_wave">파동 함수</string>
+    <string name="entertainment_style_entangle">얽힘</string>
+    <string name="entertainment_style_fractal">프랙탈</string>
+
+    <!-- Premium/Paywall Extended (iOS matching) -->
+    <string name="premium_feature">프리미엄 기능</string>
+    <string name="premium_upgrade_to">프리미엄으로 업그레이드</string>
+    <string name="premium_unlock">SwiftQuantum 잠금 해제</string>
+    <string name="premium_choose_plan">나에게 맞는 플랜을 선택하세요</string>
+    <string name="premium_sign_in_sync">로그인하여 기기 간 구독 동기화</string>
+    <string name="premium_sign_in_create">로그인 / 계정 만들기</string>
+    <string name="premium_admin_mode">관리자 모드</string>
+    <string name="premium_save_33">33% 절약</string>
+    <string name="premium_welcome">프리미엄에 오신 것을 환영합니다!</string>
+    <string name="premium_all_features_unlocked">모든 기능이 해제되었습니다</string>
+    <string name="premium_get_started">시작하기</string>
+    <string name="premium_feature_qpu_connection">QuantumBridge QPU 연결</string>
+    <string name="premium_feature_error_correction">오류 수정 시뮬레이션</string>
+    <string name="premium_feature_academy">모든 아카데미 코스</string>
+    <string name="premium_feature_industry">산업 솔루션</string>
+
+    <!-- Tier Features (iOS matching) -->
+    <string name="tier_free_python">Python 엔진 (Qiskit)</string>
+    <string name="tier_free_qubits">최대 10 큐비트</string>
+    <string name="tier_free_gates">기본 게이트 (H, X, Y, Z, CNOT)</string>
+    <string name="tier_free_bloch">블로흐 구 시각화</string>
+    <string name="tier_free_qasm">QASM 내보내기</string>
+    <string name="tier_scholar_includes_free">Free 기능 전부 포함</string>
+    <string name="tier_scholar_rust">Rust 엔진 (900배 빠름)</string>
+    <string name="tier_scholar_qubits">최대 30 큐비트</string>
+    <string name="tier_scholar_gates">모든 양자 게이트</string>
+    <string name="tier_scholar_optimization">회로 최적화</string>
+    <string name="tier_scholar_benchmark">벤치마크 비교</string>
+    <string name="tier_master_includes_scholar">Scholar 기능 전부 포함</string>
+    <string name="tier_master_cpp">C++ HPC 코어 (1200배 빠름)</string>
+    <string name="tier_master_qubits">최대 40 큐비트</string>
+    <string name="tier_master_metal">GPU 가속</string>
+    <string name="tier_master_qbridge">Q-Bridge 하드웨어 통합</string>
+    <string name="tier_master_support">우선 지원</string>
+    <string name="tier_scholar">스칼라</string>
+    <string name="tier_career">커리어</string>
+
+    <!-- Settings Extended (iOS matching) -->
+    <string name="settings_admin">관리자</string>
+    <string name="settings_entertainment_desc">양자 아트, 게임 &amp; 오라클</string>
+    <string name="settings_start_free_trial">무료 체험 시작</string>
+    <string name="settings_login_to_unlock">프리미엄 기능 잠금 해제하려면 로그인</string>
+    <string name="settings_all_features_unlocked">모든 기능 해제됨</string>
+    <string name="settings_tap_to_see_upgrades">업그레이드 보려면 탭</string>
+    <string name="settings_your_features">내 기능</string>
+    <string name="settings_current_label">현재</string>
+
+    <!-- Auth Extended (iOS matching) -->
+    <string name="auth_welcome_back">다시 오신 것을 환영합니다</string>
+    <string name="auth_create_account">계정 만들기</string>
+    <string name="auth_reset_password">비밀번호 재설정</string>
+    <string name="auth_username">사용자 이름</string>
+    <string name="auth_password_min">비밀번호 (최소 8자)</string>
+    <string name="auth_passwords_match">비밀번호 일치</string>
+    <string name="auth_passwords_no_match">비밀번호가 일치하지 않습니다</string>
+    <string name="auth_reset_instruction">이메일 주소를 입력하면 비밀번호 재설정 링크를 보내드립니다.</string>
+    <string name="auth_send_reset">재설정 링크 보내기</string>
+    <string name="auth_back_to_login">로그인으로 돌아가기</string>
+
+    <!-- Measurement/Statistics (iOS matching) -->
+    <string name="measurement_results">측정 결과</string>
+    <string name="measurement_measurements">측정</string>
+    <string name="measurement_expected_vs_measured">예상 vs 측정</string>
+    <string name="measurement_expected_prob0">예상 P(|0⟩)</string>
+    <string name="measurement_measured_prob0">측정 P(|0⟩)</string>
+    <string name="measurement_error">오류:</string>
+    <string name="measurement_excellent">훌륭함!</string>
+    <string name="measurement_good">좋음</string>
+    <string name="measurement_need_more">더 많은 측정 필요</string>
+    <string name="measurement_statistics">통계</string>
+    <string name="measurement_total_measurements">총 측정 횟수</string>
+    <string name="measurement_entropy">엔트로피</string>
+    <string name="measurement_balance">균형</string>
 </resources>

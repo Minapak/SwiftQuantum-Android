@@ -2,11 +2,11 @@
 
 Professional Quantum Computing IDE for Android
 
-**Version 5.6.0** | SwiftQuantumBackend v5.6.0 Compatible
+**Version 5.8.0** | SwiftQuantumBackend v5.7.1 Compatible
 
 ## Overview
 
-SwiftQuantum Android is the Android port of the iOS SwiftQuantum app, providing a comprehensive quantum computing development environment with circuit design, simulation, and IBM Quantum hardware integration. Part of the SwiftQuantum Ecosystem.
+SwiftQuantum Android is the Android port of the iOS SwiftQuantum app, providing a comprehensive quantum computing development environment with circuit design, simulation, and quantum hardware integration. Part of the SwiftQuantum Ecosystem.
 
 ## Features
 
@@ -14,7 +14,7 @@ SwiftQuantum Android is the Android port of the iOS SwiftQuantum app, providing 
 - **22 Quantum Gates**: H, X, Y, Z, S, T, RX, RY, RZ, U1, U2, U3, CNOT, CZ, CY, SWAP, iSWAP, CRX, CRY, CRZ, Toffoli, Fredkin, CCZ
 - **3D Bloch Sphere**: Real-time quantum state visualization
 - **Circuit Builder**: Visual drag-and-drop circuit design
-- **IBM Quantum Integration**: Direct connection to IBM Quantum hardware (Master tier)
+- **Quantum Hardware Integration**: Direct connection to quantum hardware providers (Master tier)
 - **Multi-Engine Support**: Python, Rust (900x faster), C++ (1200x faster)
 - **Australian Quantum Standards**: Q-CTRL Error Suppression, MicroQiskit Optimization, LabScript Protocol, SQC Fidelity Grading
 - **Material Design 3**: Modern Android UI with Jetpack Compose
@@ -79,7 +79,7 @@ app/src/main/java/com/swiftquantum/
 |------|--------|----------|
 | FREE | 20 | Python engine, basic features |
 | PRO | 30 | + Rust engine, advanced features |
-| MASTER | 40+ | + C++ engine, IBM Quantum hardware |
+| MASTER | 40+ | + C++ engine, Quantum Hardware access |
 
 ## Build & Run
 
@@ -96,7 +96,7 @@ app/src/main/java/com/swiftquantum/
 
 ## Backend Compatibility
 
-- **SwiftQuantumBackend**: v5.6.0
+- **SwiftQuantumBackend**: v5.7.1
 - **API Version**: v1
 - **3-Layer Cache**: Memory / Redis / Database
 - **Monitoring**: Sentry integration enabled
