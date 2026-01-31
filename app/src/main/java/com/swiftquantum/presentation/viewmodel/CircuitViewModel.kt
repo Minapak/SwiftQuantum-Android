@@ -273,4 +273,158 @@ class CircuitViewModel @Inject constructor(
     }
 
     fun getCircuit(): Circuit = _uiState.value.circuit
+
+    // MARK: - Circuit Presets (iOS Parity)
+
+    /**
+     * Load Bell State circuit: |00⟩ → (|00⟩ + |11⟩)/√2
+     * H on qubit 0, CNOT with control 0 and target 1
+     */
+    fun loadBellState() {
+        val circuit = Circuit.empty(2, "Bell State").let { c ->
+            val h = Gate(
+                type = GateType.H,
+                targetQubits = listOf(0),
+                controlQubits = emptyList(),
+                parameters = null,
+                position = 0
+            )
+            val cnot = Gate(
+                type = GateType.CNOT,
+                targetQubits = listOf(1),
+                controlQubits = listOf(0),
+                parameters = null,
+                position = 1
+            )
+            c.addGate(h).addGate(cnot)
+        }
+        _uiState.value = _uiState.value.copy(
+            circuit = circuit,
+            circuitName = "Bell State",
+            circuitDescription = "Creates entangled Bell state: (|00⟩ + |11⟩)/√2"
+        )
+    }
+
+    /**
+     * Load GHZ State circuit: Creates maximally entangled state
+     * H on qubit 0, CNOT cascade to all other qubits
+     */
+    fun loadGHZState() {
+        val numQubits = minOf(3, _uiState.value.maxQubits)
+        var circuit = Circuit.empty(numQubits, "GHZ State")
+
+        // H gate on first qubit
+        val h = Gate(
+            type = GateType.H,
+            targetQubits = listOf(0),
+            controlQubits = emptyList(),
+            parameters = null,
+            position = 0
+        )
+        circuit = circuit.addGate(h)
+
+        // CNOT gates from qubit 0 to all others
+        for (i in 1 until numQubits) {
+            val cnot = Gate(
+                type = GateType.CNOT,
+                targetQubits = listOf(i),
+                controlQubits = listOf(0),
+                parameters = null,
+                position = i
+            )
+            circuit = circuit.addGate(cnot)
+        }
+
+        _uiState.value = _uiState.value.copy(
+            circuit = circuit,
+            circuitName = "GHZ State",
+            circuitDescription = "Creates GHZ (Greenberger-Horne-Zeilinger) entangled state"
+        )
+    }
+
+    /**
+     * Load QFT (Quantum Fourier Transform) circuit
+     */
+    fun loadQFT() {
+        val numQubits = minOf(3, _uiState.value.maxQubits)
+        var circuit = Circuit.empty(numQubits, "QFT")
+        var position = 0
+
+        for (i in 0 until numQubits) {
+            // H gate
+            val h = Gate(
+                type = GateType.H,
+                targetQubits = listOf(i),
+                controlQubits = emptyList(),
+                parameters = null,
+                position = position++
+            )
+            circuit = circuit.addGate(h)
+
+            // Controlled rotation gates
+            for (j in (i + 1) until numQubits) {
+                val angle = kotlin.math.PI / (1 shl (j - i))
+                val crz = Gate(
+                    type = GateType.CRZ,
+                    targetQubits = listOf(j),
+                    controlQubits = listOf(i),
+                    parameters = GateParameters(theta = angle),
+                    position = position++
+                )
+                circuit = circuit.addGate(crz)
+            }
+        }
+
+        _uiState.value = _uiState.value.copy(
+            circuit = circuit,
+            circuitName = "QFT",
+            circuitDescription = "Quantum Fourier Transform circuit"
+        )
+    }
+
+    /**
+     * Load a random circuit with various gates
+     */
+    fun loadRandomCircuit() {
+        val numQubits = minOf(3, _uiState.value.maxQubits)
+        val depth = 4
+        var circuit = Circuit.empty(numQubits, "Random Circuit")
+        var position = 0
+
+        val singleQubitGates = listOf(GateType.H, GateType.X, GateType.Y, GateType.Z, GateType.S, GateType.T)
+
+        for (d in 0 until depth) {
+            for (q in 0 until numQubits) {
+                if (kotlin.random.Random.nextFloat() < 0.7) {
+                    val gateType = singleQubitGates.random()
+                    val gate = Gate(
+                        type = gateType,
+                        targetQubits = listOf(q),
+                        controlQubits = emptyList(),
+                        parameters = null,
+                        position = position++
+                    )
+                    circuit = circuit.addGate(gate)
+                }
+            }
+            // Add CNOT between adjacent qubits
+            if (numQubits > 1 && kotlin.random.Random.nextFloat() < 0.5) {
+                val control = kotlin.random.Random.nextInt(numQubits - 1)
+                val cnot = Gate(
+                    type = GateType.CNOT,
+                    targetQubits = listOf(control + 1),
+                    controlQubits = listOf(control),
+                    parameters = null,
+                    position = position++
+                )
+                circuit = circuit.addGate(cnot)
+            }
+        }
+
+        _uiState.value = _uiState.value.copy(
+            circuit = circuit,
+            circuitName = "Random Circuit",
+            circuitDescription = "Randomly generated quantum circuit"
+        )
+    }
 }

@@ -77,6 +77,13 @@
     <string name="depth_count">Depth: %1$d</string>
     <string name="no_saved_circuits">No saved circuits</string>
 
+    <!-- Circuit Presets (iOS Parity) -->
+    <string name="circuit_presets">Presets</string>
+    <string name="circuit_bell_state">Bell State</string>
+    <string name="circuit_ghz_state">GHZ State</string>
+    <string name="circuit_qft">QFT</string>
+    <string name="circuit_random">Random</string>
+
     <!-- Gates -->
     <string name="gates">Quantum Gates</string>
     <string name="single_qubit_gates">Single Qubit Gates</string>
@@ -590,6 +597,8 @@
     <string name="cloud_viz_rendered">Cloud-Rendered Visualization</string>
     <string name="cloud_viz_bloch_desc">The Bloch sphere represents a single qubit\'s quantum state. The north pole is |0⟩, south pole is |1⟩, and points on the equator represent superposition states.</string>
     <string name="cloud_viz_lattice_desc">The optical lattice visualizes multiple qubits arranged in a 3D grid. Colors represent probability amplitudes, and connections show entanglement.</string>
+    <string name="cloud_viz_state_compass">State Compass</string>
+    <string name="cloud_viz_compass_desc">The state compass shows the probability distribution of quantum basis states as a radial chart. Each sector represents a different basis state\'s measurement probability.</string>
 
     <!-- Australian Standards Extended -->
     <string name="aus_fidelity_grades">Fidelity Grades</string>

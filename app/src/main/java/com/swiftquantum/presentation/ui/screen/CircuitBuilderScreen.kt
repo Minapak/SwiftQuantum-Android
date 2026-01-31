@@ -17,9 +17,16 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Casino
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.FolderOpen
+import androidx.compose.material.icons.filled.Hub
+import androidx.compose.material.icons.filled.Link
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Save
+import androidx.compose.material.icons.filled.Waves
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -67,6 +74,7 @@ fun CircuitBuilderScreen(
     val uiState by viewModel.uiState.collectAsState()
     val sheetState = rememberModalBottomSheetState()
     var showGateSheet by remember { mutableStateOf(false) }
+    var showPresetsMenu by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -82,6 +90,47 @@ fun CircuitBuilderScreen(
                     containerColor = MaterialTheme.colorScheme.background
                 ),
                 actions = {
+                    // Circuit Presets Menu
+                    IconButton(onClick = { showPresetsMenu = true }) {
+                        Icon(Icons.Default.MoreVert, contentDescription = stringResource(R.string.circuit_presets))
+                    }
+                    DropdownMenu(
+                        expanded = showPresetsMenu,
+                        onDismissRequest = { showPresetsMenu = false }
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.circuit_bell_state)) },
+                            onClick = {
+                                viewModel.loadBellState()
+                                showPresetsMenu = false
+                            },
+                            leadingIcon = { Icon(Icons.Default.Link, contentDescription = null) }
+                        )
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.circuit_ghz_state)) },
+                            onClick = {
+                                viewModel.loadGHZState()
+                                showPresetsMenu = false
+                            },
+                            leadingIcon = { Icon(Icons.Default.Hub, contentDescription = null) }
+                        )
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.circuit_qft)) },
+                            onClick = {
+                                viewModel.loadQFT()
+                                showPresetsMenu = false
+                            },
+                            leadingIcon = { Icon(Icons.Default.Waves, contentDescription = null) }
+                        )
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.circuit_random)) },
+                            onClick = {
+                                viewModel.loadRandomCircuit()
+                                showPresetsMenu = false
+                            },
+                            leadingIcon = { Icon(Icons.Default.Casino, contentDescription = null) }
+                        )
+                    }
                     IconButton(onClick = { viewModel.showLoadDialog(true) }) {
                         Icon(Icons.Default.FolderOpen, contentDescription = stringResource(R.string.load_circuit))
                     }

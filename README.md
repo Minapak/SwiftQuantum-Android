@@ -2,7 +2,7 @@
 
 Professional Quantum Computing IDE for Android
 
-**Version 5.8.1** | SwiftQuantumBackend v5.7.1 Compatible
+**Version 5.8.2** | SwiftQuantumBackend v5.7.1 Compatible
 
 ## Overview
 

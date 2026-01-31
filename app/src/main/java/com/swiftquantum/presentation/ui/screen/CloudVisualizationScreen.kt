@@ -116,7 +116,8 @@ fun CloudVisualizationScreen(
 
     val visualizationTypes = listOf(
         stringResource(R.string.cloud_viz_bloch_sphere),
-        stringResource(R.string.cloud_viz_optical_lattice)
+        stringResource(R.string.cloud_viz_optical_lattice),
+        stringResource(R.string.cloud_viz_state_compass)
     )
 
     Scaffold(
@@ -200,6 +201,9 @@ fun CloudVisualizationScreen(
                             rotationY = rotationY,
                             modifier = Modifier.fillMaxSize()
                         )
+                        2 -> StateCompass3D(
+                            modifier = Modifier.fillMaxSize()
+                        )
                     }
 
                     // Loading Overlay
@@ -264,7 +268,7 @@ fun CloudVisualizationScreen(
                 ) {
                     Icon(Icons.Default.Refresh, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Reset View")
+                    Text(stringResource(R.string.cloud_viz_reset_view))
                 }
                 Button(
                     onClick = { /* Auto-rotate */ },
@@ -273,13 +277,16 @@ fun CloudVisualizationScreen(
                 ) {
                     Icon(Icons.Default.ViewInAr, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Auto Rotate")
+                    Text(stringResource(R.string.cloud_viz_auto_rotate))
                 }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
             // Visualization Info Card
+            val blochDesc = stringResource(R.string.cloud_viz_bloch_desc)
+            val latticeDesc = stringResource(R.string.cloud_viz_lattice_desc)
+            val compassDesc = stringResource(R.string.cloud_viz_compass_desc)
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
@@ -297,7 +304,7 @@ fun CloudVisualizationScreen(
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
-                            text = "Cloud-Rendered Visualization",
+                            text = stringResource(R.string.cloud_viz_rendered),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold
                         )
@@ -305,11 +312,9 @@ fun CloudVisualizationScreen(
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = when (selectedVisualization) {
-                            0 -> "The Bloch sphere represents a single qubit's quantum state. " +
-                                    "The north pole is |0⟩, south pole is |1⟩, and points on the equator " +
-                                    "represent superposition states."
-                            else -> "The optical lattice visualizes multiple qubits arranged in a 3D grid. " +
-                                    "Colors represent probability amplitudes, and connections show entanglement."
+                            0 -> blochDesc
+                            1 -> latticeDesc
+                            else -> compassDesc
                         },
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
@@ -640,6 +645,130 @@ private fun OpticalLattice3D(
                     }
                 }
             }
+        }
+    }
+}
+
+/**
+ * 3D State Compass Visualization
+ * Shows probability distribution of quantum states as a compass/pie chart
+ */
+@Composable
+private fun StateCompass3D(
+    modifier: Modifier = Modifier
+) {
+    val infiniteTransition = rememberInfiniteTransition(label = "compass")
+    val rotation by infiniteTransition.animateFloat(
+        initialValue = 0f,
+        targetValue = 360f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(20000, easing = LinearEasing),
+            repeatMode = RepeatMode.Restart
+        ),
+        label = "rotation"
+    )
+
+    // Simulated probability distribution for 4 basis states
+    val probabilities = remember {
+        listOf(0.35f, 0.25f, 0.25f, 0.15f)
+    }
+
+    val colors = listOf(QuantumGreen, QuantumCyan, QuantumGold, QuantumPurple)
+
+    Canvas(modifier = modifier.padding(16.dp)) {
+        val centerX = size.width / 2
+        val centerY = size.height / 2
+        val radius = minOf(size.width, size.height) / 2 * 0.75f
+
+        // Draw outer ring
+        drawCircle(
+            color = Color.White.copy(alpha = 0.1f),
+            radius = radius,
+            center = Offset(centerX, centerY),
+            style = Stroke(width = 2.dp.toPx())
+        )
+
+        // Draw inner ring
+        drawCircle(
+            color = Color.White.copy(alpha = 0.05f),
+            radius = radius * 0.6f,
+            center = Offset(centerX, centerY)
+        )
+
+        // Draw probability sectors
+        var startAngle = -90f + rotation * 0.1f
+        probabilities.forEachIndexed { index, probability ->
+            val sweepAngle = probability * 360f
+
+            // Draw sector
+            drawArc(
+                color = colors[index].copy(alpha = 0.5f),
+                startAngle = startAngle,
+                sweepAngle = sweepAngle,
+                useCenter = true,
+                topLeft = Offset(centerX - radius, centerY - radius),
+                size = androidx.compose.ui.geometry.Size(radius * 2, radius * 2)
+            )
+
+            // Draw probability bar
+            val midAngle = (startAngle + sweepAngle / 2) * PI.toFloat() / 180f
+            val barLength = radius * probability
+            val endX = centerX + cos(midAngle) * barLength
+            val endY = centerY + sin(midAngle) * barLength
+
+            drawLine(
+                color = colors[index],
+                start = Offset(centerX, centerY),
+                end = Offset(endX, endY),
+                strokeWidth = 4.dp.toPx()
+            )
+
+            // End indicator
+            drawCircle(
+                color = colors[index],
+                radius = 8.dp.toPx(),
+                center = Offset(endX, endY)
+            )
+            drawCircle(
+                color = Color.White,
+                radius = 4.dp.toPx(),
+                center = Offset(endX, endY)
+            )
+
+            startAngle += sweepAngle
+        }
+
+        // Draw compass needle
+        val needleAngle = rotation * PI.toFloat() / 180f
+        val needleLength = radius * 0.4f
+        val needleX = centerX + cos(needleAngle - PI.toFloat() / 2) * needleLength
+        val needleY = centerY + sin(needleAngle - PI.toFloat() / 2) * needleLength
+
+        drawLine(
+            color = QuantumPink,
+            start = Offset(centerX, centerY),
+            end = Offset(needleX, needleY),
+            strokeWidth = 3.dp.toPx()
+        )
+
+        // Draw center dot
+        drawCircle(
+            color = Color.White.copy(alpha = 0.8f),
+            radius = 6.dp.toPx(),
+            center = Offset(centerX, centerY)
+        )
+
+        // Draw state labels around the compass
+        val labelRadius = radius * 1.1f
+        for (i in 0 until 4) {
+            val labelAngle = (i * 90f - 90f) * PI.toFloat() / 180f
+            val labelX = centerX + cos(labelAngle) * labelRadius
+            val labelY = centerY + sin(labelAngle) * labelRadius
+            drawCircle(
+                color = colors[i],
+                radius = 10.dp.toPx(),
+                center = Offset(labelX, labelY)
+            )
         }
     }
 }

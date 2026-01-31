@@ -77,6 +77,13 @@
     <string name="depth_count">깊이: %1$d</string>
     <string name="no_saved_circuits">저장된 회로 없음</string>
 
+    <!-- Circuit Presets (iOS Parity) -->
+    <string name="circuit_presets">프리셋</string>
+    <string name="circuit_bell_state">벨 상태</string>
+    <string name="circuit_ghz_state">GHZ 상태</string>
+    <string name="circuit_qft">QFT</string>
+    <string name="circuit_random">무작위</string>
+
     <!-- Gates -->
     <string name="gates">양자 게이트</string>
     <string name="single_qubit_gates">단일 큐비트 게이트</string>
@@ -590,6 +597,8 @@
     <string name="cloud_viz_rendered">클라우드 렌더링 시각화</string>
     <string name="cloud_viz_bloch_desc">블로흐 구는 단일 큐비트의 양자 상태를 나타냅니다. 북극은 |0⟩, 남극은 |1⟩이며, 적도의 점들은 중첩 상태를 나타냅니다.</string>
     <string name="cloud_viz_lattice_desc">광학 격자는 3D 격자에 배열된 여러 큐비트를 시각화합니다. 색상은 확률 진폭을 나타내고 연결선은 얽힘을 보여줍니다.</string>
+    <string name="cloud_viz_state_compass">상태 나침반</string>
+    <string name="cloud_viz_compass_desc">상태 나침반은 양자 기저 상태의 확률 분포를 방사형 차트로 보여줍니다. 각 섹터는 다른 기저 상태의 측정 확률을 나타냅니다.</string>
 
     <!-- Australian Standards Extended -->
     <string name="aus_fidelity_grades">충실도 등급</string>

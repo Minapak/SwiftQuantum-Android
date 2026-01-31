@@ -2,6 +2,30 @@
 
 All notable changes to SwiftQuantum Android will be documented in this file.
 
+## [5.8.2] - 2026-01-31
+
+### Added
+- **State Compass Visualization**: Added 3rd visualization type matching iOS (Bloch Sphere, Optical Lattice, State Compass)
+  - Radial probability distribution chart for quantum basis states
+  - Animated compass needle with rotating sector visualization
+  - Full 5-language localization support
+- **Circuit Presets Menu**: Added iOS-matching circuit template presets
+  - Bell State circuit (creates entangled |00⟩ + |11⟩)
+  - GHZ State circuit (multi-qubit entanglement)
+  - QFT (Quantum Fourier Transform) circuit
+  - Random circuit generator
+  - Accessible via dropdown menu in Circuit Builder toolbar
+
+### Changed
+- Cloud Visualization now shows 3 tabs (Bloch Sphere, Optical Lattice, State Compass)
+- Circuit Builder toolbar adds presets menu before load/save buttons
+- All 5 language files updated with State Compass and Circuit Preset strings
+
+### Technical
+- Added StateCompass3D composable to CloudVisualizationScreen.kt
+- Added loadBellState(), loadGHZState(), loadQFT(), loadRandomCircuit() to CircuitViewModel
+- Full build verification passed
+
 ## [5.8.1] - 2026-01-31
 
 ### Added

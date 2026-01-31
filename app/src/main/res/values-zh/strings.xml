@@ -77,6 +77,13 @@
     <string name="depth_count">深度: %1$d</string>
     <string name="no_saved_circuits">没有保存的电路</string>
 
+    <!-- Circuit Presets (iOS Parity) -->
+    <string name="circuit_presets">预设</string>
+    <string name="circuit_bell_state">贝尔态</string>
+    <string name="circuit_ghz_state">GHZ态</string>
+    <string name="circuit_qft">QFT</string>
+    <string name="circuit_random">随机</string>
+
     <!-- Gates -->
     <string name="gates">量子门</string>
     <string name="single_qubit_gates">单量子比特门</string>
@@ -590,6 +597,8 @@
     <string name="cloud_viz_rendered">云端渲染可视化</string>
     <string name="cloud_viz_bloch_desc">布洛赫球表示单个量子比特的量子状态。北极是|0⟩，南极是|1⟩，赤道上的点表示叠加态。</string>
     <string name="cloud_viz_lattice_desc">光学晶格将多个量子比特可视化为3D网格。颜色表示概率幅度，连接线表示纠缠。</string>
+    <string name="cloud_viz_state_compass">状态罗盘</string>
+    <string name="cloud_viz_compass_desc">状态罗盘以径向图表显示量子基态的概率分布。每个扇区代表不同基态的测量概率。</string>
 
     <!-- Australian Standards Extended -->
     <string name="aus_fidelity_grades">保真度等级</string>

@@ -77,6 +77,13 @@
     <string name="depth_count">深さ: %1$d</string>
     <string name="no_saved_circuits">保存された回路がありません</string>
 
+    <!-- Circuit Presets (iOS Parity) -->
+    <string name="circuit_presets">プリセット</string>
+    <string name="circuit_bell_state">ベル状態</string>
+    <string name="circuit_ghz_state">GHZ状態</string>
+    <string name="circuit_qft">QFT</string>
+    <string name="circuit_random">ランダム</string>
+
     <!-- Gates -->
     <string name="gates">量子ゲート</string>
     <string name="single_qubit_gates">単一量子ビットゲート</string>
@@ -590,6 +597,8 @@
     <string name="cloud_viz_rendered">クラウドレンダリング可視化</string>
     <string name="cloud_viz_bloch_desc">ブロッホ球は単一キュービットの量子状態を表します。北極は|0⟩、南極は|1⟩であり、赤道上の点は重ね合わせ状態を表します。</string>
     <string name="cloud_viz_lattice_desc">光学格子は3Dグリッドに配置された複数のキュービットを可視化します。色は確率振幅を表し、接続はエンタングルメントを示します。</string>
+    <string name="cloud_viz_state_compass">状態コンパス</string>
+    <string name="cloud_viz_compass_desc">状態コンパスは量子基底状態の確率分布を放射状チャートとして表示します。各セクターは異なる基底状態の測定確率を表します。</string>
 
     <!-- Australian Standards Extended -->
     <string name="aus_fidelity_grades">忠実度グレード</string>

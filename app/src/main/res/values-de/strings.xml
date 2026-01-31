@@ -77,6 +77,13 @@
     <string name="depth_count">Tiefe: %1$d</string>
     <string name="no_saved_circuits">Keine gespeicherten Schaltkreise</string>
 
+    <!-- Circuit Presets (iOS Parity) -->
+    <string name="circuit_presets">Vorlagen</string>
+    <string name="circuit_bell_state">Bell-Zustand</string>
+    <string name="circuit_ghz_state">GHZ-Zustand</string>
+    <string name="circuit_qft">QFT</string>
+    <string name="circuit_random">Zufällig</string>
+
     <!-- Gates -->
     <string name="gates">Quantengatter</string>
     <string name="single_qubit_gates">Ein-Qubit-Gatter</string>
@@ -590,6 +597,8 @@
     <string name="cloud_viz_rendered">Cloud-gerenderte Visualisierung</string>
     <string name="cloud_viz_bloch_desc">Die Bloch-Kugel stellt den Quantenzustand eines einzelnen Qubits dar. Der Nordpol ist |0⟩, der Südpol ist |1⟩, und Punkte auf dem Äquator repräsentieren Überlagerungszustände.</string>
     <string name="cloud_viz_lattice_desc">Das optische Gitter visualisiert mehrere Qubits in einem 3D-Raster angeordnet. Farben repräsentieren Wahrscheinlichkeitsamplituden und Verbindungen zeigen Verschränkung.</string>
+    <string name="cloud_viz_state_compass">Zustandskompass</string>
+    <string name="cloud_viz_compass_desc">Der Zustandskompass zeigt die Wahrscheinlichkeitsverteilung der Quanten-Basiszustände als radiales Diagramm. Jeder Sektor repräsentiert die Messwahrscheinlichkeit eines anderen Basiszustands.</string>
 
     <!-- Australian Standards Extended -->
     <string name="aus_fidelity_grades">Fidelitätsgrade</string>
