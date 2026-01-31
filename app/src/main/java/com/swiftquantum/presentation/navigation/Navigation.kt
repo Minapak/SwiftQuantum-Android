@@ -3,6 +3,7 @@ package com.swiftquantum.presentation.navigation
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.AdminPanelSettings
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.CloudQueue
@@ -15,6 +16,7 @@ import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Speed
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.AccountCircle
+import androidx.compose.material.icons.outlined.AdminPanelSettings
 import androidx.compose.material.icons.outlined.AutoAwesome
 import androidx.compose.material.icons.outlined.BarChart
 import androidx.compose.material.icons.outlined.CloudQueue
@@ -46,6 +48,7 @@ import com.swiftquantum.presentation.ui.screen.CloudVisualizationScreen
 import com.swiftquantum.presentation.ui.screen.EntertainmentScreen
 import com.swiftquantum.presentation.ui.screen.VisualizeScreen
 import com.swiftquantum.presentation.ui.screen.AustralianStandardsScreen
+import com.swiftquantum.presentation.ui.screen.admin.AdminRootScreen
 
 sealed class Screen(
     val route: String,
@@ -149,6 +152,13 @@ sealed class Screen(
         titleRes = R.string.aus_standards_title,
         selectedIcon = Icons.Filled.Star,
         unselectedIcon = Icons.Filled.Star
+    )
+
+    data object AdminDashboard : Screen(
+        route = "admin",
+        titleRes = R.string.admin_dashboard_title,
+        selectedIcon = Icons.Filled.AdminPanelSettings,
+        unselectedIcon = Icons.Outlined.AdminPanelSettings
     )
 
     companion object {
@@ -307,6 +317,14 @@ fun SwiftQuantumNavHost(
         composable(Screen.AustralianStandards.route) {
             AustralianStandardsScreen(
                 onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Screen.AdminDashboard.route) {
+            AdminRootScreen(
+                onNavigateBack = {
                     navController.popBackStack()
                 }
             )

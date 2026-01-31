@@ -727,4 +727,116 @@
     <string name="measurement_total_measurements">总测量次数</string>
     <string name="measurement_entropy">熵</string>
     <string name="measurement_balance">平衡</string>
+
+    <!-- =====================================================
+         Admin Dashboard Module (iOS Parity v5.8.3)
+         ===================================================== -->
+
+    <!-- Admin Tab Navigation -->
+    <string name="admin_tab_dashboard">仪表板</string>
+    <string name="admin_tab_users">用户</string>
+    <string name="admin_tab_content">内容</string>
+    <string name="admin_tab_team">团队</string>
+    <string name="admin_tab_settings">设置</string>
+
+    <!-- Admin Dashboard -->
+    <string name="admin_dashboard_title">管理员仪表板</string>
+    <string name="admin_total_users">总用户</string>
+    <string name="admin_active_today">今日活跃</string>
+    <string name="admin_circuits_created">创建的电路</string>
+    <string name="admin_pro_subscribers">Pro订阅者</string>
+    <string name="admin_system_status">系统状态</string>
+    <string name="admin_quick_actions">快速操作</string>
+    <string name="admin_add_circuit">添加电路</string>
+    <string name="admin_send_notification">通知</string>
+    <string name="admin_view_reports">查看报告</string>
+    <string name="admin_recent_activity">最近活动</string>
+
+    <!-- Admin Users -->
+    <string name="admin_users_title">用户管理</string>
+    <string name="admin_search_users">搜索用户...</string>
+    <string name="admin_filter_all">全部</string>
+    <string name="admin_filter_active">活跃</string>
+    <string name="admin_filter_pro">Pro</string>
+    <string name="admin_filter_master">Master</string>
+    <string name="admin_users_count">找到%1$d个用户</string>
+    <string name="admin_no_users_found">未找到用户</string>
+    <string name="admin_user_details">用户详情</string>
+    <string name="admin_simulations">模拟</string>
+    <string name="admin_circuits">电路</string>
+    <string name="admin_tier">等级</string>
+    <string name="admin_created_at">创建时间</string>
+    <string name="admin_last_login">最后登录</string>
+    <string name="admin_status">状态</string>
+    <string name="admin_active">活跃</string>
+    <string name="admin_inactive">非活跃</string>
+    <string name="admin_activate">激活</string>
+    <string name="admin_deactivate">停用</string>
+    <string name="admin_delete_user_title">删除用户</string>
+    <string name="admin_delete_user_message">确定要删除%1$s吗？此操作无法撤销。</string>
+
+    <!-- Admin Content -->
+    <string name="admin_content_title">内容管理</string>
+    <string name="admin_section_daily_pulse">每日脉冲</string>
+    <string name="admin_section_pending">待处理</string>
+    <string name="admin_section_stats">统计</string>
+    <string name="admin_no_pulses">无每日脉冲</string>
+    <string name="admin_no_pulses_desc">没有已发布的每日脉冲</string>
+    <string name="admin_published">已发布</string>
+    <string name="admin_draft">草稿</string>
+    <string name="admin_no_pending">无待处理脉冲</string>
+    <string name="admin_no_pending_desc">所有脉冲已审核</string>
+    <string name="admin_ai_confidence">AI置信度: %1$d%%</string>
+    <string name="admin_publish">发布</string>
+    <string name="admin_total_pulses">总脉冲</string>
+    <string name="admin_pending">待处理</string>
+    <string name="admin_total_views">总浏览量</string>
+    <string name="admin_quiz_attempts">测验尝试</string>
+    <string name="admin_quiz_accuracy">测验准确率</string>
+    <string name="admin_generate_pulse">生成每日脉冲</string>
+    <string name="admin_generating_ai">正在使用AI生成...</string>
+
+    <!-- Admin Settings -->
+    <string name="admin_settings_title">管理员设置</string>
+    <string name="admin_system_settings">系统设置</string>
+    <string name="admin_server_config">服务器配置</string>
+    <string name="admin_feature_flags">功能标志</string>
+    <string name="admin_database">数据库</string>
+    <string name="admin_api_keys">API密钥</string>
+    <string name="admin_engine_settings">引擎设置</string>
+    <string name="admin_engine_config">引擎配置</string>
+    <string name="admin_benchmark_config">基准配置</string>
+    <string name="admin_app_settings">应用设置</string>
+    <string name="admin_monitoring">监控</string>
+    <string name="admin_system_logs">系统日志</string>
+    <string name="admin_error_reports">错误报告</string>
+    <string name="admin_environment">环境</string>
+    <string name="admin_settings_footer">SwiftQuantum管理员控制台</string>
+    <string name="admin_logout_confirm">退出登录？</string>
+    <string name="admin_logout_message">确定要退出管理员面板吗？</string>
+
+    <!-- Enterprise Team -->
+    <string name="admin_team_title">企业团队</string>
+    <string name="admin_team_members">成员</string>
+    <string name="admin_team_invites">邀请</string>
+    <string name="admin_team_settings">设置</string>
+    <string name="admin_team_audit_log">审计日志</string>
+    <string name="admin_role_owner">所有者</string>
+    <string name="admin_role_admin">管理员</string>
+    <string name="admin_role_operator">操作员</string>
+    <string name="admin_role_member">成员</string>
+    <string name="admin_no_pending_invites">无待处理邀请</string>
+    <string name="admin_no_pending_invites_desc">邀请团队成员开始</string>
+    <string name="admin_expires">过期: %1$s</string>
+    <string name="admin_team_name">团队名称</string>
+    <string name="admin_member_limit">成员限制</string>
+    <string name="admin_two_factor">双因素认证</string>
+    <string name="admin_enabled">已启用</string>
+    <string name="admin_sso">单点登录 (SSO)</string>
+    <string name="admin_not_configured">未配置</string>
+    <string name="admin_by">操作者: %1$s</string>
+    <string name="admin_target">目标: %1$s</string>
+    <string name="admin_invite_member">邀请成员</string>
+    <string name="admin_select_role">选择角色</string>
+    <string name="admin_send_invite">发送邀请</string>
 </resources>

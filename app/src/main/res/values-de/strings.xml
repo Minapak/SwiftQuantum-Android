@@ -727,4 +727,116 @@
     <string name="measurement_total_measurements">Gesamtmessungen</string>
     <string name="measurement_entropy">Entropie</string>
     <string name="measurement_balance">Balance</string>
+
+    <!-- =====================================================
+         Admin Dashboard Module (iOS Parity v5.8.3)
+         ===================================================== -->
+
+    <!-- Admin Tab Navigation -->
+    <string name="admin_tab_dashboard">Dashboard</string>
+    <string name="admin_tab_users">Benutzer</string>
+    <string name="admin_tab_content">Inhalt</string>
+    <string name="admin_tab_team">Team</string>
+    <string name="admin_tab_settings">Einstellungen</string>
+
+    <!-- Admin Dashboard -->
+    <string name="admin_dashboard_title">Admin-Dashboard</string>
+    <string name="admin_total_users">Gesamtbenutzer</string>
+    <string name="admin_active_today">Heute aktiv</string>
+    <string name="admin_circuits_created">Erstellte Schaltkreise</string>
+    <string name="admin_pro_subscribers">Pro-Abonnenten</string>
+    <string name="admin_system_status">Systemstatus</string>
+    <string name="admin_quick_actions">Schnellaktionen</string>
+    <string name="admin_add_circuit">Schaltkreis hinzufügen</string>
+    <string name="admin_send_notification">Benachrichtigen</string>
+    <string name="admin_view_reports">Berichte anzeigen</string>
+    <string name="admin_recent_activity">Letzte Aktivität</string>
+
+    <!-- Admin Users -->
+    <string name="admin_users_title">Benutzerverwaltung</string>
+    <string name="admin_search_users">Benutzer suchen...</string>
+    <string name="admin_filter_all">Alle</string>
+    <string name="admin_filter_active">Aktiv</string>
+    <string name="admin_filter_pro">Pro</string>
+    <string name="admin_filter_master">Master</string>
+    <string name="admin_users_count">%1$d Benutzer gefunden</string>
+    <string name="admin_no_users_found">Keine Benutzer gefunden</string>
+    <string name="admin_user_details">Benutzerdetails</string>
+    <string name="admin_simulations">Simulationen</string>
+    <string name="admin_circuits">Schaltkreise</string>
+    <string name="admin_tier">Stufe</string>
+    <string name="admin_created_at">Erstellt</string>
+    <string name="admin_last_login">Letzter Login</string>
+    <string name="admin_status">Status</string>
+    <string name="admin_active">Aktiv</string>
+    <string name="admin_inactive">Inaktiv</string>
+    <string name="admin_activate">Aktivieren</string>
+    <string name="admin_deactivate">Deaktivieren</string>
+    <string name="admin_delete_user_title">Benutzer löschen</string>
+    <string name="admin_delete_user_message">Möchten Sie %1$s wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.</string>
+
+    <!-- Admin Content -->
+    <string name="admin_content_title">Inhaltsverwaltung</string>
+    <string name="admin_section_daily_pulse">Täglicher Puls</string>
+    <string name="admin_section_pending">Ausstehend</string>
+    <string name="admin_section_stats">Statistiken</string>
+    <string name="admin_no_pulses">Keine täglichen Pulse</string>
+    <string name="admin_no_pulses_desc">Keine veröffentlichten täglichen Pulse gefunden</string>
+    <string name="admin_published">Veröffentlicht</string>
+    <string name="admin_draft">Entwurf</string>
+    <string name="admin_no_pending">Keine ausstehenden Pulse</string>
+    <string name="admin_no_pending_desc">Alle Pulse wurden überprüft</string>
+    <string name="admin_ai_confidence">KI-Vertrauen: %1$d%%</string>
+    <string name="admin_publish">Veröffentlichen</string>
+    <string name="admin_total_pulses">Gesamt-Pulse</string>
+    <string name="admin_pending">Ausstehend</string>
+    <string name="admin_total_views">Gesamtaufrufe</string>
+    <string name="admin_quiz_attempts">Quiz-Versuche</string>
+    <string name="admin_quiz_accuracy">Quiz-Genauigkeit</string>
+    <string name="admin_generate_pulse">Täglichen Puls generieren</string>
+    <string name="admin_generating_ai">Wird mit KI generiert...</string>
+
+    <!-- Admin Settings -->
+    <string name="admin_settings_title">Admin-Einstellungen</string>
+    <string name="admin_system_settings">Systemeinstellungen</string>
+    <string name="admin_server_config">Serverkonfiguration</string>
+    <string name="admin_feature_flags">Feature-Flags</string>
+    <string name="admin_database">Datenbank</string>
+    <string name="admin_api_keys">API-Schlüssel</string>
+    <string name="admin_engine_settings">Engine-Einstellungen</string>
+    <string name="admin_engine_config">Engine-Konfiguration</string>
+    <string name="admin_benchmark_config">Benchmark-Konfiguration</string>
+    <string name="admin_app_settings">App-Einstellungen</string>
+    <string name="admin_monitoring">Überwachung</string>
+    <string name="admin_system_logs">Systemprotokolle</string>
+    <string name="admin_error_reports">Fehlerberichte</string>
+    <string name="admin_environment">Umgebung</string>
+    <string name="admin_settings_footer">SwiftQuantum Admin-Konsole</string>
+    <string name="admin_logout_confirm">Abmelden?</string>
+    <string name="admin_logout_message">Möchten Sie sich vom Admin-Panel abmelden?</string>
+
+    <!-- Enterprise Team -->
+    <string name="admin_team_title">Enterprise-Team</string>
+    <string name="admin_team_members">Mitglieder</string>
+    <string name="admin_team_invites">Einladungen</string>
+    <string name="admin_team_settings">Einstellungen</string>
+    <string name="admin_team_audit_log">Audit-Protokoll</string>
+    <string name="admin_role_owner">Besitzer</string>
+    <string name="admin_role_admin">Admin</string>
+    <string name="admin_role_operator">Operator</string>
+    <string name="admin_role_member">Mitglied</string>
+    <string name="admin_no_pending_invites">Keine ausstehenden Einladungen</string>
+    <string name="admin_no_pending_invites_desc">Laden Sie Teammitglieder ein, um zu beginnen</string>
+    <string name="admin_expires">Läuft ab: %1$s</string>
+    <string name="admin_team_name">Teamname</string>
+    <string name="admin_member_limit">Mitgliederlimit</string>
+    <string name="admin_two_factor">Zwei-Faktor-Auth</string>
+    <string name="admin_enabled">Aktiviert</string>
+    <string name="admin_sso">Single Sign-On (SSO)</string>
+    <string name="admin_not_configured">Nicht konfiguriert</string>
+    <string name="admin_by">Von: %1$s</string>
+    <string name="admin_target">Ziel: %1$s</string>
+    <string name="admin_invite_member">Mitglied einladen</string>
+    <string name="admin_select_role">Rolle auswählen</string>
+    <string name="admin_send_invite">Einladung senden</string>
 </resources>

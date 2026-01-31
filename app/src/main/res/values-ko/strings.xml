@@ -727,4 +727,116 @@
     <string name="measurement_total_measurements">총 측정 횟수</string>
     <string name="measurement_entropy">엔트로피</string>
     <string name="measurement_balance">균형</string>
+
+    <!-- =====================================================
+         Admin Dashboard Module (iOS Parity v5.8.3)
+         ===================================================== -->
+
+    <!-- Admin Tab Navigation -->
+    <string name="admin_tab_dashboard">대시보드</string>
+    <string name="admin_tab_users">사용자</string>
+    <string name="admin_tab_content">콘텐츠</string>
+    <string name="admin_tab_team">팀</string>
+    <string name="admin_tab_settings">설정</string>
+
+    <!-- Admin Dashboard -->
+    <string name="admin_dashboard_title">관리자 대시보드</string>
+    <string name="admin_total_users">총 사용자</string>
+    <string name="admin_active_today">오늘 활성</string>
+    <string name="admin_circuits_created">생성된 회로</string>
+    <string name="admin_pro_subscribers">Pro 구독자</string>
+    <string name="admin_system_status">시스템 상태</string>
+    <string name="admin_quick_actions">빠른 작업</string>
+    <string name="admin_add_circuit">회로 추가</string>
+    <string name="admin_send_notification">알림</string>
+    <string name="admin_view_reports">보고서 보기</string>
+    <string name="admin_recent_activity">최근 활동</string>
+
+    <!-- Admin Users -->
+    <string name="admin_users_title">사용자 관리</string>
+    <string name="admin_search_users">사용자 검색...</string>
+    <string name="admin_filter_all">전체</string>
+    <string name="admin_filter_active">활성</string>
+    <string name="admin_filter_pro">Pro</string>
+    <string name="admin_filter_master">Master</string>
+    <string name="admin_users_count">%1$d명의 사용자 발견</string>
+    <string name="admin_no_users_found">사용자를 찾을 수 없습니다</string>
+    <string name="admin_user_details">사용자 상세</string>
+    <string name="admin_simulations">시뮬레이션</string>
+    <string name="admin_circuits">회로</string>
+    <string name="admin_tier">등급</string>
+    <string name="admin_created_at">생성일</string>
+    <string name="admin_last_login">마지막 로그인</string>
+    <string name="admin_status">상태</string>
+    <string name="admin_active">활성</string>
+    <string name="admin_inactive">비활성</string>
+    <string name="admin_activate">활성화</string>
+    <string name="admin_deactivate">비활성화</string>
+    <string name="admin_delete_user_title">사용자 삭제</string>
+    <string name="admin_delete_user_message">%1$s을(를) 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.</string>
+
+    <!-- Admin Content -->
+    <string name="admin_content_title">콘텐츠 관리</string>
+    <string name="admin_section_daily_pulse">데일리 펄스</string>
+    <string name="admin_section_pending">대기 중</string>
+    <string name="admin_section_stats">통계</string>
+    <string name="admin_no_pulses">데일리 펄스 없음</string>
+    <string name="admin_no_pulses_desc">게시된 데일리 펄스가 없습니다</string>
+    <string name="admin_published">게시됨</string>
+    <string name="admin_draft">초안</string>
+    <string name="admin_no_pending">대기 중인 펄스 없음</string>
+    <string name="admin_no_pending_desc">모든 펄스가 검토되었습니다</string>
+    <string name="admin_ai_confidence">AI 신뢰도: %1$d%%</string>
+    <string name="admin_publish">게시</string>
+    <string name="admin_total_pulses">총 펄스</string>
+    <string name="admin_pending">대기 중</string>
+    <string name="admin_total_views">총 조회수</string>
+    <string name="admin_quiz_attempts">퀴즈 시도</string>
+    <string name="admin_quiz_accuracy">퀴즈 정확도</string>
+    <string name="admin_generate_pulse">데일리 펄스 생성</string>
+    <string name="admin_generating_ai">AI로 생성 중...</string>
+
+    <!-- Admin Settings -->
+    <string name="admin_settings_title">관리자 설정</string>
+    <string name="admin_system_settings">시스템 설정</string>
+    <string name="admin_server_config">서버 구성</string>
+    <string name="admin_feature_flags">기능 플래그</string>
+    <string name="admin_database">데이터베이스</string>
+    <string name="admin_api_keys">API 키</string>
+    <string name="admin_engine_settings">엔진 설정</string>
+    <string name="admin_engine_config">엔진 구성</string>
+    <string name="admin_benchmark_config">벤치마크 구성</string>
+    <string name="admin_app_settings">앱 설정</string>
+    <string name="admin_monitoring">모니터링</string>
+    <string name="admin_system_logs">시스템 로그</string>
+    <string name="admin_error_reports">오류 보고서</string>
+    <string name="admin_environment">환경</string>
+    <string name="admin_settings_footer">SwiftQuantum 관리자 콘솔</string>
+    <string name="admin_logout_confirm">로그아웃?</string>
+    <string name="admin_logout_message">관리자 패널에서 로그아웃하시겠습니까?</string>
+
+    <!-- Enterprise Team -->
+    <string name="admin_team_title">기업 팀</string>
+    <string name="admin_team_members">멤버</string>
+    <string name="admin_team_invites">초대</string>
+    <string name="admin_team_settings">설정</string>
+    <string name="admin_team_audit_log">감사 로그</string>
+    <string name="admin_role_owner">소유자</string>
+    <string name="admin_role_admin">관리자</string>
+    <string name="admin_role_operator">운영자</string>
+    <string name="admin_role_member">멤버</string>
+    <string name="admin_no_pending_invites">대기 중인 초대 없음</string>
+    <string name="admin_no_pending_invites_desc">팀원을 초대하여 시작하세요</string>
+    <string name="admin_expires">만료: %1$s</string>
+    <string name="admin_team_name">팀 이름</string>
+    <string name="admin_member_limit">멤버 제한</string>
+    <string name="admin_two_factor">2단계 인증</string>
+    <string name="admin_enabled">활성화됨</string>
+    <string name="admin_sso">싱글 사인온 (SSO)</string>
+    <string name="admin_not_configured">구성되지 않음</string>
+    <string name="admin_by">작업자: %1$s</string>
+    <string name="admin_target">대상: %1$s</string>
+    <string name="admin_invite_member">멤버 초대</string>
+    <string name="admin_select_role">역할 선택</string>
+    <string name="admin_send_invite">초대 보내기</string>
 </resources>

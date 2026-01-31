@@ -2,6 +2,30 @@
 
 All notable changes to SwiftQuantum Android will be documented in this file.
 
+## [5.8.3] - 2026-01-31
+
+### Added
+- **Admin Dashboard Module** (iOS Parity - 5 screens):
+  - AdminRootScreen with tab-based navigation (Dashboard, Users, Content, Team, Settings)
+  - AdminDashboardScreen: Stats grid, system status, quick actions, recent activity
+  - AdminUsersScreen: User list with filtering (All/Active/Pro/Master), search, user detail sheet
+  - AdminContentScreen: Daily Pulse management with tabs (Daily Pulse, Pending, Stats), AI generation
+  - AdminSettingsScreen: Server config, feature flags, database, API keys, logs, monitoring
+- **Enterprise Team Module**:
+  - EnterpriseTeamScreen: Team member management with roles (Owner/Admin/Operator/Member)
+  - Invite member functionality with role selection
+  - Team settings view (team name, member limit, 2FA, SSO)
+  - Audit log tracking for team actions
+- **Complete Admin Localization**: 90+ new admin strings in all 5 languages (EN, KO, JA, ZH, DE)
+- **Admin Navigation Route**: Added Screen.AdminDashboard and navigation to AdminRootScreen
+
+### Technical
+- Created admin package: com.swiftquantum.presentation.ui.screen.admin
+- 5 new screen files: AdminRootScreen.kt, AdminDashboardScreen.kt, AdminUsersScreen.kt, AdminContentScreen.kt, AdminSettingsScreen.kt, EnterpriseTeamScreen.kt
+- Tab-based admin navigation with AdminTab enum
+- Bottom sheet components for user details and member invitations
+- Full build verification passed
+
 ## [5.8.2] - 2026-01-31
 
 ### Added

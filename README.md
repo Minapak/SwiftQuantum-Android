@@ -2,7 +2,7 @@
 
 Professional Quantum Computing IDE for Android
 
-**Version 5.8.2** | SwiftQuantumBackend v5.7.1 Compatible
+**Version 5.8.3** | SwiftQuantumBackend v5.7.1 Compatible
 
 ## Overview
 
@@ -24,6 +24,17 @@ SwiftQuantum Android is the Android port of the iOS SwiftQuantum app, providing 
 - **Settings Screen**: Full configuration including language, theme, simulation engine
 - **Paywall Screen**: Cyberpunk-themed subscription management
 - **Advanced Visualization**: Bloch sphere, histogram, state vector tabs
+
+### v5.8.3 New Features (iOS Parity)
+
+- **Admin Dashboard Module**: Full admin panel with 5 screens (Dashboard, Users, Content, Team, Settings)
+- **Enterprise Team Management**: Team members, roles, invitations, audit logging
+- **Complete Admin Localization**: 90+ admin strings in 5 languages (EN, KO, JA, ZH, DE)
+
+### v5.8.2 New Features
+
+- **State Compass Visualization**: Radial probability distribution chart (3rd visualization type)
+- **Circuit Presets Menu**: Bell State, GHZ State, QFT, Random circuit templates
 
 ### v5.6.0 New Features
 
