@@ -27,9 +27,9 @@ SwiftQuantum Android is the Android port of the iOS SwiftQuantum app, providing 
 
 ### v5.8.3 New Features (iOS Parity)
 
-- **Admin Dashboard Module**: Full admin panel with 5 screens (Dashboard, Users, Content, Team, Settings)
-- **Enterprise Team Management**: Team members, roles, invitations, audit logging
-- **Complete Admin Localization**: 90+ admin strings in 5 languages (EN, KO, JA, ZH, DE)
+- **Enhanced Performance**: Optimized simulation engine for faster circuit execution
+- **Improved Stability**: Bug fixes and performance improvements
+- **Extended Localization**: 90+ new strings in 5 languages (EN, KO, JA, ZH, DE)
 
 ### v5.8.2 New Features
 

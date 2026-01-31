@@ -64,10 +64,12 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.swiftquantum.R
 import com.swiftquantum.domain.model.BenchmarkResult
 import com.swiftquantum.domain.model.EngineBenchmarkEntry
 import com.swiftquantum.domain.model.EngineStatus
@@ -133,12 +135,12 @@ fun BenchmarkScreen(
                 title = {
                     Column {
                         Text(
-                            text = "Benchmark",
+                            text = stringResource(R.string.text_benchmark_title),
                             style = MaterialTheme.typography.titleLarge,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = "Compare Engine Performance",
+                            text = stringResource(R.string.text_compare_engine_performance),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -165,7 +167,7 @@ fun BenchmarkScreen(
             // Engine Status Cards
             item {
                 Text(
-                    text = "Engine Status",
+                    text = stringResource(R.string.text_engine_status),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
@@ -202,7 +204,7 @@ fun BenchmarkScreen(
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(
-                            text = "Test Circuit",
+                            text = stringResource(R.string.test_circuit),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold
                         )
@@ -306,14 +308,14 @@ fun BenchmarkScreen(
                             Icon(Icons.Default.Timeline, contentDescription = null)
                         }
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("Benchmark All")
+                        Text(stringResource(R.string.benchmark_all))
                     }
                 }
 
                 if (uiState.userTier == UserTier.FREE) {
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "Upgrade to PRO to run full benchmarks",
+                        text = stringResource(R.string.upgrade_pro_benchmark),
                         style = MaterialTheme.typography.bodySmall,
                         color = QuantumOrange,
                         textAlign = TextAlign.Center,
@@ -453,7 +455,7 @@ private fun EngineSelector(
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = "Execution Settings",
+                text = stringResource(R.string.text_execution_settings),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold
             )
@@ -469,7 +471,7 @@ private fun EngineSelector(
                     value = selectedEngine.displayName,
                     onValueChange = {},
                     readOnly = true,
-                    label = { Text("Engine") },
+                    label = { Text(stringResource(R.string.label_engine)) },
                     leadingIcon = {
                         Icon(Icons.Default.Speed, contentDescription = null)
                     },
@@ -619,7 +621,7 @@ private fun ExecutionResultCard(result: HybridExecutionResult) {
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "Execution Complete",
+                    text = stringResource(R.string.text_execution_complete),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     color = QuantumGreen
@@ -633,17 +635,17 @@ private fun ExecutionResultCard(result: HybridExecutionResult) {
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 MetricItem(
-                    label = "Time",
+                    label = stringResource(R.string.time),
                     value = result.metrics.formattedExecutionTime,
                     color = QuantumGreen
                 )
                 MetricItem(
-                    label = "Speedup",
+                    label = stringResource(R.string.speedup),
                     value = result.metrics.formattedSpeedup,
                     color = QuantumCyan
                 )
                 MetricItem(
-                    label = "Memory",
+                    label = stringResource(R.string.memory),
                     value = String.format("%.1f MB", result.metrics.memoryUsedMB),
                     color = QuantumOrange
                 )
@@ -652,7 +654,7 @@ private fun ExecutionResultCard(result: HybridExecutionResult) {
             if (result.metrics.cacheHit) {
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "Cache hit - result retrieved from cache",
+                    text = stringResource(R.string.cache_hit_result),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -676,7 +678,7 @@ private fun BenchmarkResultCard(result: BenchmarkResult) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Benchmark Results",
+                    text = stringResource(R.string.text_benchmark_results),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
@@ -686,7 +688,7 @@ private fun BenchmarkResultCard(result: BenchmarkResult) {
                         color = QuantumGreen.copy(alpha = 0.2f)
                     ) {
                         Text(
-                            text = "Fastest: ${fastest.displayName}",
+                            text = stringResource(R.string.fastest_engine, fastest.displayName),
                             style = MaterialTheme.typography.labelSmall,
                             color = QuantumGreen,
                             modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)

@@ -1,15 +1,15 @@
 [
     {
+        "merged": "com.swiftquantum.app-debug-73:/drawable-xxxhdpi_app_logo.png.flat",
+        "source": "com.swiftquantum.app-main-75:/drawable-xxxhdpi/app_logo.png"
+    },
+    {
         "merged": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-debug-73:/mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-main-75:/mipmap-mdpi/ic_launcher_round.png"
     },
     {
         "merged": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-debug-73:/drawable-xxhdpi_ic_launcher_foreground.png.flat",
         "source": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-main-75:/drawable-xxhdpi/ic_launcher_foreground.png"
-    },
-    {
-        "merged": "com.swiftquantum.app-debug-73:/xml_locales_config.xml.flat",
-        "source": "com.swiftquantum.app-main-75:/xml/locales_config.xml"
     },
     {
         "merged": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-debug-73:/drawable_ic_launcher_background.xml.flat",
@@ -24,6 +24,10 @@
         "source": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-main-75:/xml/data_extraction_rules.xml"
     },
     {
+        "merged": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-debug-73:/xml_locales_config.xml.flat",
+        "source": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-main-75:/xml/locales_config.xml"
+    },
+    {
         "merged": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-debug-73:/drawable-xxhdpi_app_icon.png.flat",
         "source": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-main-75:/drawable-xxhdpi/app_icon.png"
     },
@@ -36,8 +40,16 @@
         "source": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-main-75:/drawable-xhdpi/app_icon.png"
     },
     {
+        "merged": "com.swiftquantum.app-debug-73:/drawable-hdpi_app_logo.png.flat",
+        "source": "com.swiftquantum.app-main-75:/drawable-hdpi/app_logo.png"
+    },
+    {
         "merged": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-debug-73:/drawable-mdpi_app_icon.png.flat",
         "source": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-main-75:/drawable-mdpi/app_icon.png"
+    },
+    {
+        "merged": "com.swiftquantum.app-debug-73:/drawable-mdpi_app_logo.png.flat",
+        "source": "com.swiftquantum.app-main-75:/drawable-mdpi/app_logo.png"
     },
     {
         "merged": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-debug-73:/mipmap-xhdpi_ic_launcher.png.flat",
@@ -52,8 +64,16 @@
         "source": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-main-75:/drawable-xxxhdpi/ic_launcher_foreground.png"
     },
     {
+        "merged": "com.swiftquantum.app-debug-73:/drawable-xxhdpi_app_logo.png.flat",
+        "source": "com.swiftquantum.app-main-75:/drawable-xxhdpi/app_logo.png"
+    },
+    {
         "merged": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-debug-73:/drawable-mdpi_ic_launcher_foreground.png.flat",
         "source": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-main-75:/drawable-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.swiftquantum.app-debug-73:/drawable-xhdpi_app_logo.png.flat",
+        "source": "com.swiftquantum.app-main-75:/drawable-xhdpi/app_logo.png"
     },
     {
         "merged": "/Users/eunmin/.gradle/daemon/8.9/com.swiftquantum.app-debug-73:/drawable-hdpi_app_icon.png.flat",

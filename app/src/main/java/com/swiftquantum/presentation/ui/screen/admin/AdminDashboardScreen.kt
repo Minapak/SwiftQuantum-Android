@@ -1,8 +1,6 @@
 package com.swiftquantum.presentation.ui.screen.admin
 
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,6 +22,7 @@ import androidx.compose.material.icons.filled.Assessment
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.People
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Storage
 import androidx.compose.material.icons.filled.Webhook
 import androidx.compose.material3.Button
@@ -31,88 +30,64 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.swiftquantum.R
+import com.swiftquantum.data.dto.AdminUserDto
 import com.swiftquantum.presentation.ui.theme.SwiftPurple
-
-// Data Models (iOS parity)
-data class AdminStats(
-    val totalUsers: Int = 0,
-    val activeToday: Int = 0,
-    val circuitsCreated: Int = 0,
-    val proSubscribers: Int = 0
-)
-
-data class SystemStatus(
-    val name: String,
-    val isHealthy: Boolean,
-    val latency: Int? = null
-)
-
-data class AdminActivity(
-    val id: String,
-    val type: String,
-    val description: String,
-    val timestamp: String,
-    val userName: String? = null
-)
+import com.swiftquantum.presentation.viewmodel.AdminViewModel
+import com.swiftquantum.presentation.viewmodel.HealthStatus
 
 @Composable
-fun AdminDashboardScreen() {
-    var isLoading by remember { mutableStateOf(true) }
-    var stats by remember { mutableStateOf(AdminStats()) }
-    var systemStatuses by remember { mutableStateOf(listOf<SystemStatus>()) }
-    var recentActivities by remember { mutableStateOf(listOf<AdminActivity>()) }
+fun AdminDashboardScreen(
+    viewModel: AdminViewModel = hiltViewModel()
+) {
+    val dashboardState by viewModel.dashboardState.collectAsState()
 
     LaunchedEffect(Unit) {
-        // Simulate loading data
-        kotlinx.coroutines.delay(500)
-        stats = AdminStats(
-            totalUsers = 1247,
-            activeToday = 89,
-            circuitsCreated = 3421,
-            proSubscribers = 156
-        )
-        systemStatuses = listOf(
-            SystemStatus("API", true, 45),
-            SystemStatus("Database", true, 12),
-            SystemStatus("CDN", true, 8),
-            SystemStatus("Quantum Engine", true, 234)
-        )
-        recentActivities = listOf(
-            AdminActivity("1", "user", "New user registered", "2 min ago", "john@example.com"),
-            AdminActivity("2", "circuit", "Circuit saved", "5 min ago", "alice@example.com"),
-            AdminActivity("3", "subscription", "Pro subscription started", "12 min ago", "bob@example.com"),
-            AdminActivity("4", "simulation", "100-qubit simulation completed", "25 min ago", "charlie@example.com")
-        )
-        isLoading = false
+        viewModel.loadDashboardStats()
     }
 
-    if (isLoading) {
+    if (dashboardState.isLoading && dashboardState.stats.totalUsers == 0) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             CircularProgressIndicator(color = SwiftPurple)
+        }
+    } else if (dashboardState.error != null && dashboardState.stats.totalUsers == 0) {
+        // Error state
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = dashboardState.error ?: "Error loading data",
+                    color = Color.White.copy(alpha = 0.6f)
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Button(onClick = { viewModel.loadDashboardStats() }) {
+                    Icon(Icons.Default.Refresh, contentDescription = null)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(stringResource(R.string.admin_retry))
+                }
+            }
         }
     } else {
         LazyColumn(
@@ -121,29 +96,56 @@ fun AdminDashboardScreen() {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Title
+            // Title with refresh
             item {
-                Text(
-                    text = stringResource(R.string.admin_dashboard_title),
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.White
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = stringResource(R.string.admin_dashboard_title),
+                        style = MaterialTheme.typography.headlineMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    )
+                    IconButton(onClick = { viewModel.loadDashboardStats() }) {
+                        Icon(
+                            Icons.Default.Refresh,
+                            contentDescription = "Refresh",
+                            tint = SwiftPurple
+                        )
+                    }
+                }
             }
 
             // Stats Grid
             item {
-                StatsGrid(stats = stats)
+                StatsGrid(
+                    totalUsers = dashboardState.stats.totalUsers,
+                    activeToday = dashboardState.stats.activeUsers,
+                    circuitsCreated = dashboardState.stats.apiRequestsToday,
+                    proSubscribers = dashboardState.stats.premiumUsers
+                )
             }
 
             // System Status
             item {
-                SystemStatusCard(statuses = systemStatuses)
+                SystemStatusCard(
+                    apiStatus = dashboardState.apiStatus,
+                    dbStatus = dashboardState.dbStatus,
+                    cdnStatus = dashboardState.cdnStatus,
+                    engineStatus = dashboardState.engineStatus
+                )
             }
 
             // Quick Actions
             item {
-                QuickActionsCard()
+                QuickActionsCard(
+                    onSendNotification = { title, body, topic ->
+                        viewModel.sendNotification(title, body, topic)
+                    }
+                )
             }
 
             // Recent Activity
@@ -156,8 +158,19 @@ fun AdminDashboardScreen() {
                 )
             }
 
-            items(recentActivities) { activity ->
-                ActivityItem(activity = activity)
+            items(dashboardState.recentUsers) { user ->
+                UserActivityItem(user = user)
+            }
+
+            if (dashboardState.recentUsers.isEmpty()) {
+                item {
+                    Text(
+                        text = stringResource(R.string.admin_no_recent_activity),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = Color.White.copy(alpha = 0.5f),
+                        modifier = Modifier.padding(16.dp)
+                    )
+                }
             }
 
             // Bottom spacing
@@ -169,7 +182,12 @@ fun AdminDashboardScreen() {
 }
 
 @Composable
-private fun StatsGrid(stats: AdminStats) {
+private fun StatsGrid(
+    totalUsers: Int,
+    activeToday: Int,
+    circuitsCreated: Int,
+    proSubscribers: Int
+) {
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -178,14 +196,14 @@ private fun StatsGrid(stats: AdminStats) {
             AdminStatCard(
                 modifier = Modifier.weight(1f),
                 title = stringResource(R.string.admin_total_users),
-                value = stats.totalUsers.toString(),
+                value = totalUsers.toString(),
                 icon = Icons.Default.People,
                 color = Color(0xFF00BCD4)
             )
             AdminStatCard(
                 modifier = Modifier.weight(1f),
                 title = stringResource(R.string.admin_active_today),
-                value = stats.activeToday.toString(),
+                value = activeToday.toString(),
                 icon = Icons.Default.Person,
                 color = Color(0xFF4CAF50)
             )
@@ -197,14 +215,14 @@ private fun StatsGrid(stats: AdminStats) {
             AdminStatCard(
                 modifier = Modifier.weight(1f),
                 title = stringResource(R.string.admin_circuits_created),
-                value = stats.circuitsCreated.toString(),
+                value = circuitsCreated.toString(),
                 icon = Icons.Default.Webhook,
                 color = Color(0xFF9C27B0)
             )
             AdminStatCard(
                 modifier = Modifier.weight(1f),
                 title = stringResource(R.string.admin_pro_subscribers),
-                value = stats.proSubscribers.toString(),
+                value = proSubscribers.toString(),
                 icon = Icons.Default.Assessment,
                 color = Color(0xFFFFD700)
             )
@@ -256,7 +274,12 @@ private fun AdminStatCard(
 }
 
 @Composable
-private fun SystemStatusCard(statuses: List<SystemStatus>) {
+private fun SystemStatusCard(
+    apiStatus: HealthStatus,
+    dbStatus: HealthStatus,
+    cdnStatus: HealthStatus,
+    engineStatus: HealthStatus
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
@@ -275,47 +298,47 @@ private fun SystemStatusCard(statuses: List<SystemStatus>) {
             )
             Spacer(modifier = Modifier.height(12.dp))
 
-            statuses.forEach { status ->
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .size(8.dp)
-                                .clip(CircleShape)
-                                .background(
-                                    if (status.isHealthy) Color(0xFF4CAF50) else Color(0xFFF44336)
-                                )
-                        )
-                        Text(
-                            text = status.name,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = Color.White
-                        )
-                    }
-                    status.latency?.let {
-                        Text(
-                            text = "${it}ms",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = Color.White.copy(alpha = 0.6f)
-                        )
-                    }
-                }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                StatusIndicator("API", apiStatus)
+                StatusIndicator("DB", dbStatus)
+                StatusIndicator("CDN", cdnStatus)
+                StatusIndicator("Engine", engineStatus)
             }
         }
     }
 }
 
 @Composable
-private fun QuickActionsCard() {
+private fun StatusIndicator(name: String, status: HealthStatus) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Box(
+            modifier = Modifier
+                .size(12.dp)
+                .clip(CircleShape)
+                .background(
+                    when (status) {
+                        HealthStatus.HEALTHY -> Color(0xFF4CAF50)
+                        HealthStatus.DEGRADED -> Color(0xFFFF9800)
+                        HealthStatus.DOWN -> Color(0xFFF44336)
+                    }
+                )
+        )
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = name,
+            style = MaterialTheme.typography.bodySmall,
+            color = Color.White.copy(alpha = 0.6f)
+        )
+    }
+}
+
+@Composable
+private fun QuickActionsCard(
+    onSendNotification: (String, String, String) -> Unit
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
@@ -398,7 +421,7 @@ private fun QuickActionButton(
 }
 
 @Composable
-private fun ActivityItem(activity: AdminActivity) {
+private fun UserActivityItem(user: AdminUserDto) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
@@ -419,16 +442,11 @@ private fun ActivityItem(activity: AdminActivity) {
                     .background(SwiftPurple.copy(alpha = 0.2f)),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    imageVector = when (activity.type) {
-                        "user" -> Icons.Default.Person
-                        "circuit" -> Icons.Default.Webhook
-                        "subscription" -> Icons.Default.Assessment
-                        else -> Icons.Default.Storage
-                    },
-                    contentDescription = null,
-                    tint = SwiftPurple,
-                    modifier = Modifier.size(20.dp)
+                Text(
+                    text = (user.username?.firstOrNull() ?: 'U').uppercase(),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = SwiftPurple
                 )
             }
 
@@ -436,24 +454,33 @@ private fun ActivityItem(activity: AdminActivity) {
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = activity.description,
+                    text = user.username ?: "Unknown",
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.White
                 )
-                activity.userName?.let {
-                    Text(
-                        text = it,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = Color.White.copy(alpha = 0.6f)
-                    )
-                }
+                Text(
+                    text = user.email ?: "",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color.White.copy(alpha = 0.6f)
+                )
             }
 
-            Text(
-                text = activity.timestamp,
-                style = MaterialTheme.typography.bodySmall,
-                color = Color.White.copy(alpha = 0.5f)
-            )
+            // Subscription badge
+            user.subscriptionType?.let { type ->
+                val (badgeColor, badgeText) = when (type.lowercase()) {
+                    "master", "career" -> Color(0xFFFFD700) to "Master"
+                    "pro", "scholar" -> Color(0xFF9C27B0) to "Pro"
+                    else -> Color.White.copy(alpha = 0.3f) to "Free"
+                }
+                Text(
+                    text = badgeText,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Color.White,
+                    modifier = Modifier
+                        .background(badgeColor, RoundedCornerShape(4.dp))
+                        .padding(horizontal = 6.dp, vertical = 2.dp)
+                )
+            }
         }
     }
 }

@@ -409,7 +409,7 @@ private fun StandardCard(
 private fun FidelityGradesSection() {
     Column {
         Text(
-            text = "Fidelity Grades",
+            text = stringResource(R.string.aus_fidelity_grades),
             style = MaterialTheme.typography.labelMedium,
             fontWeight = FontWeight.Bold
         )

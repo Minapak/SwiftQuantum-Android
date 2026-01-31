@@ -396,6 +396,8 @@
     <string name="paywall_monthly">월간</string>
     <string name="paywall_yearly">연간</string>
     <string name="paywall_save_30">30% 절약</string>
+    <string name="paywall_best_value">최고의 가치</string>
+    <string name="paywall_free_trial">7일 무료 체험</string>
     <string name="paywall_pro_engine">프로 엔진</string>
     <string name="paywall_pro_tagline">900배 Rust 속도</string>
     <string name="paywall_master_engine">마스터 엔진</string>

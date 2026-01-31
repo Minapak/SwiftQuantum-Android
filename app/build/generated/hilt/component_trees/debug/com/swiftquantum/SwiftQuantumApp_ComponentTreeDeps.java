@@ -22,6 +22,8 @@ import hilt_aggregated_deps._com_swiftquantum_di_NetworkModule;
 import hilt_aggregated_deps._com_swiftquantum_di_RepositoryModule;
 import hilt_aggregated_deps._com_swiftquantum_di_UseCaseModule;
 import hilt_aggregated_deps._com_swiftquantum_presentation_ui_MainActivity_GeneratedInjector;
+import hilt_aggregated_deps._com_swiftquantum_presentation_viewmodel_AdminViewModel_HiltModules_BindsModule;
+import hilt_aggregated_deps._com_swiftquantum_presentation_viewmodel_AdminViewModel_HiltModules_KeyModule;
 import hilt_aggregated_deps._com_swiftquantum_presentation_viewmodel_AuthViewModel_HiltModules_BindsModule;
 import hilt_aggregated_deps._com_swiftquantum_presentation_viewmodel_AuthViewModel_HiltModules_KeyModule;
 import hilt_aggregated_deps._com_swiftquantum_presentation_viewmodel_BenchmarkViewModel_HiltModules_BindsModule;
@@ -87,6 +89,8 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
         _com_swiftquantum_di_RepositoryModule.class,
         _com_swiftquantum_di_UseCaseModule.class,
         _com_swiftquantum_presentation_ui_MainActivity_GeneratedInjector.class,
+        _com_swiftquantum_presentation_viewmodel_AdminViewModel_HiltModules_BindsModule.class,
+        _com_swiftquantum_presentation_viewmodel_AdminViewModel_HiltModules_KeyModule.class,
         _com_swiftquantum_presentation_viewmodel_AuthViewModel_HiltModules_BindsModule.class,
         _com_swiftquantum_presentation_viewmodel_AuthViewModel_HiltModules_KeyModule.class,
         _com_swiftquantum_presentation_viewmodel_BenchmarkViewModel_HiltModules_BindsModule.class,

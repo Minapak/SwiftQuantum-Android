@@ -163,7 +163,7 @@ fun ProfileScreen(
 
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                text = uiState.user?.name ?: "User",
+                                text = uiState.user?.name ?: stringResource(R.string.user),
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold
                             )
@@ -188,6 +188,8 @@ fun ProfileScreen(
                             UserTier.FREE -> TierFree.copy(alpha = 0.1f)
                             UserTier.PRO -> TierPro.copy(alpha = 0.1f)
                             UserTier.MASTER -> TierMaster.copy(alpha = 0.1f)
+                            UserTier.SCHOLAR -> TierPro.copy(alpha = 0.1f)
+                            UserTier.CAREER -> TierMaster.copy(alpha = 0.1f)
                         }
                     )
                 ) {
@@ -199,12 +201,12 @@ fun ProfileScreen(
                         ) {
                             Column {
                                 Text(
-                                    text = "Current Plan: ${uiState.userTier.name}",
+                                    text = stringResource(R.string.current_plan, uiState.userTier.name),
                                     style = MaterialTheme.typography.titleMedium,
                                     fontWeight = FontWeight.Bold
                                 )
                                 Text(
-                                    text = "Max ${uiState.userTier.maxQubits} qubits",
+                                    text = stringResource(R.string.max_qubits, uiState.userTier.maxQubits),
                                     style = MaterialTheme.typography.bodyMedium,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
@@ -232,7 +234,7 @@ fun ProfileScreen(
                                 )
                                 Spacer(modifier = Modifier.width(4.dp))
                                 Text(
-                                    text = "IBM Quantum hardware access enabled",
+                                    text = stringResource(R.string.ibm_hardware_enabled),
                                     style = MaterialTheme.typography.bodySmall,
                                     color = QuantumGreen
                                 )
@@ -295,7 +297,7 @@ fun ProfileScreen(
             if (uiState.showUpgradeDialog) {
                 item {
                     Text(
-                        text = "Upgrade Your Plan",
+                        text = stringResource(R.string.upgrade_your_plan),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
@@ -325,7 +327,7 @@ fun ProfileScreen(
                         ) {
                             Icon(Icons.Default.Restore, contentDescription = null)
                             Spacer(modifier = Modifier.width(4.dp))
-                            Text("Restore Purchases")
+                            Text(stringResource(R.string.restore_purchases))
                         }
 
                         TextButton(
@@ -410,6 +412,8 @@ private fun TierBadge(tier: UserTier) {
         UserTier.FREE -> TierFree
         UserTier.PRO -> TierPro
         UserTier.MASTER -> TierMaster
+        UserTier.SCHOLAR -> TierPro
+        UserTier.CAREER -> TierMaster
     }
 
     Surface(
@@ -527,7 +531,7 @@ private fun SubscriptionCard(
                         color = MaterialTheme.colorScheme.onPrimary
                     )
                 } else {
-                    Text("Subscribe")
+                    Text(stringResource(R.string.subscribe))
                 }
             }
         }

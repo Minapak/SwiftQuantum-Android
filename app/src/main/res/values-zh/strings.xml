@@ -396,6 +396,8 @@
     <string name="paywall_monthly">月付</string>
     <string name="paywall_yearly">年付</string>
     <string name="paywall_save_30">节省30%</string>
+    <string name="paywall_best_value">最佳选择</string>
+    <string name="paywall_free_trial">7天免费试用</string>
     <string name="paywall_pro_engine">专业引擎</string>
     <string name="paywall_pro_tagline">900倍Rust加速</string>
     <string name="paywall_master_engine">大师引擎</string>

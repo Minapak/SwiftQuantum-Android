@@ -43,13 +43,14 @@ import androidx.compose.ui.unit.sp
 import com.swiftquantum.R
 import com.swiftquantum.presentation.ui.theme.SwiftPurple
 
-// Admin Tab Enum (iOS parity)
+// Admin Tab Enum (iOS parity - 6 tabs)
 enum class AdminTab(
     val icon: ImageVector,
     val titleResId: Int
 ) {
     DASHBOARD(Icons.Default.Dashboard, R.string.admin_tab_dashboard),
     USERS(Icons.Default.People, R.string.admin_tab_users),
+    ANALYTICS(Icons.Default.Analytics, R.string.admin_tab_analytics),
     CONTENT(Icons.Default.Description, R.string.admin_tab_content),
     TEAM(Icons.Default.Group, R.string.admin_tab_team),
     SETTINGS(Icons.Default.Settings, R.string.admin_tab_settings)
@@ -83,6 +84,7 @@ fun AdminRootScreen(
             when (selectedTab) {
                 AdminTab.DASHBOARD -> AdminDashboardScreen()
                 AdminTab.USERS -> AdminUsersScreen()
+                AdminTab.ANALYTICS -> AdminAnalyticsScreen()
                 AdminTab.CONTENT -> AdminContentScreen()
                 AdminTab.TEAM -> EnterpriseTeamScreen()
                 AdminTab.SETTINGS -> AdminSettingsScreen(onNavigateBack = onNavigateBack)

@@ -1,6 +1,7 @@
 package com.swiftquantum.di
 
 import com.swiftquantum.BuildConfig
+import com.swiftquantum.data.api.AdminApi
 import com.swiftquantum.data.api.AuthApi
 import com.swiftquantum.data.api.BridgeApi
 import com.swiftquantum.data.api.ExperienceApi
@@ -163,5 +164,11 @@ object NetworkModule {
     @Singleton
     fun provideExperienceApi(@Named("ApiRetrofit") retrofit: Retrofit): ExperienceApi {
         return retrofit.create(ExperienceApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAdminApi(@Named("ApiRetrofit") retrofit: Retrofit): AdminApi {
+        return retrofit.create(AdminApi::class.java)
     }
 }

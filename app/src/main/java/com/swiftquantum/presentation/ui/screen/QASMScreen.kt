@@ -77,9 +77,11 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.swiftquantum.R
 import com.swiftquantum.domain.model.Circuit
 import com.swiftquantum.domain.model.QASMTemplate
 import com.swiftquantum.domain.model.QASMTemplateCategory
@@ -309,7 +311,7 @@ private fun QASMEditorTab(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = if (result.isValid) "Valid QASM" else "Invalid: ${result.errors.firstOrNull()?.message ?: "Unknown error"}",
+                                text = if (result.isValid) stringResource(R.string.valid_qasm) else stringResource(R.string.invalid_qasm, result.errors.firstOrNull()?.message ?: stringResource(R.string.error_unknown)),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = if (result.isValid) QuantumGreen else QuantumRed
                             )
@@ -329,7 +331,7 @@ private fun QASMEditorTab(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
-                        text = "Export Options",
+                        text = stringResource(R.string.export_options),
                         style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold
                     )
@@ -341,7 +343,7 @@ private fun QASMEditorTab(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Include Comments", style = MaterialTheme.typography.bodyMedium)
+                        Text(stringResource(R.string.include_comments), style = MaterialTheme.typography.bodyMedium)
                         Switch(
                             checked = uiState.includeComments,
                             onCheckedChange = onIncludeCommentsChange
@@ -353,7 +355,7 @@ private fun QASMEditorTab(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Pretty Print", style = MaterialTheme.typography.bodyMedium)
+                        Text(stringResource(R.string.pretty_print), style = MaterialTheme.typography.bodyMedium)
                         Switch(
                             checked = uiState.prettyPrint,
                             onCheckedChange = onPrettyPrintChange
@@ -365,7 +367,7 @@ private fun QASMEditorTab(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Include Measurements", style = MaterialTheme.typography.bodyMedium)
+                        Text(stringResource(R.string.include_measurements), style = MaterialTheme.typography.bodyMedium)
                         Switch(
                             checked = uiState.includeMeasurements,
                             onCheckedChange = onIncludeMeasurementsChange
@@ -440,7 +442,7 @@ private fun QASMEditorTab(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = "Circuit Imported",
+                                text = stringResource(R.string.circuit_imported),
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
                                 color = QuantumGreen

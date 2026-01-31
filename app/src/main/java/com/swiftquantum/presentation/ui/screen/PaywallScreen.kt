@@ -418,71 +418,105 @@ private fun BillingPeriodToggle(
     selectedPeriod: BillingPeriod,
     onPeriodSelected: (BillingPeriod) -> Unit
 ) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp))
-            .background(Color.White.copy(alpha = 0.05f))
-            .padding(4.dp),
-        horizontalArrangement = Arrangement.Center
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Monthly Button
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .clip(RoundedCornerShape(12.dp))
-                .background(
-                    if (selectedPeriod == BillingPeriod.MONTHLY)
-                        QuantumPurple
-                    else
-                        Color.Transparent
-                )
-                .clickable { onPeriodSelected(BillingPeriod.MONTHLY) }
-                .padding(vertical = 12.dp),
-            contentAlignment = Alignment.Center
+        // Best Value banner for yearly
+        AnimatedVisibility(
+            visible = selectedPeriod == BillingPeriod.YEARLY
         ) {
-            Text(
-                text = stringResource(R.string.paywall_monthly),
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = if (selectedPeriod == BillingPeriod.MONTHLY) FontWeight.Bold else FontWeight.Normal,
-                color = Color.White
-            )
-        }
-
-        // Yearly Button with Badge
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .clip(RoundedCornerShape(12.dp))
-                .background(
-                    if (selectedPeriod == BillingPeriod.YEARLY)
-                        QuantumPurple
-                    else
-                        Color.Transparent
-                )
-                .clickable { onPeriodSelected(BillingPeriod.YEARLY) }
-                .padding(vertical = 12.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = stringResource(R.string.paywall_yearly),
-                    style = MaterialTheme.typography.labelLarge,
-                    fontWeight = if (selectedPeriod == BillingPeriod.YEARLY) FontWeight.Bold else FontWeight.Normal,
-                    color = Color.White
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Surface(
-                    shape = RoundedCornerShape(4.dp),
-                    color = QuantumGreen
+            Surface(
+                shape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp),
+                color = TierMaster
+            ) {
+                Row(
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
+                    Icon(
+                        Icons.Default.Star,
+                        contentDescription = null,
+                        tint = Color.Black,
+                        modifier = Modifier.size(12.dp)
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = stringResource(R.string.paywall_save_30),
+                        text = stringResource(R.string.paywall_best_value),
                         style = MaterialTheme.typography.labelSmall,
                         fontWeight = FontWeight.Bold,
-                        color = Color.Black,
-                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                        color = Color.Black
                     )
+                }
+            }
+        }
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(16.dp))
+                .background(Color.White.copy(alpha = 0.05f))
+                .padding(4.dp),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            // Monthly Button
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(
+                        if (selectedPeriod == BillingPeriod.MONTHLY)
+                            QuantumPurple
+                        else
+                            Color.Transparent
+                    )
+                    .clickable { onPeriodSelected(BillingPeriod.MONTHLY) }
+                    .padding(vertical = 12.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = stringResource(R.string.paywall_monthly),
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = if (selectedPeriod == BillingPeriod.MONTHLY) FontWeight.Bold else FontWeight.Normal,
+                    color = Color.White
+                )
+            }
+
+            // Yearly Button with Badge
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(
+                        if (selectedPeriod == BillingPeriod.YEARLY)
+                            QuantumPurple
+                        else
+                            Color.Transparent
+                    )
+                    .clickable { onPeriodSelected(BillingPeriod.YEARLY) }
+                    .padding(vertical = 12.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = stringResource(R.string.paywall_yearly),
+                        style = MaterialTheme.typography.labelLarge,
+                        fontWeight = if (selectedPeriod == BillingPeriod.YEARLY) FontWeight.Bold else FontWeight.Normal,
+                        color = Color.White
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Surface(
+                        shape = RoundedCornerShape(4.dp),
+                        color = QuantumGreen
+                    ) {
+                        Text(
+                            text = stringResource(R.string.paywall_save_30),
+                            style = MaterialTheme.typography.labelSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.Black,
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                        )
+                    }
                 }
             }
         }
@@ -660,11 +694,37 @@ private fun MasterEngineCard(
         Column(
             modifier = Modifier.padding(20.dp)
         ) {
-            // Recommended Badge
+            // Recommended Badge + Free Trial Badge
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.End
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
+                // 7-Day Free Trial Badge
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = QuantumGreen
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            Icons.Default.Verified,
+                            contentDescription = null,
+                            tint = Color.Black,
+                            modifier = Modifier.size(14.dp)
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = stringResource(R.string.paywall_free_trial),
+                            style = MaterialTheme.typography.labelSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.Black
+                        )
+                    }
+                }
+
+                // Recommended Badge
                 Surface(
                     shape = RoundedCornerShape(8.dp),
                     color = TierMaster

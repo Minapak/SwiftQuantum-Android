@@ -13,24 +13,36 @@ data class User(
     val stats: UserStats? = null
 )
 
+/**
+ * UserTier - Backend tier와 매칭
+ * v5.4.1: SCHOLAR, CAREER 티어 추가 (QuantumNative Edu 플랜)
+ */
 @Serializable
 enum class UserTier {
     FREE,
     PRO,
-    MASTER;
+    MASTER,
+    SCHOLAR,  // v5.4.1: QuantumNative Edu
+    CAREER;   // v5.4.1: QuantumNative Edu Pro
 
     val maxQubits: Int
         get() = when (this) {
             FREE -> 20
-            PRO -> 30
-            MASTER -> 40
+            PRO, SCHOLAR -> 30
+            MASTER, CAREER -> 40
         }
 
     val hasHardwareAccess: Boolean
-        get() = this == MASTER
+        get() = this == MASTER || this == CAREER
 
     val displayName: String
         get() = name
+
+    /**
+     * v5.4.1: PRO급 이상인지 확인
+     */
+    val isPro: Boolean
+        get() = this != FREE
 }
 
 @Serializable

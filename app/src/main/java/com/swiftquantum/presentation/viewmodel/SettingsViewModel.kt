@@ -132,8 +132,8 @@ class SettingsViewModel @Inject constructor(
         val tier = _uiState.value.userTier
         val engines = when (tier) {
             UserTier.FREE -> listOf("Python")
-            UserTier.PRO -> listOf("Python", "Rust")
-            UserTier.MASTER -> listOf("Python", "Rust", "C++ HPC", "IBM Quantum")
+            UserTier.PRO, UserTier.SCHOLAR -> listOf("Python", "Rust")
+            UserTier.MASTER, UserTier.CAREER -> listOf("Python", "Rust", "C++ HPC", "IBM Quantum")
         }
         _uiState.value = _uiState.value.copy(availableEngines = engines)
     }
@@ -141,8 +141,8 @@ class SettingsViewModel @Inject constructor(
     private fun updateCurrentEngine(tier: UserTier) {
         val currentEngine = when (tier) {
             UserTier.FREE -> "Python"
-            UserTier.PRO -> "Rust"
-            UserTier.MASTER -> "C++ HPC"
+            UserTier.PRO, UserTier.SCHOLAR -> "Rust"
+            UserTier.MASTER, UserTier.CAREER -> "C++ HPC"
         }
         _uiState.value = _uiState.value.copy(currentEngine = currentEngine)
     }

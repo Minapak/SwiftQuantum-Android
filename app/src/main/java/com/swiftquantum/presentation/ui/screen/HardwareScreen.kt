@@ -289,7 +289,7 @@ fun HardwareScreen(
             if (uiState.activeJobs.isNotEmpty()) {
                 item {
                     Text(
-                        text = "Active Jobs",
+                        text = stringResource(R.string.active_jobs),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
@@ -455,7 +455,7 @@ private fun JobCard(
                     if (job.status == JobStatus.COMPLETED) {
                         Spacer(modifier = Modifier.width(8.dp))
                         Button(onClick = onViewResult) {
-                            Text("View Result")
+                            Text(stringResource(R.string.view_result))
                         }
                     }
                 }
@@ -466,14 +466,22 @@ private fun JobCard(
 
 @Composable
 private fun JobStatusBadge(status: JobStatus) {
+    val initializingText = stringResource(R.string.job_initializing)
+    val queuedText = stringResource(R.string.job_queued)
+    val validatingText = stringResource(R.string.job_validating)
+    val runningText = stringResource(R.string.job_running)
+    val completedText = stringResource(R.string.job_completed)
+    val failedText = stringResource(R.string.job_failed)
+    val cancelledText = stringResource(R.string.job_cancelled)
+
     val (color, text) = when (status) {
-        JobStatus.INITIALIZING -> StatusPending to "Initializing"
-        JobStatus.QUEUED -> QuantumOrange to "Queued"
-        JobStatus.VALIDATING -> QuantumCyan to "Validating"
-        JobStatus.RUNNING -> QuantumPurple to "Running"
-        JobStatus.COMPLETED -> QuantumGreen to "Completed"
-        JobStatus.FAILED -> QuantumRed to "Failed"
-        JobStatus.CANCELLED -> StatusOffline to "Cancelled"
+        JobStatus.INITIALIZING -> StatusPending to initializingText
+        JobStatus.QUEUED -> QuantumOrange to queuedText
+        JobStatus.VALIDATING -> QuantumCyan to validatingText
+        JobStatus.RUNNING -> QuantumPurple to runningText
+        JobStatus.COMPLETED -> QuantumGreen to completedText
+        JobStatus.FAILED -> QuantumRed to failedText
+        JobStatus.CANCELLED -> StatusOffline to cancelledText
     }
 
     Surface(

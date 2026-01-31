@@ -396,6 +396,8 @@
     <string name="paywall_monthly">Monthly</string>
     <string name="paywall_yearly">Yearly</string>
     <string name="paywall_save_30">SAVE 30%</string>
+    <string name="paywall_best_value">BEST VALUE</string>
+    <string name="paywall_free_trial">7-DAY FREE TRIAL</string>
     <string name="paywall_pro_engine">Pro Engine</string>
     <string name="paywall_pro_tagline">900x Rust Speedup</string>
     <string name="paywall_master_engine">Master Engine</string>

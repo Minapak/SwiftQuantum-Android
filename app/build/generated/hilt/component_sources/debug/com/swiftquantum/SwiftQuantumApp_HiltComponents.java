@@ -4,6 +4,7 @@ import com.swiftquantum.di.NetworkModule;
 import com.swiftquantum.di.RepositoryModule;
 import com.swiftquantum.di.UseCaseModule;
 import com.swiftquantum.presentation.ui.MainActivity_GeneratedInjector;
+import com.swiftquantum.presentation.viewmodel.AdminViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.AuthViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.BenchmarkViewModel_HiltModules;
 import com.swiftquantum.presentation.viewmodel.CircuitViewModel_HiltModules;
@@ -166,6 +167,7 @@ public final class SwiftQuantumApp_HiltComponents {
 
   @Subcomponent(
       modules = {
+          AdminViewModel_HiltModules.KeyModule.class,
           AuthViewModel_HiltModules.KeyModule.class,
           BenchmarkViewModel_HiltModules.KeyModule.class,
           CircuitViewModel_HiltModules.KeyModule.class,
@@ -215,6 +217,7 @@ public final class SwiftQuantumApp_HiltComponents {
 
   @Subcomponent(
       modules = {
+          AdminViewModel_HiltModules.BindsModule.class,
           AuthViewModel_HiltModules.BindsModule.class,
           BenchmarkViewModel_HiltModules.BindsModule.class,
           CircuitViewModel_HiltModules.BindsModule.class,
